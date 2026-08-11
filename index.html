@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
-<title>VotZet</title>
+<title>VotZet — That's your world!</title>
 
 <meta
     name="description"
@@ -32,7 +32,7 @@
 html,
 body {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
 }
 
 body {
@@ -73,40 +73,36 @@ body {
     justify-content: flex-end;
     align-items: center;
 
-    /*
-       Кнопки опущены ниже предыдущей версии.
-    */
-
     padding:
-        25px
-        max(20px, 4vw)
-        75px;
+        20px
+        5vw
+        48px;
 
     background-image:
 
         linear-gradient(
             to bottom,
-            rgba(0,0,0,0.03),
-            rgba(0,0,0,0.00) 45%,
-            rgba(0,0,0,0.13)
+            rgba(0,0,0,0.02),
+            rgba(0,0,0,0.00) 50%,
+            rgba(0,0,0,0.12)
         ),
 
         url("votzet-preview.webp");
 
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
 
     transition:
-        opacity 0.55s ease,
-        transform 0.55s ease;
+        opacity 0.45s ease,
+        transform 0.45s ease;
 
     z-index: 1;
 }
 
 
 /* =========================================================
-   LANGUAGE
+   LANGUAGE SELECTOR
 ========================================================= */
 
 .language-selector {
@@ -137,13 +133,12 @@ body {
         10px 14px;
 
     border:
-        1px solid
-        rgba(255,225,90,0.98);
+        1px solid #ffe45c;
 
     border-radius: 6px;
 
     background:
-        rgba(8,8,8,0.25);
+        rgba(5,5,5,0.28);
 
     color:
         #ffe45c;
@@ -160,8 +155,8 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 0 18px
-        rgba(255,220,60,0.20);
+        0 0 20px
+        rgba(255,220,60,0.25);
 
     transition:
         background 0.25s ease,
@@ -177,11 +172,11 @@ body {
         rgba(255,220,60,0.14);
 
     border-color:
-        #fff09a;
+        #fff4a8;
 
     box-shadow:
-        0 0 28px
-        rgba(255,220,60,0.38);
+        0 0 30px
+        rgba(255,220,60,0.42);
 }
 
 
@@ -205,7 +200,7 @@ body {
     top:
         calc(100% + 8px);
 
-    width: 235px;
+    width: 240px;
 
     max-height:
         min(72vh, 520px);
@@ -228,7 +223,7 @@ body {
 
     box-shadow:
         0 12px 45px
-        rgba(0,0,0,0.60);
+        rgba(0,0,0,0.65);
 
     opacity: 0;
 
@@ -307,16 +302,23 @@ body {
 
     flex-direction: row;
 
-    justify-content: center;
+    justify-content: space-between;
 
     align-items: center;
 
     /*
-       Небольшое расстояние между кнопками.
+       Максимальное горизонтальное
+       разделение внутри безопасной зоны.
     */
 
-    gap:
-        clamp(20px, 5vw, 40px);
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    /*
+       Ещё немного ниже.
+    */
+
+    margin-bottom: -5px;
 
     position: relative;
 
@@ -325,16 +327,10 @@ body {
 
 
 /* =========================================================
-   DISCOVER / EXPLORE
-   Размер = слово + небольшой запас
+   DISCOVER / EXPLORE BUTTONS
 ========================================================= */
 
 .home-button {
-
-    /*
-       Никаких фиксированных 160x160.
-       Кнопка теперь почти по размеру текста.
-    */
 
     width: auto;
     height: auto;
@@ -342,16 +338,15 @@ body {
     min-width: 0;
 
     padding:
-        14px 22px;
+        13px 20px;
 
     border:
-        1.5px solid
-        #ffe45c;
+        1.5px solid #ffe45c;
 
     border-radius: 7px;
 
     background:
-        rgba(5,5,5,0.28);
+        rgba(5,5,5,0.30);
 
     color:
         #ffe45c;
@@ -370,8 +365,8 @@ body {
     cursor: pointer;
 
     box-shadow:
-        0 0 18px
-        rgba(255,220,60,0.25);
+        0 0 20px
+        rgba(255,220,60,0.30);
 
     animation:
         softGlow 4s ease-in-out infinite;
@@ -398,7 +393,7 @@ body {
 
     box-shadow:
         0 0 38px
-        rgba(255,220,60,0.58);
+        rgba(255,220,60,0.60);
 
     transform:
         translateY(-2px);
@@ -419,14 +414,14 @@ body {
 
         box-shadow:
             0 0 14px
-            rgba(255,220,60,0.15);
+            rgba(255,220,60,0.18);
     }
 
     50% {
 
         box-shadow:
             0 0 30px
-            rgba(255,220,60,0.32);
+            rgba(255,220,60,0.36);
     }
 }
 
@@ -447,7 +442,8 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
 
-    background: #080808;
+    background:
+        #080808;
 
     opacity: 0;
 
@@ -481,7 +477,7 @@ body {
 
 
 /* =========================================================
-   PAGE NAVIGATION
+   INNER NAVIGATION
 ========================================================= */
 
 .inner-nav {
@@ -506,7 +502,7 @@ body {
         18px 20px;
 
     background:
-        rgba(8,8,8,0.92);
+        rgba(8,8,8,0.93);
 
     backdrop-filter:
         blur(12px);
@@ -791,7 +787,8 @@ body {
 
     border-radius: 30px;
 
-    background: transparent;
+    background:
+        transparent;
 
     color:
         #ffe45c;
@@ -830,15 +827,21 @@ body {
 
         padding:
             20px
-            16px
-            65px;
+            12px
+            45px;
     }
 
 
     .home-buttons {
 
-        gap:
-            16px;
+        padding-left:
+            1vw;
+
+        padding-right:
+            1vw;
+
+        margin-bottom:
+            -3px;
     }
 
 
@@ -851,7 +854,7 @@ body {
             15px;
 
         letter-spacing:
-            1.8px;
+            1.6px;
     }
 
 
@@ -864,7 +867,8 @@ body {
 
     .inner-nav {
 
-        gap: 20px;
+        gap:
+            20px;
 
         padding:
             16px 12px;
@@ -873,9 +877,11 @@ body {
 
     .inner-nav button {
 
-        font-size: 9px;
+        font-size:
+            9px;
 
-        letter-spacing: 1.5px;
+        letter-spacing:
+            1.5px;
     }
 
 
@@ -884,7 +890,8 @@ body {
         grid-template-columns:
             1fr;
 
-        max-width: 450px;
+        max-width:
+            450px;
     }
 
 
@@ -893,7 +900,8 @@ body {
         grid-template-columns:
             1fr;
 
-        max-width: 450px;
+        max-width:
+            450px;
     }
 
 }
@@ -906,6 +914,12 @@ body {
 @media (max-width: 360px) {
 
     .home-buttons {
+
+        padding-left:
+            0;
+
+        padding-right:
+            0;
 
         gap:
             10px;
@@ -944,7 +958,7 @@ body {
 <section id="home">
 
 
-    <!-- LANGUAGE -->
+    <!-- LANGUAGE SELECTOR -->
 
     <div
         class="language-selector"
@@ -960,6 +974,10 @@ body {
         </button>
 
 
+        <!-- =================================================
+             VOTZET — 25 OFFICIAL LANGUAGES
+        ================================================== -->
+
         <div class="language-menu">
 
 
@@ -968,22 +986,6 @@ body {
                 onclick="selectLanguage('EN')"
             >
                 English
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('ZH')"
-            >
-                中文 — Chinese
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('HI')"
-            >
-                हिन्दी — Hindi
             </button>
 
 
@@ -1005,113 +1007,9 @@ body {
 
             <button
                 class="language-option"
-                onclick="selectLanguage('AR')"
-            >
-                العربية — Arabic
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('BN')"
-            >
-                বাংলা — Bengali
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('PT')"
-            >
-                Português — Portuguese
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('RU')"
-            >
-                Русский — Russian
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('UR')"
-            >
-                اردو — Urdu
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('ID')"
-            >
-                Bahasa Indonesia — Indonesian
-            </button>
-
-
-            <button
-                class="language-option"
                 onclick="selectLanguage('DE')"
             >
                 Deutsch — German
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('JA')"
-            >
-                日本語 — Japanese
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('MR')"
-            >
-                मराठी — Marathi
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('TE')"
-            >
-                తెలుగు — Telugu
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('TR')"
-            >
-                Türkçe — Turkish
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('TA')"
-            >
-                தமிழ் — Tamil
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('VI')"
-            >
-                Tiếng Việt — Vietnamese
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('KO')"
-            >
-                한국어 — Korean
             </button>
 
 
@@ -1125,33 +1023,25 @@ body {
 
             <button
                 class="language-option"
-                onclick="selectLanguage('TH')"
+                onclick="selectLanguage('PT')"
             >
-                ไทย — Thai
+                Português — Portuguese
             </button>
 
 
             <button
                 class="language-option"
-                onclick="selectLanguage('FA')"
+                onclick="selectLanguage('EL')"
             >
-                فارسی — Persian
+                Ελληνικά — Greek
             </button>
 
 
             <button
                 class="language-option"
-                onclick="selectLanguage('PL')"
+                onclick="selectLanguage('TR')"
             >
-                Polski — Polish
-            </button>
-
-
-            <button
-                class="language-option"
-                onclick="selectLanguage('UK')"
-            >
-                Українська — Ukrainian
+                Türkçe — Turkish
             </button>
 
 
@@ -1163,12 +1053,142 @@ body {
             </button>
 
 
+            <button
+                class="language-option"
+                onclick="selectLanguage('RU')"
+            >
+                Русский — Russian
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('KA')"
+            >
+                ქართული — Georgian
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('FI')"
+            >
+                Suomi — Finnish
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('SV')"
+            >
+                Svenska — Swedish
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('NO')"
+            >
+                Norsk — Norwegian
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('IS')"
+            >
+                Íslenska — Icelandic
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('GA')"
+            >
+                Gaeilge — Irish
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('ZH')"
+            >
+                中文 — Chinese
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('KO')"
+            >
+                한국어 — Korean
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('JA')"
+            >
+                日本語 — Japanese
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('TL')"
+            >
+                Filipino / Tagalog
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('ID')"
+            >
+                Bahasa Indonesia — Indonesian
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('VI')"
+            >
+                Tiếng Việt — Vietnamese
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('TH')"
+            >
+                ไทย — Thai
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('HI')"
+            >
+                हिन्दी — Hindi
+            </button>
+
+
+            <button
+                class="language-option"
+                onclick="selectLanguage('AR')"
+            >
+                العربية — Arabic
+            </button>
+
+
         </div>
 
     </div>
 
 
-    <!-- HOME ACTIONS -->
+    <!-- =================================================
+         HOME BUTTONS
+    ================================================== -->
 
     <div class="home-buttons">
 
@@ -1196,13 +1216,14 @@ body {
 
 
 <!-- =====================================================
-     DISCOVER
+     DISCOVER PAGE
 ====================================================== -->
 
 <section
     id="discover"
     class="page"
 >
+
 
     <nav class="inner-nav">
 
@@ -1223,18 +1244,23 @@ body {
 
     <div class="page-content">
 
+
         <div class="section-label">
             Discover
         </div>
+
 
         <h1 class="section-title">
             The VotZet Foundation
         </h1>
 
+
         <p class="section-description">
+
             VotZet is more than a website.
             It is an idea, a philosophy
             and a developing system.
+
         </p>
 
 
@@ -1252,9 +1278,11 @@ body {
                 </div>
 
                 <div class="document-text">
+
                     The fundamental principles,
                     structure and values
                     of VotZet.
+
                 </div>
 
             </div>
@@ -1271,9 +1299,11 @@ body {
                 </div>
 
                 <div class="document-text">
+
                     The ideas and intentions
                     behind the creation
                     of VotZet.
+
                 </div>
 
             </div>
@@ -1290,9 +1320,11 @@ body {
                 </div>
 
                 <div class="document-text">
+
                     The principles through which
                     VotZet understands people,
                     life and their needs.
+
                 </div>
 
             </div>
@@ -1309,8 +1341,10 @@ body {
                 </div>
 
                 <div class="document-text">
+
                     The rules and conceptual
                     framework that guide VotZet.
+
                 </div>
 
             </div>
@@ -1327,8 +1361,10 @@ body {
                 </div>
 
                 <div class="document-text">
+
                     The ethical principles
                     that define how VotZet operates.
+
                 </div>
 
             </div>
@@ -1345,8 +1381,10 @@ body {
                 </div>
 
                 <div class="document-text">
+
                     The developing structure
                     of the VotZet ecosystem.
+
                 </div>
 
             </div>
@@ -1362,6 +1400,7 @@ body {
             Back to Home
         </button>
 
+
     </div>
 
 </section>
@@ -1369,13 +1408,14 @@ body {
 
 
 <!-- =====================================================
-     EXPLORE
+     EXPLORE PAGE
 ====================================================== -->
 
 <section
     id="explore"
     class="page"
 >
+
 
     <nav class="inner-nav">
 
@@ -1396,13 +1436,16 @@ body {
 
     <div class="page-content">
 
+
         <div class="section-label">
             Explore
         </div>
 
+
         <h1 class="section-title">
             Choose Your World
         </h1>
+
 
         <p class="section-description">
 
@@ -1420,56 +1463,119 @@ body {
 
 
             <div class="world">
-                <div class="world-number">WORLD 01</div>
-                <div class="world-name">HEALTH</div>
+
+                <div class="world-number">
+                    WORLD 01
+                </div>
+
+                <div class="world-name">
+                    HEALTH
+                </div>
+
             </div>
 
 
             <div class="world">
-                <div class="world-number">WORLD 02</div>
-                <div class="world-name">LOVE</div>
+
+                <div class="world-number">
+                    WORLD 02
+                </div>
+
+                <div class="world-name">
+                    LOVE
+                </div>
+
             </div>
 
 
             <div class="world">
-                <div class="world-number">WORLD 03</div>
-                <div class="world-name">STATUS</div>
+
+                <div class="world-number">
+                    WORLD 03
+                </div>
+
+                <div class="world-name">
+                    STATUS
+                </div>
+
             </div>
 
 
             <div class="world">
-                <div class="world-number">WORLD 04</div>
-                <div class="world-name">SAFETY</div>
+
+                <div class="world-number">
+                    WORLD 04
+                </div>
+
+                <div class="world-name">
+                    SAFETY
+                </div>
+
             </div>
 
 
             <div class="world">
-                <div class="world-number">WORLD 05</div>
-                <div class="world-name">MEANING</div>
+
+                <div class="world-number">
+                    WORLD 05
+                </div>
+
+                <div class="world-name">
+                    MEANING
+                </div>
+
             </div>
 
 
             <div class="world">
-                <div class="world-number">WORLD 06</div>
-                <div class="world-name">YOUTH</div>
+
+                <div class="world-number">
+                    WORLD 06
+                </div>
+
+                <div class="world-name">
+                    YOUTH
+                </div>
+
             </div>
 
 
             <div class="world">
-                <div class="world-number">WORLD 07</div>
-                <div class="world-name">FREEDOM</div>
+
+                <div class="world-number">
+                    WORLD 07
+                </div>
+
+                <div class="world-name">
+                    FREEDOM
+                </div>
+
             </div>
 
 
             <div class="world">
-                <div class="world-number">WORLD 08</div>
-                <div class="world-name">CONNECTION</div>
+
+                <div class="world-number">
+                    WORLD 08
+                </div>
+
+                <div class="world-name">
+                    CONNECTION
+                </div>
+
             </div>
 
 
             <div class="world">
-                <div class="world-number">WORLD 09</div>
-                <div class="world-name">SELF</div>
+
+                <div class="world-number">
+                    WORLD 09
+                </div>
+
+                <div class="world-name">
+                    SELF
+                </div>
+
             </div>
 
 
@@ -1483,6 +1589,7 @@ body {
             Back to Home
         </button>
 
+
     </div>
 
 </section>
@@ -1495,7 +1602,7 @@ body {
 <script>
 
 /* =========================================================
-   AUDIO ENGINE
+   AUDIO
 ========================================================= */
 
 let audioContext = null;
@@ -1513,6 +1620,7 @@ function getAudioContext() {
 
     }
 
+
     if (
         audioContext.state ===
         "suspended"
@@ -1522,12 +1630,13 @@ function getAudioContext() {
 
     }
 
+
     return audioContext;
 }
 
 
 /* =========================================================
-   DISCOVER
+   DISCOVER SOUND
 ========================================================= */
 
 function playDiscoverSound() {
@@ -1592,7 +1701,7 @@ function playDiscoverSound() {
 
 
 /* =========================================================
-   EXPLORE
+   EXPLORE SOUND
 ========================================================= */
 
 function playExploreSound() {
@@ -1658,7 +1767,7 @@ function playExploreSound() {
 
 
 /* =========================================================
-   HOME
+   HOME SOUND
 ========================================================= */
 
 function playHomeSound() {
@@ -1723,7 +1832,7 @@ function playHomeSound() {
 
 
 /* =========================================================
-   LANGUAGE
+   LANGUAGE SOUND
 ========================================================= */
 
 function playLanguageSound() {
@@ -1788,16 +1897,18 @@ function playLanguageSound() {
 
 
 /* =========================================================
-   NAVIGATION
+   OPEN PAGE
 ========================================================= */
 
 function openPage(pageId) {
+
 
     if (pageId === "discover") {
 
         playDiscoverSound();
 
     }
+
 
     if (pageId === "explore") {
 
@@ -1807,14 +1918,20 @@ function openPage(pageId) {
 
 
     const home =
-        document.getElementById("home");
+        document.getElementById(
+            "home"
+        );
+
 
     const pages =
-        document.querySelectorAll(".page");
+        document.querySelectorAll(
+            ".page"
+        );
 
 
     home.style.opacity =
         "0";
+
 
     home.style.transform =
         "scale(1.015)";
@@ -1822,6 +1939,7 @@ function openPage(pageId) {
 
     setTimeout(
         function() {
+
 
             home.style.visibility =
                 "hidden";
@@ -1840,7 +1958,10 @@ function openPage(pageId) {
 
             document
                 .getElementById(pageId)
-                .classList.add("active");
+                .classList.add(
+                    "active"
+                );
+
 
         },
         300
@@ -1848,16 +1969,25 @@ function openPage(pageId) {
 }
 
 
+/* =========================================================
+   GO HOME
+========================================================= */
+
 function goHome() {
 
     playHomeSound();
 
 
     const home =
-        document.getElementById("home");
+        document.getElementById(
+            "home"
+        );
+
 
     const pages =
-        document.querySelectorAll(".page");
+        document.querySelectorAll(
+            ".page"
+        );
 
 
     pages.forEach(
@@ -1874,8 +2004,10 @@ function goHome() {
     home.style.visibility =
         "visible";
 
+
     home.style.opacity =
         "1";
+
 
     home.style.transform =
         "scale(1)";
@@ -1902,6 +2034,10 @@ function selectLanguageMenu() {
     );
 }
 
+
+/* =========================================================
+   SELECT LANGUAGE
+========================================================= */
 
 function selectLanguage(language) {
 
@@ -1932,6 +2068,10 @@ function selectLanguage(language) {
 }
 
 
+/* =========================================================
+   LOAD SAVED LANGUAGE
+========================================================= */
+
 function loadLanguage() {
 
     const savedLanguage =
@@ -1957,12 +2097,13 @@ function loadLanguage() {
 
 
 /* =========================================================
-   CLOSE LANGUAGE MENU
+   CLOSE LANGUAGE MENU OUTSIDE
 ========================================================= */
 
 document.addEventListener(
     "click",
     function(event) {
+
 
         const selector =
             document.getElementById(
@@ -1998,4 +2139,4 @@ loadLanguage();
 
 </body>
 
-    </html>
+</html>
