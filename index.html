@@ -4,7 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>VotZet — That's your world!</title>
 
@@ -15,632 +19,753 @@
 
 <style>
 
-/* =========================
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
-body{
-    min-height:100vh;
-    background:#080808;
-    color:#ffffff;
-    font-family:Arial, Helvetica, sans-serif;
-}
+body {
+    overflow: hidden;
 
+    background: #080808;
 
-/* =========================
-   GENERAL
-========================= */
+    color: #ffffff;
 
-.screen{
-    min-height:100vh;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:80px 20px;
-}
-
-.gold{
-    color:#c9a227;
-}
-
-h1,
-h2,
-h3{
-    font-weight:500;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 }
 
 
-/* =========================
-   NAVIGATION
-========================= */
+/* =========================================================
+   APP
+========================================================= */
 
-.navbar{
-    position:fixed;
+#app {
+    width: 100%;
+    height: 100vh;
 
-    top:0;
-    left:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:22px 30px;
-
-    background:rgba(8,8,8,0.88);
-
-    backdrop-filter:blur(10px);
-
-    border-bottom:1px solid rgba(201,162,39,0.12);
+    position: relative;
 }
 
-.nav{
-    display:flex;
-    gap:45px;
 
-    list-style:none;
-}
+/* =========================================================
+   HOME
+========================================================= */
 
-.nav a{
-    color:#ffffff;
+#home {
+    position: absolute;
 
-    text-decoration:none;
+    inset: 0;
 
-    font-size:13px;
+    width: 100%;
+    height: 100vh;
 
-    letter-spacing:3px;
+    display: flex;
 
-    text-transform:uppercase;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        42px
+        30px
+        55px;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.18),
+            rgba(0,0,0,0.10) 45%,
+            rgba(0,0,0,0.40)
+        ),
+        url("votzet-preview-resized.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
 
     transition:
-        color 0.3s ease,
-        opacity 0.3s ease;
-}
-
-.nav a:hover{
-    color:#c9a227;
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 
 
-/* =========================
-   HOME
-========================= */
+/* =========================================================
+   HOME LOGO
+========================================================= */
 
-#home{
+.home-logo {
+
+    font-size:
+        clamp(
+            22px,
+            3vw,
+            34px
+        );
+
+    letter-spacing:
+        clamp(
+            6px,
+            1.2vw,
+            12px
+        );
+
+    font-weight: 500;
+
+    text-shadow:
+        0 2px 18px
+        rgba(0,0,0,0.45);
+
+    user-select: none;
+}
+
+
+/* =========================================================
+   HOME BOTTOM
+========================================================= */
+
+.home-bottom {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 28px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   SLOGAN
+========================================================= */
+
+.slogan {
+
+    font-size:
+        clamp(
+            20px,
+            3vw,
+            34px
+        );
+
+    letter-spacing:
+        clamp(
+            3px,
+            0.8vw,
+            7px
+        );
+
+    font-weight: 400;
+
+    text-shadow:
+        0 3px 20px
+        rgba(0,0,0,0.55);
+
+    user-select: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.home-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+
+.home-button {
+
+    min-width: 145px;
+
+    padding:
+        13px 28px;
+
+    border:
+        1px solid
+        rgba(201,162,39,0.85);
+
+    border-radius: 30px;
 
     background:
+        rgba(0,0,0,0.12);
 
-        radial-gradient(
-            circle at center,
-            rgba(201,162,39,0.09),
-            transparent 45%
-        ),
+    color:
+        #c9a227;
 
-        #080808;
-}
+    text-decoration: none;
 
-.hero{
+    text-align: center;
 
-    max-width:900px;
+    font-size: 12px;
 
-    animation:fadeIn 1.2s ease;
-}
+    font-weight: bold;
 
-.hero-title{
+    letter-spacing: 3px;
 
-    font-size:clamp(
-        52px,
-        10vw,
-        110px
-    );
-
-    letter-spacing:18px;
-
-    margin-left:18px;
-
-    color:#ffffff;
-}
-
-.hero-subtitle{
-
-    margin-top:20px;
-
-    font-size:clamp(
-        14px,
-        2vw,
-        20px
-    );
-
-    letter-spacing:7px;
-
-    color:#c9a227;
-}
-
-.hero-message{
-
-    margin-top:60px;
-
-    font-size:clamp(
-        24px,
-        4vw,
-        38px
-    );
-
-    font-weight:300;
-}
-
-.hero-description{
-
-    max-width:650px;
-
-    margin:25px auto 0;
-
-    font-size:17px;
-
-    line-height:1.8;
-
-    color:#aaaaaa;
-}
-
-.hero-buttons{
-
-    margin-top:50px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:18px;
-
-    flex-wrap:wrap;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.button{
-
-    display:inline-block;
-
-    padding:14px 34px;
-
-    border:1px solid #c9a227;
-
-    border-radius:30px;
-
-    color:#c9a227;
-
-    text-decoration:none;
-
-    font-size:12px;
-
-    letter-spacing:3px;
-
-    font-weight:bold;
-
-    text-transform:uppercase;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.button:hover{
-
-    background:#c9a227;
-
-    color:#080808;
-
-    transform:translateY(-2px);
+    cursor: pointer;
 
     box-shadow:
-        0 8px 25px
-        rgba(201,162,39,0.25);
+        0 0 12px
+        rgba(201,162,39,0.08);
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.2s ease;
+
+    animation:
+        softGlow 4.5s ease-in-out infinite;
 }
 
 
-/* =========================
-   SECTION HEADERS
-========================= */
-
-.section-label{
-
-    font-size:12px;
-
-    letter-spacing:5px;
-
-    text-transform:uppercase;
-
-    color:#c9a227;
-
-    margin-bottom:20px;
-}
-
-.section-title{
-
-    font-size:clamp(
-        38px,
-        6vw,
-        64px
-    );
-
-    letter-spacing:4px;
-
-    margin-bottom:25px;
-}
-
-.section-text{
-
-    max-width:700px;
-
-    color:#aaaaaa;
-
-    line-height:1.8;
-
-    font-size:17px;
-}
-
-
-/* =========================
-   EXPLORE
-========================= */
-
-#explore{
+.home-button:hover {
 
     background:
+        rgba(201,162,39,0.92);
 
-        linear-gradient(
-            180deg,
-            #080808,
-            #0d0d0d
-        );
+    color:
+        #080808;
+
+    box-shadow:
+        0 0 28px
+        rgba(201,162,39,0.40);
+
+    transform:
+        translateY(-2px);
 }
 
-.worlds{
 
-    width:100%;
+.home-button:active {
 
-    max-width:1100px;
+    transform:
+        scale(0.96);
+}
 
-    margin-top:60px;
 
-    display:grid;
+/* =========================================================
+   SOFT GLOW
+========================================================= */
+
+@keyframes softGlow {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 0 10px
+            rgba(201,162,39,0.07);
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 22px
+            rgba(201,162,39,0.20);
+    }
+}
+
+
+/* =========================================================
+   PAGES
+========================================================= */
+
+.page {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    background:
+        #080808;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease,
+        visibility 0.45s ease;
+}
+
+
+.page.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   INNER NAVIGATION
+========================================================= */
+
+.inner-nav {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 10;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 35px;
+
+    padding:
+        20px;
+
+    background:
+        rgba(8,8,8,0.90);
+
+    backdrop-filter:
+        blur(10px);
+
+    border-bottom:
+        1px solid
+        rgba(201,162,39,0.12);
+}
+
+
+.inner-nav button {
+
+    border: none;
+
+    background: none;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.inner-nav button:hover {
+
+    color:
+        #c9a227;
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+========================================================= */
+
+.page-content {
+
+    min-height:
+        calc(100vh - 65px);
+
+    padding:
+        90px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.section-label {
+
+    color:
+        #c9a227;
+
+    font-size: 11px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+}
+
+
+.section-title {
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            65px
+        );
+
+    letter-spacing: 4px;
+
+    font-weight: 400;
+
+    margin-bottom: 25px;
+}
+
+
+.section-description {
+
+    max-width: 700px;
+
+    color:
+        #999999;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   WORLDS
+========================================================= */
+
+.worlds {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin-top: 55px;
+
+    display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap:18px;
+    gap: 18px;
 }
 
-.world{
 
-    min-height:170px;
+.world {
 
-    display:flex;
+    min-height: 160px;
 
-    justify-content:center;
+    display: flex;
 
-    align-items:center;
+    flex-direction: column;
 
-    flex-direction:column;
+    justify-content: center;
 
-    padding:25px;
+    align-items: center;
 
-    border:1px solid
+    border:
+        1px solid
         rgba(201,162,39,0.25);
 
     background:
         rgba(255,255,255,0.015);
 
+    cursor: pointer;
+
     transition:
-        transform 0.3s ease,
         border-color 0.3s ease,
-        background 0.3s ease;
+        background 0.3s ease,
+        transform 0.3s ease;
 }
 
-.world:hover{
 
-    transform:translateY(-5px);
+.world:hover {
 
-    border-color:#c9a227;
+    border-color:
+        #c9a227;
 
     background:
         rgba(201,162,39,0.06);
-}
 
-.world-number{
-
-    font-size:11px;
-
-    letter-spacing:3px;
-
-    color:#c9a227;
-
-    margin-bottom:15px;
-}
-
-.world-name{
-
-    font-size:20px;
-
-    letter-spacing:2px;
+    transform:
+        translateY(-4px);
 }
 
 
-/* =========================
-   DISCOVER
-========================= */
+.world-number {
 
-#discover{
+    color:
+        #c9a227;
 
-    background:#080808;
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
 }
 
-.documents{
 
-    width:100%;
+.world-name {
 
-    max-width:1000px;
+    font-size: 19px;
 
-    margin-top:60px;
+    letter-spacing: 2px;
+}
 
-    display:grid;
+
+/* =========================================================
+   DOCUMENTS
+========================================================= */
+
+.documents {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin-top: 55px;
+
+    display: grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap:20px;
+    gap: 20px;
 }
 
-.document{
 
-    padding:35px 25px;
+.document {
 
-    border:1px solid
+    padding: 30px;
+
+    text-align: left;
+
+    border:
+        1px solid
         rgba(255,255,255,0.12);
-
-    text-align:left;
 
     transition:
         border-color 0.3s ease,
         transform 0.3s ease;
 }
 
-.document:hover{
 
-    border-color:#c9a227;
+.document:hover {
 
-    transform:translateY(-4px);
-}
+    border-color:
+        #c9a227;
 
-.document-number{
-
-    font-size:11px;
-
-    letter-spacing:3px;
-
-    color:#c9a227;
-
-    margin-bottom:18px;
-}
-
-.document-title{
-
-    font-size:23px;
-
-    margin-bottom:12px;
-}
-
-.document-description{
-
-    color:#999999;
-
-    line-height:1.7;
-
-    font-size:15px;
+    transform:
+        translateY(-3px);
 }
 
 
-/* =========================
-   FUTURE
-========================= */
+.document-number {
 
-#future{
+    color:
+        #c9a227;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.document-title {
+
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+
+.document-text {
+
+    color:
+        #999999;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-home {
+
+    margin-top: 55px;
+
+    padding:
+        12px 28px;
+
+    border:
+        1px solid
+        rgba(201,162,39,0.7);
+
+    border-radius: 30px;
+
+    background: transparent;
+
+    color:
+        #c9a227;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.back-home:hover {
 
     background:
+        #c9a227;
 
-        radial-gradient(
-            circle at center,
-            rgba(201,162,39,0.05),
-            transparent 50%
-        ),
-
+    color:
         #080808;
 }
 
-.future-text{
 
-    max-width:700px;
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-    margin-top:30px;
+@media (max-width: 700px) {
 
-    color:#999999;
-
-    font-size:17px;
-
-    line-height:1.9;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-    padding:35px 20px;
-
-    text-align:center;
-
-    background:#050505;
-
-    border-top:1px solid
-        rgba(201,162,39,0.12);
-}
-
-.footer-logo{
-
-    font-size:22px;
-
-    letter-spacing:6px;
-
-    margin-bottom:10px;
-}
-
-.footer-slogan{
-
-    color:#c9a227;
-
-    font-size:11px;
-
-    letter-spacing:3px;
-}
-
-.footer-copy{
-
-    margin-top:20px;
-
-    color:#666666;
-
-    font-size:12px;
-}
-
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes fadeIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(15px);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:700px){
-
-    .navbar{
-
-        padding:18px 15px;
-    }
-
-    .nav{
-
-        gap:20px;
-    }
-
-    .nav a{
-
-        font-size:10px;
-
-        letter-spacing:2px;
-    }
-
-    .hero-title{
-
-        letter-spacing:9px;
-
-        margin-left:9px;
-    }
-
-    .hero-message{
-
-        margin-top:45px;
-    }
-
-    .worlds{
-
-        grid-template-columns:1fr;
-
-        max-width:450px;
-    }
-
-    .documents{
-
-        grid-template-columns:1fr;
-
-        max-width:450px;
-    }
-
-    .screen{
+    #home {
 
         padding:
-            100px 20px 70px;
+            30px 18px
+            45px;
+    }
+
+
+    .home-buttons {
+
+        gap: 12px;
+    }
+
+
+    .home-button {
+
+        min-width: 130px;
+
+        padding:
+            12px 22px;
+    }
+
+
+    .inner-nav {
+
+        gap: 20px;
+
+        padding:
+            17px 12px;
+    }
+
+
+    .inner-nav button {
+
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .worlds {
+
+        grid-template-columns:
+            1fr;
+
+        max-width: 450px;
+    }
+
+
+    .documents {
+
+        grid-template-columns:
+            1fr;
+
+        max-width: 450px;
     }
 
 }
 
 
-/* =========================
-   SMALL MOBILE
-========================= */
+@media (max-width: 400px) {
 
-@media(max-width:400px){
+    .home-button {
 
-    .nav{
+        min-width: 120px;
 
-        gap:13px;
+        font-size: 10px;
+
+        letter-spacing: 2px;
     }
 
-    .nav a{
 
-        font-size:9px;
+    .slogan {
 
-        letter-spacing:1px;
-    }
-
-    .hero-subtitle{
-
-        letter-spacing:4px;
+        letter-spacing: 2px;
     }
 
 }
@@ -653,456 +778,595 @@ footer{
 <body>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<nav class="navbar">
-
-    <ul class="nav">
-
-        <li>
-            <a href="#home">
-                Home
-            </a>
-        </li>
-
-        <li>
-            <a href="#explore">
-                Explore
-            </a>
-        </li>
-
-        <li>
-            <a href="#discover">
-                Discover
-            </a>
-        </li>
-
-    </ul>
-
-</nav>
+<div id="app">
 
 
-<!-- =========================
-     HOME
-========================= -->
+    <!-- =====================================================
+         HOME
+    ====================================================== -->
 
-<section
-    id="home"
-    class="screen"
->
+    <section id="home">
 
-    <div class="hero">
-
-        <div class="hero-title">
+        <div class="home-logo">
             VOTZET
         </div>
 
-        <div class="hero-subtitle">
-            THAT'S YOUR WORLD
+
+        <div class="home-bottom">
+
+            <div class="slogan">
+                THAT'S YOUR WORLD!
+            </div>
+
+
+            <div class="home-buttons">
+
+                <button
+                    class="home-button"
+                    onclick="openPage('discover')"
+                >
+                    DISCOVER
+                </button>
+
+
+                <button
+                    class="home-button"
+                    onclick="openPage('explore')"
+                >
+                    EXPLORE
+                </button>
+
+            </div>
+
         </div>
 
-        <div class="hero-message">
-            A new world is being built.
-        </div>
+    </section>
 
-        <div class="hero-description">
 
-            A place where people can explore
-            the different dimensions of life,
-            discover what they need,
-            and find their own world.
 
-        </div>
+    <!-- =====================================================
+         DISCOVER
+    ====================================================== -->
 
-        <div class="hero-buttons">
+    <section
+        id="discover"
+        class="page"
+    >
 
-            <a
-                href="#explore"
-                class="button"
-            >
+        <nav class="inner-nav">
+
+            <button onclick="goHome()">
+                Home
+            </button>
+
+            <button onclick="openPage('explore')">
                 Explore
-            </a>
+            </button>
 
-            <a
-                href="#discover"
-                class="button"
-            >
+            <button onclick="openPage('discover')">
                 Discover
-            </a>
+            </button>
+
+        </nav>
+
+
+        <div class="page-content">
+
+            <div class="section-label">
+                Discover
+            </div>
+
+            <h1 class="section-title">
+                The VotZet Foundation
+            </h1>
+
+            <p class="section-description">
+
+                VotZet is more than a website.
+                It is an idea, a philosophy
+                and a developing system.
+
+            </p>
+
+
+            <div class="documents">
+
+
+                <div class="document">
+
+                    <div class="document-number">
+                        DOCUMENT 01
+                    </div>
+
+                    <div class="document-title">
+                        Constitution
+                    </div>
+
+                    <div class="document-text">
+
+                        The fundamental principles,
+                        structure and values
+                        of VotZet.
+
+                    </div>
+
+                </div>
+
+
+                <div class="document">
+
+                    <div class="document-number">
+                        DOCUMENT 02
+                    </div>
+
+                    <div class="document-title">
+                        Manifesto
+                    </div>
+
+                    <div class="document-text">
+
+                        The ideas and intentions
+                        behind the creation
+                        of VotZet.
+
+                    </div>
+
+                </div>
+
+
+                <div class="document">
+
+                    <div class="document-number">
+                        DOCUMENT 03
+                    </div>
+
+                    <div class="document-title">
+                        Philosophy
+                    </div>
+
+                    <div class="document-text">
+
+                        The principles through which
+                        VotZet understands people,
+                        life and their needs.
+
+                    </div>
+
+                </div>
+
+
+                <div class="document">
+
+                    <div class="document-number">
+                        DOCUMENT 04
+                    </div>
+
+                    <div class="document-title">
+                        Codex
+                    </div>
+
+                    <div class="document-text">
+
+                        The rules and conceptual
+                        framework that guide VotZet.
+
+                    </div>
+
+                </div>
+
+
+                <div class="document">
+
+                    <div class="document-number">
+                        DOCUMENT 05
+                    </div>
+
+                    <div class="document-title">
+                        Code
+                    </div>
+
+                    <div class="document-text">
+
+                        The ethical principles
+                        that define how VotZet operates.
+
+                    </div>
+
+                </div>
+
+
+                <div class="document">
+
+                    <div class="document-number">
+                        DOCUMENT 06
+                    </div>
+
+                    <div class="document-title">
+                        Architecture
+                    </div>
+
+                    <div class="document-text">
+
+                        The developing structure
+                        of the VotZet ecosystem.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="back-home"
+                onclick="goHome()"
+            >
+                Back to Home
+            </button>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     EXPLORE
-========================= -->
 
-<section
-    id="explore"
-    class="screen"
->
+    <!-- =====================================================
+         EXPLORE
+    ====================================================== -->
 
-    <div class="section-label">
-        Explore
-    </div>
+    <section
+        id="explore"
+        class="page"
+    >
 
-    <h2 class="section-title">
-        Choose Your World
-    </h2>
+        <nav class="inner-nav">
 
-    <p class="section-text">
+            <button onclick="goHome()">
+                Home
+            </button>
 
-        Every person is different.
-        Every life has different needs.
+            <button onclick="openPage('explore')">
+                Explore
+            </button>
 
-        Explore the fundamental directions
-        of human life and discover
-        the world that speaks to you.
+            <button onclick="openPage('discover')">
+                Discover
+            </button>
 
-    </p>
+        </nav>
 
 
-    <div class="worlds">
+        <div class="page-content">
 
-
-        <div class="world">
-
-            <div class="world-number">
-                WORLD 01
+            <div class="section-label">
+                Explore
             </div>
 
-            <div class="world-name">
-                HEALTH
+            <h1 class="section-title">
+                Choose Your World
+            </h1>
+
+            <p class="section-description">
+
+                Every person is different.
+                Every life has different needs.
+
+                Explore the fundamental directions
+                of human life and discover
+                the world that speaks to you.
+
+            </p>
+
+
+            <div class="worlds">
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 01
+                    </div>
+
+                    <div class="world-name">
+                        HEALTH
+                    </div>
+
+                </div>
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 02
+                    </div>
+
+                    <div class="world-name">
+                        LOVE
+                    </div>
+
+                </div>
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 03
+                    </div>
+
+                    <div class="world-name">
+                        STATUS
+                    </div>
+
+                </div>
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 04
+                    </div>
+
+                    <div class="world-name">
+                        SAFETY
+                    </div>
+
+                </div>
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 05
+                    </div>
+
+                    <div class="world-name">
+                        MEANING
+                    </div>
+
+                </div>
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 06
+                    </div>
+
+                    <div class="world-name">
+                        YOUTH
+                    </div>
+
+                </div>
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 07
+                    </div>
+
+                    <div class="world-name">
+                        FREEDOM
+                    </div>
+
+                </div>
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 08
+                    </div>
+
+                    <div class="world-name">
+                        CONNECTION
+                    </div>
+
+                </div>
+
+
+                <div class="world">
+
+                    <div class="world-number">
+                        WORLD 09
+                    </div>
+
+                    <div class="world-name">
+                        SELF
+                    </div>
+
+                </div>
+
+
             </div>
+
+
+            <button
+                class="back-home"
+                onclick="goHome()"
+            >
+                Back to Home
+            </button>
 
         </div>
 
+    </section>
 
-        <div class="world">
+</div>
 
-            <div class="world-number">
-                WORLD 02
-            </div>
 
-            <div class="world-name">
-                LOVE
-            </div>
+<script>
 
-        </div>
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
+function openPage(pageId) {
 
-        <div class="world">
+    playClickSound();
 
-            <div class="world-number">
-                WORLD 03
-            </div>
 
-            <div class="world-name">
-                STATUS
-            </div>
+    const home =
+        document.getElementById("home");
 
-        </div>
 
+    const pages =
+        document.querySelectorAll(".page");
 
-        <div class="world">
 
-            <div class="world-number">
-                WORLD 04
-            </div>
+    home.style.opacity = "0";
 
-            <div class="world-name">
-                SAFETY
-            </div>
+    home.style.transform =
+        "scale(1.015)";
 
-        </div>
 
+    setTimeout(function(){
 
-        <div class="world">
+        home.style.visibility =
+            "hidden";
 
-            <div class="world-number">
-                WORLD 05
-            </div>
+        pages.forEach(function(page){
 
-            <div class="world-name">
-                MEANING
-            </div>
+            page.classList.remove("active");
 
-        </div>
+        });
 
 
-        <div class="world">
+        const page =
+            document.getElementById(pageId);
 
-            <div class="world-number">
-                WORLD 06
-            </div>
 
-            <div class="world-name">
-                YOUTH
-            </div>
+        page.classList.add("active");
 
-        </div>
 
+    }, 350);
 
-        <div class="world">
+}
 
-            <div class="world-number">
-                WORLD 07
-            </div>
 
-            <div class="world-name">
-                FREEDOM
-            </div>
+function goHome() {
 
-        </div>
+    playClickSound();
 
 
-        <div class="world">
+    const home =
+        document.getElementById("home");
 
-            <div class="world-number">
-                WORLD 08
-            </div>
 
-            <div class="world-name">
-                CONNECTION
-            </div>
+    const pages =
+        document.querySelectorAll(".page");
 
-        </div>
 
+    pages.forEach(function(page){
 
-        <div class="world">
+        page.classList.remove("active");
 
-            <div class="world-number">
-                WORLD 09
-            </div>
+    });
 
-            <div class="world-name">
-                SELF
-            </div>
 
-        </div>
+    home.style.visibility =
+        "visible";
 
+    home.style.opacity =
+        "1";
 
-    </div>
+    home.style.transform =
+        "scale(1)";
 
-</section>
+}
 
 
-<!-- =========================
-     DISCOVER
-========================= -->
+/* =========================================================
+   BUTTON SOUND
+   Web Audio API — no external audio file required.
+========================================================= */
 
-<section
-    id="discover"
-    class="screen"
->
+let audioContext = null;
 
-    <div class="section-label">
-        Discover
-    </div>
 
-    <h2 class="section-title">
-        The VotZet Foundation
-    </h2>
+function playClickSound() {
 
-    <p class="section-text">
+    try {
 
-        VotZet is more than a website.
-        It is an idea, a philosophy
-        and a developing system.
+        if (!audioContext) {
 
-    </p>
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
 
+        }
 
-    <div class="documents">
 
+        const oscillator =
+            audioContext.createOscillator();
 
-        <div class="document">
 
-            <div class="document-number">
-                DOCUMENT 01
-            </div>
+        const gain =
+            audioContext.createGain();
 
-            <div class="document-title">
-                Constitution
-            </div>
 
-            <div class="document-description">
+        oscillator.type =
+            "sine";
 
-                The fundamental principles,
-                structure and values
-                of VotZet.
 
-            </div>
+        oscillator.frequency.setValueAtTime(
+            620,
+            audioContext.currentTime
+        );
 
-        </div>
 
+        oscillator.frequency.exponentialRampToValueAtTime(
+            320,
+            audioContext.currentTime + 0.09
+        );
 
-        <div class="document">
 
-            <div class="document-number">
-                DOCUMENT 02
-            </div>
+        gain.gain.setValueAtTime(
+            0.0001,
+            audioContext.currentTime
+        );
 
-            <div class="document-title">
-                Manifesto
-            </div>
 
-            <div class="document-description">
+        gain.gain.exponentialRampToValueAtTime(
+            0.045,
+            audioContext.currentTime + 0.008
+        );
 
-                The ideas and intentions
-                behind the creation
-                of VotZet.
 
-            </div>
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            audioContext.currentTime + 0.11
+        );
 
-        </div>
 
+        oscillator.connect(gain);
 
-        <div class="document">
+        gain.connect(
+            audioContext.destination
+        );
 
-            <div class="document-number">
-                DOCUMENT 03
-            </div>
 
-            <div class="document-title">
-                Philosophy
-            </div>
+        oscillator.start();
 
-            <div class="document-description">
+        oscillator.stop(
+            audioContext.currentTime + 0.12
+        );
 
-                The principles through which
-                VotZet understands people,
-                life and their needs.
+    }
 
-            </div>
+    catch(error) {
 
-        </div>
+        console.log(
+            "Audio unavailable."
+        );
 
+    }
 
-        <div class="document">
+}
 
-            <div class="document-number">
-                DOCUMENT 04
-            </div>
-
-            <div class="document-title">
-                Codex
-            </div>
-
-            <div class="document-description">
-
-                The rules and conceptual
-                framework that guide
-                VotZet.
-
-            </div>
-
-        </div>
-
-
-        <div class="document">
-
-            <div class="document-number">
-                DOCUMENT 05
-            </div>
-
-            <div class="document-title">
-                Code
-            </div>
-
-            <div class="document-description">
-
-                The ethical principles
-                that define how VotZet
-                operates.
-
-            </div>
-
-        </div>
-
-
-        <div class="document">
-
-            <div class="document-number">
-                DOCUMENT 06
-            </div>
-
-            <div class="document-title">
-                Architecture
-            </div>
-
-            <div class="document-description">
-
-                The developing structure
-                of the VotZet ecosystem.
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FUTURE
-========================= -->
-
-<section
-    id="future"
-    class="screen"
->
-
-    <div class="section-label">
-        VotZet
-    </div>
-
-    <h2 class="section-title">
-        That's Your World
-    </h2>
-
-    <p class="future-text">
-
-        VotZet is being built step by step.
-
-        The worlds, the philosophy,
-        the products and the technology
-        will gradually become one ecosystem.
-
-        This is only the beginning.
-
-    </p>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="footer-logo">
-        VOTZET
-    </div>
-
-    <div class="footer-slogan">
-        THAT'S YOUR WORLD
-    </div>
-
-    <div class="footer-copy">
-        © 2026 VotZet. All rights reserved.
-    </div>
-
-</footer>
+</script>
 
 
 </body>
