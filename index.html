@@ -85,21 +85,28 @@ body {
 
     align-items: center;
 
+    /*
+       IMPORTANT:
+       Buttons are now positioned above the
+       bottom area of the image so they do not
+       cover the "THAT'S YOUR WORLD!" text.
+    */
+
     padding:
         25px
-        22px
-        clamp(90px, 14vh, 150px);
+        max(20px, 4vw)
+        clamp(155px, 22vh, 230px);
 
     background-image:
 
         linear-gradient(
             to bottom,
-            rgba(0,0,0,0.08),
-            rgba(0,0,0,0.04) 45%,
-            rgba(0,0,0,0.28)
+            rgba(0,0,0,0.06),
+            rgba(0,0,0,0.02) 45%,
+            rgba(0,0,0,0.18)
         ),
 
-        url("votzet-preview.png");
+        url("votzet-preview.webp");
 
     background-size: cover;
 
@@ -277,20 +284,26 @@ body {
 
 
 /* =========================================================
-   HOME BUTTONS
+   HOME BUTTON CONTAINER
 ========================================================= */
 
 .home-buttons {
 
+    width: 100%;
+
+    max-width: 440px;
+
     display: flex;
+
+    flex-direction: row;
 
     justify-content: center;
 
     align-items: center;
 
-    gap: 18px;
+    gap: clamp(18px, 5vw, 42px);
 
-    width: 100%;
+    flex-wrap: nowrap;
 
     position: relative;
 
@@ -298,12 +311,20 @@ body {
 }
 
 
+/* =========================================================
+   HOME BUTTON
+========================================================= */
+
 .home-button {
 
-    min-width: 145px;
+    flex: 0 1 170px;
+
+    width: 170px;
+
+    min-width: 0;
 
     padding:
-        14px 28px;
+        14px 12px;
 
     border:
         1px solid
@@ -320,11 +341,13 @@ body {
     backdrop-filter:
         blur(5px);
 
-    font-size: 12px;
+    font-size: 11px;
 
     font-weight: bold;
 
-    letter-spacing: 3px;
+    letter-spacing: 2.5px;
+
+    white-space: nowrap;
 
     cursor: pointer;
 
@@ -573,7 +596,7 @@ body {
 
 
 /* =========================================================
-   EXPLORE WORLDS
+   EXPLORE
 ========================================================= */
 
 .worlds {
@@ -656,7 +679,7 @@ body {
 
 
 /* =========================================================
-   DISCOVER DOCUMENTS
+   DISCOVER
 ========================================================= */
 
 .documents {
@@ -784,29 +807,46 @@ body {
    MOBILE
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 520px) {
 
     #home {
 
+        /*
+           Keep buttons safely above the
+           text printed on the image.
+        */
+
         padding:
             20px
-            18px
-            100px;
+            16px
+            125px;
     }
 
 
     .home-buttons {
 
-        gap: 12px;
+        width: 100%;
+
+        max-width: 360px;
+
+        gap: 16px;
     }
 
 
     .home-button {
 
-        min-width: 130px;
+        width: auto;
+
+        flex: 1 1 0;
+
+        min-width: 0;
 
         padding:
-            13px 20px;
+            13px 8px;
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
     }
 
 
@@ -847,11 +887,13 @@ body {
 }
 
 
-@media (max-width: 420px) {
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
 
     .home-buttons {
-
-        flex-direction: column;
 
         gap: 10px;
     }
@@ -859,15 +901,12 @@ body {
 
     .home-button {
 
-        width: 170px;
+        padding:
+            12px 5px;
 
-        min-width: 170px;
-    }
+        font-size: 9px;
 
-
-    .language-button {
-
-        font-size: 10px;
+        letter-spacing: 1.5px;
     }
 
 }
@@ -941,14 +980,13 @@ body {
     </div>
 
 
-    <!-- ONLY TWO HOME ACTIONS -->
+    <!-- HOME ACTIONS -->
 
     <div class="home-buttons">
 
         <button
             class="home-button"
             onclick="openPage('discover')"
-            data-i18n="discover"
         >
             DISCOVER
         </button>
@@ -957,7 +995,6 @@ body {
         <button
             class="home-button"
             onclick="openPage('explore')"
-            data-i18n="explore"
         >
             EXPLORE
         </button>
@@ -969,7 +1006,7 @@ body {
 
 
 <!-- =====================================================
-     DISCOVER PAGE
+     DISCOVER
 ====================================================== -->
 
 <section
@@ -1156,7 +1193,7 @@ body {
 
 
 <!-- =====================================================
-     EXPLORE PAGE
+     EXPLORE
 ====================================================== -->
 
 <section
@@ -1207,119 +1244,56 @@ body {
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 01
-                </div>
-
-                <div class="world-name">
-                    HEALTH
-                </div>
-
+                <div class="world-number">WORLD 01</div>
+                <div class="world-name">HEALTH</div>
             </div>
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 02
-                </div>
-
-                <div class="world-name">
-                    LOVE
-                </div>
-
+                <div class="world-number">WORLD 02</div>
+                <div class="world-name">LOVE</div>
             </div>
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 03
-                </div>
-
-                <div class="world-name">
-                    STATUS
-                </div>
-
+                <div class="world-number">WORLD 03</div>
+                <div class="world-name">STATUS</div>
             </div>
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 04
-                </div>
-
-                <div class="world-name">
-                    SAFETY
-                </div>
-
+                <div class="world-number">WORLD 04</div>
+                <div class="world-name">SAFETY</div>
             </div>
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 05
-                </div>
-
-                <div class="world-name">
-                    MEANING
-                </div>
-
+                <div class="world-number">WORLD 05</div>
+                <div class="world-name">MEANING</div>
             </div>
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 06
-                </div>
-
-                <div class="world-name">
-                    YOUTH
-                </div>
-
+                <div class="world-number">WORLD 06</div>
+                <div class="world-name">YOUTH</div>
             </div>
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 07
-                </div>
-
-                <div class="world-name">
-                    FREEDOM
-                </div>
-
+                <div class="world-number">WORLD 07</div>
+                <div class="world-name">FREEDOM</div>
             </div>
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 08
-                </div>
-
-                <div class="world-name">
-                    CONNECTION
-                </div>
-
+                <div class="world-number">WORLD 08</div>
+                <div class="world-name">CONNECTION</div>
             </div>
 
 
             <div class="world">
-
-                <div class="world-number">
-                    WORLD 09
-                </div>
-
-                <div class="world-name">
-                    SELF
-                </div>
-
+                <div class="world-number">WORLD 09</div>
+                <div class="world-name">SELF</div>
             </div>
 
 
@@ -1345,7 +1319,7 @@ body {
 <script>
 
 /* =========================================================
-   PAGE NAVIGATION
+   NAVIGATION
 ========================================================= */
 
 function openPage(pageId) {
@@ -1384,7 +1358,6 @@ function openPage(pageId) {
 
 
         page.classList.add("active");
-
 
     }, 300);
 
@@ -1523,7 +1496,6 @@ document.addEventListener(
 
 /* =========================================================
    METALLIC / CRYSTALLINE SOUND
-   Generated with Web Audio API.
 ========================================================= */
 
 let audioContext = null;
@@ -1611,10 +1583,7 @@ function playCrystalSound() {
                 );
 
 
-                oscillator.start(
-                    now
-                );
-
+                oscillator.start(now);
 
                 oscillator.stop(
                     now + 0.34
@@ -1622,7 +1591,6 @@ function playCrystalSound() {
 
             }
         );
-
 
     }
 
@@ -1638,7 +1606,7 @@ function playCrystalSound() {
 
 
 /* =========================================================
-   INITIALIZATION
+   INIT
 ========================================================= */
 
 loadLanguage();
