@@ -109,19 +109,11 @@ body {
 
     position: absolute;
 
-    /*
-       Поднимаем кнопку выше
-    */
-
     top:
         max(
             12px,
             env(safe-area-inset-top)
         );
-
-    /*
-       Сдвигаем правее
-    */
 
     right:
         max(
@@ -314,11 +306,6 @@ body {
 
     align-items: center;
 
-    /*
-       Максимально раздвигаем кнопки.
-       Они остаются внутри экрана.
-    */
-
     padding-left: 0;
     padding-right: 0;
 
@@ -336,13 +323,20 @@ body {
 
 .home-button {
 
+    /*
+       Ширина теперь определяется самим текстом.
+       Добавлен небольшой комфортный запас
+       слева и справа.
+    */
+
     width: auto;
-    height: auto;
 
     min-width: 0;
 
+    height: auto;
+
     padding:
-        13px 20px;
+        10px 15px;
 
     border:
         1.5px solid #ffe45c;
@@ -836,11 +830,6 @@ body {
     }
 
 
-    /*
-       На телефоне тоже максимально
-       раздвигаем кнопки.
-    */
-
     .home-buttons {
 
         padding-left:
@@ -857,7 +846,7 @@ body {
     .home-button {
 
         padding:
-            12px 16px;
+            9px 13px;
 
         font-size:
             15px;
@@ -866,11 +855,6 @@ body {
             1.6px;
     }
 
-
-    /*
-       Языковую кнопку ещё немного
-       поднимаем и сдвигаем вправо.
-    */
 
     .language-selector {
 
@@ -959,7 +943,7 @@ body {
     .home-button {
 
         padding:
-            11px 12px;
+            8px 11px;
 
         font-size:
             13px;
