@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover — VotZet</title>
+<meta name="description" content="Discover the foundation of VotZet.">
+<link rel="stylesheet" href="../css/main.css">
+<style>
+/* DISCOVER: Основной стиль страницы */
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #111214;
+    color: #ffffff;
+}
+
+.discover-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(212,175,55,0.045), transparent 42%),
+        #111214;
+}
+
+/* NAVIGATION: Навигация внутри Discover */
+.inner-nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 18px 20px;
+    background: rgba(8,8,8,0.93);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,225,90,0.16);
+}
+
+.inner-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.inner-nav a:hover {
+    color: #ffe45c;
+}
+
+/* INTRO: Введение в философию Discover */
+.discover-content {
+    width: 100%;
+    padding: 80px 25px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discover-intro {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+}
+
+.section-label {
+    color: #ffe45c;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.discover-title {
+    margin-bottom: 28px;
+    color: #f2f2ef;
+    font-size: clamp(38px, 6vw, 68px);
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.discover-lead {
+    max-width: 760px;
+    margin: 0 auto 25px;
+    color: #e3e3df;
+    font-size: clamp(19px, 2.2vw, 24px);
+    line-height: 1.65;
+}
+
+.discover-text {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #a7a7a3;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.discover-motto {
+    margin-top: 35px;
+    color: #d4af37;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* FOUNDATION: Заголовок библиотеки документов */
+.foundation-heading {
+    width: 100%;
+    max-width: 1050px;
+    margin: 100px auto 40px;
+    text-align: center;
+}
+
+.foundation-heading h2 {
+    margin-bottom: 15px;
+    color: #f2f2ef;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.foundation-heading p {
+    color: #858589;
+    font-size: 15px;
+}
+
+/* DOCUMENTS: Сетка документов VotZet */
+.discover-documents {
+    width: 100%;
+    max-width: 1050px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.discover-card {
+    position: relative;
+    min-height: 270px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    background: #181a1d;
+    border: 1px solid #303236;
+    transition: 0.3s ease;
+}
+
+.discover-card:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+    background: #1c1e21;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.30);
+}
+
+.card-number {
+    margin-bottom: 18px;
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.discover-card h3 {
+    color: #f2f2ef;
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: 3px;
+}
+
+.card-line {
+    width: 38px;
+    height: 1px;
+    margin: 18px 0;
+    background: #d4af37;
+}
+
+.discover-card p {
+    max-width: 450px;
+    color: #999b9f;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.document-button {
+    margin-top: auto;
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    color: #d4af37;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.document-button:hover {
+    color: #f0d879;
+}
+
+.discover-card-wide {
+    grid-column: 1 / -1;
+    min-height: 220px;
+}
+
+/* FOOTER: Возврат на главный экран */
+.discover-bottom {
+    width: 100%;
+    max-width: 850px;
+    margin-top: 85px;
+    text-align: center;
+}
+
+.discover-bottom p {
+    margin-bottom: 25px;
+    color: #858589;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.back-home {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid rgba(255,225,90,0.85);
+    border-radius: 30px;
+    color: #ffe45c;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+.back-home:hover {
+    background: #ffe45c;
+    color: #080808;
+}
+
+/* MOBILE: Адаптация Discover */
+@media (max-width: 650px) {
+    .inner-nav {
+        gap: 20px;
+        padding: 16px 12px;
+    }
+
+    .inner-nav a {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .discover-content {
+        padding: 60px 16px 80px;
+    }
+
+    .discover-documents {
+        grid-template-columns: 1fr;
+    }
+
+    .discover-card-wide {
+        grid-column: auto;
+    }
+
+    .discover-card {
+        min-height: 250px;
+        padding: 27px;
+    }
+
+    .foundation-heading {
+        margin-top: 75px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- DISCOVER PAGE: Главная страница документов VotZet -->
+<div class="discover-page">
+
+<!-- NAVIGATION: Переход между основными разделами -->
+<nav class="inner-nav">
+    <a href="../index.html">Home</a>
+    <a href="../explore/">Explore</a>
+    <a href="./">Discover</a>
+</nav>
+
+<!-- INTRO: Краткое объяснение идеи VotZet -->
+<div class="discover-content">
+    <div class="discover-intro">
+        <div class="section-label">Discover</div>
+        <h1 class="discover-title">The VotZet Foundation</h1>
+        <p class="discover-lead">VotZet is more than a platform. It is an idea, a philosophy and a developing global ecosystem.</p>
+        <p class="discover-text">The world is not one-size-fits-all. Every person has different needs, values, desires and circumstances. VotZet is built around the idea that people should be able to explore their world, understand what matters to them and choose what makes their world better.</p>
+        <div class="discover-motto">That's your world.</div>
+    </div>
+
+<!-- FOUNDATION: Девять основополагающих документов -->
+    <div class="foundation-heading">
+        <div class="section-label">Our Foundation</div>
+        <h2>Nine Documents</h2>
+        <p>The principles, ideas and structures that form the foundation of VotZet.</p>
+    </div>
+
+<!-- DOCUMENT CARDS: Отдельные документы Discover -->
+    <div class="discover-documents">
+        <article class="discover-card">
+            <div class="card-number">01</div>
+            <h3>VISION</h3>
+            <div class="card-line"></div>
+            <p>The future VotZet wants to help create and the world it believes is possible.</p>
+            <button class="document-button">Read Vision</button>
+        </article>
+
+        <article class="discover-card">
+            <div class="card-number">02</div>
+            <h3>MISSION</h3>
+            <div class="card-line"></div>
+            <p>Why VotZet exists today and what it does to move its vision into reality.</p>
+            <button class="document-button">Read Mission</button>
+        </article>
+
+        <article class="discover-card">
+            <div class="card-number">03</div>
+            <h3>MANIFESTO</h3>
+            <div class="card-line"></div>
+            <p>The ideas, beliefs and intentions that stand behind the creation of VotZet.</p>
+            <button class="document-button">Read Manifesto</button>
+        </article>
+
+        <article class="discover-card">
+            <div class="card-number">04</div>
+            <h3>PHILOSOPHY</h3>
+            <div class="card-line"></div>
+            <p>The fundamental VotZet view of people, life, choice, needs and personal development.</p>
+            <button class="document-button">Read Philosophy</button>
+        </article>
+
+        <article class="discover-card">
+            <div class="card-number">05</div>
+            <h3>CANON</h3>
+            <div class="card-line"></div>
+            <p>The fundamental ideas and concepts that form the intellectual core of VotZet.</p>
+            <button class="document-button">Read Canon</button>
+        </article>
+
+        <article class="discover-card">
+            <div class="card-number">06</div>
+            <h3>CODEX</h3>
+            <div class="card-line"></div>
+            <p>The systemic book of VotZet: its concepts, definitions, models and principles.</p>
+            <button class="document-button">Read Codex</button>
+        </article>
+
+        <article class="discover-card">
+            <div class="card-number">07</div>
+            <h3>CODE</h3>
+            <div class="card-line"></div>
+            <p>The ethical principles and standards that guide how VotZet behaves.</p>
+            <button class="document-button">Read Code</button>
+        </article>
+
+        <article class="discover-card">
+            <div class="card-number">08</div>
+            <h3>CONSTITUTION</h3>
+            <div class="card-line"></div>
+            <p>The formal foundation of VotZet: its structure, governance, roles and responsibilities.</p>
+            <button class="document-button">Read Constitution</button>
+        </article>
+
+        <article class="discover-card discover-card-wide">
+            <div class="card-number">09</div>
+            <h3>ARCHITECTURE</h3>
+            <div class="card-line"></div>
+            <p>The structure of the VotZet ecosystem: worlds, directions, hubs, countries, cities, stores and their connections.</p>
+            <button class="document-button">Read Architecture</button>
+        </article>
+    </div>
+
+<!-- FOOTER: Завершение раздела Discover -->
+    <div class="discover-bottom">
+        <p>Explore the foundation. Understand the idea. Then choose your world.</p>
+        <a class="back-home" href="../index.html">Back to Home</a>
+    </div>
+</div>
+</div>
+</body>
+</html>
