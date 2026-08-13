@@ -1,7 +1,6 @@
 {
-  "home": "ACCUEIL",
-  "discover": "DÉCOUVRIR",
-  "explore": "EXPLORER",
-  "chooseLanguage": "Choisir la langue",
-  "back": "RETOUR"
+  "home": "Accueil",
+  "discover": "Découvrir",
+  "explore": "Explorer",
+  "chooseLanguage": "Choisir la langue"
 }
