@@ -1,4 +1,4 @@
-// LANGUAGE SYSTEM: Загрузка локализации VotZet из JSON-файлов
+// LANGUAGE SYSTEM: Выбор языка только на главной странице и сохранение языка для всех страниц VotZet
 
 document.addEventListener("DOMContentLoaded", () => {
     const languageButton = document.getElementById("languageButton");
@@ -6,10 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const languageOptions = document.querySelectorAll(".language-option");
     const discoverButton = document.getElementById("discoverButton");
     const exploreButton = document.getElementById("exploreButton");
-
-    if (!languageButton || !languageSelector) {
-        return;
-    }
 
     const languageNames = {
         en: "English",
@@ -39,63 +35,69 @@ document.addEventListener("DOMContentLoaded", () => {
         ar: "العربية"
     };
 
-    async function loadLanguage(language) {
-        try {
-            const response = await fetch(`locales/${language}/common.json`);
+    const savedLanguage = localStorage.getItem("votzet-language") || "en";
 
-            if (!response.ok) {
-                throw new Error(`Language file not found: ${language}`);
-            }
+    // HOME LANGUAGE SELECTOR: Работает только на главной странице
+    if (languageButton && languageSelector) {
 
-            const translations = await response.json();
+        async function loadHomeLanguage(language) {
+            try {
+                const response = await fetch(`locales/${language}/common.json`);
 
-            document.documentElement.lang = language;
+                if (!response.ok) {
+                    throw new Error(`Language file not found: ${language}`);
+                }
 
-            if (discoverButton && translations.discover) {
-                discoverButton.textContent = translations.discover;
-            }
+                const translations = await response.json();
 
-            if (exploreButton && translations.explore) {
-                exploreButton.textContent = translations.explore;
-            }
+                document.documentElement.lang = language;
 
-            languageButton.textContent =
-                `${languageNames[language] || languageNames.en} ▾`;
+                if (discoverButton && translations.discover) {
+                    discoverButton.textContent = translations.discover;
+                }
 
-            localStorage.setItem("votzet-language", language);
+                if (exploreButton && translations.explore) {
+                    exploreButton.textContent = translations.explore;
+                }
 
-        } catch (error) {
-            console.error("VotZet language error:", error);
+                languageButton.textContent =
+                    `${languageNames[language] || languageNames.en} ▾`;
 
-            if (language !== "en") {
-                loadLanguage("en");
+                localStorage.setItem("votzet-language", language);
+
+            } catch (error) {
+                console.error("VotZet language error:", error);
+
+                if (language !== "en") {
+                    loadHomeLanguage("en");
+                }
             }
         }
-    }
 
-    languageButton.addEventListener("click", (event) => {
-        event.stopPropagation();
-        languageSelector.classList.toggle("open");
-    });
-
-    languageOptions.forEach(option => {
-        option.addEventListener("click", (event) => {
+        languageButton.addEventListener("click", (event) => {
             event.stopPropagation();
+            languageSelector.classList.toggle("open");
+        });
 
-            const language = option.dataset.language;
+        languageOptions.forEach(option => {
+            option.addEventListener("click", (event) => {
+                event.stopPropagation();
 
-            loadLanguage(language);
+                const language = option.dataset.language;
 
+                loadHomeLanguage(language);
+
+                languageSelector.classList.remove("open");
+            });
+        });
+
+        document.addEventListener("click", () => {
             languageSelector.classList.remove("open");
         });
-    });
 
-    document.addEventListener("click", () => {
-        languageSelector.classList.remove("open");
-    });
+        loadHomeLanguage(savedLanguage);
+    }
 
-    const savedLanguage =
-        localStorage.getItem("votzet-language") || "en";
-
-    loadLanguage(savedLanguage);
+    // OTHER PAGES: Используем язык, выбранный на главной странице
+    document.documentElement.lang = savedLanguage;
 });
