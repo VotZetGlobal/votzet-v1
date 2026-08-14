@@ -50,7 +50,7 @@ body {
     color: #ffe45c;
 }
 
-/* INTRO: Введение в философию Discover */
+/* INTRO: Введение в Discover */
 .discover-content {
     width: 100%;
     padding: 80px 25px 100px;
@@ -126,7 +126,7 @@ body {
     font-size: 15px;
 }
 
-/* DOCUMENTS: Сетка документов VotZet */
+/* DOCUMENTS: Сетка восьми документов VotZet */
 .discover-documents {
     width: 100%;
     max-width: 1050px;
@@ -199,11 +199,6 @@ body {
     color: #f0d879;
 }
 
-.discover-card-wide {
-    grid-column: 1 / -1;
-    min-height: 220px;
-}
-
 /* FOOTER: Возврат на главный экран */
 .discover-bottom {
     width: 100%;
@@ -257,10 +252,6 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .discover-card-wide {
-        grid-column: auto;
-    }
-
     .discover-card {
         min-height: 250px;
         padding: 27px;
@@ -279,109 +270,147 @@ body {
 
 <!-- NAVIGATION: Переход между основными разделами -->
 <nav class="inner-nav">
-    <a href="../index.html">Home</a>
-    <a href="../explore/">Explore</a>
-    <a href="./">Discover</a>
+    <a href="../index.html" data-nav-sound="home">Home</a>
+    <a href="../explore/" data-nav-sound="explore">Explore</a>
+    <a href="./" data-nav-sound="discover">Discover</a>
 </nav>
 
-<!-- INTRO: Краткое объяснение идеи VotZet -->
+<!-- INTRO: Локализуемое введение -->
 <div class="discover-content">
     <div class="discover-intro">
-        <div class="section-label">Discover</div>
-        <h1 class="discover-title">The VotZet Foundation</h1>
-        <p class="discover-lead">VotZet is more than a platform. It is an idea, a philosophy and a developing global ecosystem.</p>
-        <p class="discover-text">The world is not one-size-fits-all. Every person has different needs, values, desires and circumstances. VotZet is built around the idea that people should be able to explore their world, understand what matters to them and choose what makes their world better.</p>
+        <div class="section-label" id="discoverLabel">Discover</div>
+        <h1 class="discover-title" id="discoverTitle">Познать VotZet</h1>
+        <p class="discover-lead" id="discoverSubtitle">Кто мы. Во что верим. Зачем существуем. Каким видим мир, который хотим создать.</p>
         <div class="discover-motto">That's your world.</div>
     </div>
 
-<!-- FOUNDATION: Девять основополагающих документов -->
+<!-- FOUNDATION: Заголовок восьми основополагающих документов -->
     <div class="foundation-heading">
-        <div class="section-label">Our Foundation</div>
-        <h2>Nine Documents</h2>
-        <p>The principles, ideas and structures that form the foundation of VotZet.</p>
+        <div class="section-label" id="foundationLabel">Our Foundation</div>
+        <h2 id="foundationTitle">Eight Documents</h2>
+        <p id="foundationText">The principles and ideas that form the foundation of VotZet.</p>
     </div>
 
-<!-- DOCUMENT CARDS: Отдельные документы Discover -->
-    <div class="discover-documents">
-        <article class="discover-card">
-            <div class="card-number">01</div>
-            <h3>VISION</h3>
-            <div class="card-line"></div>
-            <p>The future VotZet wants to help create and the world it believes is possible.</p>
-            <button class="document-button">Read Vision</button>
-        </article>
+<!-- DOCUMENT CARDS: Восемь документов Discover -->
+    <div class="discover-documents" id="discoverDocuments"></div>
 
-        <article class="discover-card">
-            <div class="card-number">02</div>
-            <h3>MISSION</h3>
-            <div class="card-line"></div>
-            <p>Why VotZet exists today and what it does to move its vision into reality.</p>
-            <button class="document-button">Read Mission</button>
-        </article>
-
-        <article class="discover-card">
-            <div class="card-number">03</div>
-            <h3>MANIFESTO</h3>
-            <div class="card-line"></div>
-            <p>The ideas, beliefs and intentions that stand behind the creation of VotZet.</p>
-            <button class="document-button">Read Manifesto</button>
-        </article>
-
-        <article class="discover-card">
-            <div class="card-number">04</div>
-            <h3>PHILOSOPHY</h3>
-            <div class="card-line"></div>
-            <p>The fundamental VotZet view of people, life, choice, needs and personal development.</p>
-            <button class="document-button">Read Philosophy</button>
-        </article>
-
-        <article class="discover-card">
-            <div class="card-number">05</div>
-            <h3>CANON</h3>
-            <div class="card-line"></div>
-            <p>The fundamental ideas and concepts that form the intellectual core of VotZet.</p>
-            <button class="document-button">Read Canon</button>
-        </article>
-
-        <article class="discover-card">
-            <div class="card-number">06</div>
-            <h3>CODEX</h3>
-            <div class="card-line"></div>
-            <p>The systemic book of VotZet: its concepts, definitions, models and principles.</p>
-            <button class="document-button">Read Codex</button>
-        </article>
-
-        <article class="discover-card">
-            <div class="card-number">07</div>
-            <h3>CODE</h3>
-            <div class="card-line"></div>
-            <p>The ethical principles and standards that guide how VotZet behaves.</p>
-            <button class="document-button">Read Code</button>
-        </article>
-
-        <article class="discover-card">
-            <div class="card-number">08</div>
-            <h3>CONSTITUTION</h3>
-            <div class="card-line"></div>
-            <p>The formal foundation of VotZet: its structure, governance, roles and responsibilities.</p>
-            <button class="document-button">Read Constitution</button>
-        </article>
-
-        <article class="discover-card discover-card-wide">
-            <div class="card-number">09</div>
-            <h3>ARCHITECTURE</h3>
-            <div class="card-line"></div>
-            <p>The structure of the VotZet ecosystem: worlds, directions, hubs, countries, cities, stores and their connections.</p>
-            <button class="document-button">Read Architecture</button>
-        </article>
-    </div>
-
-<!-- FOOTER: Завершение раздела Discover -->
+<!-- FOOTER: Возврат на главный экран -->
     <div class="discover-bottom">
-        <p>Explore the foundation. Understand the idea. Then choose your world.</p>
-        <a class="back-home" href="../index.html">Back to Home</a>
+        <p id="discoverFooter">Explore the foundation. Understand the idea. Then choose your world.</p>
+        <a class="back-home" href="../index.html" data-nav-sound="home" id="backHome">Back to Home</a>
     </div>
 </div>
 </div>
+
+<!-- MAIN JAVASCRIPT -->
+<script src="../js/main.js"></script>
+
+<!-- LANGUAGE SYSTEM -->
+<script src="../js/language.js"></script>
+
+<!-- DISCOVER CONTENT SYSTEM -->
+<script>
+/* DISCOVER CONTENT: Загрузка выбранной локализации */
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const language = localStorage.getItem("votzet-language") || "en";
+
+    const documentOrder = [
+        "vision",
+        "mission",
+        "manifesto",
+        "philosophy",
+        "canon",
+        "codex",
+        "code",
+        "constitution"
+    ];
+
+    try {
+        const response = await fetch(`../locales/${language}/discover.json`);
+
+        if (!response.ok) {
+            throw new Error(`Discover localization not found: ${language}`);
+        }
+
+        const content = await response.json();
+
+        document.documentElement.lang = language;
+
+        if (content.title) {
+            document.getElementById("discoverTitle").textContent = content.title;
+        }
+
+        if (content.subtitle) {
+            document.getElementById("discoverSubtitle").textContent = content.subtitle;
+        }
+
+        const documentsContainer =
+            document.getElementById("discoverDocuments");
+
+        documentOrder.forEach((key, index) => {
+
+            const documentData = content[key];
+
+            if (!documentData) {
+                return;
+            }
+
+            const card = document.createElement("article");
+            card.className = "discover-card";
+
+            const number = String(index + 1).padStart(2, "0");
+
+            card.innerHTML = `
+                <div class="card-number">${number}</div>
+                <h3>${documentData.title || ""}</h3>
+                <div class="card-line"></div>
+                <p>${documentData.short || ""}</p>
+                <button class="document-button" type="button">
+                    ${getReadLabel(language)} ${documentData.title || ""}
+                </button>
+            `;
+
+            documentsContainer.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error("VotZet Discover error:", error);
+    }
+
+    function getReadLabel(language) {
+        const labels = {
+            en: "Read",
+            es: "Leer",
+            fr: "Lire",
+            de: "Lesen",
+            it: "Leggi",
+            pt: "Ler",
+            el: "Διαβάστε",
+            tr: "Oku",
+            nl: "Lezen",
+            ru: "Читать",
+            ka: "წაიკითხე",
+            fi: "Lue",
+            sv: "Läs",
+            no: "Les",
+            is: "Lesa",
+            ga: "Léigh",
+            zh: "阅读",
+            ko: "읽기",
+            ja: "読む",
+            tl: "Basahin",
+            id: "Baca",
+            vi: "Đọc",
+            th: "อ่าน",
+            hi: "पढ़ें",
+            ar: "اقرأ"
+        };
+
+        return labels[language] || labels.en;
+    }
+});
+</script>
+
 </body>
 </html>
