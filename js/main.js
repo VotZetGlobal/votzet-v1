@@ -253,4 +253,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     );
+    
+    // DOCUMENT CLOSE: Звук закрытия Mission / Vision / других документов
+    document.addEventListener(
+        "pointerdown",
+        event => {
+
+            const closeButton =
+                event.target.closest(".modal-close");
+
+            if (closeButton) {
+                playTone("home");
+            }
+        }
+    );
 });
