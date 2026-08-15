@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const ctx = getAudioContext();
             const now = ctx.currentTime;
 
+            // EXPLORE SOUND: Трёхчастный crystalline-аккорд
             if (type === "explore") {
                 [880, 1320, 1760].forEach((freq, index) => {
                     const osc = ctx.createOscillator();
@@ -55,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
 
+            // DISCOVER SOUND: Восходящий сигнал
             if (type === "discover") {
                 osc.type = "triangle";
                 osc.frequency.setValueAtTime(620, now);
@@ -64,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
+            // HOME SOUND: Мягкий нисходящий сигнал
             if (type === "home") {
                 osc.type = "sine";
                 osc.frequency.setValueAtTime(740, now);
@@ -73,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
+            // LANGUAGE SOUND: Высокий короткий сигнал
             if (type === "language") {
                 osc.type = "sine";
                 osc.frequency.setValueAtTime(1450, now);
@@ -82,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
+            // DOCUMENT SOUND: Открытие документа или World
             if (type === "document") {
                 osc.type = "triangle";
                 osc.frequency.setValueAtTime(1050, now);
@@ -108,110 +113,196 @@ document.addEventListener("DOMContentLoaded", () => {
             osc.stop(now + 0.12);
 
         } catch (error) {
-            console.warn("VotZet audio unavailable:", error);
+            console.warn(
+                "VotZet audio unavailable:",
+                error
+            );
         }
     }
 
-    // SOUND ROUTER: Доступен всему сайту
+    // SOUND ROUTER: Доступ к звукам из других страниц VotZet
     window.VotZetSound = function(type) {
         playTone(type);
     };
 
-    // PREFETCH: Прогрев URL в HTTP-кеше
+    // PREFETCH CORE: Предварительная загрузка страницы или JSON в кеш
     function warm(url) {
         fetch(url, {
             method: "GET",
-            cache: "force-cache"
+            cache: "force-cache",
+            credentials: "same-origin"
         }).catch(() => {});
     }
 
-    // PREFETCH HOME: Подготавливаем следующие страницы заранее
-    const path = window.location.pathname;
+    // PREFETCH LINK: Подсказка браузеру заранее подготовить страницу
+    function prefetch(url) {
+        if (
+            document.querySelector(
+                `link[data-votzet-prefetch="${url}"]`
+            )
+        ) {
+            return;
+        }
 
-    if (
+        const link =
+            document.createElement("link");
+
+        link.rel =
+            "prefetch";
+
+        link.href =
+            url;
+
+        link.setAttribute(
+            "data-votzet-prefetch",
+            url
+        );
+
+        document.head.appendChild(link);
+    }
+
+    // PAGE DETECTION: Определяем текущую страницу
+    const path =
+        window.location.pathname;
+
+    const isHome =
         path === "/" ||
-        path.endsWith("/index.html")
-    ) {
+        path.endsWith("/index.html");
+
+    const isDiscover =
+        path.includes("/discover");
+
+    const isExplore =
+        path.includes("/explore");
+
+    // HOME PREFETCH: На главной заранее готовим Discover, Explore и локализацию
+    if (isHome) {
         const language =
             localStorage.getItem("votzet-language") || "en";
 
+        prefetch("discover/");
+        prefetch("explore/");
+
         warm("discover/");
         warm("explore/");
-        warm(`locales/${language}/common.json`);
-        warm(`locales/${language}/discover.json`);
+
+        warm(
+            `locales/${language}/common.json`
+        );
+
+        warm(
+            `locales/${language}/discover.json`
+        );
     }
 
-    // LANGUAGE PREFETCH: После выбора языка прогреваем его данные
+    // DISCOVER PREFETCH: На Discover заранее готовим Home и Explore
+    if (isDiscover) {
+        warm("../index.html");
+        warm("../explore/");
+
+        prefetch("../index.html");
+        prefetch("../explore/");
+    }
+
+    // EXPLORE PREFETCH: На Explore заранее готовим Home и Discover
+    if (isExplore) {
+        warm("../index.html");
+        warm("../discover/");
+
+        prefetch("../index.html");
+        prefetch("../discover/");
+    }
+
+    // LANGUAGE PREFETCH: После выбора языка сразу готовим его JSON
     document
         .querySelectorAll(".language-option")
         .forEach(option => {
 
-            option.addEventListener("click", () => {
+            option.addEventListener(
+                "click",
+                () => {
 
-                const language =
-                    option.dataset.language;
+                    const language =
+                        option.dataset.language;
 
-                if (!language) {
-                    return;
+                    if (!language) {
+                        return;
+                    }
+
+                    warm(
+                        `locales/${language}/common.json`
+                    );
+
+                    warm(
+                        `locales/${language}/discover.json`
+                    );
+
+                    prefetch("discover/");
+                    prefetch("explore/");
                 }
-
-                warm(`locales/${language}/common.json`);
-                warm(`locales/${language}/discover.json`);
-            });
+            );
         });
 
-    // HOME DISCOVER: Звук начинается при касании, переход без искусственной паузы
+    // HOME DISCOVER: Звук при касании и мгновенный переход
     const discoverButton =
         document.getElementById("discoverButton");
 
     if (discoverButton) {
-
         discoverButton.addEventListener(
             "pointerdown",
-            () => playTone("discover")
+            () => {
+                playTone("discover");
+            }
         );
 
         discoverButton.addEventListener(
             "click",
             event => {
                 event.preventDefault();
-                window.location.href = "discover/";
+
+                window.location.href =
+                    "discover/";
             }
         );
     }
 
-    // HOME EXPLORE: То же для Explore
+    // HOME EXPLORE: Звук при касании и мгновенный переход
     const exploreButton =
         document.getElementById("exploreButton");
 
     if (exploreButton) {
-
         exploreButton.addEventListener(
             "pointerdown",
-            () => playTone("explore")
+            () => {
+                playTone("explore");
+            }
         );
 
         exploreButton.addEventListener(
             "click",
             event => {
                 event.preventDefault();
-                window.location.href = "explore/";
+
+                window.location.href =
+                    "explore/";
             }
         );
     }
 
-    // LANGUAGE BUTTON: Звук выбора языка
+    // LANGUAGE BUTTON: Звук открытия выбора языка
     const languageButton =
         document.getElementById("languageButton");
 
     if (languageButton) {
         languageButton.addEventListener(
             "pointerdown",
-            () => playTone("language")
+            () => {
+                playTone("language");
+            }
         );
     }
 
-    // INTERNAL NAVIGATION: Работает независимо от выбранного языка
+    // INTERNAL NAVIGATION: Home / Explore / Discover на внутренних страницах
     document
         .querySelectorAll("[data-nav-sound]")
         .forEach(link => {
@@ -240,27 +331,31 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
 
-    // DOCUMENT BUTTONS: Делегирование работает и для динамически созданных карточек
+    // DOCUMENT OPEN: Звук открытия Mission / Vision / остальных документов
     document.addEventListener(
         "pointerdown",
         event => {
 
             const button =
-                event.target.closest(".document-button");
+                event.target.closest(
+                    ".document-button"
+                );
 
             if (button) {
                 playTone("document");
             }
         }
     );
-    
-    // DOCUMENT CLOSE: Звук закрытия Mission / Vision / других документов
+
+    // DOCUMENT CLOSE: Звук закрытия окна документа
     document.addEventListener(
         "pointerdown",
         event => {
 
             const closeButton =
-                event.target.closest(".modal-close");
+                event.target.closest(
+                    ".modal-close"
+                );
 
             if (closeButton) {
                 playTone("home");
