@@ -1,0 +1,44 @@
+{
+  "title": "Discover VotZet",
+  "subtitle": "Who we are. What we believe. Why we exist. The world we envision creating.",
+  "mission": {
+    "title": "Mission",
+    "short": "Why VotZet exists.",
+    "text": ""
+  },
+  "vision": {
+    "title": "Vision",
+    "short": "The future we want to see.",
+    "text": ""
+  },
+  "manifesto": {
+    "title": "Manifesto",
+    "short": "What VotZet declares to the world.",
+    "text": ""
+  },
+  "philosophy": {
+    "title": "Philosophy",
+    "short": "What we believe and why.",
+    "text": ""
+  },
+  "canon": {
+    "title": "Canon",
+    "short": "The fundamental provisions of VotZet.",
+    "text": ""
+  },
+  "constitution": {
+    "title": "Constitution",
+    "short": "The foundations of VotZet's structure.",
+    "text": ""
+  },
+  "codex": {
+    "title": "Codex",
+    "short": "The principles and rules of VotZet.",
+    "text": ""
+  },
+  "code": {
+    "title": "Code",
+    "short": "Practical standards of conduct.",
+    "text": ""
+  }
+}
