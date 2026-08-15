@@ -1,62 +1,127 @@
-// MAIN SYSTEM: Навигация и звуки VotZet
+// MAIN SYSTEM: Навигация и первоначальные звуки VotZet
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // AUDIO SYSTEM: Металлический crystalline звук
     let audioContext = null;
 
-    function playButtonSound(type) {
-        try {
-            if (!audioContext) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
-
-            if (audioContext.state === "suspended") {
-                audioContext.resume();
-            }
-
-            const now = audioContext.currentTime;
-
-            const oscillator = audioContext.createOscillator();
-            const gain = audioContext.createGain();
-
-            oscillator.type = "sine";
-
-            if (type === "discover") {
-                oscillator.frequency.setValueAtTime(880, now);
-                oscillator.frequency.exponentialRampToValueAtTime(1320, now + 0.16);
-            } else if (type === "explore") {
-                oscillator.frequency.setValueAtTime(660, now);
-                oscillator.frequency.exponentialRampToValueAtTime(990, now + 0.18);
-            } else if (type === "home") {
-                oscillator.frequency.setValueAtTime(740, now);
-                oscillator.frequency.exponentialRampToValueAtTime(1100, now + 0.15);
-            } else if (type === "language") {
-                oscillator.frequency.setValueAtTime(1000, now);
-                oscillator.frequency.exponentialRampToValueAtTime(1500, now + 0.12);
-            }
-
-            gain.gain.setValueAtTime(0.0001, now);
-            gain.gain.exponentialRampToValueAtTime(0.12, now + 0.015);
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.24);
-
-            oscillator.connect(gain);
-            gain.connect(audioContext.destination);
-
-            oscillator.start(now);
-            oscillator.stop(now + 0.25);
-
-        } catch (error) {
-            console.warn("VotZet audio unavailable:", error);
+    // AUDIO: Создание или восстановление AudioContext
+    function getAudioContext() {
+        if (!audioContext) {
+            audioContext =
+                new (window.AudioContext || window.webkitAudioContext)();
         }
+
+        if (audioContext.state === "suspended") {
+            audioContext.resume();
+        }
+
+        return audioContext;
     }
 
-    // HOME NAVIGATION: Переход на Discover
-    const discoverButton = document.getElementById("discoverButton");
+    // DISCOVER SOUND: Восходящий crystalline-сигнал
+    function playDiscoverSound() {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(620, now);
+        osc.frequency.exponentialRampToValueAtTime(980, now + 0.18);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.075, now + 0.015);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.58);
+    }
+
+    // EXPLORE SOUND: Трёхчастный crystalline-аккорд
+    function playExploreSound() {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+
+        [880, 1320, 1760].forEach((freq, index) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(freq, now);
+
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.exponentialRampToValueAtTime(
+                0.065 / (index + 1),
+                now + 0.01
+            );
+            gain.gain.exponentialRampToValueAtTime(
+                0.0001,
+                now + 0.45
+            );
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start(now);
+            osc.stop(now + 0.48);
+        });
+    }
+
+    // HOME SOUND: Нисходящий мягкий crystalline-сигнал
+    function playHomeSound() {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(740, now);
+        osc.frequency.exponentialRampToValueAtTime(420, now + 0.25);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.065, now + 0.015);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.40);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.43);
+    }
+
+    // LANGUAGE SOUND: Короткий высокий metallic-crystalline сигнал
+    function playLanguageSound() {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(1450, now);
+        osc.frequency.exponentialRampToValueAtTime(2100, now + 0.07);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.045, now + 0.006);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.18);
+    }
+
+    // HOME PAGE: Discover
+    const discoverButton =
+        document.getElementById("discoverButton");
 
     if (discoverButton) {
-        discoverButton.addEventListener("click", () => {
-            playButtonSound("discover");
+        discoverButton.addEventListener("click", event => {
+            event.preventDefault();
+            playDiscoverSound();
 
             setTimeout(() => {
                 window.location.href = "discover/";
@@ -64,12 +129,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // HOME NAVIGATION: Переход на Explore
-    const exploreButton = document.getElementById("exploreButton");
+    // HOME PAGE: Explore
+    const exploreButton =
+        document.getElementById("exploreButton");
 
     if (exploreButton) {
-        exploreButton.addEventListener("click", () => {
-            playButtonSound("explore");
+        exploreButton.addEventListener("click", event => {
+            event.preventDefault();
+            playExploreSound();
 
             setTimeout(() => {
                 window.location.href = "explore/";
@@ -77,19 +144,45 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // INNER NAVIGATION: Кнопки Home / Discover / Explore
-    document.querySelectorAll("[data-nav-sound]").forEach(button => {
-        button.addEventListener("click", () => {
-            playButtonSound(button.dataset.navSound);
-        });
-    });
-
-    // LANGUAGE BUTTON: Отдельный звук
-    const languageButton = document.getElementById("languageButton");
+    // LANGUAGE: Звук кнопки выбора языка
+    const languageButton =
+        document.getElementById("languageButton");
 
     if (languageButton) {
         languageButton.addEventListener("click", () => {
-            playButtonSound("language");
+            playLanguageSound();
         });
     }
+
+    // INTERNAL NAVIGATION: Home / Explore / Discover
+    document.querySelectorAll("[data-nav-sound]")
+        .forEach(link => {
+
+            link.addEventListener("click", event => {
+
+                const sound =
+                    link.dataset.navSound;
+
+                const destination =
+                    link.getAttribute("href");
+
+                event.preventDefault();
+
+                if (sound === "home") {
+                    playHomeSound();
+                }
+
+                if (sound === "discover") {
+                    playDiscoverSound();
+                }
+
+                if (sound === "explore") {
+                    playExploreSound();
+                }
+
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 120);
+            });
+        });
 });
