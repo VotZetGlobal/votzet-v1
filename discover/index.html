@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Познать VotZet</title>
+<title>Discover — VotZet</title>
 <link rel="stylesheet" href="../css/main.css">
 <style>
-/* DISCOVER: Основная страница */
+/* DISCOVER PAGE: Visual structure */
 body {
     margin: 0;
     background: #101113;
@@ -19,7 +19,7 @@ body {
         radial-gradient(circle at 50% 0%, rgba(201,162,39,0.05), transparent 40%),
         #101113;
 }
-/* NAVIGATION: Верхняя навигация */
+/* NAVIGATION: Internal navigation */
 .inner-nav {
     position: sticky;
     top: 0;
@@ -44,7 +44,7 @@ body {
 .inner-nav a:hover {
     color: #e4c44f;
 }
-/* HERO: Вступительная часть */
+/* HERO: Discover introduction */
 .discover-content {
     width: 100%;
     box-sizing: border-box;
@@ -90,7 +90,7 @@ body {
     letter-spacing: 3.5px;
     text-transform: uppercase;
 }
-/* FOUNDATION: Заголовок документов */
+/* FOUNDATION: Documents heading */
 .foundation-heading {
     width: 100%;
     max-width: 760px;
@@ -111,7 +111,7 @@ body {
     font-size: 13px;
     line-height: 1.65;
 }
-/* DOCUMENTS: Восемь документов */
+/* DOCUMENTS: Eight Discover documents */
 .discover-documents {
     width: 100%;
     max-width: 760px;
@@ -172,7 +172,7 @@ body {
     color: #f0d66b;
     transform: translateX(3px);
 }
-/* FOOTER: Нижняя часть */
+/* FOOTER: Bottom navigation */
 .discover-bottom {
     width: 100%;
     max-width: 680px;
@@ -201,7 +201,7 @@ body {
     background: #d8b83d;
     color: #101113;
 }
-/* MODAL: Просмотр документа */
+/* MODAL: Document viewer */
 .document-modal {
     position: fixed;
     inset: 0;
@@ -282,44 +282,44 @@ body {
 </head>
 <body>
 
-<!-- DISCOVER PAGE: Основной контейнер -->
+<!-- DISCOVER PAGE: Main container -->
 <div class="discover-page">
 
-<!-- NAVIGATION: Навигация -->
+<!-- NAVIGATION: Internal navigation -->
 <nav class="inner-nav">
-    <a href="../index.html" data-nav-sound="home" id="navHome">Главная</a>
-    <a href="../explore/" data-nav-sound="explore" id="navExplore">Исследовать</a>
-    <a href="./" data-nav-sound="discover" id="navDiscover">Познать</a>
+    <a href="../index.html" id="navHome"></a>
+    <a href="../explore/" id="navExplore"></a>
+    <a href="./" id="navDiscover"></a>
 </nav>
 
-<!-- HERO: Заголовок Discover -->
+<!-- HERO: Discover introduction -->
 <main class="discover-content">
     <section class="discover-intro">
-        <div class="section-label" id="discoverLabel">Познать</div>
-        <h1 class="discover-title" id="discoverTitle">Познать VotZet</h1>
-        <p class="discover-lead" id="discoverSubtitle">Кто мы. Во что верим. Зачем существуем. Каким видим мир, который хотим создать.</p>
+        <div class="section-label" id="discoverLabel"></div>
+        <h1 class="discover-title" id="discoverTitle"></h1>
+        <p class="discover-lead" id="discoverSubtitle"></p>
         <div class="discover-motto">That's your world.</div>
     </section>
 
-<!-- FOUNDATION: Заголовок библиотеки -->
+<!-- FOUNDATION: Documents heading -->
     <section class="foundation-heading">
-        <div class="section-label" id="foundationLabel">Наша основа</div>
-        <h2 id="foundationTitle">Восемь документов</h2>
-        <p id="foundationText">Идеи и принципы, на которых строится VotZet.</p>
+        <div class="section-label" id="foundationLabel"></div>
+        <h2 id="foundationTitle"></h2>
+        <p id="foundationText"></p>
     </section>
 
-<!-- DOCUMENTS: Ровно восемь утверждённых документов -->
+<!-- DOCUMENTS: Eight documents -->
     <section class="discover-documents" id="discoverDocuments"></section>
 
-<!-- FOOTER: Завершение страницы -->
+<!-- FOOTER: Bottom section -->
     <section class="discover-bottom">
-        <p id="discoverFooter">Познай основу. Познай идею. А затем выбери свой мир.</p>
-        <a class="back-home" href="../index.html" data-nav-sound="home" id="backHome">Главная</a>
+        <p id="discoverFooter"></p>
+        <a class="back-home" href="../index.html" id="backHome"></a>
     </section>
 </main>
 </div>
 
-<!-- DOCUMENT MODAL: Окно документа -->
+<!-- DOCUMENT MODAL: Document viewer -->
 <div class="document-modal" id="documentModal">
     <div class="document-modal-box">
         <div class="modal-top">
@@ -330,17 +330,21 @@ body {
     </div>
 </div>
 
-<!-- MAIN SYSTEM: Навигация и звук -->
+<!-- MAIN SYSTEM: Existing VotZet system -->
 <script src="../js/main.js"></script>
-
-<!-- LANGUAGE SYSTEM: Сохранённый язык -->
 <script src="../js/language.js"></script>
 
-<!-- DISCOVER CONTENT: Загрузка русской локализации -->
+<!-- DISCOVER SYSTEM: Load selected language -->
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const language = localStorage.getItem("votzet-language") || "ru";
+    /*
+    LANGUAGE:
+    The language is selected ONLY on the main page.
+    Discover uses that saved language.
+    */
+    const language =
+        localStorage.getItem("votzet-language") || "en";
 
     /*
     DOCUMENT ORDER:
@@ -366,91 +370,174 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
 
-        const response = await fetch(`../locales/${language}/discover.json`);
+        /*
+        COMMON:
+        Interface labels are loaded from common.json.
+        */
+        const commonResponse =
+            await fetch(`../locales/${language}/common.json`);
 
-        if (!response.ok) {
-            throw new Error(`Discover localization not found: ${language}`);
+        if (!commonResponse.ok) {
+            throw new Error(
+                `common.json not found for language: ${language}`
+            );
         }
 
-        const content = await response.json();
+        const common = await commonResponse.json();
+
+        /*
+        DISCOVER:
+        Page-specific content is loaded from discover.json.
+        */
+        const discoverResponse =
+            await fetch(`../locales/${language}/discover.json`);
+
+        if (!discoverResponse.ok) {
+            throw new Error(
+                `discover.json not found for language: ${language}`
+            );
+        }
+
+        const discover =
+            await discoverResponse.json();
 
         document.documentElement.lang = language;
 
-        /* CONTENT: Заголовок Discover */
-        if (content.title) {
-            document.getElementById("discoverTitle").textContent = content.title;
-        }
+        /*
+        INTERFACE:
+        Read labels from common.json.
+        */
+        document.getElementById("navHome").textContent =
+            common.home || "Home";
 
-        if (content.subtitle) {
-            document.getElementById("discoverSubtitle").textContent = content.subtitle;
-        }
+        document.getElementById("navExplore").textContent =
+            common.explore || "Explore";
 
-        /* DOCUMENTS: Формирование восьми карточек */
-        const documentsContainer =
+        document.getElementById("navDiscover").textContent =
+            common.discover || "Discover";
+
+        document.getElementById("discoverLabel").textContent =
+            common.discover || "Discover";
+
+        document.getElementById("foundationLabel").textContent =
+            common.ourFoundation || "Our Foundation";
+
+        document.getElementById("foundationTitle").textContent =
+            common.eightDocuments || "Eight Documents";
+
+        document.getElementById("foundationText").textContent =
+            common.foundationDescription ||
+            "The ideas and principles that form the foundation of VotZet.";
+
+        document.getElementById("discoverFooter").textContent =
+            common.discoverFooter ||
+            "Explore the foundation. Understand the idea. Then choose your world.";
+
+        document.getElementById("backHome").textContent =
+            common.home || "Home";
+
+        /*
+        DISCOVER CONTENT:
+        Title and subtitle come from discover.json.
+        */
+        document.getElementById("discoverTitle").textContent =
+            discover.title || "";
+
+        document.getElementById("discoverSubtitle").textContent =
+            discover.subtitle || "";
+
+        /*
+        DOCUMENTS:
+        Build exactly eight cards.
+        */
+        const container =
             document.getElementById("discoverDocuments");
 
-        documentsContainer.innerHTML = "";
+        container.innerHTML = "";
 
         documentOrder.forEach((key, index) => {
 
-            const documentData = content[key];
+            const documentData = discover[key];
 
             if (!documentData) {
-                console.warn(`Missing Discover document: ${key}`);
+                console.error(
+                    `VotZet Discover: missing document "${key}"`
+                );
                 return;
             }
 
-            const card = document.createElement("article");
+            const card =
+                document.createElement("article");
+
             card.className = "discover-card";
 
-            const number = String(index + 1).padStart(2, "0");
+            const number =
+                document.createElement("div");
 
-            const numberElement = document.createElement("div");
-            numberElement.className = "card-number";
-            numberElement.textContent = number;
+            number.className = "card-number";
 
-            const mainElement = document.createElement("div");
-            mainElement.className = "card-main";
+            number.textContent =
+                String(index + 1).padStart(2, "0");
 
-            const titleElement = document.createElement("h3");
-            titleElement.textContent = documentData.title || "";
+            const main =
+                document.createElement("div");
 
-            const shortElement = document.createElement("p");
-            shortElement.textContent = documentData.short || "";
+            main.className = "card-main";
 
-            mainElement.appendChild(titleElement);
-            mainElement.appendChild(shortElement);
+            const title =
+                document.createElement("h3");
 
-            const button = document.createElement("button");
-            button.className = "document-button";
+            title.textContent =
+                documentData.title || "";
+
+            const short =
+                document.createElement("p");
+
+            short.textContent =
+                documentData.short || "";
+
+            main.appendChild(title);
+            main.appendChild(short);
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "document-button";
+
             button.type = "button";
+
             button.textContent = "→";
-            button.setAttribute(
-                "aria-label",
-                `Читать ${documentData.title || ""}`
+
+            button.addEventListener(
+                "click",
+                () => openDocument(documentData)
             );
 
-            button.addEventListener("click", () => {
-                openDocument(documentData);
-            });
-
-            card.appendChild(numberElement);
-            card.appendChild(mainElement);
+            card.appendChild(number);
+            card.appendChild(main);
             card.appendChild(button);
 
-            documentsContainer.appendChild(card);
+            container.appendChild(card);
         });
 
     } catch (error) {
 
-        console.error("VotZet Discover error:", error);
+        console.error(
+            "VotZet Discover failed:",
+            error
+        );
 
     }
 
-    /* MODAL: Открытие документа */
+    /*
+    MODAL:
+    Open document text.
+    */
     function openDocument(documentData) {
 
-        document.getElementById("modalTitle").textContent =
+        document.getElementById("modalTitle")
+            .textContent =
             documentData.title || "";
 
         const modalText =
@@ -458,28 +545,38 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         modalText.innerHTML = "";
 
-        const text = documentData.text || "";
+        const text =
+            documentData.text || "";
 
         if (text.trim()) {
 
-            text.split(/\n\s*\n/).forEach(paragraph => {
+            text
+                .split(/\n\s*\n/)
+                .forEach(paragraph => {
 
-                const p = document.createElement("p");
-                p.textContent = paragraph.trim();
+                    const p =
+                        document.createElement("p");
 
-                modalText.appendChild(p);
+                    p.textContent =
+                        paragraph.trim();
 
-            });
+                    modalText.appendChild(p);
+
+                });
 
         }
 
         document.getElementById("documentModal")
             .classList.add("open");
 
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow =
+            "hidden";
     }
 
-    /* MODAL: Закрытие документа */
+    /*
+    MODAL:
+    Close document.
+    */
     function closeDocument() {
 
         document.getElementById("documentModal")
@@ -489,24 +586,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     document.getElementById("modalClose")
-        .addEventListener("click", closeDocument);
+        .addEventListener(
+            "click",
+            closeDocument
+        );
 
     document.getElementById("documentModal")
-        .addEventListener("click", event => {
+        .addEventListener(
+            "click",
+            event => {
 
-            if (event.target.id === "documentModal") {
+                if (
+                    event.target.id ===
+                    "documentModal"
+                ) {
+                    closeDocument();
+                }
+
+            }
+        );
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Escape") {
                 closeDocument();
             }
 
-        });
-
-    document.addEventListener("keydown", event => {
-
-        if (event.key === "Escape") {
-            closeDocument();
         }
-
-    });
+    );
 
 });
 </script>
