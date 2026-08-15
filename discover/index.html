@@ -6,7 +6,7 @@
 <title>Discover — VotZet</title>
 <link rel="stylesheet" href="../css/main.css">
 <style>
-/* DISCOVER PAGE: Visual structure */
+/* DISCOVER PAGE: Основная визуальная структура */
 body {
     margin: 0;
     background: #101113;
@@ -16,10 +16,10 @@ body {
 .discover-page {
     min-height: 100vh;
     background:
-        radial-gradient(circle at 50% 0%, rgba(201,162,39,0.05), transparent 40%),
+        radial-gradient(circle at 50% 0%, rgba(201,162,39,0.045), transparent 40%),
         #101113;
 }
-/* NAVIGATION: Internal navigation */
+/* NAVIGATION: Внутренняя навигация */
 .inner-nav {
     position: sticky;
     top: 0;
@@ -44,7 +44,7 @@ body {
 .inner-nav a:hover {
     color: #e4c44f;
 }
-/* HERO: Discover introduction */
+/* HERO: Вступительная часть Discover */
 .discover-content {
     width: 100%;
     box-sizing: border-box;
@@ -90,28 +90,33 @@ body {
     letter-spacing: 3.5px;
     text-transform: uppercase;
 }
-/* FOUNDATION: Documents heading */
+/* FOUNDATION: Заголовок восьми документов */
 .foundation-heading {
     width: 100%;
     max-width: 760px;
     margin: 68px auto 30px;
     text-align: center;
 }
+.foundation-heading .section-label {
+    margin-bottom: 16px;
+}
 .foundation-heading h2 {
     margin: 0;
     color: #eeeeeb;
-    font-size: 31px;
+    font-size: 30px;
     font-weight: 400;
+    line-height: 1.2;
     letter-spacing: 1px;
 }
 .foundation-heading p {
     max-width: 620px;
-    margin: 14px auto 0;
+    margin: 13px auto 0;
     color: #85868a;
     font-size: 13px;
-    line-height: 1.65;
+    font-weight: 400;
+    line-height: 1.55;
 }
-/* DOCUMENTS: Eight Discover documents */
+/* DOCUMENTS: Ровно восемь документов */
 .discover-documents {
     width: 100%;
     max-width: 760px;
@@ -172,7 +177,7 @@ body {
     color: #f0d66b;
     transform: translateX(3px);
 }
-/* FOOTER: Bottom navigation */
+/* FOOTER: Нижняя часть */
 .discover-bottom {
     width: 100%;
     max-width: 680px;
@@ -201,7 +206,7 @@ body {
     background: #d8b83d;
     color: #101113;
 }
-/* MODAL: Document viewer */
+/* MODAL: Окно документа */
 .document-modal {
     position: fixed;
     inset: 0;
@@ -277,49 +282,61 @@ body {
     .discover-lead {
         font-size: 17px;
     }
+    .foundation-heading h2 {
+        font-size: 27px;
+    }
+}
+/* MOBILE: Предотвращаем слишком длинные заголовки */
+@media (max-width: 340px) {
+    .discover-card h3 {
+        font-size: 17px;
+    }
+    .discover-card p {
+        font-size: 12px;
+    }
 }
 </style>
 </head>
 <body>
 
-<!-- DISCOVER PAGE: Main container -->
+<!-- DISCOVER PAGE: Контейнер страницы -->
 <div class="discover-page">
 
-<!-- NAVIGATION: Internal navigation -->
+<!-- NAVIGATION: Навигация с сохранением существующих звуков -->
 <nav class="inner-nav">
-    <a href="../index.html" id="navHome"></a>
-    <a href="../explore/" id="navExplore"></a>
-    <a href="./" id="navDiscover"></a>
+    <a href="../index.html" id="navHome" data-nav-sound="home"></a>
+    <a href="../explore/" id="navExplore" data-nav-sound="explore"></a>
+    <a href="./" id="navDiscover" data-nav-sound="discover"></a>
 </nav>
 
-<!-- HERO: Discover introduction -->
+<!-- HERO: Заголовок Discover -->
 <main class="discover-content">
     <section class="discover-intro">
-        <div class="section-label" id="discoverLabel"></div>
+        <div class="section-label" id="discoverLabel">VotZet</div>
         <h1 class="discover-title" id="discoverTitle"></h1>
         <p class="discover-lead" id="discoverSubtitle"></p>
         <div class="discover-motto">That's your world.</div>
     </section>
 
-<!-- FOUNDATION: Documents heading -->
+<!-- FOUNDATION: Восемь документов -->
     <section class="foundation-heading">
         <div class="section-label" id="foundationLabel"></div>
         <h2 id="foundationTitle"></h2>
         <p id="foundationText"></p>
     </section>
 
-<!-- DOCUMENTS: Eight documents -->
+<!-- DOCUMENTS: Контейнер восьми документов -->
     <section class="discover-documents" id="discoverDocuments"></section>
 
-<!-- FOOTER: Bottom section -->
+<!-- FOOTER: Нижняя навигация -->
     <section class="discover-bottom">
         <p id="discoverFooter"></p>
-        <a class="back-home" href="../index.html" id="backHome"></a>
+        <a class="back-home" href="../index.html" id="backHome" data-nav-sound="home"></a>
     </section>
 </main>
 </div>
 
-<!-- DOCUMENT MODAL: Document viewer -->
+<!-- DOCUMENT MODAL: Просмотр документа -->
 <div class="document-modal" id="documentModal">
     <div class="document-modal-box">
         <div class="modal-top">
@@ -330,33 +347,19 @@ body {
     </div>
 </div>
 
-<!-- MAIN SYSTEM: Existing VotZet system -->
+<!-- MAIN SYSTEM: Существующие системы сайта -->
 <script src="../js/main.js"></script>
 <script src="../js/language.js"></script>
 
-<!-- DISCOVER SYSTEM: Load selected language -->
+<!-- DISCOVER SYSTEM: Загрузка локализации и восьми документов -->
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
 
-    /*
-    LANGUAGE:
-    The language is selected ONLY on the main page.
-    Discover uses that saved language.
-    */
+    /* LANGUAGE: Используем язык, выбранный на главной */
     const language =
         localStorage.getItem("votzet-language") || "en";
 
-    /*
-    DOCUMENT ORDER:
-    01 Mission
-    02 Vision
-    03 Manifesto
-    04 Philosophy
-    05 Canon
-    06 Constitution
-    07 Codex
-    08 Code
-    */
+    /* DOCUMENT ORDER: Окончательный порядок восьми документов */
     const documentOrder = [
         "mission",
         "vision",
@@ -370,43 +373,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
 
-        /*
-        COMMON:
-        Interface labels are loaded from common.json.
-        */
-        const commonResponse =
-            await fetch(`../locales/${language}/common.json`);
+        /* LOCALIZATION: Загружаем common и discover одновременно */
+        const [commonResponse, discoverResponse] =
+            await Promise.all([
+                fetch(`../locales/${language}/common.json`),
+                fetch(`../locales/${language}/discover.json`)
+            ]);
 
-        if (!commonResponse.ok) {
+        /* FALLBACK: Если выбранный язык не имеет файлов */
+        if (!commonResponse.ok || !discoverResponse.ok) {
             throw new Error(
-                `common.json not found for language: ${language}`
+                `Localization files unavailable for language: ${language}`
             );
         }
 
-        const common = await commonResponse.json();
-
-        /*
-        DISCOVER:
-        Page-specific content is loaded from discover.json.
-        */
-        const discoverResponse =
-            await fetch(`../locales/${language}/discover.json`);
-
-        if (!discoverResponse.ok) {
-            throw new Error(
-                `discover.json not found for language: ${language}`
-            );
-        }
-
-        const discover =
-            await discoverResponse.json();
+        const [common, discover] =
+            await Promise.all([
+                commonResponse.json(),
+                discoverResponse.json()
+            ]);
 
         document.documentElement.lang = language;
 
-        /*
-        INTERFACE:
-        Read labels from common.json.
-        */
+        /* NAVIGATION: Подписи внутреннего меню */
         document.getElementById("navHome").textContent =
             common.home || "Home";
 
@@ -416,9 +405,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("navDiscover").textContent =
             common.discover || "Discover";
 
+        /* HERO LABEL: Вместо "Познать" показываем VotZet */
         document.getElementById("discoverLabel").textContent =
-            common.discover || "Discover";
+            "VotZet";
 
+        /* HERO CONTENT: Заголовок и описание */
+        document.getElementById("discoverTitle").textContent =
+            discover.title || "";
+
+        document.getElementById("discoverSubtitle").textContent =
+            discover.subtitle || "";
+
+        /* FOUNDATION: Заголовок восьми документов */
         document.getElementById("foundationLabel").textContent =
             common.ourFoundation || "Our Foundation";
 
@@ -429,6 +427,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             common.foundationDescription ||
             "The ideas and principles that form the foundation of VotZet.";
 
+        /* FOOTER: Нижний текст */
         document.getElementById("discoverFooter").textContent =
             common.discoverFooter ||
             "Explore the foundation. Understand the idea. Then choose your world.";
@@ -436,20 +435,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("backHome").textContent =
             common.home || "Home";
 
-        /*
-        DISCOVER CONTENT:
-        Title and subtitle come from discover.json.
-        */
-        document.getElementById("discoverTitle").textContent =
-            discover.title || "";
-
-        document.getElementById("discoverSubtitle").textContent =
-            discover.subtitle || "";
-
-        /*
-        DOCUMENTS:
-        Build exactly eight cards.
-        */
+        /* DOCUMENTS: Создаём все восемь карточек */
         const container =
             document.getElementById("discoverDocuments");
 
@@ -471,6 +457,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             card.className = "discover-card";
 
+            /* NUMBER: Номер документа */
             const number =
                 document.createElement("div");
 
@@ -479,6 +466,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             number.textContent =
                 String(index + 1).padStart(2, "0");
 
+            /* CONTENT: Название и краткое описание */
             const main =
                 document.createElement("div");
 
@@ -499,20 +487,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             main.appendChild(title);
             main.appendChild(short);
 
+            /* BUTTON: Открытие документа */
             const button =
                 document.createElement("button");
 
-            button.className =
-                "document-button";
-
+            button.className = "document-button";
             button.type = "button";
-
             button.textContent = "→";
 
-            button.addEventListener(
-                "click",
-                () => openDocument(documentData)
-            );
+            button.addEventListener("click", () => {
+                openDocument(documentData);
+            });
 
             card.appendChild(number);
             card.appendChild(main);
@@ -523,21 +508,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     } catch (error) {
 
+        /* ERROR: Не ломаем страницу при ошибке загрузки */
         console.error(
-            "VotZet Discover failed:",
+            "VotZet Discover loading error:",
             error
         );
-
     }
 
-    /*
-    MODAL:
-    Open document text.
-    */
+    /* MODAL: Открытие документа */
     function openDocument(documentData) {
 
-        document.getElementById("modalTitle")
-            .textContent =
+        document.getElementById("modalTitle").textContent =
             documentData.title || "";
 
         const modalText =
@@ -550,8 +531,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (text.trim()) {
 
-            text
-                .split(/\n\s*\n/)
+            text.split(/\n\s*\n/)
                 .forEach(paragraph => {
 
                     const p =
@@ -561,22 +541,25 @@ document.addEventListener("DOMContentLoaded", async () => {
                         paragraph.trim();
 
                     modalText.appendChild(p);
-
                 });
 
+        } else {
+
+            const p =
+                document.createElement("p");
+
+            p.textContent = "";
+
+            modalText.appendChild(p);
         }
 
         document.getElementById("documentModal")
             .classList.add("open");
 
-        document.body.style.overflow =
-            "hidden";
+        document.body.style.overflow = "hidden";
     }
 
-    /*
-    MODAL:
-    Close document.
-    */
+    /* MODAL: Закрытие */
     function closeDocument() {
 
         document.getElementById("documentModal")
@@ -586,36 +569,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     document.getElementById("modalClose")
-        .addEventListener(
-            "click",
-            closeDocument
-        );
+        .addEventListener("click", closeDocument);
 
     document.getElementById("documentModal")
-        .addEventListener(
-            "click",
-            event => {
+        .addEventListener("click", event => {
 
-                if (
-                    event.target.id ===
-                    "documentModal"
-                ) {
-                    closeDocument();
-                }
-
-            }
-        );
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Escape") {
+            if (event.target.id === "documentModal") {
                 closeDocument();
             }
+        });
 
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+            closeDocument();
         }
-    );
+    });
 
 });
 </script>
