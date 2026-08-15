@@ -3,20 +3,586 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 <title>VotZet</title>
 <meta name="description" content="VotZet — That's your world!">
+
 <link rel="stylesheet" href="css/main.css">
-<!-- PRELOAD: Заранее подготавливаем основные разделы VotZet -->
-<link rel="prefetch" href="discover/">
-<link rel="prefetch" href="explore/">
+
+<style>
+
+/* =========================================================
+   VOTZET SPA 1.0
+   Home / Discover / Explore
+   ========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #101113;
+    color: #f2f2ef;
+}
+
+/* VIEW SYSTEM */
+
+.votzet-view {
+    display: none;
+}
+
+.votzet-view.active {
+    display: block;
+}
+
+/* =========================================================
+   INTERNAL NAVIGATION
+   ========================================================= */
+
+.inner-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+    padding: 17px 12px;
+
+    background: rgba(8,9,10,0.94);
+
+    border-bottom:
+        1px solid rgba(201,162,39,0.18);
+
+    backdrop-filter: blur(12px);
+}
+
+.inner-nav button {
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #f2f2ef;
+
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.inner-nav button:hover {
+    color: #e4c44f;
+}
+
+
+/* =========================================================
+   DISCOVER
+   ========================================================= */
+
+#discoverView {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(201,162,39,0.045),
+            transparent 40%
+        ),
+        #101113;
+}
+
+.discover-content {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 58px 17px 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discover-intro {
+    width: 100%;
+    max-width: 760px;
+
+    text-align: center;
+}
+
+.section-label {
+    margin-bottom: 20px;
+
+    color: #d8b83d;
+
+    font-size: 9px;
+    font-weight: 400;
+
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.discover-title {
+    margin: 0 0 25px;
+
+    color: #f2f2ef;
+
+    font-size: 42px;
+    font-weight: 400;
+
+    line-height: 1.08;
+    letter-spacing: 1px;
+}
+
+.discover-lead {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    color: #deded9;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    line-height: 1.65;
+}
+
+.discover-motto {
+    margin-top: 30px;
+
+    color: #c9a227;
+
+    font-size: 10px;
+
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+}
+
+
+/* FOUNDATION */
+
+.foundation-heading {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 68px auto 30px;
+
+    text-align: center;
+}
+
+.foundation-heading .section-label {
+    margin-bottom: 16px;
+}
+
+.foundation-heading h2 {
+    margin: 0;
+
+    color: #eeeeeb;
+
+    font-size: 30px;
+    font-weight: 400;
+
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.foundation-heading p {
+    max-width: 620px;
+
+    margin: 13px auto 0;
+
+    color: #85868a;
+
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+
+/* DOCUMENTS */
+
+.discover-documents {
+    width: 100%;
+    max-width: 760px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.1);
+}
+
+.discover-card {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 21px 3px;
+
+    display: grid;
+
+    grid-template-columns:
+        30px minmax(0,1fr) 22px;
+
+    column-gap: 11px;
+
+    align-items: center;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.1);
+
+    transition:
+        background 0.25s ease;
+}
+
+.discover-card:hover {
+    background:
+        rgba(201,162,39,0.035);
+}
+
+.card-number {
+    align-self: start;
+
+    padding-top: 4px;
+
+    color: #c9a227;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.card-main {
+    min-width: 0;
+}
+
+.discover-card h3 {
+    margin: 0;
+
+    color: #eeeeeb;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    line-height: 1.25;
+    letter-spacing: 1.2px;
+}
+
+.discover-card p {
+    margin: 8px 0 0;
+
+    color: #85868a;
+
+    font-size: 12.5px;
+    line-height: 1.55;
+}
+
+.document-button {
+    width: 22px;
+    height: 22px;
+
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #c9a227;
+
+    font-size: 22px;
+    font-weight: 300;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   EXPLORE
+   ========================================================= */
+
+#exploreView {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212,175,55,0.035),
+            transparent 42%
+        ),
+        #111214;
+}
+
+.explore-content {
+    min-height: calc(100vh - 60px);
+
+    box-sizing: border-box;
+
+    padding: 80px 25px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.explore-title {
+    margin: 0 0 25px;
+
+    color: #f2f2ef;
+
+    font-size: clamp(38px,6vw,65px);
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+}
+
+.explore-description {
+    max-width: 700px;
+
+    color: #999999;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* WORLDS */
+
+.worlds {
+    width: 100%;
+    max-width: 1100px;
+
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 18px;
+}
+
+.world {
+    min-height: 160px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        1px solid rgba(255,225,90,0.28);
+
+    background:
+        rgba(255,255,255,0.015);
+
+    cursor: pointer;
+
+    transition:
+        0.3s ease;
+}
+
+.world:hover {
+    border-color: #ffe45c;
+
+    background:
+        rgba(255,225,90,0.06);
+
+    transform:
+        translateY(-4px);
+}
+
+.world-number {
+    margin-bottom: 15px;
+
+    color: #ffe45c;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.world-name {
+    color: #f2f2ef;
+
+    font-size: 19px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   DOCUMENT MODAL
+   ========================================================= */
+
+.document-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    background:
+        rgba(5,6,7,0.84);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+.document-modal.open {
+    display: flex;
+}
+
+.document-modal-box {
+    width: 100%;
+    max-width: 760px;
+
+    max-height: 90vh;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+
+    padding: 28px 20px 32px;
+
+    background: #17191b;
+
+    border:
+        1px solid rgba(201,162,39,0.32);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.55);
+}
+
+.modal-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    margin-bottom: 26px;
+}
+
+.modal-title {
+    margin: 0;
+
+    color: #f2f2ef;
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+
+    border:
+        1px solid rgba(201,162,39,0.4);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #d7b83e;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.modal-text {
+    color: #c9c9c5;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.modal-text p {
+    margin:
+        0 0 22px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:650px) {
+
+    .inner-nav {
+        gap: 20px;
+
+        padding:
+            16px 12px;
+    }
+
+    .worlds {
+        grid-template-columns:
+            1fr;
+
+        max-width:
+            450px;
+    }
+
+    .explore-content {
+        padding:
+            60px 16px;
+    }
+}
+
+</style>
 </head>
+
+
 <body>
-<!-- HOME: Главный экран VotZet -->
-<main id="home">
-    <!-- LANGUAGE SELECTOR: Выбор языка -->
-    <div class="language-selector" id="languageSelector">
-        <button class="language-button" id="languageButton">English ▾</button>
+
+
+<!-- =====================================================
+     HOME
+     ===================================================== -->
+
+<main
+    id="homeView"
+    class="votzet-view active"
+>
+
+    <!-- LANGUAGE SELECTOR -->
+
+    <div
+        class="language-selector"
+        id="languageSelector"
+    >
+
+        <button
+            class="language-button"
+            id="languageButton"
+        >
+            English ▾
+        </button>
+
+
         <div class="language-menu">
+
             <button class="language-option" data-language="en">English</button>
             <button class="language-option" data-language="es">Español</button>
             <button class="language-option" data-language="fr">Français</button>
@@ -42,24 +608,926 @@
             <button class="language-option" data-language="th">ไทย</button>
             <button class="language-option" data-language="hi">हिन्दी</button>
             <button class="language-option" data-language="ar">العربية</button>
+
         </div>
     </div>
 
-    <!-- HOME NAVIGATION: Главные кнопки -->
+
+    <!-- HOME BUTTONS -->
+
     <div class="home-buttons">
-        <button class="home-button" id="discoverButton">Discover</button>
-        <button class="home-button" id="exploreButton">Explore</button>
+
+        <button
+            class="home-button"
+            id="spaDiscoverButton"
+        >
+            Discover
+        </button>
+
+        <button
+            class="home-button"
+            id="spaExploreButton"
+        >
+            Explore
+        </button>
+
     </div>
+
 </main>
 
-<!-- MAIN JAVASCRIPT -->
-<script src="js/main.js"></script>
 
-<!-- LANGUAGE SYSTEM -->
+
+<!-- =====================================================
+     DISCOVER
+     ===================================================== -->
+
+<section
+    id="discoverView"
+    class="votzet-view"
+>
+
+<nav class="inner-nav">
+
+    <button data-route="home">
+        Home
+    </button>
+
+    <button data-route="explore">
+        Explore
+    </button>
+
+    <button data-route="discover">
+        Discover
+    </button>
+
+</nav>
+
+
+<main class="discover-content">
+
+<section class="discover-intro">
+
+    <div class="section-label">
+        VotZet
+    </div>
+
+    <h1
+        class="discover-title"
+        id="discoverTitle"
+    ></h1>
+
+    <p
+        class="discover-lead"
+        id="discoverSubtitle"
+    ></p>
+
+    <div class="discover-motto">
+        That's your world.
+    </div>
+
+</section>
+
+
+<section class="foundation-heading">
+
+    <div
+        class="section-label"
+        id="foundationLabel"
+    ></div>
+
+    <h2 id="foundationTitle"></h2>
+
+    <p id="foundationText"></p>
+
+</section>
+
+
+<section
+    class="discover-documents"
+    id="discoverDocuments"
+></section>
+
+</main>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPLORE
+     ===================================================== -->
+
+<section
+    id="exploreView"
+    class="votzet-view"
+>
+
+<nav class="inner-nav">
+
+    <button data-route="home">
+        Home
+    </button>
+
+    <button data-route="explore">
+        Explore
+    </button>
+
+    <button data-route="discover">
+        Discover
+    </button>
+
+</nav>
+
+
+<main class="explore-content">
+
+    <div class="section-label">
+        Explore
+    </div>
+
+    <h1 class="explore-title">
+        Choose Your World
+    </h1>
+
+    <p class="explore-description">
+        Every person is different.
+        Every life has different needs.
+        Explore the fundamental directions
+        of human life and discover the world
+        that speaks to you.
+    </p>
+
+
+    <div class="worlds">
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 01
+            </div>
+            <div class="world-name">
+                HEALTH
+            </div>
+        </article>
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 02
+            </div>
+            <div class="world-name">
+                LOVE
+            </div>
+        </article>
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 03
+            </div>
+            <div class="world-name">
+                STATUS
+            </div>
+        </article>
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 04
+            </div>
+            <div class="world-name">
+                SAFETY
+            </div>
+        </article>
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 05
+            </div>
+            <div class="world-name">
+                MEANING
+            </div>
+        </article>
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 06
+            </div>
+            <div class="world-name">
+                YOUTH
+            </div>
+        </article>
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 07
+            </div>
+            <div class="world-name">
+                FREEDOM
+            </div>
+        </article>
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 08
+            </div>
+            <div class="world-name">
+                CONNECTION
+            </div>
+        </article>
+
+        <article class="world">
+            <div class="world-number">
+                WORLD 09
+            </div>
+            <div class="world-name">
+                SELF
+            </div>
+        </article>
+
+    </div>
+
+</main>
+
+</section>
+
+
+
+<!-- =====================================================
+     DOCUMENT MODAL
+     ===================================================== -->
+
+<div
+    class="document-modal"
+    id="documentModal"
+>
+
+<div class="document-modal-box">
+
+    <div class="modal-top">
+
+        <h2
+            class="modal-title"
+            id="modalTitle"
+        ></h2>
+
+        <button
+            class="modal-close"
+            id="modalClose"
+            type="button"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <div
+        class="modal-text"
+        id="modalText"
+    ></div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     EXISTING SYSTEMS
+     ===================================================== -->
+
+<script src="js/main.js"></script>
 <script src="js/language.js"></script>
 
-<!-- EXPERIMENTAL ROUTER: SPA-навигация VotZet -->
-<script src="js/router.js"></script>
+
+
+<!-- =====================================================
+     SPA SYSTEM
+     ===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+
+/* -----------------------------------------------------
+   VIEWS
+   ----------------------------------------------------- */
+
+const homeView =
+    document.getElementById(
+        "homeView"
+    );
+
+const discoverView =
+    document.getElementById(
+        "discoverView"
+    );
+
+const exploreView =
+    document.getElementById(
+        "exploreView"
+    );
+
+
+function showView(name) {
+
+    document
+        .querySelectorAll(
+            ".votzet-view"
+        )
+        .forEach(view => {
+
+            view.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    if (name === "home") {
+
+        homeView.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if (name === "discover") {
+
+        discoverView.classList.add(
+            "active"
+        );
+
+        loadDiscover();
+
+    }
+
+
+    if (name === "explore") {
+
+        exploreView.classList.add(
+            "active"
+        );
+
+    }
+
+
+    window.scrollTo(
+        0,
+        0
+    );
+
+}
+
+
+
+/* -----------------------------------------------------
+   HOME BUTTONS
+   ----------------------------------------------------- */
+
+document
+    .getElementById(
+        "spaDiscoverButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            showView(
+                "discover"
+            );
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "spaExploreButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            showView(
+                "explore"
+            );
+
+        }
+    );
+
+
+
+/* -----------------------------------------------------
+   INTERNAL NAVIGATION
+   ----------------------------------------------------- */
+
+document
+    .querySelectorAll(
+        "[data-route]"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                showView(
+                    button.dataset.route
+                );
+
+            }
+        );
+
+    });
+
+
+
+/* -----------------------------------------------------
+   DISCOVER DOCUMENT ORDER
+   ----------------------------------------------------- */
+
+const documentOrder = [
+
+    "mission",
+    "vision",
+    "manifesto",
+    "philosophy",
+    "canon",
+    "constitution",
+    "codex",
+    "code"
+
+];
+
+
+
+/* -----------------------------------------------------
+   DISCOVER LOADER
+   ----------------------------------------------------- */
+
+let loadedDiscoverLanguage =
+    null;
+
+
+async function loadDiscover() {
+
+    const language =
+        localStorage.getItem(
+            "votzet-language"
+        ) || "en";
+
+
+    if (
+        loadedDiscoverLanguage ===
+        language
+    ) {
+        return;
+    }
+
+
+    try {
+
+        const [
+            commonResponse,
+            discoverResponse
+        ] =
+            await Promise.all([
+
+                fetch(
+                    `locales/${language}/common.json`
+                ),
+
+                fetch(
+                    `locales/${language}/discover.json`
+                )
+
+            ]);
+
+
+        if (
+            !commonResponse.ok ||
+            !discoverResponse.ok
+        ) {
+
+            throw new Error(
+                "Localization unavailable"
+            );
+
+        }
+
+
+        const [
+            common,
+            discover
+        ] =
+            await Promise.all([
+
+                commonResponse.json(),
+
+                discoverResponse.json()
+
+            ]);
+
+
+        document.documentElement.lang =
+            language;
+
+
+        /* DISCOVER HERO */
+
+        document
+            .getElementById(
+                "discoverTitle"
+            )
+            .textContent =
+                discover.title || "";
+
+
+        document
+            .getElementById(
+                "discoverSubtitle"
+            )
+            .textContent =
+                discover.subtitle || "";
+
+
+        /* FOUNDATION */
+
+        document
+            .getElementById(
+                "foundationLabel"
+            )
+            .textContent =
+                common.ourFoundation ||
+                "Our Foundation";
+
+
+        document
+            .getElementById(
+                "foundationTitle"
+            )
+            .textContent =
+                common.eightDocuments ||
+                "Eight Documents";
+
+
+        document
+            .getElementById(
+                "foundationText"
+            )
+            .textContent =
+                common.foundationDescription ||
+                "";
+
+
+        /* NAVIGATION */
+
+        discoverView
+            .querySelectorAll(
+                '[data-route="home"]'
+            )
+            .forEach(button => {
+
+                button.textContent =
+                    common.home ||
+                    "Home";
+
+            });
+
+
+        discoverView
+            .querySelectorAll(
+                '[data-route="explore"]'
+            )
+            .forEach(button => {
+
+                button.textContent =
+                    common.explore ||
+                    "Explore";
+
+            });
+
+
+        discoverView
+            .querySelectorAll(
+                '[data-route="discover"]'
+            )
+            .forEach(button => {
+
+                button.textContent =
+                    common.discover ||
+                    "Discover";
+
+            });
+
+
+        /* DOCUMENTS */
+
+        const container =
+            document.getElementById(
+                "discoverDocuments"
+            );
+
+
+        container.innerHTML =
+            "";
+
+
+        documentOrder.forEach(
+            (key,index) => {
+
+
+            const documentData =
+                discover[key];
+
+
+            if (!documentData) {
+                return;
+            }
+
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "discover-card";
+
+
+            const number =
+                document.createElement(
+                    "div"
+                );
+
+
+            number.className =
+                "card-number";
+
+
+            number.textContent =
+                String(index + 1)
+                    .padStart(
+                        2,
+                        "0"
+                    );
+
+
+            const main =
+                document.createElement(
+                    "div"
+                );
+
+
+            main.className =
+                "card-main";
+
+
+            const title =
+                document.createElement(
+                    "h3"
+                );
+
+
+            title.textContent =
+                documentData.title ||
+                "";
+
+
+            const short =
+                document.createElement(
+                    "p"
+                );
+
+
+            short.textContent =
+                documentData.short ||
+                "";
+
+
+            main.appendChild(
+                title
+            );
+
+
+            main.appendChild(
+                short
+            );
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.className =
+                "document-button";
+
+
+            button.type =
+                "button";
+
+
+            button.textContent =
+                "→";
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    openDocument(
+                        documentData
+                    );
+
+                }
+            );
+
+
+            card.appendChild(
+                number
+            );
+
+
+            card.appendChild(
+                main
+            );
+
+
+            card.appendChild(
+                button
+            );
+
+
+            container.appendChild(
+                card
+            );
+
+        });
+
+
+        loadedDiscoverLanguage =
+            language;
+
+
+    } catch(error) {
+
+        console.error(
+            "VotZet SPA Discover error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* -----------------------------------------------------
+   DOCUMENT MODAL
+   ----------------------------------------------------- */
+
+function openDocument(
+    documentData
+) {
+
+    document
+        .getElementById(
+            "modalTitle"
+        )
+        .textContent =
+            documentData.title ||
+            "";
+
+
+    const modalText =
+        document.getElementById(
+            "modalText"
+        );
+
+
+    modalText.innerHTML =
+        "";
+
+
+    const text =
+        documentData.text ||
+        "";
+
+
+    text
+        .split(/\n\s*\n/)
+        .filter(Boolean)
+        .forEach(paragraph => {
+
+
+            const p =
+                document.createElement(
+                    "p"
+                );
+
+
+            p.textContent =
+                paragraph.trim();
+
+
+            modalText.appendChild(
+                p
+            );
+
+        });
+
+
+    document
+        .getElementById(
+            "documentModal"
+        )
+        .classList.add(
+            "open"
+        );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+
+function closeDocument() {
+
+    document
+        .getElementById(
+            "documentModal"
+        )
+        .classList.remove(
+            "open"
+        );
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+
+document
+    .getElementById(
+        "modalClose"
+    )
+    .addEventListener(
+        "click",
+        closeDocument
+    );
+
+
+document
+    .getElementById(
+        "documentModal"
+    )
+    .addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target.id ===
+                "documentModal"
+            ) {
+
+                closeDocument();
+
+            }
+
+        }
+    );
+
+
+
+/* -----------------------------------------------------
+   INITIAL PRELOAD
+
+   Загружаем Discover после Home,
+   чтобы первое открытие было быстрее.
+   ----------------------------------------------------- */
+
+setTimeout(
+    () => {
+
+        loadDiscover();
+
+    },
+    200
+);
+
+
+});
+
+</script>
+
 
 </body>
 </html>
