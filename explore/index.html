@@ -6,6 +6,7 @@
 <title>Explore — VotZet</title>
 <meta name="description" content="Explore the worlds of VotZet.">
 <link rel="stylesheet" href="../css/main.css">
+
 <style>
 /* EXPLORE: Основной стиль страницы */
 body {
@@ -167,67 +168,107 @@ body {
 }
 </style>
 </head>
+
 <body>
 
 <!-- EXPLORE PAGE: Главная страница Worlds -->
 <div class="explore-page">
 
-<!-- NAVIGATION: Переход между основными разделами -->
+<!-- NAVIGATION: Переход между основными разделами со звуком -->
 <nav class="inner-nav">
-    <a href="../index.html">Home</a>
-    <a href="./">Explore</a>
-    <a href="../discover/">Discover</a>
+    <a href="../index.html" data-nav-sound="home">Home</a>
+    <a href="./" data-nav-sound="explore">Explore</a>
+    <a href="../discover/" data-nav-sound="discover">Discover</a>
 </nav>
 
 <!-- INTRO: Основное объяснение Explore -->
 <div class="explore-content">
     <div class="section-label">Explore</div>
     <h1 class="section-title">Choose Your World</h1>
-    <p class="section-description">Every person is different. Every life has different needs. Explore the fundamental directions of human life and discover the world that speaks to you.</p>
+    <p class="section-description">
+        Every person is different. Every life has different needs.
+        Explore the fundamental directions of human life
+        and discover the world that speaks to you.
+    </p>
 
 <!-- WORLDS: Временная структура будущих направлений Explore -->
     <div class="worlds">
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 01</div>
             <div class="world-name">HEALTH</div>
         </article>
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 02</div>
             <div class="world-name">LOVE</div>
         </article>
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 03</div>
             <div class="world-name">STATUS</div>
         </article>
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 04</div>
             <div class="world-name">SAFETY</div>
         </article>
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 05</div>
             <div class="world-name">MEANING</div>
         </article>
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 06</div>
             <div class="world-name">YOUTH</div>
         </article>
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 07</div>
             <div class="world-name">FREEDOM</div>
         </article>
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 08</div>
             <div class="world-name">CONNECTION</div>
         </article>
-        <article class="world">
+
+        <article class="world" data-world-sound>
             <div class="world-number">WORLD 09</div>
             <div class="world-name">SELF</div>
         </article>
+
     </div>
 
-<!-- FOOTER: Возврат на Home -->
-<a class="back-home" href="../index.html">Back to Home</a>
+<!-- FOOTER: Возврат на Home со звуком -->
+<a
+    class="back-home"
+    href="../index.html"
+    data-nav-sound="home"
+>
+    Back to Home
+</a>
+
 </div>
 </div>
+
+<!-- MAIN SYSTEM: Подключаем существующую звуковую систему -->
+<script src="../js/main.js"></script>
+
+<!-- EXPLORE SOUND: Звук выбора World -->
+<script>
+document.addEventListener("pointerdown", event => {
+    const world = event.target.closest("[data-world-sound]");
+
+    if (
+        world &&
+        typeof window.VotZetSound === "function"
+    ) {
+        window.VotZetSound("document");
+    }
+});
+</script>
+
 </body>
 </html>
