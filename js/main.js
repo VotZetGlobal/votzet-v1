@@ -1,36 +1,30 @@
-// MAIN SYSTEM: Звуки, навигация и предварительная загрузка VotZet
+// MAIN SYSTEM: Стабильные звуки, навигация и предварительная загрузка VotZet
 
 document.addEventListener("DOMContentLoaded", () => {
 
     let audioContext = null;
-    let audioUnlocked = false;
-    let currentSoundPromise = Promise.resolve();
 
-    // AUDIO CORE: Создание и гарантированная разблокировка AudioContext
-    async function ensureAudio() {
+    // AUDIO CORE: Создание AudioContext
+    function getAudioContext() {
         if (!audioContext) {
             audioContext =
                 new (window.AudioContext || window.webkitAudioContext)();
         }
 
         if (audioContext.state === "suspended") {
-            await audioContext.resume();
-        }
-
-        if (audioContext.state === "running") {
-            audioUnlocked = true;
+            audioContext.resume().catch(() => {});
         }
 
         return audioContext;
     }
 
-    // AUDIO CORE: Непосредственное создание звука после разблокировки
-    async function playTone(type) {
+    // AUDIO: Воспроизведение короткого сигнала
+    function playTone(type) {
         try {
-            const ctx = await ensureAudio();
+            const ctx = getAudioContext();
             const now = ctx.currentTime;
 
-            // EXPLORE SOUND: Трёхчастный crystalline-аккорд
+            // EXPLORE SOUND
             if (type === "explore") {
                 [880, 1320, 1760].forEach((freq, index) => {
                     const osc = ctx.createOscillator();
@@ -73,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // HOME SOUND
-            if (type === "home") {
+            else if (type === "home") {
                 osc.type = "sine";
                 osc.frequency.setValueAtTime(740, now);
                 osc.frequency.exponentialRampToValueAtTime(
@@ -83,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // LANGUAGE SOUND
-            if (type === "language") {
+            else if (type === "language") {
                 osc.type = "sine";
                 osc.frequency.setValueAtTime(1450, now);
                 osc.frequency.exponentialRampToValueAtTime(
@@ -93,13 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // DOCUMENT / WORLD SOUND
-            if (type === "document") {
+            else if (type === "document") {
                 osc.type = "triangle";
                 osc.frequency.setValueAtTime(1050, now);
                 osc.frequency.exponentialRampToValueAtTime(
                     1380,
                     now + 0.075
                 );
+            }
+
+            else {
+                return;
             }
 
             gain.gain.setValueAtTime(0.0001, now);
@@ -119,22 +117,16 @@ document.addEventListener("DOMContentLoaded", () => {
             osc.stop(now + 0.12);
 
         } catch (error) {
-            console.warn("VotZet audio unavailable:", error);
+            console.warn(
+                "VotZet audio unavailable:",
+                error
+            );
         }
     }
 
-    // SOUND START: Запоминаем Promise первого звука
-    function startSound(type) {
-        const wasLocked = !audioUnlocked;
-
-        currentSoundPromise = playTone(type);
-
-        return wasLocked;
-    }
-
-    // PUBLIC SOUND API: Используется Explore и другими страницами
+    // PUBLIC SOUND API: Для Explore и других страниц
     window.VotZetSound = function(type) {
-        currentSoundPromise = playTone(type);
+        playTone(type);
     };
 
     // PREFETCH CORE: Предварительная загрузка
@@ -156,8 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const link = document.createElement("link");
+
         link.rel = "prefetch";
         link.href = url;
+
         link.setAttribute(
             "data-votzet-prefetch",
             url
@@ -190,8 +184,13 @@ document.addEventListener("DOMContentLoaded", () => {
         warm("discover/");
         warm("explore/");
 
-        warm(`locales/${language}/common.json`);
-        warm(`locales/${language}/discover.json`);
+        warm(
+            `locales/${language}/common.json`
+        );
+
+        warm(
+            `locales/${language}/discover.json`
+        );
     }
 
     // DISCOVER PREFETCH
@@ -218,6 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(option => {
 
             option.addEventListener("click", () => {
+
                 const language =
                     option.dataset.language;
 
@@ -225,8 +225,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                warm(`locales/${language}/common.json`);
-                warm(`locales/${language}/discover.json`);
+                warm(
+                    `locales/${language}/common.json`
+                );
+
+                warm(
+                    `locales/${language}/discover.json`
+                );
             });
         });
 
@@ -235,34 +240,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("discoverButton");
 
     if (discoverButton) {
-        let firstAudioUnlock = false;
 
         discoverButton.addEventListener(
             "pointerdown",
             () => {
-                firstAudioUnlock =
-                    startSound("discover");
+                playTone("discover");
             }
         );
 
         discoverButton.addEventListener(
             "click",
-            async event => {
+            event => {
+
                 event.preventDefault();
-
-                // Только при самом первом звуковом взаимодействии
-                // ждём разблокировки AudioContext.
-                if (firstAudioUnlock) {
-                    await currentSoundPromise;
-
-                    setTimeout(() => {
-                        window.location.href =
-                            "discover/";
-                    }, 90);
-
-                    firstAudioUnlock = false;
-                    return;
-                }
 
                 window.location.href =
                     "discover/";
@@ -275,32 +265,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("exploreButton");
 
     if (exploreButton) {
-        let firstAudioUnlock = false;
 
         exploreButton.addEventListener(
             "pointerdown",
             () => {
-                firstAudioUnlock =
-                    startSound("explore");
+                playTone("explore");
             }
         );
 
         exploreButton.addEventListener(
             "click",
-            async event => {
+            event => {
+
                 event.preventDefault();
-
-                if (firstAudioUnlock) {
-                    await currentSoundPromise;
-
-                    setTimeout(() => {
-                        window.location.href =
-                            "explore/";
-                    }, 90);
-
-                    firstAudioUnlock = false;
-                    return;
-                }
 
                 window.location.href =
                     "explore/";
@@ -313,10 +290,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("languageButton");
 
     if (languageButton) {
+
         languageButton.addEventListener(
             "pointerdown",
             () => {
-                startSound("language");
+                playTone("language");
             }
         );
     }
@@ -326,37 +304,24 @@ document.addEventListener("DOMContentLoaded", () => {
         .querySelectorAll("[data-nav-sound]")
         .forEach(link => {
 
-            let firstAudioUnlock = false;
-
             link.addEventListener(
                 "pointerdown",
                 () => {
-                    firstAudioUnlock =
-                        startSound(
-                            link.dataset.navSound
-                        );
+
+                    playTone(
+                        link.dataset.navSound
+                    );
                 }
             );
 
             link.addEventListener(
                 "click",
-                async event => {
+                event => {
+
                     event.preventDefault();
 
                     const destination =
                         link.getAttribute("href");
-
-                    if (firstAudioUnlock) {
-                        await currentSoundPromise;
-
-                        setTimeout(() => {
-                            window.location.href =
-                                destination;
-                        }, 90);
-
-                        firstAudioUnlock = false;
-                        return;
-                    }
 
                     window.location.href =
                         destination;
@@ -364,15 +329,21 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
 
-    // DOCUMENT OPEN: Mission / Vision / Philosophy / Principles
+    // DOCUMENT OPEN
     document.addEventListener(
         "pointerdown",
         event => {
-            const button =
-                event.target.closest(".document-button");
 
-            if (button && !button.disabled) {
-                startSound("document");
+            const button =
+                event.target.closest(
+                    ".document-button"
+                );
+
+            if (
+                button &&
+                !button.disabled
+            ) {
+                playTone("document");
             }
         }
     );
@@ -381,11 +352,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener(
         "pointerdown",
         event => {
+
             const closeButton =
-                event.target.closest(".modal-close");
+                event.target.closest(
+                    ".modal-close"
+                );
 
             if (closeButton) {
-                startSound("home");
+                playTone("home");
             }
         }
     );
