@@ -3,25 +3,31 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     let audioContext = null;
+    let audioUnlocked = false;
+    let currentSoundPromise = Promise.resolve();
 
-    // AUDIO CORE: Создание AudioContext
-    function getAudioContext() {
+    // AUDIO CORE: Создание и гарантированная разблокировка AudioContext
+    async function ensureAudio() {
         if (!audioContext) {
             audioContext =
                 new (window.AudioContext || window.webkitAudioContext)();
         }
 
         if (audioContext.state === "suspended") {
-            audioContext.resume();
+            await audioContext.resume();
+        }
+
+        if (audioContext.state === "running") {
+            audioUnlocked = true;
         }
 
         return audioContext;
     }
 
-    // AUDIO HELPER: Создание короткого сигнала
-    function playTone(type) {
+    // AUDIO CORE: Непосредственное создание звука после разблокировки
+    async function playTone(type) {
         try {
-            const ctx = getAudioContext();
+            const ctx = await ensureAudio();
             const now = ctx.currentTime;
 
             // EXPLORE SOUND: Трёхчастный crystalline-аккорд
@@ -56,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
 
-            // DISCOVER SOUND: Восходящий сигнал
+            // DISCOVER SOUND
             if (type === "discover") {
                 osc.type = "triangle";
                 osc.frequency.setValueAtTime(620, now);
@@ -66,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
-            // HOME SOUND: Мягкий нисходящий сигнал
+            // HOME SOUND
             if (type === "home") {
                 osc.type = "sine";
                 osc.frequency.setValueAtTime(740, now);
@@ -76,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
-            // LANGUAGE SOUND: Высокий короткий сигнал
+            // LANGUAGE SOUND
             if (type === "language") {
                 osc.type = "sine";
                 osc.frequency.setValueAtTime(1450, now);
@@ -86,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
             }
 
-            // DOCUMENT SOUND: Открытие документа или World
+            // DOCUMENT / WORLD SOUND
             if (type === "document") {
                 osc.type = "triangle";
                 osc.frequency.setValueAtTime(1050, now);
@@ -113,19 +119,25 @@ document.addEventListener("DOMContentLoaded", () => {
             osc.stop(now + 0.12);
 
         } catch (error) {
-            console.warn(
-                "VotZet audio unavailable:",
-                error
-            );
+            console.warn("VotZet audio unavailable:", error);
         }
     }
 
-    // SOUND ROUTER: Доступ к звукам из других страниц VotZet
+    // SOUND START: Запоминаем Promise первого звука
+    function startSound(type) {
+        const wasLocked = !audioUnlocked;
+
+        currentSoundPromise = playTone(type);
+
+        return wasLocked;
+    }
+
+    // PUBLIC SOUND API: Используется Explore и другими страницами
     window.VotZetSound = function(type) {
-        playTone(type);
+        currentSoundPromise = playTone(type);
     };
 
-    // PREFETCH CORE: Предварительная загрузка страницы или JSON в кеш
+    // PREFETCH CORE: Предварительная загрузка
     function warm(url) {
         fetch(url, {
             method: "GET",
@@ -134,7 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }).catch(() => {});
     }
 
-    // PREFETCH LINK: Подсказка браузеру заранее подготовить страницу
     function prefetch(url) {
         if (
             document.querySelector(
@@ -144,15 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const link =
-            document.createElement("link");
-
-        link.rel =
-            "prefetch";
-
-        link.href =
-            url;
-
+        const link = document.createElement("link");
+        link.rel = "prefetch";
+        link.href = url;
         link.setAttribute(
             "data-votzet-prefetch",
             url
@@ -161,9 +166,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.head.appendChild(link);
     }
 
-    // PAGE DETECTION: Определяем текущую страницу
-    const path =
-        window.location.pathname;
+    // PAGE DETECTION
+    const path = window.location.pathname;
 
     const isHome =
         path === "/" ||
@@ -175,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isExplore =
         path.includes("/explore");
 
-    // HOME PREFETCH: На главной заранее готовим Discover, Explore и локализацию
+    // HOME PREFETCH
     if (isHome) {
         const language =
             localStorage.getItem("votzet-language") || "en";
@@ -186,16 +190,11 @@ document.addEventListener("DOMContentLoaded", () => {
         warm("discover/");
         warm("explore/");
 
-        warm(
-            `locales/${language}/common.json`
-        );
-
-        warm(
-            `locales/${language}/discover.json`
-        );
+        warm(`locales/${language}/common.json`);
+        warm(`locales/${language}/discover.json`);
     }
 
-    // DISCOVER PREFETCH: На Discover заранее готовим Home и Explore
+    // DISCOVER PREFETCH
     if (isDiscover) {
         warm("../index.html");
         warm("../explore/");
@@ -204,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
         prefetch("../explore/");
     }
 
-    // EXPLORE PREFETCH: На Explore заранее готовим Home и Discover
+    // EXPLORE PREFETCH
     if (isExplore) {
         warm("../index.html");
         warm("../discover/");
@@ -213,52 +212,57 @@ document.addEventListener("DOMContentLoaded", () => {
         prefetch("../discover/");
     }
 
-    // LANGUAGE PREFETCH: После выбора языка сразу готовим его JSON
+    // LANGUAGE PREFETCH
     document
         .querySelectorAll(".language-option")
         .forEach(option => {
 
-            option.addEventListener(
-                "click",
-                () => {
+            option.addEventListener("click", () => {
+                const language =
+                    option.dataset.language;
 
-                    const language =
-                        option.dataset.language;
-
-                    if (!language) {
-                        return;
-                    }
-
-                    warm(
-                        `locales/${language}/common.json`
-                    );
-
-                    warm(
-                        `locales/${language}/discover.json`
-                    );
-
-                    prefetch("discover/");
-                    prefetch("explore/");
+                if (!language) {
+                    return;
                 }
-            );
+
+                warm(`locales/${language}/common.json`);
+                warm(`locales/${language}/discover.json`);
+            });
         });
 
-    // HOME DISCOVER: Звук при касании и мгновенный переход
+    // HOME: DISCOVER
     const discoverButton =
         document.getElementById("discoverButton");
 
     if (discoverButton) {
+        let firstAudioUnlock = false;
+
         discoverButton.addEventListener(
             "pointerdown",
             () => {
-                playTone("discover");
+                firstAudioUnlock =
+                    startSound("discover");
             }
         );
 
         discoverButton.addEventListener(
             "click",
-            event => {
+            async event => {
                 event.preventDefault();
+
+                // Только при самом первом звуковом взаимодействии
+                // ждём разблокировки AudioContext.
+                if (firstAudioUnlock) {
+                    await currentSoundPromise;
+
+                    setTimeout(() => {
+                        window.location.href =
+                            "discover/";
+                    }, 90);
+
+                    firstAudioUnlock = false;
+                    return;
+                }
 
                 window.location.href =
                     "discover/";
@@ -266,22 +270,37 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
-    // HOME EXPLORE: Звук при касании и мгновенный переход
+    // HOME: EXPLORE
     const exploreButton =
         document.getElementById("exploreButton");
 
     if (exploreButton) {
+        let firstAudioUnlock = false;
+
         exploreButton.addEventListener(
             "pointerdown",
             () => {
-                playTone("explore");
+                firstAudioUnlock =
+                    startSound("explore");
             }
         );
 
         exploreButton.addEventListener(
             "click",
-            event => {
+            async event => {
                 event.preventDefault();
+
+                if (firstAudioUnlock) {
+                    await currentSoundPromise;
+
+                    setTimeout(() => {
+                        window.location.href =
+                            "explore/";
+                    }, 90);
+
+                    firstAudioUnlock = false;
+                    return;
+                }
 
                 window.location.href =
                     "explore/";
@@ -289,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
-    // LANGUAGE BUTTON: Звук открытия выбора языка
+    // LANGUAGE BUTTON
     const languageButton =
         document.getElementById("languageButton");
 
@@ -297,33 +316,47 @@ document.addEventListener("DOMContentLoaded", () => {
         languageButton.addEventListener(
             "pointerdown",
             () => {
-                playTone("language");
+                startSound("language");
             }
         );
     }
 
-    // INTERNAL NAVIGATION: Home / Explore / Discover на внутренних страницах
+    // INTERNAL NAVIGATION: Home / Explore / Discover
     document
         .querySelectorAll("[data-nav-sound]")
         .forEach(link => {
 
+            let firstAudioUnlock = false;
+
             link.addEventListener(
                 "pointerdown",
                 () => {
-                    playTone(
-                        link.dataset.navSound
-                    );
+                    firstAudioUnlock =
+                        startSound(
+                            link.dataset.navSound
+                        );
                 }
             );
 
             link.addEventListener(
                 "click",
-                event => {
-
+                async event => {
                     event.preventDefault();
 
                     const destination =
                         link.getAttribute("href");
+
+                    if (firstAudioUnlock) {
+                        await currentSoundPromise;
+
+                        setTimeout(() => {
+                            window.location.href =
+                                destination;
+                        }, 90);
+
+                        firstAudioUnlock = false;
+                        return;
+                    }
 
                     window.location.href =
                         destination;
@@ -331,34 +364,28 @@ document.addEventListener("DOMContentLoaded", () => {
             );
         });
 
-    // DOCUMENT OPEN: Звук открытия Mission / Vision / остальных документов
+    // DOCUMENT OPEN: Mission / Vision / Philosophy / Principles
     document.addEventListener(
         "pointerdown",
         event => {
-
             const button =
-                event.target.closest(
-                    ".document-button"
-                );
+                event.target.closest(".document-button");
 
-            if (button) {
-                playTone("document");
+            if (button && !button.disabled) {
+                startSound("document");
             }
         }
     );
 
-    // DOCUMENT CLOSE: Звук закрытия окна документа
+    // DOCUMENT CLOSE
     document.addEventListener(
         "pointerdown",
         event => {
-
             const closeButton =
-                event.target.closest(
-                    ".modal-close"
-                );
+                event.target.closest(".modal-close");
 
             if (closeButton) {
-                playTone("home");
+                startSound("home");
             }
         }
     );
