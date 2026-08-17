@@ -185,15 +185,30 @@ body {
     font-family: inherit;
     cursor: pointer;
     transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
 }
 
 .world-card:hover {
     border-color: rgba(201,162,39,0.65);
     background: rgba(201,162,39,0.035);
     transform: translateY(-3px);
+}
+
+/* Видимое подтверждение выбора */
+.world-card.selected {
+    border-color: rgba(228,196,79,0.95);
+    background: rgba(201,162,39,0.13);
+    box-shadow:
+        0 0 0 1px rgba(201,162,39,0.10),
+        0 0 20px rgba(201,162,39,0.13);
+    transform: translateY(-2px);
+}
+
+.world-card.selected h3 {
+    color: #e4c44f;
 }
 
 .world-number {
@@ -209,6 +224,7 @@ body {
     font-size: 19px;
     font-weight: 400;
     letter-spacing: 1px;
+    transition: color 0.18s ease;
 }
 
 .world-card p {
@@ -219,12 +235,20 @@ body {
 }
 
 /* =========================================================
-   WORLDS OF CHOICE
+   LEVELS OF CHOICE
    ========================================================= */
 
+/*
+   Раньше здесь было:
+   margin-top: 75px;
+   padding-top: 45px;
+
+   Теперь расстояние заметно меньше.
+*/
+
 .choice-section {
-    margin-top: 75px;
-    padding-top: 45px;
+    margin-top: 42px;
+    padding-top: 32px;
     border-top: 1px solid rgba(201,162,39,0.18);
 }
 
@@ -310,15 +334,28 @@ body {
     font-weight: 400;
     cursor: pointer;
     transition:
-        border-color 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
+        border-color 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
 }
 
 .matter-button:hover {
     border-color: rgba(201,162,39,0.65);
     background: rgba(201,162,39,0.04);
     transform: translateY(-2px);
+}
+
+/* Видимое подтверждение выбора второго уровня */
+.matter-button.selected {
+    border-color: rgba(228,196,79,0.95);
+    background: rgba(201,162,39,0.14);
+    color: #e4c44f;
+    box-shadow:
+        0 0 0 1px rgba(201,162,39,0.10),
+        0 0 18px rgba(201,162,39,0.13);
+    transform: translateY(-1px);
 }
 
 /* =========================================================
@@ -391,6 +428,7 @@ body {
    ========================================================= */
 
 @media (max-width: 650px) {
+
     .inner-nav {
         gap: 20px;
         padding: 16px 12px;
@@ -422,6 +460,11 @@ body {
     .detail-question {
         font-size: 25px;
     }
+
+    .choice-section {
+        margin-top: 34px;
+        padding-top: 27px;
+    }
 }
 
 </style>
@@ -431,7 +474,6 @@ body {
 
 <div class="explore-page">
 
-<!-- NAVIGATION -->
 <nav class="inner-nav">
     <a href="../index.html" id="navHome" data-nav-sound="home"></a>
     <a href="./" id="navExplore" data-nav-sound="explore"></a>
@@ -450,7 +492,10 @@ body {
 >
 
     <div class="explore-intro">
-        <div class="brand-label">VotZet</div>
+
+        <div class="brand-label">
+            VotZet
+        </div>
 
         <h1
             class="explore-title"
@@ -465,14 +510,18 @@ body {
         <div class="explore-motto">
             That's your world.
         </div>
+
     </div>
 
-    <!-- HUMAN WORLDS -->
+    <!-- YOUR WORLDS -->
     <section class="world-section">
 
         <div class="section-heading">
+
             <h2 id="humanWorldsTitle"></h2>
+
             <p id="humanWorldsSubtitle"></p>
+
         </div>
 
         <div
@@ -482,12 +531,15 @@ body {
 
     </section>
 
-    <!-- WORLDS OF CHOICE -->
+    <!-- LEVELS OF CHOICE -->
     <section class="world-section choice-section">
 
         <div class="section-heading">
+
             <h2 id="choiceWorldsTitle"></h2>
+
             <p id="choiceWorldsSubtitle"></p>
+
         </div>
 
         <div
@@ -498,12 +550,14 @@ body {
     </section>
 
     <section class="explore-bottom">
+
         <a
             class="back-home"
             href="../index.html"
             id="backHome"
             data-nav-sound="home"
         ></a>
+
     </section>
 
 </section>
@@ -603,11 +657,13 @@ body {
 </main>
 </div>
 
+
 <!-- MAIN SYSTEM -->
 <script src="../js/main.js"></script>
 
 <!-- LANGUAGE SYSTEM -->
 <script src="../js/language.js"></script>
+
 
 <!-- =====================================================
      EXPLORE 1.0 SYSTEM
@@ -619,65 +675,100 @@ document.addEventListener("DOMContentLoaded", async () => {
     const language =
         localStorage.getItem("votzet-language") || "en";
 
-    /* TEMPORARY ENGLISH FALLBACK:
-       Удалим его после создания locales/en/explore.json.
+    /*
+       Небольшая задержка нужна только для того,
+       чтобы пользователь успел увидеть подтверждение выбора.
     */
+    const SELECTION_DELAY = 130;
+
+    /* =====================================================
+       TEMPORARY ENGLISH FALLBACK
+       ===================================================== */
+
     const fallbackEnglish = {
+
         title: "Explore VotZet",
-        subtitle: "Choose your world. Then choose what matters to you.",
 
-        humanWorldsTitle: "Human Worlds",
+        subtitle:
+            "Find what matters to you.",
+
+        humanWorldsTitle:
+            "Your Worlds",
+
         humanWorldsSubtitle:
-            "Choose the world that feels closest to you or to the person you're exploring for.",
+            "Choose the one that feels closest to you or to the person you're exploring for.",
 
-        worldsOfChoiceTitle: "Worlds of Choice",
+        worldsOfChoiceTitle:
+            "Levels of Choice",
+
         worldsOfChoiceSubtitle:
-            "Another way to explore VotZet — through the way you choose.",
+            "A different approach to choosing — smart value or a premium level.",
 
         questions: {
-            default: "What matters to you?",
-            children: "What matters for them?",
-            family: "What matters to your family?",
-            pets: "What matters to them?",
-            choice: "What are you looking for?"
+
+            default:
+                "What matters to you?",
+
+            children:
+                "What matters for a child?",
+
+            family:
+                "What matters for a family?",
+
+            pets:
+                "What matters for your pet and life together?",
+
+            choice:
+                "What are you looking for?"
         },
 
-        solutions: "Solutions",
+        solutions:
+            "Solutions",
 
         worlds: {
+
             men: {
-                title: "Men",
-                short: "A man's world.",
+
+                title:
+                    "Men",
+
+                short:
+                    "Health, appearance, status, safety and development.",
+
                 items: [
                     "Health",
                     "Appearance",
-                    "Relationships",
                     "Status",
                     "Safety",
-                    "Freedom",
-                    "Purpose",
-                    "Growth"
+                    "Development"
                 ]
             },
 
             women: {
-                title: "Women",
-                short: "A woman's world.",
+
+                title:
+                    "Women",
+
+                short:
+                    "Health, beauty, status, safety and development.",
+
                 items: [
                     "Health",
                     "Beauty",
-                    "Relationships",
                     "Status",
                     "Safety",
-                    "Freedom",
-                    "Purpose",
-                    "Growth"
+                    "Development"
                 ]
             },
 
             children: {
-                title: "Children",
-                short: "A child's world.",
+
+                title:
+                    "Children",
+
+                short:
+                    "Health, learning, development, safety and more.",
+
                 items: [
                     "Health",
                     "Safety",
@@ -685,43 +776,55 @@ document.addEventListener("DOMContentLoaded", async () => {
                     "Development",
                     "Creativity",
                     "Play",
-                    "Comfort",
-                    "Well-being"
+                    "Comfort"
                 ]
             },
 
             seniors: {
-                title: "Seniors",
-                short: "The world of older generations.",
+
+                title:
+                    "Seniors",
+
+                short:
+                    "Health, independence, comfort, connection and active living.",
+
                 items: [
                     "Health",
                     "Safety",
                     "Independence",
                     "Mobility",
                     "Comfort",
-                    "Social",
-                    "Activities",
-                    "Well-being"
+                    "Communication",
+                    "Activities"
                 ]
             },
 
             family: {
-                title: "Family",
-                short: "A family's world.",
+
+                title:
+                    "Family",
+
+                short:
+                    "Home, safety, comfort and time together.",
+
                 items: [
                     "Health",
                     "Safety",
                     "Home",
-                    "Relationships",
                     "Comfort",
-                    "Travel",
-                    "Leisure"
+                    "Time Together",
+                    "Travel"
                 ]
             },
 
             pets: {
-                title: "Pets & Companions",
-                short: "The world you share with your companions.",
+
+                title:
+                    "Pets & Companions",
+
+                short:
+                    "Health, care, comfort and life together.",
+
                 items: [
                     "Health",
                     "Nutrition",
@@ -729,18 +832,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                     "Care",
                     "Comfort",
                     "Play",
-                    "Travel",
+                    "Travel Together",
                     "Smart Pet Life"
                 ]
             },
 
             social: {
-                title: "Social",
-                short: "Friendship, love, communication and life with others.",
+
+                title:
+                    "Social",
+
+                short:
+                    "Friends, loved ones, shared interests and time together.",
+
                 items: [
-                    "Friendship",
-                    "Love",
-                    "Communication",
+                    "For Friends",
+                    "For Loved Ones",
+                    "Stay Connected",
                     "Shared Interests",
                     "Activities"
                 ]
@@ -748,9 +856,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         },
 
         choiceWorlds: {
+
             smartValue: {
-                title: "Smart Value",
-                short: "More value. Smarter choice.",
+
+                title:
+                    "Smart Value",
+
+                short:
+                    "More for your money.",
+
                 items: [
                     "Health & Wellness",
                     "Personal",
@@ -760,21 +874,25 @@ document.addEventListener("DOMContentLoaded", async () => {
                     "Travel",
                     "Work & Study",
                     "Pets",
-                    "Lifestyle",
                     "Gifts",
                     "Hobbies & Leisure"
                 ]
             },
 
             premium: {
-                title: "Premium",
-                short: "When the difference matters.",
+
+                title:
+                    "Premium",
+
+                short:
+                    "When you want more than just quality.",
+
                 items: [
                     "Personal",
                     "Style",
                     "Technology",
                     "Home",
-                    "Wellness",
+                    "Health & Recovery",
                     "Travel",
                     "Gifts",
                     "Discoveries"
@@ -782,6 +900,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         }
     };
+
+
+    /* =====================================================
+       ORDER
+       ===================================================== */
 
     const humanOrder = [
         "men",
@@ -798,9 +921,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         "premium"
     ];
 
+
+    /* =====================================================
+       STATE
+       ===================================================== */
+
     let explore = null;
     let currentWorld = null;
     let currentKind = null;
+    let transitionLocked = false;
+
+
+    /* =====================================================
+       ELEMENTS
+       ===================================================== */
 
     const landingView =
         document.getElementById("landingView");
@@ -811,7 +945,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const solutionsView =
         document.getElementById("solutionsView");
 
-    /* VIEW SYSTEM */
+
+    /* =====================================================
+       VIEW SYSTEM
+       ===================================================== */
+
     function showView(view) {
 
         document
@@ -825,18 +963,63 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.scrollTo(0, 0);
     }
 
-    /* SOUND HELPER */
+
+    /* =====================================================
+       SOUND
+       ===================================================== */
+
     function playInterfaceSound() {
 
         if (
-            typeof window.VotZetSound ===
-            "function"
+            typeof window.VotZetSound === "function"
         ) {
             window.VotZetSound("document");
         }
     }
 
-    /* LOAD COMMON NAVIGATION */
+
+    /* =====================================================
+       VISUAL SELECTION
+       ===================================================== */
+
+    function confirmSelection(
+        element,
+        callback
+    ) {
+
+        if (transitionLocked) {
+            return;
+        }
+
+        transitionLocked = true;
+
+        /*
+           ВАЖНО:
+           звук запускается только после click.
+           Поэтому обычное касание при прокрутке
+           больше не должно вызывать звук.
+        */
+
+        playInterfaceSound();
+
+        element.classList.add("selected");
+
+        setTimeout(() => {
+
+            element.classList.remove("selected");
+
+            transitionLocked = false;
+
+            callback();
+
+        }, SELECTION_DELAY);
+    }
+
+
+    /* =====================================================
+       COMMON NAVIGATION
+       ===================================================== */
+
     async function loadCommon() {
 
         try {
@@ -847,7 +1030,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 );
 
             if (!response.ok) {
-                throw new Error("common.json unavailable");
+                throw new Error(
+                    "common.json unavailable"
+                );
             }
 
             const common =
@@ -869,23 +1054,33 @@ document.addEventListener("DOMContentLoaded", async () => {
                 .textContent =
                 common.home || "Home";
 
-        } catch (error) {
+        }
+
+        catch (error) {
 
             document.getElementById("navHome")
-                .textContent = "Home";
+                .textContent =
+                "Home";
 
             document.getElementById("navExplore")
-                .textContent = "Explore";
+                .textContent =
+                "Explore";
 
             document.getElementById("navDiscover")
-                .textContent = "Discover";
+                .textContent =
+                "Discover";
 
             document.getElementById("backHome")
-                .textContent = "Home";
+                .textContent =
+                "Home";
         }
     }
 
-    /* LOAD EXPLORE DATA */
+
+    /* =====================================================
+       LOAD EXPLORE DATA
+       ===================================================== */
+
     async function loadExplore() {
 
         try {
@@ -896,6 +1091,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 );
 
             if (!response.ok) {
+
                 throw new Error(
                     `explore.json unavailable: ${language}`
                 );
@@ -904,7 +1100,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             explore =
                 await response.json();
 
-        } catch (error) {
+        }
+
+        catch (error) {
 
             console.warn(
                 "VotZet Explore fallback:",
@@ -916,34 +1114,44 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    /* RENDER LANDING */
+
+    /* =====================================================
+       LANDING
+       ===================================================== */
+
     function renderLanding() {
 
         document.documentElement.lang =
             language;
 
-        document.getElementById("exploreTitle")
-            .textContent =
+        document.getElementById(
+            "exploreTitle"
+        ).textContent =
             explore.title || "Explore VotZet";
 
-        document.getElementById("exploreSubtitle")
-            .textContent =
+        document.getElementById(
+            "exploreSubtitle"
+        ).textContent =
             explore.subtitle || "";
 
-        document.getElementById("humanWorldsTitle")
-            .textContent =
-            explore.humanWorldsTitle || "Human Worlds";
+        document.getElementById(
+            "humanWorldsTitle"
+        ).textContent =
+            explore.humanWorldsTitle || "Your Worlds";
 
-        document.getElementById("humanWorldsSubtitle")
-            .textContent =
+        document.getElementById(
+            "humanWorldsSubtitle"
+        ).textContent =
             explore.humanWorldsSubtitle || "";
 
-        document.getElementById("choiceWorldsTitle")
-            .textContent =
-            explore.worldsOfChoiceTitle || "Worlds of Choice";
+        document.getElementById(
+            "choiceWorldsTitle"
+        ).textContent =
+            explore.worldsOfChoiceTitle || "Levels of Choice";
 
-        document.getElementById("choiceWorldsSubtitle")
-            .textContent =
+        document.getElementById(
+            "choiceWorldsSubtitle"
+        ).textContent =
             explore.worldsOfChoiceSubtitle || "";
 
         const humanGrid =
@@ -975,6 +1183,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 humanGrid.appendChild(card);
             }
         );
+
 
         const choiceGrid =
             document.getElementById(
@@ -1008,7 +1217,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-    /* CREATE WORLD CARD */
+
+    /* =====================================================
+       CREATE WORLD CARD
+       ===================================================== */
+
     function createWorldCard(
         world,
         number,
@@ -1019,8 +1232,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         const card =
             document.createElement("button");
 
-        card.type = "button";
-        card.className = "world-card";
+        card.type =
+            "button";
+
+        card.className =
+            "world-card";
+
 
         if (number) {
 
@@ -1038,11 +1255,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
         }
 
+
         const title =
             document.createElement("h3");
 
         title.textContent =
             world.title || "";
+
 
         const short =
             document.createElement("p");
@@ -1050,28 +1269,41 @@ document.addEventListener("DOMContentLoaded", async () => {
         short.textContent =
             world.short || "";
 
+
         card.appendChild(title);
         card.appendChild(short);
 
-        card.addEventListener(
-            "pointerdown",
-            playInterfaceSound
-        );
+
+        /*
+           НЕТ pointerdown.
+           Это принципиально важно для мобильного scroll.
+        */
 
         card.addEventListener(
             "click",
             () => {
-                openWorld(
-                    kind,
-                    key
+
+                confirmSelection(
+                    card,
+                    () => {
+                        openWorld(
+                            kind,
+                            key
+                        );
+                    }
                 );
             }
         );
 
+
         return card;
     }
 
-    /* OPEN WORLD */
+
+    /* =====================================================
+       OPEN WORLD
+       ===================================================== */
+
     function openWorld(
         kind,
         key
@@ -1083,43 +1315,53 @@ document.addEventListener("DOMContentLoaded", async () => {
         currentWorld =
             key;
 
+
         const world =
             kind === "human"
                 ? explore.worlds[key]
                 : explore.choiceWorlds[key];
+
 
         document.getElementById(
             "detailWorldName"
         ).textContent =
             world.title || "";
 
+
         let question =
             explore.questions.default;
 
+
         if (kind === "choice") {
+
             question =
                 explore.questions.choice;
         }
 
         else if (key === "children") {
+
             question =
                 explore.questions.children;
         }
 
         else if (key === "family") {
+
             question =
                 explore.questions.family;
         }
 
         else if (key === "pets") {
+
             question =
                 explore.questions.pets;
         }
+
 
         document.getElementById(
             "detailQuestion"
         ).textContent =
             question || "";
+
 
         const grid =
             document.getElementById(
@@ -1127,6 +1369,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
 
         grid.innerHTML = "";
+
 
         (world.items || [])
             .forEach(item => {
@@ -1145,30 +1388,45 @@ document.addEventListener("DOMContentLoaded", async () => {
                 button.textContent =
                     item;
 
-                button.addEventListener(
-                    "pointerdown",
-                    playInterfaceSound
-                );
+
+                /*
+                   Здесь тоже только click.
+                   Прокрутка больше не должна
+                   воспроизводить звук.
+                */
 
                 button.addEventListener(
                     "click",
                     () => {
-                        openSolutions(
-                            world,
-                            item
+
+                        confirmSelection(
+                            button,
+                            () => {
+
+                                openSolutions(
+                                    world,
+                                    item
+                                );
+                            }
                         );
                     }
                 );
+
 
                 grid.appendChild(
                     button
                 );
             });
 
+
         showView(detailView);
     }
 
-    /* OPEN SOLUTIONS PLACEHOLDER */
+
+    /* =====================================================
+       SOLUTIONS
+       ===================================================== */
+
     function openSolutions(
         world,
         selected
@@ -1199,44 +1457,45 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
     }
 
-    /* BACK BUTTONS */
-    document.getElementById(
-        "backToWorlds"
-    ).addEventListener(
-        "pointerdown",
-        playInterfaceSound
-    );
+
+    /* =====================================================
+       BACK BUTTONS
+       ===================================================== */
 
     document.getElementById(
         "backToWorlds"
     ).addEventListener(
         "click",
         () => {
+
+            playInterfaceSound();
+
             showView(
                 landingView
             );
         }
     );
 
-    document.getElementById(
-        "backToDetails"
-    ).addEventListener(
-        "pointerdown",
-        playInterfaceSound
-    );
 
     document.getElementById(
         "backToDetails"
     ).addEventListener(
         "click",
         () => {
+
+            playInterfaceSound();
+
             showView(
                 detailView
             );
         }
     );
 
-    /* INITIALIZE */
+
+    /* =====================================================
+       INITIALIZE
+       ===================================================== */
+
     await Promise.all([
         loadCommon(),
         loadExplore()
