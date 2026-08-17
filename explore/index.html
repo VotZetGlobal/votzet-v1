@@ -479,10 +479,31 @@ body {
 
 <div class="explore-page">
 
+<!-- =====================================================
+     NAVIGATION
+     Главная → Познать → Исследовать
+     ===================================================== -->
+
 <nav class="inner-nav">
-    <a href="../index.html" id="navHome" data-nav-sound="home"></a>
-    <a href="./" id="navExplore" data-nav-sound="explore"></a>
-    <a href="../discover/" id="navDiscover" data-nav-sound="discover"></a>
+
+    <a
+        href="../index.html"
+        id="navHome"
+        data-nav-sound="home"
+    ></a>
+
+    <a
+        href="../discover/"
+        id="navDiscover"
+        data-nav-sound="discover"
+    ></a>
+
+    <a
+        href="./"
+        id="navExplore"
+        data-nav-sound="explore"
+    ></a>
+
 </nav>
 
 <main class="explore-content">
@@ -985,13 +1006,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 .textContent =
                 common.home || "Home";
 
-            document.getElementById("navExplore")
-                .textContent =
-                common.explore || "Explore";
-
             document.getElementById("navDiscover")
                 .textContent =
                 common.discover || "Discover";
+
+            document.getElementById("navExplore")
+                .textContent =
+                common.explore || "Explore";
 
             document.getElementById("backHome")
                 .textContent =
@@ -1005,13 +1026,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 .textContent =
                 "Home";
 
-            document.getElementById("navExplore")
-                .textContent =
-                "Explore";
-
             document.getElementById("navDiscover")
                 .textContent =
                 "Discover";
+
+            document.getElementById("navExplore")
+                .textContent =
+                "Explore";
 
             document.getElementById("backHome")
                 .textContent =
