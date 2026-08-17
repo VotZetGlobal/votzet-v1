@@ -171,6 +171,7 @@ body {
 }
 
 .world-card {
+    -webkit-tap-highlight-color: transparent;
     min-height: 135px;
     box-sizing: border-box;
     padding: 25px 22px;
@@ -197,13 +198,16 @@ body {
     transform: translateY(-3px);
 }
 
-/* Видимое подтверждение выбора */
+.world-card:focus {
+    outline: none;
+}
+
 .world-card.selected {
     border-color: rgba(228,196,79,0.95);
-    background: rgba(201,162,39,0.13);
+    background: rgba(201,162,39,0.22);
     box-shadow:
         0 0 0 1px rgba(201,162,39,0.10),
-        0 0 20px rgba(201,162,39,0.13);
+        0 0 20px rgba(201,162,39,0.16);
     transform: translateY(-2px);
 }
 
@@ -237,14 +241,6 @@ body {
 /* =========================================================
    LEVELS OF CHOICE
    ========================================================= */
-
-/*
-   Раньше здесь было:
-   margin-top: 75px;
-   padding-top: 45px;
-
-   Теперь расстояние заметно меньше.
-*/
 
 .choice-section {
     margin-top: 42px;
@@ -288,6 +284,7 @@ body {
 }
 
 .back-button {
+    -webkit-tap-highlight-color: transparent;
     flex: 0 0 auto;
     width: 36px;
     height: 36px;
@@ -299,6 +296,10 @@ body {
     font-family: inherit;
     font-size: 19px;
     cursor: pointer;
+}
+
+.back-button:focus {
+    outline: none;
 }
 
 .detail-name {
@@ -324,6 +325,7 @@ body {
 }
 
 .matter-button {
+    -webkit-tap-highlight-color: transparent;
     min-height: 74px;
     padding: 18px;
     border: 1px solid rgba(255,255,255,0.10);
@@ -347,14 +349,17 @@ body {
     transform: translateY(-2px);
 }
 
-/* Видимое подтверждение выбора второго уровня */
+.matter-button:focus {
+    outline: none;
+}
+
 .matter-button.selected {
     border-color: rgba(228,196,79,0.95);
-    background: rgba(201,162,39,0.14);
+    background: rgba(201,162,39,0.22);
     color: #e4c44f;
     box-shadow:
         0 0 0 1px rgba(201,162,39,0.10),
-        0 0 18px rgba(201,162,39,0.13);
+        0 0 18px rgba(201,162,39,0.16);
     transform: translateY(-1px);
 }
 
@@ -666,7 +671,7 @@ body {
 
 
 <!-- =====================================================
-     EXPLORE 1.0 SYSTEM
+     EXPLORE SYSTEM
      ===================================================== -->
 
 <script>
@@ -675,15 +680,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const language =
         localStorage.getItem("votzet-language") || "en";
 
-    /*
-       Небольшая задержка нужна только для того,
-       чтобы пользователь успел увидеть подтверждение выбора.
-    */
     const SELECTION_DELAY = 130;
-
-    /* =====================================================
-       TEMPORARY ENGLISH FALLBACK
-       ===================================================== */
 
     const fallbackEnglish = {
 
@@ -705,7 +702,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             "A different approach to choosing — smart value or a premium level.",
 
         questions: {
-
             default:
                 "What matters to you?",
 
@@ -728,7 +724,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         worlds: {
 
             men: {
-
                 title:
                     "Men",
 
@@ -745,7 +740,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             },
 
             women: {
-
                 title:
                     "Women",
 
@@ -762,7 +756,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             },
 
             children: {
-
                 title:
                     "Children",
 
@@ -781,7 +774,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             },
 
             seniors: {
-
                 title:
                     "Seniors",
 
@@ -800,7 +792,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             },
 
             family: {
-
                 title:
                     "Family",
 
@@ -818,7 +809,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             },
 
             pets: {
-
                 title:
                     "Pets & Companions",
 
@@ -838,7 +828,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             },
 
             social: {
-
                 title:
                     "Social",
 
@@ -858,7 +847,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         choiceWorlds: {
 
             smartValue: {
-
                 title:
                     "Smart Value",
 
@@ -880,7 +868,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             },
 
             premium: {
-
                 title:
                     "Premium",
 
@@ -901,11 +888,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
-
-    /* =====================================================
-       ORDER
-       ===================================================== */
-
     const humanOrder = [
         "men",
         "women",
@@ -921,20 +903,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         "premium"
     ];
 
-
-    /* =====================================================
-       STATE
-       ===================================================== */
-
     let explore = null;
-    let currentWorld = null;
-    let currentKind = null;
     let transitionLocked = false;
-
-
-    /* =====================================================
-       ELEMENTS
-       ===================================================== */
 
     const landingView =
         document.getElementById("landingView");
@@ -944,11 +914,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const solutionsView =
         document.getElementById("solutionsView");
-
-
-    /* =====================================================
-       VIEW SYSTEM
-       ===================================================== */
 
     function showView(view) {
 
@@ -963,11 +928,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.scrollTo(0, 0);
     }
 
-
-    /* =====================================================
-       SOUND
-       ===================================================== */
-
     function playInterfaceSound() {
 
         if (
@@ -976,11 +936,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             window.VotZetSound("document");
         }
     }
-
-
-    /* =====================================================
-       VISUAL SELECTION
-       ===================================================== */
 
     function confirmSelection(
         element,
@@ -992,13 +947,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         transitionLocked = true;
-
-        /*
-           ВАЖНО:
-           звук запускается только после click.
-           Поэтому обычное касание при прокрутке
-           больше не должно вызывать звук.
-        */
 
         playInterfaceSound();
 
@@ -1014,11 +962,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }, SELECTION_DELAY);
     }
-
-
-    /* =====================================================
-       COMMON NAVIGATION
-       ===================================================== */
 
     async function loadCommon() {
 
@@ -1076,11 +1019,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-
-    /* =====================================================
-       LOAD EXPLORE DATA
-       ===================================================== */
-
     async function loadExplore() {
 
         try {
@@ -1091,7 +1029,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 );
 
             if (!response.ok) {
-
                 throw new Error(
                     `explore.json unavailable: ${language}`
                 );
@@ -1113,11 +1050,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 fallbackEnglish;
         }
     }
-
-
-    /* =====================================================
-       LANDING
-       ===================================================== */
 
     function renderLanding() {
 
@@ -1184,7 +1116,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         );
 
-
         const choiceGrid =
             document.getElementById(
                 "choiceWorldsGrid"
@@ -1217,11 +1148,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
-
-    /* =====================================================
-       CREATE WORLD CARD
-       ===================================================== */
-
     function createWorldCard(
         world,
         number,
@@ -1237,7 +1163,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         card.className =
             "world-card";
-
 
         if (number) {
 
@@ -1255,13 +1180,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
         }
 
-
         const title =
             document.createElement("h3");
 
         title.textContent =
             world.title || "";
-
 
         const short =
             document.createElement("p");
@@ -1269,15 +1192,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         short.textContent =
             world.short || "";
 
-
         card.appendChild(title);
         card.appendChild(short);
-
-
-        /*
-           НЕТ pointerdown.
-           Это принципиально важно для мобильного scroll.
-        */
 
         card.addEventListener(
             "click",
@@ -1286,6 +1202,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 confirmSelection(
                     card,
                     () => {
+
                         openWorld(
                             kind,
                             key
@@ -1295,42 +1212,26 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         );
 
-
         return card;
     }
-
-
-    /* =====================================================
-       OPEN WORLD
-       ===================================================== */
 
     function openWorld(
         kind,
         key
     ) {
 
-        currentKind =
-            kind;
-
-        currentWorld =
-            key;
-
-
         const world =
             kind === "human"
                 ? explore.worlds[key]
                 : explore.choiceWorlds[key];
-
 
         document.getElementById(
             "detailWorldName"
         ).textContent =
             world.title || "";
 
-
         let question =
             explore.questions.default;
-
 
         if (kind === "choice") {
 
@@ -1356,12 +1257,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 explore.questions.pets;
         }
 
-
         document.getElementById(
             "detailQuestion"
         ).textContent =
             question || "";
-
 
         const grid =
             document.getElementById(
@@ -1369,7 +1268,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
 
         grid.innerHTML = "";
-
 
         (world.items || [])
             .forEach(item => {
@@ -1388,13 +1286,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 button.textContent =
                     item;
 
-
-                /*
-                   Здесь тоже только click.
-                   Прокрутка больше не должна
-                   воспроизводить звук.
-                */
-
                 button.addEventListener(
                     "click",
                     () => {
@@ -1412,20 +1303,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                 );
 
-
                 grid.appendChild(
                     button
                 );
             });
 
-
         showView(detailView);
     }
-
-
-    /* =====================================================
-       SOLUTIONS
-       ===================================================== */
 
     function openSolutions(
         world,
@@ -1457,11 +1341,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
     }
 
-
-    /* =====================================================
-       BACK BUTTONS
-       ===================================================== */
-
     document.getElementById(
         "backToWorlds"
     ).addEventListener(
@@ -1476,7 +1355,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     );
 
-
     document.getElementById(
         "backToDetails"
     ).addEventListener(
@@ -1490,11 +1368,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
         }
     );
-
-
-    /* =====================================================
-       INITIALIZE
-       ===================================================== */
 
     await Promise.all([
         loadCommon(),
