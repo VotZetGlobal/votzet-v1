@@ -3,15 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Discover — VotZet</title>
-<meta name="description" content="Discover VotZet — our mission, vision, philosophy and principles.">
 
-<link rel="stylesheet" href="../css/main.css">
+<title>Discover — VotZet</title>
+
+<meta
+    name="description"
+    content="Discover VotZet — our mission, vision, philosophy and principles."
+>
+
+<link
+    rel="stylesheet"
+    href="../css/main.css"
+>
 
 <style>
 
 /* =========================================================
-   DISCOVER VOTZET 2.0
+   DISCOVER VOTZET 2.1
    ========================================================= */
 
 body {
@@ -24,6 +32,7 @@ body {
 
 .discover-page {
     min-height: 100vh;
+
     background:
         radial-gradient(
             circle at 50% 0%,
@@ -48,14 +57,17 @@ body {
     align-items: center;
 
     gap: 28px;
+
     padding: 17px 12px;
 
-    background: rgba(8,9,10,0.94);
+    background:
+        rgba(8,9,10,0.94);
 
     border-bottom:
         1px solid rgba(201,162,39,0.18);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter:
+        blur(12px);
 }
 
 .inner-nav a {
@@ -80,9 +92,11 @@ body {
 
 .discover-content {
     width: 100%;
+
     box-sizing: border-box;
 
-    padding: 58px 17px 70px;
+    padding:
+        58px 17px 70px;
 
     display: flex;
     flex-direction: column;
@@ -97,6 +111,7 @@ body {
 .discover-intro {
     width: 100%;
     max-width: 760px;
+
     text-align: center;
 }
 
@@ -113,7 +128,8 @@ body {
 }
 
 .discover-title {
-    margin: 0 0 22px;
+    margin:
+        0 0 22px;
 
     color: #f2f2ef;
 
@@ -126,7 +142,9 @@ body {
 
 .discover-lead {
     max-width: 700px;
-    margin: 0 auto;
+
+    margin:
+        0 auto;
 
     color: #deded9;
 
@@ -159,8 +177,11 @@ body {
 
     box-sizing: border-box;
 
-    margin: 55px auto 0;
-    padding: 31px 18px;
+    margin:
+        55px auto 0;
+
+    padding:
+        31px 18px;
 
     text-align: center;
 
@@ -172,7 +193,8 @@ body {
 }
 
 .manifesto-primary {
-    margin: 0 0 18px;
+    margin:
+        0 0 18px;
 
     color: #eeeeeb;
 
@@ -183,16 +205,19 @@ body {
 }
 
 .manifesto-line {
-    margin: 5px 0;
+    margin:
+        5px 0;
 
     color: #96979a;
 
     font-size: 13px;
+
     line-height: 1.6;
 }
 
 .manifesto-final {
-    margin: 18px 0 0;
+    margin:
+        18px 0 0;
 
     color: #c9a227;
 
@@ -211,7 +236,8 @@ body {
     width: 100%;
     max-width: 760px;
 
-    margin: 66px auto 30px;
+    margin:
+        66px auto 30px;
 
     text-align: center;
 }
@@ -231,11 +257,13 @@ body {
 .core-heading p {
     max-width: 620px;
 
-    margin: 13px auto 0;
+    margin:
+        13px auto 0;
 
     color: #85868a;
 
     font-size: 13px;
+
     line-height: 1.55;
 }
 
@@ -253,29 +281,69 @@ body {
 }
 
 .discover-card {
+    -webkit-tap-highlight-color: transparent;
+
     width: 100%;
+
     box-sizing: border-box;
 
-    padding: 22px 3px;
+    padding:
+        22px 14px;
 
     display: grid;
 
     grid-template-columns:
-        30px minmax(0,1fr) 22px;
+        30px minmax(0,1fr);
 
     column-gap: 11px;
+
     align-items: center;
+
+    border: none;
 
     border-bottom:
         1px solid rgba(255,255,255,0.1);
 
+    background: transparent;
+
+    color: inherit;
+
+    font-family: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
     transition:
-        background 0.25s ease;
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
 }
 
 .discover-card:hover {
     background:
-        rgba(201,162,39,0.035);
+        rgba(201,162,39,0.04);
+}
+
+.discover-card:focus {
+    outline: none;
+}
+
+.discover-card.selected {
+    background:
+        rgba(201,162,39,0.22);
+
+    box-shadow:
+        inset 0 0 0 1px rgba(228,196,79,0.65),
+        0 0 20px rgba(201,162,39,0.16);
+
+    transform:
+        translateY(-1px);
+}
+
+.discover-card.selected h3 {
+    color: #e4c44f;
 }
 
 .card-number {
@@ -286,6 +354,7 @@ body {
     color: #c9a227;
 
     font-size: 10px;
+
     letter-spacing: 2px;
 }
 
@@ -302,11 +371,16 @@ body {
     font-weight: 400;
 
     line-height: 1.25;
+
     letter-spacing: 1.2px;
+
+    transition:
+        color 0.18s ease;
 }
 
 .discover-card p {
-    margin: 8px 0 0;
+    margin:
+        8px 0 0;
 
     color: #85868a;
 
@@ -316,13 +390,21 @@ body {
     line-height: 1.55;
 }
 
+
+/* =========================================================
+   SECONDARY DOCUMENT BUTTON
+   ========================================================= */
+
 .document-button {
+    -webkit-tap-highlight-color: transparent;
+
     width: 22px;
     height: 22px;
 
     padding: 0;
 
     border: none;
+
     background: transparent;
 
     color: #c9a227;
@@ -341,7 +423,9 @@ body {
 
 .document-button:hover {
     color: #f0d66b;
-    transform: translateX(3px);
+
+    transform:
+        translateX(3px);
 }
 
 
@@ -353,13 +437,15 @@ body {
     width: 100%;
     max-width: 760px;
 
-    margin: 70px auto 0;
+    margin:
+        70px auto 0;
 }
 
 .deeper-box {
     box-sizing: border-box;
 
-    padding: 30px 25px;
+    padding:
+        30px 25px;
 
     border:
         1px solid rgba(201,162,39,0.25);
@@ -380,6 +466,7 @@ body {
     font-size: 9px;
 
     letter-spacing: 4px;
+
     text-transform: uppercase;
 }
 
@@ -397,51 +484,90 @@ body {
 .deeper-short {
     max-width: 610px;
 
-    margin: 11px 0 0;
+    margin:
+        11px 0 0;
 
     color: #a0a1a3;
 
     font-size: 13px;
+
     line-height: 1.65;
 }
 
 .deeper-intro {
     max-width: 650px;
 
-    margin: 18px 0 0;
+    margin:
+        18px 0 0;
 
     color: #77787c;
 
     font-size: 12px;
+
     line-height: 1.65;
 }
 
+
+/* =========================================================
+   LARGE DEEPER TOGGLE
+   ========================================================= */
+
 .deeper-toggle {
+    -webkit-tap-highlight-color: transparent;
+
+    width: 100%;
+
     margin-top: 24px;
 
-    padding: 9px 0;
+    padding:
+        13px 0 8px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
 
     border: none;
+
     background: transparent;
 
     color: #d8b83d;
 
     font-family: inherit;
 
-    font-size: 9px;
+    font-size: 30px;
+    font-weight: 300;
 
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
+    line-height: 1;
 
     cursor: pointer;
+
+    transition:
+        color 0.18s ease,
+        transform 0.18s ease,
+        background 0.18s ease;
 }
 
 .deeper-toggle:hover {
     color: #f0d66b;
+
+    background:
+        rgba(201,162,39,0.025);
+}
+
+.deeper-toggle:active {
+    transform:
+        translateY(2px);
+}
+
+.deeper-toggle:focus {
+    outline: none;
 }
 
 
-/* DEEPER DOCUMENTS */
+/* =========================================================
+   DEEPER DOCUMENTS
+   ========================================================= */
 
 .deeper-documents {
     display: none;
@@ -466,7 +592,8 @@ body {
 
     align-items: center;
 
-    padding: 18px 0;
+    padding:
+        18px 0;
 
     border-bottom:
         1px solid rgba(255,255,255,0.08);
@@ -484,17 +611,22 @@ body {
 }
 
 .deeper-document p {
-    margin: 6px 0 0;
+    margin:
+        6px 0 0;
 
     color: #747579;
 
     font-size: 12px;
+
     line-height: 1.5;
 }
 
-.deeper-document .document-button:disabled {
+.deeper-document
+.document-button:disabled {
     opacity: 0.28;
+
     cursor: default;
+
     transform: none;
 }
 
@@ -507,24 +639,28 @@ body {
     width: 100%;
     max-width: 680px;
 
-    margin: 65px auto 0;
+    margin:
+        65px auto 0;
 
     text-align: center;
 }
 
 .discover-bottom p {
-    margin: 0 auto 24px;
+    margin:
+        0 auto 24px;
 
     color: #818287;
 
     font-size: 13px;
+
     line-height: 1.7;
 }
 
 .back-home {
     display: inline-block;
 
-    padding: 11px 25px;
+    padding:
+        11px 25px;
 
     border:
         1px solid rgba(201,162,39,0.75);
@@ -539,11 +675,13 @@ body {
     font-weight: 400;
 
     letter-spacing: 2.5px;
+
     text-transform: uppercase;
 }
 
 .back-home:hover {
     background: #d8b83d;
+
     color: #101113;
 }
 
@@ -554,6 +692,7 @@ body {
 
 .document-modal {
     position: fixed;
+
     inset: 0;
 
     z-index: 100;
@@ -585,9 +724,11 @@ body {
     max-height: 90vh;
 
     box-sizing: border-box;
+
     overflow-y: auto;
 
-    padding: 28px 20px 32px;
+    padding:
+        28px 20px 32px;
 
     background: #17191b;
 
@@ -602,6 +743,7 @@ body {
     display: flex;
 
     justify-content: space-between;
+
     align-items: flex-start;
 
     gap: 20px;
@@ -621,7 +763,10 @@ body {
 }
 
 .modal-close {
-    flex: 0 0 auto;
+    -webkit-tap-highlight-color: transparent;
+
+    flex:
+        0 0 auto;
 
     width: 32px;
     height: 32px;
@@ -643,15 +788,21 @@ body {
     cursor: pointer;
 }
 
+.modal-close:focus {
+    outline: none;
+}
+
 .modal-text {
     color: #c9c9c5;
 
     font-size: 14px;
+
     line-height: 1.8;
 }
 
 .modal-text p {
-    margin: 0 0 22px;
+    margin:
+        0 0 22px;
 }
 
 
@@ -667,6 +818,7 @@ body {
 
     .inner-nav a {
         font-size: 8px;
+
         letter-spacing: 1.6px;
     }
 
@@ -683,12 +835,14 @@ body {
     }
 
     .deeper-box {
-        padding: 26px 18px;
+        padding:
+            26px 18px;
     }
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -708,15 +862,15 @@ body {
     ></a>
 
     <a
-        href="../explore/"
-        id="navExplore"
-        data-nav-sound="explore"
-    ></a>
-
-    <a
         href="./"
         id="navDiscover"
         data-nav-sound="discover"
+    ></a>
+
+    <a
+        href="../explore/"
+        id="navExplore"
+        data-nav-sound="explore"
     ></a>
 
 </nav>
@@ -729,7 +883,9 @@ body {
 <main class="discover-content">
 
 
-<!-- INTRO -->
+<!-- =====================================================
+     INTRO
+     ===================================================== -->
 
 <section class="discover-intro">
 
@@ -754,7 +910,9 @@ body {
 </section>
 
 
-<!-- MANIFESTO -->
+<!-- =====================================================
+     MANIFESTO
+     ===================================================== -->
 
 <section
     class="manifesto-intro"
@@ -784,7 +942,9 @@ body {
 </section>
 
 
-<!-- CORE -->
+<!-- =====================================================
+     CORE
+     ===================================================== -->
 
 <section class="core-heading">
 
@@ -805,7 +965,9 @@ body {
 ></section>
 
 
-<!-- UNDERSTAND US DEEPER -->
+<!-- =====================================================
+     UNDERSTAND US DEEPER
+     ===================================================== -->
 
 <section class="deeper-section">
 
@@ -834,6 +996,8 @@ body {
             class="deeper-toggle"
             id="deeperToggle"
             type="button"
+            aria-expanded="false"
+            aria-controls="deeperDocuments"
         >
             ↓
         </button>
@@ -848,7 +1012,9 @@ body {
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <section class="discover-bottom">
 
@@ -915,7 +1081,7 @@ body {
 
 
 <!-- =====================================================
-     DISCOVER 2.0 SYSTEM
+     DISCOVER 2.1 SYSTEM
      ===================================================== -->
 
 <script>
@@ -923,6 +1089,14 @@ body {
 document.addEventListener(
     "DOMContentLoaded",
     async () => {
+
+
+/* -----------------------------------------------------
+   SETTINGS
+   ----------------------------------------------------- */
+
+const SELECTION_DELAY =
+    130;
 
 
 /* -----------------------------------------------------
@@ -936,7 +1110,7 @@ const language =
 
 
 /* -----------------------------------------------------
-   CORE DOCUMENT ORDER
+   DOCUMENT ORDER
    ----------------------------------------------------- */
 
 const documentOrder = [
@@ -953,6 +1127,10 @@ const deeperOrder = [
     "codex",
     "code"
 ];
+
+
+let transitionLocked =
+    false;
 
 
 try {
@@ -987,7 +1165,6 @@ if (
     throw new Error(
         `Localization unavailable: ${language}`
     );
-
 }
 
 
@@ -1018,15 +1195,15 @@ document.getElementById(
 
 
 document.getElementById(
-    "navExplore"
-).textContent =
-    common.explore || "Explore";
-
-
-document.getElementById(
     "navDiscover"
 ).textContent =
     common.discover || "Discover";
+
+
+document.getElementById(
+    "navExplore"
+).textContent =
+    common.explore || "Explore";
 
 
 document.getElementById(
@@ -1042,7 +1219,8 @@ document.getElementById(
 document.getElementById(
     "discoverTitle"
 ).textContent =
-    discover.title || "Discover VotZet";
+    discover.title ||
+    "Discover VotZet";
 
 
 document.getElementById(
@@ -1085,9 +1263,6 @@ document.getElementById(
 
 /* -----------------------------------------------------
    CORE HEADING
-
-   Временно задаём здесь.
-   Позже перенесём в common.json всех языков.
    ----------------------------------------------------- */
 
 document.getElementById(
@@ -1107,6 +1282,66 @@ document.getElementById(
 
 
 /* -----------------------------------------------------
+   SOUND HELPER
+   ----------------------------------------------------- */
+
+function playDocumentSound() {
+
+    if (
+        typeof window.VotZetSound ===
+        "function"
+    ) {
+
+        window.VotZetSound(
+            "document"
+        );
+    }
+}
+
+
+/* -----------------------------------------------------
+   CORE CARD SELECTION
+   ----------------------------------------------------- */
+
+function confirmCardSelection(
+    card,
+    callback
+) {
+
+    if (
+        transitionLocked
+    ) {
+        return;
+    }
+
+    transitionLocked =
+        true;
+
+    playDocumentSound();
+
+    card.classList.add(
+        "selected"
+    );
+
+    setTimeout(
+        () => {
+
+            card.classList.remove(
+                "selected"
+            );
+
+            transitionLocked =
+                false;
+
+            callback();
+
+        },
+        SELECTION_DELAY
+    );
+}
+
+
+/* -----------------------------------------------------
    FOUR CORE DOCUMENTS
    ----------------------------------------------------- */
 
@@ -1116,7 +1351,8 @@ const container =
     );
 
 
-container.innerHTML = "";
+container.innerHTML =
+    "";
 
 
 documentOrder.forEach(
@@ -1127,7 +1363,9 @@ const documentData =
     discover[key];
 
 
-if (!documentData) {
+if (
+    !documentData
+) {
 
     console.error(
         `VotZet Discover: missing "${key}"`
@@ -1139,8 +1377,12 @@ if (!documentData) {
 
 const card =
     document.createElement(
-        "article"
+        "button"
     );
+
+
+card.type =
+    "button";
 
 
 card.className =
@@ -1182,7 +1424,8 @@ const title =
 
 
 title.textContent =
-    documentData.title || "";
+    documentData.title ||
+    "";
 
 
 const short =
@@ -1192,49 +1435,57 @@ const short =
 
 
 short.textContent =
-    documentData.short || "";
+    documentData.short ||
+    "";
 
 
-main.appendChild(title);
-main.appendChild(short);
+main.appendChild(
+    title
+);
 
 
-const button =
-    document.createElement(
-        "button"
-    );
+main.appendChild(
+    short
+);
 
 
-button.className =
-    "document-button";
+card.appendChild(
+    number
+);
 
 
-button.type =
-    "button";
+card.appendChild(
+    main
+);
 
 
-button.textContent =
-    "→";
+/*
+   ВАЖНО:
+   звук запускается только по click.
+   Обычная прокрутка через карточку
+   звук не вызывает.
+*/
 
-
-button.addEventListener(
+card.addEventListener(
     "click",
     () => {
 
-        openDocument(
-            documentData
-        );
+        confirmCardSelection(
+            card,
+            () => {
 
+                openDocument(
+                    documentData
+                );
+            }
+        );
     }
 );
 
 
-card.appendChild(number);
-card.appendChild(main);
-card.appendChild(button);
-
-
-container.appendChild(card);
+container.appendChild(
+    card
+);
 
 
 });
@@ -1273,7 +1524,8 @@ const deeperContainer =
     );
 
 
-deeperContainer.innerHTML = "";
+deeperContainer.innerHTML =
+    "";
 
 
 deeperOrder.forEach(
@@ -1284,7 +1536,9 @@ const data =
     deeper[key];
 
 
-if (!data) {
+if (
+    !data
+) {
     return;
 }
 
@@ -1325,8 +1579,14 @@ short.textContent =
     data.short || "";
 
 
-content.appendChild(title);
-content.appendChild(short);
+content.appendChild(
+    title
+);
+
+
+content.appendChild(
+    short
+);
 
 
 const button =
@@ -1347,12 +1607,6 @@ button.textContent =
     "→";
 
 
-/*
-   Пока текст документа отсутствует,
-   кнопка остаётся визуально видимой,
-   но не открывает пустое окно.
-*/
-
 if (
     data.text &&
     data.text.trim()
@@ -1362,23 +1616,35 @@ if (
         "click",
         () => {
 
-            openDocument(data);
+            playDocumentSound();
 
+            openDocument(
+                data
+            );
         }
     );
+}
 
-} else {
+else {
 
-    button.disabled = true;
-
+    button.disabled =
+        true;
 }
 
 
-row.appendChild(content);
-row.appendChild(button);
+row.appendChild(
+    content
+);
 
 
-deeperContainer.appendChild(row);
+row.appendChild(
+    button
+);
+
+
+deeperContainer.appendChild(
+    row
+);
 
 
 });
@@ -1396,11 +1662,13 @@ document.getElementById(
         : "Understand the idea. Explore the possibilities. Choose your world.";
 
 
-} catch(error) {
+}
+
+catch(error) {
 
 
 console.error(
-    "VotZet Discover 2.0 loading error:",
+    "VotZet Discover 2.1 loading error:",
     error
 );
 
@@ -1429,15 +1697,19 @@ const modalText =
     );
 
 
-modalText.innerHTML = "";
+modalText.innerHTML =
+    "";
 
 
 const text =
-    documentData.text || "";
+    documentData.text ||
+    "";
 
 
 text
-    .split(/\n\s*\n/)
+    .split(
+        /\n\s*\n/
+    )
     .filter(
         paragraph =>
             paragraph.trim()
@@ -1456,7 +1728,9 @@ p.textContent =
     paragraph.trim();
 
 
-modalText.appendChild(p);
+modalText.appendChild(
+    p
+);
 
 
 });
@@ -1531,7 +1805,8 @@ document.addEventListener(
 
 
 if (
-    event.key === "Escape"
+    event.key ===
+    "Escape"
 ) {
 
     closeDocument();
@@ -1573,6 +1848,14 @@ deeperToggle.textContent =
     isOpen
         ? "↑"
         : "↓";
+
+
+deeperToggle.setAttribute(
+    "aria-expanded",
+    isOpen
+        ? "true"
+        : "false"
+);
 
 
 });
