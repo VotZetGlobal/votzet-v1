@@ -1,44 +1,65 @@
 {
-  "title": "Discover VotZet",
-  "subtitle": "Who we are. What we believe. Why we exist. The world we envision creating.",
+  "title": "Discover Us.",
+  "subtitle": "Who we are. Why we exist. What we believe. How we act.",
+
+  "manifesto": {
+    "line1": "Your world doesn't have to look like anyone else's.",
+    "line2": "We don't want to choose for you.",
+    "line3": "We simply want to show you how much there is to choose from.",
+    "line4": "Explore. Discover. Choose."
+  },
+
   "mission": {
     "title": "Mission",
     "short": "Why VotZet exists.",
-    "text": ""
+    "text": "VotZet exists to create a space where people can find what they may be missing for a fuller, safer, healthier and more meaningful life.\n\nEvery person has their own world — their own needs, desires, circumstances and path. That is why VotZet does not seek to offer the same thing to everyone.\n\nWe bring together ideas, knowledge, opportunities and products around human needs, helping people find what truly matters to them.\n\nWe aim to make that choice clearer, more accessible, safer and more meaningful — regardless of age, income, country or way of life.\n\nVotZet exists for people.\n\nVotZet — That's your world!"
   },
+
   "vision": {
     "title": "Vision",
-    "short": "The future we want to see.",
-    "text": ""
+    "short": "Where we are going.",
+    "text": "We see a future where people have more opportunities to shape their own path and choose what reflects their needs, values and vision of life.\n\nThe world does not need to be the same for everyone. People differ in culture, opportunities, circumstances, dreams and ways of life — and those differences should not become barriers to knowledge, technology, products and new possibilities.\n\nWe want people to be able to explore more, understand better and choose more consciously.\n\nVotZet aims to become a global ecosystem connecting people with possibilities that can make a meaningful difference in their own world.\n\nThe world cannot be made the same for everyone — nor should it be.\n\nWe see a future where the world becomes a choice.\n\nVotZet — That's your world!"
   },
-  "manifesto": {
-    "title": "Manifesto",
-    "short": "What VotZet declares to the world.",
-    "text": ""
-  },
+
   "philosophy": {
     "title": "Philosophy",
-    "short": "What we believe and why.",
-    "text": ""
+    "short": "What we believe.",
+    "text": "At VotZet, we see every person as a world of their own.\n\nA world of needs, desires, circumstances, opportunities, relationships, goals and meaning.\n\nWe do not believe there is one right way to live or one universal solution for everyone. What matters deeply to one person may mean very little to another.\n\nThat is why VotZet is not built around making choices for people, but around expanding the space in which they can make their own choices.\n\nWe believe technology should help people see more possibilities, knowledge should help them understand those possibilities better, and the freedom to choose should remain with the individual.\n\nFor us, variety is not about offering more simply for the sake of more. It matters when it helps someone find what is right for them.\n\nVotZet does not define what your world should be.\n\nWe help you explore it."
   },
-  "canon": {
-    "title": "Canon",
-    "short": "The fundamental provisions of VotZet.",
-    "text": ""
+
+  "principles": {
+    "title": "Principles",
+    "short": "How we act.",
+    "text": "Our ideas matter only when they are reflected in the way we act.\n\nPeople before products.\nWe begin with a human need and only then look for ideas, knowledge, opportunities and products that may answer it.\n\nChoice over pressure.\nWe aim to help people explore and compare possibilities rather than decide for them what they need.\n\nSelection over an endless catalogue.\nWe aim to offer not everything that exists, but what can meet the purpose and standards of VotZet.\n\nHonesty over manipulation.\nWe will not make false promises, create artificial scarcity or deliberately mislead people in order to make a sale.\n\nQuality over quantity.\nWhen choosing products, solutions, suppliers and partners, price and profit should never be the only criteria.\n\nAccessibility without artificial boundaries.\nWe aim to reduce language, geographic and technological barriers and give people the freedom to interact with VotZet in the way that works best for them.\n\nSafety and trust.\nPeople's data, money, orders and interactions with us are responsibilities — not merely parts of a business process.\n\nMistakes should be corrected.\nWe do not promise that we will never make mistakes. We commit to acknowledging problems, correcting them and using what we learn to improve VotZet.\n\nLong-term trust matters more than short-term gain.\n\nThis is how the philosophy of VotZet becomes practice."
   },
-  "constitution": {
-    "title": "Constitution",
-    "short": "The foundations of VotZet's structure.",
-    "text": ""
-  },
-  "codex": {
-    "title": "Codex",
-    "short": "The principles and rules of VotZet.",
-    "text": ""
-  },
-  "code": {
-    "title": "Code",
-    "short": "Practical standards of conduct.",
-    "text": ""
+
+  "deeper": {
+    "title": "Understand Us Deeper",
+    "short": "For partners and those who want to understand more about the foundations of VotZet.",
+    "intro": "Behind VotZet's public philosophy lies a deeper system defining how VotZet is structured, the principles it follows and the standards it applies.",
+
+    "ecosystem": {
+      "title": "How VotZet Works",
+      "short": "How VotZet is built and how its parts work together.",
+      "text": "VotZet is being created as an ecosystem with the individual at its center.\n\nIts purpose is not limited to selling products. VotZet brings together needs, ideas, knowledge, opportunities, solutions, products, services, partners and technologies within a single environment.\n\nA person may come to VotZet for something specific or simply to explore what is available. From there, they can move through different worlds, needs and possibilities, discovering what may be relevant to them.\n\nVotZet does not assume that every visitor wants to study how the platform works. Most people may simply use it.\n\nBut we believe that the opportunity to understand what stands behind the platform should exist.\n\nVotZet is built around several interconnected elements:\n\nPeople.\nThe starting point of the ecosystem. Their needs, interests, circumstances and choices determine what VotZet seeks to understand and what possibilities it develops.\n\nExplore.\nThe space where a person can discover different worlds, needs and directions without having to know in advance exactly what they are looking for.\n\nSolutions.\nIdeas, knowledge, products, services and opportunities that may respond to a particular need or interest.\n\nPartners and suppliers.\nThose who help VotZet provide products, services, technologies, expertise and other possibilities.\n\nTechnology.\nThe infrastructure that connects the elements of VotZet, supports accessibility and helps make interaction with the platform simpler and more convenient.\n\nVotZet itself.\nThe layer that brings these elements together, selects and organizes possibilities, establishes standards and develops the ecosystem as a whole.\n\nThese elements may evolve as VotZet grows. New services, technologies, directions and forms of interaction may appear over time.\n\nThe structure may change. The central idea should not: VotZet is built around people and the worlds they choose for themselves."
+    },
+
+    "codex": {
+      "title": "Codex",
+      "short": "How VotZet should interact with people.",
+      "text": "The VotZet Codex defines the principles of our interaction with people — visitors, customers, partners and everyone who comes into contact with the platform.\n\n1. Respect the person's choice.\nA person wants to understand what is being offered, why it may be useful and what alternatives exist. Our role is to help them make an informed choice, not to make that choice for them.\n\n2. Do not promise what cannot be delivered.\nWe will not attribute properties or results to solutions that they are not capable of providing. Communication should help a person understand the real value of an offer rather than create expectations that cannot be met.\n\n3. Do not turn human feelings into a tool of pressure.\nFear, loneliness, the desire for recognition, care for loved ones and other human feelings may lead a person to search for a solution. Such solutions should not exploit those feelings in order to make a person acquire something they do not need.\n\n4. Respect the right to say no.\nRefusing an acquisition is also a choice. A person should not be made to feel that declining an offer makes them less successful, less caring, less attractive or less worthy.\n\n5. Protect what people entrust to us.\nPersonal data, payments, orders and communication with VotZet require responsible handling. Trust is created not only by words, but by the way systems and processes actually work.\n\n6. Treat partners fairly.\nVotZet expects quality, reliability and honesty from partners and suppliers and should apply the same standards to itself. Cooperation should be built on clear expectations, fulfilled commitments and mutual respect.\n\n7. Correct mistakes.\nMistakes are possible — we are human too. What matters is how we respond to them. Problems should be acknowledged, investigated and corrected, and the experience gained should be used to improve VotZet.\n\n8. Think beyond a single transaction.\nA sale may end in a moment. A relationship with VotZet may last for years. Decisions should therefore be judged not only by what they produce today, but by what they do to trust tomorrow.\n\nLet trust in VotZet grow not from our promises, but from people's experience with us."
+    },
+
+    "canon": {
+      "title": "Canon",
+      "short": "The fundamental ideas that should remain at the core of VotZet.",
+      "text": "The VotZet Canon contains the fundamental ideas on which the platform is built. Products, technologies, markets and business models may change. These ideas define what should remain at the core of VotZet as it evolves.\n\n1. Every person is a world of their own.\nPeople differ in needs, desires, circumstances, opportunities, values and ways of life. VotZet should not reduce that diversity to a single model of what a person should want or how they should live.\n\n2. The world is a choice.\nVotZet exists to expand the space of possibilities available to a person. We may help people discover, understand and compare those possibilities, but the final decision remains with the individual.\n\n3. VotZet begins with a need, not a product.\nA product is only one possible form of a solution. Depending on the situation, an answer may be knowledge, a service, technology, an idea, an opportunity or a combination of them.\n\n4. Variety has meaning only when it helps people find what is right for them.\nAn endless catalogue is not the same as meaningful choice. VotZet should organize possibilities so that variety becomes useful rather than overwhelming.\n\n5. Commerce and purpose can coexist.\nVotZet is a commercial project. Its ability to earn money allows it to develop, improve its systems, expand its possibilities and remain independent. Commercial success does not contradict the idea of VotZet as long as the way it is achieved remains consistent with what VotZet stands for.\n\n6. Trust is part of the product.\nThe experience of VotZet includes more than the thing a person buys. It also includes the information they receive, the way their data and money are handled, the reliability of delivery, the response to problems and the overall quality of interaction.\n\n7. VotZet should be able to evolve without losing itself.\nNew markets, technologies, products and business models may change the form of VotZet. Growth should expand what VotZet can do without erasing the principles that explain why it exists.\n\nThese provisions are not intended to prevent VotZet from changing. They exist to help distinguish development from losing direction."
+    },
+
+    "standards": {
+      "title": "Standards",
+      "short": "How VotZet evaluates what it offers.",
+      "text": "VotZet Standards define the basic criteria we use when deciding what may become part of the platform. They apply to products, solutions, suppliers, partners and other offers presented through VotZet.\n\n1. Relevance.\nAn offer should have a clear reason to exist within VotZet. Popularity and commercial potential are valid reasons to consider an opportunity, but we should also understand who it is for, what need or interest it responds to and where it belongs within the VotZet ecosystem.\n\n2. Value in context.\nPrice alone does not determine whether something belongs in VotZet. An affordable product may provide excellent value, while a high price may be justified by rarity, design, capabilities, level of execution or service. We evaluate an offer in the context of what a person receives and why they may choose it.\n\n3. What is offered should correspond to what is delivered.\nDescriptions, images, specifications and promises should accurately represent the product or solution a person receives. We should not create an impression that is better than the actual offer in order to secure a sale.\n\n4. Safety.\nWhere a product or solution can affect a person's health, physical safety, data, money or property, the level of scrutiny should be appropriate to the potential consequences. VotZet should not knowingly offer solutions that create an unreasonable or concealed risk for the person using them.\n\n5. Supplier and partner reliability.\nA good offer loses its value if it cannot be delivered reliably. We consider not only the product or service itself, but also the ability of a supplier or partner to fulfil commitments, communicate clearly and resolve problems.\n\n6. Fit with VotZet.\nAn offer should be compatible with the way VotZet presents itself and interacts with people. Not every legal or profitable opportunity necessarily belongs on the platform.\n\n7. Commercial viability.\nVotZet is a commercial project. Demand, profitability and the potential of an offer are normal criteria for selection.\n\nWe may offer popular products, follow trends and choose more profitable opportunities among worthy alternatives.\n\nCommercial success does not contradict the idea of VotZet. But additional profit does not justify deliberately lowering standards, misleading people or offering something we ourselves do not consider worthy of VotZet."
+    }
   }
 }
