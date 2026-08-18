@@ -1,12 +1,12 @@
 {
   "title": "Explora VotZet",
-  "subtitle": "Encuentra lo que importa para ti.",
+  "subtitle": "Encuentra lo que realmente importa para ti.",
 
   "humanWorldsTitle": "Tus mundos",
-  "humanWorldsSubtitle": "Elige el que sientas más cercano a ti o a la persona para quien estás buscando.",
+  "humanWorldsSubtitle": "Elige lo que sientas más cercano a ti o a la persona para quien estás explorando.",
 
   "worldsOfChoiceTitle": "Niveles de elección",
-  "worldsOfChoiceSubtitle": "Dos formas diferentes de elegir: valor inteligente o nivel premium.",
+  "worldsOfChoiceSubtitle": "Diferentes formas de elegir: valor inteligente o un nivel premium.",
 
   "questions": {
     "default": "¿Qué es importante para ti?",
@@ -52,7 +52,7 @@
         "Aprendizaje",
         "Desarrollo",
         "Creatividad",
-        "Juego",
+        "Juegos",
         "Comodidad"
       ]
     },
@@ -85,7 +85,7 @@
     },
 
     "pets": {
-      "title": "Mascotas y compañeros",
+      "title": "Mascotas",
       "short": "Salud, cuidados, comodidad y vida juntos.",
       "items": [
         "Salud",
@@ -93,19 +93,19 @@
         "Seguridad",
         "Cuidados",
         "Comodidad",
-        "Juego",
+        "Juegos",
         "Viajar juntos",
-        "Vida inteligente con mascotas"
+        "Tecnología"
       ]
     },
 
     "social": {
-      "title": "Social",
+      "title": "Vida social",
       "short": "Amigos, seres queridos, intereses compartidos y tiempo juntos.",
       "items": [
         "Para amigos",
         "Para seres queridos",
-        "Mantente conectado",
+        "Mantente en contacto",
         "Intereses compartidos",
         "Actividades"
       ]
@@ -115,10 +115,10 @@
   "choiceWorlds": {
     "smartValue": {
       "title": "Smart Value",
-      "short": "Aún más por tu dinero.",
+      "short": "Aún más valor por tu dinero.",
       "items": [
         "Salud y bienestar",
-        "Personal",
+        "Para ti",
         "Para el hogar",
         "Para la familia",
         "Tecnología",
@@ -135,7 +135,7 @@
       "title": "Premium",
       "short": "Cuando quieres algo más que calidad.",
       "items": [
-        "Personal",
+        "Para ti",
         "Estilo",
         "Tecnología",
         "Hogar",
