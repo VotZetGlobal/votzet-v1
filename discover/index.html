@@ -19,7 +19,7 @@
 <style>
 
 /* =========================================================
-   DISCOVER VOTZET 2.3
+   DISCOVER VOTZET 2.4
    ========================================================= */
 
 body {
@@ -1033,7 +1033,7 @@ body {
 
 
 <!-- =====================================================
-     DISCOVER 2.3 SYSTEM
+     DISCOVER 2.4 SYSTEM
      ===================================================== -->
 
 <script>
@@ -1557,12 +1557,6 @@ if (
     data.text.trim()
 ) {
 
-    /*
-       ВАЖНО:
-       здесь больше НЕ вызываем playDocumentSound().
-       Звук для .document-button уже воспроизводит main.js.
-    */
-
     button.addEventListener(
         "click",
         () => {
@@ -1617,7 +1611,7 @@ catch(error) {
 
 
 console.error(
-    "VotZet Discover 2.3 loading error:",
+    "VotZet Discover 2.4 loading error:",
     error
 );
 
@@ -1784,6 +1778,15 @@ const deeperDocuments =
 deeperToggle.addEventListener(
     "click",
     () => {
+
+
+/*
+   Звук здесь вызываем вручную.
+   main.js не отслеживает .deeper-toggle,
+   поэтому дублирования не будет.
+*/
+
+playDocumentSound();
 
 
 const isOpen =
