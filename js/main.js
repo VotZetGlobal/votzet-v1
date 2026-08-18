@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let audioContext = null;
 
+    const NAVIGATION_DELAY = 140;
+
 
     // =====================================================
     // AUDIO CORE
@@ -33,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const ctx =
             getAudioContext();
 
-
         if (
             ctx.state === "suspended"
         ) {
@@ -53,13 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-
         return ctx;
     }
 
 
     // =====================================================
-    // AUDIO: ВОСПРОИЗВЕДЕНИЕ КОРОТКОГО СИГНАЛА
+    // AUDIO
     // =====================================================
 
     async function playTone(type) {
@@ -69,11 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const ctx =
                 await activateAudioContext();
 
-
             if (!ctx) {
                 return;
             }
-
 
             const now =
                 ctx.currentTime;
@@ -94,66 +92,52 @@ document.addEventListener("DOMContentLoaded", () => {
                 ].forEach(
                     (freq, index) => {
 
-
                         const osc =
                             ctx.createOscillator();
-
 
                         const gain =
                             ctx.createGain();
 
-
                         osc.type =
                             "sine";
-
 
                         osc.frequency.setValueAtTime(
                             freq,
                             now
                         );
 
-
                         gain.gain.setValueAtTime(
                             0.0001,
                             now
                         );
-
 
                         gain.gain.exponentialRampToValueAtTime(
                             0.055 / (index + 1),
                             now + 0.006
                         );
 
-
                         gain.gain.exponentialRampToValueAtTime(
                             0.0001,
                             now + 0.11
                         );
 
-
                         osc.connect(
                             gain
                         );
-
 
                         gain.connect(
                             ctx.destination
                         );
 
-
                         osc.start(
                             now
                         );
 
-
                         osc.stop(
                             now + 0.12
                         );
-
-
                     }
                 );
-
 
                 return;
             }
@@ -165,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const osc =
                 ctx.createOscillator();
-
 
             const gain =
                 ctx.createGain();
@@ -182,12 +165,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 osc.type =
                     "triangle";
 
-
                 osc.frequency.setValueAtTime(
                     620,
                     now
                 );
-
 
                 osc.frequency.exponentialRampToValueAtTime(
                     980,
@@ -207,12 +188,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 osc.type =
                     "sine";
 
-
                 osc.frequency.setValueAtTime(
                     740,
                     now
                 );
-
 
                 osc.frequency.exponentialRampToValueAtTime(
                     460,
@@ -232,12 +211,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 osc.type =
                     "sine";
 
-
                 osc.frequency.setValueAtTime(
                     1450,
                     now
                 );
-
 
                 osc.frequency.exponentialRampToValueAtTime(
                     2100,
@@ -257,12 +234,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 osc.type =
                     "triangle";
 
-
                 osc.frequency.setValueAtTime(
                     1050,
                     now
                 );
-
 
                 osc.frequency.exponentialRampToValueAtTime(
                     1380,
@@ -278,14 +253,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             // =================================================
-            // VOLUME ENVELOPE
+            // VOLUME
             // =================================================
 
             gain.gain.setValueAtTime(
                 0.0001,
                 now
             );
-
 
             gain.gain.exponentialRampToValueAtTime(
                 type === "language"
@@ -294,32 +268,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 now + 0.005
             );
 
-
             gain.gain.exponentialRampToValueAtTime(
                 0.0001,
                 now + 0.11
             );
 
-
             osc.connect(
                 gain
             );
-
 
             gain.connect(
                 ctx.destination
             );
 
-
             osc.start(
                 now
             );
 
-
             osc.stop(
                 now + 0.12
             );
-
 
         } catch (error) {
 
@@ -340,6 +308,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
             playTone(type);
         };
+
+
+    // =====================================================
+    // SMALL DELAY
+    // =====================================================
+
+    function wait(milliseconds) {
+
+        return new Promise(
+            resolve => {
+
+                setTimeout(
+                    resolve,
+                    milliseconds
+                );
+            }
+        );
+    }
+
+
+    // =====================================================
+    // NAVIGATION WITH SOUND
+    // =====================================================
+
+    async function navigateWithSound(
+        soundType,
+        destination
+    ) {
+
+        /*
+           Звук запускается внутри реального click.
+           Затем даём ему закончиться до смены страницы.
+        */
+
+        await playTone(
+            soundType
+        );
+
+        await wait(
+            NAVIGATION_DELAY
+        );
+
+        window.location.href =
+            destination;
+    }
 
 
     // =====================================================
@@ -372,26 +385,21 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-
         const link =
             document.createElement(
                 "link"
             );
 
-
         link.rel =
             "prefetch";
 
-
         link.href =
             url;
-
 
         link.setAttribute(
             "data-votzet-prefetch",
             url
         );
-
 
         document.head.appendChild(
             link
@@ -406,19 +414,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const path =
         window.location.pathname;
 
-
     const isHome =
         path === "/" ||
         path.endsWith(
             "/index.html"
         );
 
-
     const isDiscover =
         path.includes(
             "/discover"
         );
-
 
     const isExplore =
         path.includes(
@@ -437,34 +442,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 "votzet-language"
             ) || "en";
 
-
         prefetch(
             "discover/"
         );
-
 
         prefetch(
             "explore/"
         );
 
-
         warm(
             "discover/"
         );
 
-
         warm(
             "explore/"
         );
-
 
         warm(
             `locales/${language}/common.json`
         );
 
-
         warm(
             `locales/${language}/discover.json`
+        );
+
+        warm(
+            `locales/${language}/explore.json`
         );
     }
 
@@ -479,16 +482,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "../index.html"
         );
 
-
         warm(
             "../explore/"
         );
 
-
         prefetch(
             "../index.html"
         );
-
 
         prefetch(
             "../explore/"
@@ -506,16 +506,13 @@ document.addEventListener("DOMContentLoaded", () => {
             "../index.html"
         );
 
-
         warm(
             "../discover/"
         );
 
-
         prefetch(
             "../index.html"
         );
-
 
         prefetch(
             "../discover/"
@@ -534,36 +531,31 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(
             option => {
 
-
                 option.addEventListener(
                     "click",
                     () => {
 
-
                         const language =
                             option.dataset.language;
-
 
                         if (!language) {
 
                             return;
                         }
 
-
                         warm(
                             `locales/${language}/common.json`
                         );
-
 
                         warm(
                             `locales/${language}/discover.json`
                         );
 
-
+                        warm(
+                            `locales/${language}/explore.json`
+                        );
                     }
                 );
-
-
             }
         );
 
@@ -577,33 +569,29 @@ document.addEventListener("DOMContentLoaded", () => {
             "discoverButton"
         );
 
-
-    if (discoverButton) {
-
-
-        discoverButton.addEventListener(
-            "pointerdown",
-            () => {
-
-                playTone(
-                    "discover"
-                );
-            }
-        );
-
+    if (
+        discoverButton
+    ) {
 
         discoverButton.addEventListener(
             "click",
-            event => {
-
+            async event => {
 
                 event.preventDefault();
 
+                if (
+                    discoverButton.dataset.busy === "true"
+                ) {
+                    return;
+                }
 
-                window.location.href =
-                    "discover/";
+                discoverButton.dataset.busy =
+                    "true";
 
-
+                await navigateWithSound(
+                    "discover",
+                    "discover/"
+                );
             }
         );
     }
@@ -618,33 +606,29 @@ document.addEventListener("DOMContentLoaded", () => {
             "exploreButton"
         );
 
-
-    if (exploreButton) {
-
-
-        exploreButton.addEventListener(
-            "pointerdown",
-            () => {
-
-                playTone(
-                    "explore"
-                );
-            }
-        );
-
+    if (
+        exploreButton
+    ) {
 
         exploreButton.addEventListener(
             "click",
-            event => {
-
+            async event => {
 
                 event.preventDefault();
 
+                if (
+                    exploreButton.dataset.busy === "true"
+                ) {
+                    return;
+                }
 
-                window.location.href =
-                    "explore/";
+                exploreButton.dataset.busy =
+                    "true";
 
-
+                await navigateWithSound(
+                    "explore",
+                    "explore/"
+                );
             }
         );
     }
@@ -659,9 +643,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "languageButton"
         );
 
-
-    if (languageButton) {
-
+    if (
+        languageButton
+    ) {
 
         languageButton.addEventListener(
             "pointerdown",
@@ -677,7 +661,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // =====================================================
     // INTERNAL NAVIGATION
-    // Home / Explore / Discover
     // =====================================================
 
     document
@@ -687,43 +670,32 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach(
             link => {
 
-
-                link.addEventListener(
-                    "pointerdown",
-                    () => {
-
-
-                        playTone(
-                            link.dataset.navSound
-                        );
-
-
-                    }
-                );
-
-
                 link.addEventListener(
                     "click",
-                    event => {
-
+                    async event => {
 
                         event.preventDefault();
 
+                        if (
+                            link.dataset.busy === "true"
+                        ) {
+                            return;
+                        }
+
+                        link.dataset.busy =
+                            "true";
 
                         const destination =
                             link.getAttribute(
                                 "href"
                             );
 
-
-                        window.location.href =
-                            destination;
-
-
+                        await navigateWithSound(
+                            link.dataset.navSound,
+                            destination
+                        );
                     }
                 );
-
-
             }
         );
 
@@ -736,12 +708,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "pointerdown",
         event => {
 
-
             const button =
                 event.target.closest(
                     ".document-button"
                 );
-
 
             if (
                 button &&
@@ -752,8 +722,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     "document"
                 );
             }
-
-
         }
     );
 
@@ -766,12 +734,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "pointerdown",
         event => {
 
-
             const closeButton =
                 event.target.closest(
                     ".modal-close"
                 );
-
 
             if (
                 closeButton
@@ -781,10 +747,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     "home"
                 );
             }
-
-
         }
     );
-
 
 });
