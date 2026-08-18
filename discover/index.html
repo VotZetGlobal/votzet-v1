@@ -19,7 +19,7 @@
 <style>
 
 /* =========================================================
-   DISCOVER VOTZET 2.1
+   DISCOVER VOTZET 2.2
    ========================================================= */
 
 body {
@@ -57,7 +57,6 @@ body {
     align-items: center;
 
     gap: 28px;
-
     padding: 17px 12px;
 
     background:
@@ -92,7 +91,6 @@ body {
 
 .discover-content {
     width: 100%;
-
     box-sizing: border-box;
 
     padding:
@@ -284,7 +282,6 @@ body {
     -webkit-tap-highlight-color: transparent;
 
     width: 100%;
-
     box-sizing: border-box;
 
     padding:
@@ -296,7 +293,6 @@ body {
         30px minmax(0,1fr);
 
     column-gap: 11px;
-
     align-items: center;
 
     border: none;
@@ -307,7 +303,6 @@ body {
     background: transparent;
 
     color: inherit;
-
     font-family: inherit;
 
     text-align: left;
@@ -1081,7 +1076,7 @@ body {
 
 
 <!-- =====================================================
-     DISCOVER 2.1 SYSTEM
+     DISCOVER 2.2 SYSTEM
      ===================================================== -->
 
 <script>
@@ -1122,10 +1117,10 @@ const documentOrder = [
 
 
 const deeperOrder = [
-    "canon",
-    "constitution",
+    "ecosystem",
     "codex",
-    "code"
+    "canon",
+    "standards"
 ];
 
 
@@ -1459,13 +1454,6 @@ card.appendChild(
 );
 
 
-/*
-   ВАЖНО:
-   звук запускается только по click.
-   Обычная прокрутка через карточку
-   звук не вызывает.
-*/
-
 card.addEventListener(
     "click",
     () => {
@@ -1668,7 +1656,7 @@ catch(error) {
 
 
 console.error(
-    "VotZet Discover 2.1 loading error:",
+    "VotZet Discover 2.2 loading error:",
     error
 );
 
@@ -1805,8 +1793,7 @@ document.addEventListener(
 
 
 if (
-    event.key ===
-    "Escape"
+    event.key === "Escape"
 ) {
 
     closeDocument();
