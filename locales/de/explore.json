@@ -1,0 +1,150 @@
+{
+  "title": "Erkunde VotZet",
+  "subtitle": "Finde, was für dich wirklich wichtig ist.",
+
+  "humanWorldsTitle": "Deine Welten",
+  "humanWorldsSubtitle": "Wähle, was zu dir oder zu der Person passt, für die du etwas erkundest.",
+
+  "worldsOfChoiceTitle": "Ebenen der Wahl",
+  "worldsOfChoiceSubtitle": "Unterschiedliche Wege zu wählen — intelligenter Gegenwert oder Premium-Niveau.",
+
+  "questions": {
+    "default": "Was ist dir wichtig?",
+    "children": "Was ist für ein Kind wichtig?",
+    "family": "Was ist für eine Familie wichtig?",
+    "pets": "Was ist für dein Haustier und euer gemeinsames Leben wichtig?",
+    "choice": "Was suchst du?"
+  },
+
+  "solutions": "Lösungen",
+
+  "worlds": {
+    "men": {
+      "title": "Männer",
+      "short": "Gesundheit, Aussehen, Status, Sicherheit und Entwicklung.",
+      "items": [
+        "Gesundheit",
+        "Aussehen",
+        "Status",
+        "Sicherheit",
+        "Entwicklung"
+      ]
+    },
+
+    "women": {
+      "title": "Frauen",
+      "short": "Gesundheit, Schönheit, Status, Sicherheit und Entwicklung.",
+      "items": [
+        "Gesundheit",
+        "Schönheit",
+        "Status",
+        "Sicherheit",
+        "Entwicklung"
+      ]
+    },
+
+    "children": {
+      "title": "Kinder",
+      "short": "Gesundheit, Lernen, Entwicklung, Sicherheit und vieles mehr.",
+      "items": [
+        "Gesundheit",
+        "Sicherheit",
+        "Lernen",
+        "Entwicklung",
+        "Kreativität",
+        "Spielen",
+        "Komfort"
+      ]
+    },
+
+    "seniors": {
+      "title": "Ältere Menschen",
+      "short": "Gesundheit, Selbstständigkeit, Komfort, soziale Kontakte und ein aktives Leben.",
+      "items": [
+        "Gesundheit",
+        "Sicherheit",
+        "Selbstständigkeit",
+        "Mobilität",
+        "Komfort",
+        "Soziale Kontakte",
+        "Aktivitäten"
+      ]
+    },
+
+    "family": {
+      "title": "Familie",
+      "short": "Zuhause, Sicherheit, Komfort und gemeinsame Zeit.",
+      "items": [
+        "Gesundheit",
+        "Sicherheit",
+        "Zuhause",
+        "Komfort",
+        "Gemeinsame Zeit",
+        "Reisen"
+      ]
+    },
+
+    "pets": {
+      "title": "Haustiere",
+      "short": "Gesundheit, Fürsorge, Komfort und gemeinsames Leben.",
+      "items": [
+        "Gesundheit",
+        "Ernährung",
+        "Sicherheit",
+        "Fürsorge",
+        "Komfort",
+        "Spielen",
+        "Gemeinsam unterwegs",
+        "Technologie"
+      ]
+    },
+
+    "social": {
+      "title": "Miteinander",
+      "short": "Freunde, geliebte Menschen, gemeinsame Interessen und gemeinsame Zeit.",
+      "items": [
+        "Für Freunde",
+        "Für geliebte Menschen",
+        "In Verbindung bleiben",
+        "Gemeinsame Interessen",
+        "Aktivitäten"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Noch mehr Wert für dein Geld.",
+      "items": [
+        "Gesundheit & Wohlbefinden",
+        "Für dich",
+        "Für Zuhause",
+        "Für die Familie",
+        "Technologie",
+        "Für Reisen",
+        "Für Arbeit & Lernen",
+        "Für Haustiere",
+        "Für das Auto",
+        "Geschenke",
+        "Hobbys & Freizeit"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Wenn du mehr als nur Qualität möchtest.",
+      "items": [
+        "Für dich",
+        "Stil",
+        "Technologie",
+        "Zuhause",
+        "Gesundheit & Erholung",
+        "Reisen",
+        "Für das Auto",
+        "Geschenke",
+        "Entdeckungen"
+      ]
+    }
+  }
+}
