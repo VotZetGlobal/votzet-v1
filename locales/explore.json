@@ -1,0 +1,150 @@
+{
+  "title": "Explore VotZet",
+  "subtitle": "Find what matters to you.",
+
+  "humanWorldsTitle": "Your Worlds",
+  "humanWorldsSubtitle": "Choose the one that feels closest to you or to the person you're exploring for.",
+
+  "worldsOfChoiceTitle": "Levels of Choice",
+  "worldsOfChoiceSubtitle": "A different approach to choosing — smart value or a premium level.",
+
+  "questions": {
+    "default": "What matters to you?",
+    "children": "What matters for a child?",
+    "family": "What matters for a family?",
+    "pets": "What matters for your pet and life together?",
+    "choice": "What are you looking for?"
+  },
+
+  "solutions": "Solutions",
+
+  "worlds": {
+    "men": {
+      "title": "Men",
+      "short": "Health, appearance, status, safety and development.",
+      "items": [
+        "Health",
+        "Appearance",
+        "Status",
+        "Safety",
+        "Development"
+      ]
+    },
+
+    "women": {
+      "title": "Women",
+      "short": "Health, beauty, status, safety and development.",
+      "items": [
+        "Health",
+        "Beauty",
+        "Status",
+        "Safety",
+        "Development"
+      ]
+    },
+
+    "children": {
+      "title": "Children",
+      "short": "Health, learning, development, safety and more.",
+      "items": [
+        "Health",
+        "Safety",
+        "Learning",
+        "Development",
+        "Creativity",
+        "Play",
+        "Comfort"
+      ]
+    },
+
+    "seniors": {
+      "title": "Seniors",
+      "short": "Health, independence, comfort, connection and active living.",
+      "items": [
+        "Health",
+        "Safety",
+        "Independence",
+        "Mobility",
+        "Comfort",
+        "Communication",
+        "Activities"
+      ]
+    },
+
+    "family": {
+      "title": "Family",
+      "short": "Home, safety, comfort and time together.",
+      "items": [
+        "Health",
+        "Safety",
+        "Home",
+        "Comfort",
+        "Time Together",
+        "Travel"
+      ]
+    },
+
+    "pets": {
+      "title": "Pets & Companions",
+      "short": "Health, care, comfort and life together.",
+      "items": [
+        "Health",
+        "Nutrition",
+        "Safety",
+        "Care",
+        "Comfort",
+        "Play",
+        "Travel Together",
+        "Smart Pet Life"
+      ]
+    },
+
+    "social": {
+      "title": "Social",
+      "short": "Friends, loved ones, shared interests and time together.",
+      "items": [
+        "For Friends",
+        "For Loved Ones",
+        "Stay Connected",
+        "Shared Interests",
+        "Activities"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Even more for your money.",
+      "items": [
+        "Health & Wellness",
+        "Personal",
+        "Home",
+        "Family",
+        "Technology",
+        "Travel",
+        "Work & Study",
+        "Pets",
+        "For the Car",
+        "Gifts",
+        "Hobbies & Leisure"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "When you want more than just quality.",
+      "items": [
+        "Personal",
+        "Style",
+        "Technology",
+        "Home",
+        "Health & Recovery",
+        "Travel",
+        "For the Car",
+        "Gifts",
+        "Discoveries"
+      ]
+    }
+  }
+}
