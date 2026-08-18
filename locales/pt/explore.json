@@ -1,0 +1,150 @@
+{
+  "title": "Explore a VotZet",
+  "subtitle": "Encontre aquilo que realmente importa para si.",
+
+  "humanWorldsTitle": "Os seus mundos",
+  "humanWorldsSubtitle": "Escolha aquilo que sente mais próximo de si ou da pessoa para quem está a explorar.",
+
+  "worldsOfChoiceTitle": "Níveis de escolha",
+  "worldsOfChoiceSubtitle": "Diferentes formas de escolher — valor inteligente ou um nível premium.",
+
+  "questions": {
+    "default": "O que é importante para si?",
+    "children": "O que é importante para uma criança?",
+    "family": "O que é importante para uma família?",
+    "pets": "O que é importante para o seu animal e para a vossa vida em conjunto?",
+    "choice": "O que procura?"
+  },
+
+  "solutions": "Soluções",
+
+  "worlds": {
+    "men": {
+      "title": "Homens",
+      "short": "Saúde, aparência, estatuto, segurança e desenvolvimento.",
+      "items": [
+        "Saúde",
+        "Aparência",
+        "Estatuto",
+        "Segurança",
+        "Desenvolvimento"
+      ]
+    },
+
+    "women": {
+      "title": "Mulheres",
+      "short": "Saúde, beleza, estatuto, segurança e desenvolvimento.",
+      "items": [
+        "Saúde",
+        "Beleza",
+        "Estatuto",
+        "Segurança",
+        "Desenvolvimento"
+      ]
+    },
+
+    "children": {
+      "title": "Crianças",
+      "short": "Saúde, aprendizagem, desenvolvimento, segurança e muito mais.",
+      "items": [
+        "Saúde",
+        "Segurança",
+        "Aprendizagem",
+        "Desenvolvimento",
+        "Criatividade",
+        "Brincadeiras",
+        "Conforto"
+      ]
+    },
+
+    "seniors": {
+      "title": "Pessoas mais velhas",
+      "short": "Saúde, autonomia, conforto, comunicação e vida ativa.",
+      "items": [
+        "Saúde",
+        "Segurança",
+        "Autonomia",
+        "Mobilidade",
+        "Conforto",
+        "Comunicação",
+        "Atividades"
+      ]
+    },
+
+    "family": {
+      "title": "Família",
+      "short": "Casa, segurança, conforto e tempo em conjunto.",
+      "items": [
+        "Saúde",
+        "Segurança",
+        "Casa",
+        "Conforto",
+        "Tempo em conjunto",
+        "Viagens"
+      ]
+    },
+
+    "pets": {
+      "title": "Animais",
+      "short": "Saúde, cuidados, conforto e vida em conjunto.",
+      "items": [
+        "Saúde",
+        "Alimentação",
+        "Segurança",
+        "Cuidados",
+        "Conforto",
+        "Brincadeiras",
+        "Viajar juntos",
+        "Tecnologia"
+      ]
+    },
+
+    "social": {
+      "title": "Vida social",
+      "short": "Amigos, pessoas queridas, interesses em comum e tempo em conjunto.",
+      "items": [
+        "Para amigos",
+        "Para pessoas queridas",
+        "Manter o contacto",
+        "Interesses em comum",
+        "Atividades"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Ainda mais valor pelo seu dinheiro.",
+      "items": [
+        "Saúde e bem-estar",
+        "Para si",
+        "Para casa",
+        "Para a família",
+        "Tecnologia",
+        "Para viajar",
+        "Para trabalho e estudo",
+        "Para animais",
+        "Para o automóvel",
+        "Presentes",
+        "Hobbies e lazer"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Quando procura mais do que apenas qualidade.",
+      "items": [
+        "Para si",
+        "Estilo",
+        "Tecnologia",
+        "Casa",
+        "Saúde e recuperação",
+        "Viagens",
+        "Para o automóvel",
+        "Presentes",
+        "Descobertas"
+      ]
+    }
+  }
+}
