@@ -1,0 +1,150 @@
+{
+  "title": "VotZet'i İncele",
+  "subtitle": "Senin için gerçekten önemli olanı bul.",
+
+  "humanWorldsTitle": "Senin dünyaların",
+  "humanWorldsSubtitle": "Kendine veya adına araştırdığın kişiye en yakın gelen dünyayı seç.",
+
+  "worldsOfChoiceTitle": "Seçim seviyeleri",
+  "worldsOfChoiceSubtitle": "Farklı seçim yolları — akıllı değer veya premium seviye.",
+
+  "questions": {
+    "default": "Senin için önemli olan ne?",
+    "children": "Bir çocuk için önemli olan ne?",
+    "family": "Bir aile için önemli olan ne?",
+    "pets": "Evcil hayvanın ve birlikte yaşamınız için önemli olan ne?",
+    "choice": "Ne arıyorsun?"
+  },
+
+  "solutions": "Çözümler",
+
+  "worlds": {
+    "men": {
+      "title": "Erkekler",
+      "short": "Sağlık, görünüm, statü, güvenlik ve gelişim.",
+      "items": [
+        "Sağlık",
+        "Görünüm",
+        "Statü",
+        "Güvenlik",
+        "Gelişim"
+      ]
+    },
+
+    "women": {
+      "title": "Kadınlar",
+      "short": "Sağlık, güzellik, statü, güvenlik ve gelişim.",
+      "items": [
+        "Sağlık",
+        "Güzellik",
+        "Statü",
+        "Güvenlik",
+        "Gelişim"
+      ]
+    },
+
+    "children": {
+      "title": "Çocuklar",
+      "short": "Sağlık, öğrenme, gelişim, güvenlik ve çok daha fazlası.",
+      "items": [
+        "Sağlık",
+        "Güvenlik",
+        "Öğrenme",
+        "Gelişim",
+        "Yaratıcılık",
+        "Oyun",
+        "Konfor"
+      ]
+    },
+
+    "seniors": {
+      "title": "İleri Yaş",
+      "short": "Sağlık, bağımsızlık, konfor, iletişim ve aktif yaşam.",
+      "items": [
+        "Sağlık",
+        "Güvenlik",
+        "Bağımsızlık",
+        "Hareketlilik",
+        "Konfor",
+        "İletişim",
+        "Aktiviteler"
+      ]
+    },
+
+    "family": {
+      "title": "Aile",
+      "short": "Ev, güvenlik, konfor ve birlikte geçirilen zaman.",
+      "items": [
+        "Sağlık",
+        "Güvenlik",
+        "Ev",
+        "Konfor",
+        "Birlikte zaman",
+        "Seyahat"
+      ]
+    },
+
+    "pets": {
+      "title": "Evcil Hayvanlar",
+      "short": "Sağlık, bakım, konfor ve birlikte yaşam.",
+      "items": [
+        "Sağlık",
+        "Beslenme",
+        "Güvenlik",
+        "Bakım",
+        "Konfor",
+        "Oyun",
+        "Birlikte seyahat",
+        "Teknoloji"
+      ]
+    },
+
+    "social": {
+      "title": "Sosyal Yaşam",
+      "short": "Arkadaşlar, sevdiklerin, ortak ilgi alanları ve birlikte geçirilen zaman.",
+      "items": [
+        "Arkadaşlar için",
+        "Sevdiklerin için",
+        "İletişimde kal",
+        "Ortak ilgi alanları",
+        "Aktiviteler"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Paranın karşılığında daha fazla değer.",
+      "items": [
+        "Sağlık ve iyi yaşam",
+        "Kendin için",
+        "Ev için",
+        "Aile için",
+        "Teknoloji",
+        "Seyahat için",
+        "İş ve eğitim için",
+        "Evcil hayvanlar için",
+        "Otomobil için",
+        "Hediyeler",
+        "Hobiler ve boş zaman"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Kaliteden daha fazlasını istediğinde.",
+      "items": [
+        "Kendin için",
+        "Stil",
+        "Teknoloji",
+        "Ev",
+        "Sağlık ve yenilenme",
+        "Seyahat",
+        "Otomobil için",
+        "Hediyeler",
+        "Keşifler"
+      ]
+    }
+  }
+}
