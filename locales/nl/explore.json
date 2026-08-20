@@ -1,0 +1,150 @@
+{
+  "title": "Verken VotZet",
+  "subtitle": "Vind wat voor jou echt belangrijk is.",
+
+  "humanWorldsTitle": "Jouw werelden",
+  "humanWorldsSubtitle": "Kies wat het dichtst bij jou staat, of bij de persoon voor wie je op zoek bent.",
+
+  "worldsOfChoiceTitle": "Keuzeniveaus",
+  "worldsOfChoiceSubtitle": "Verschillende manieren om te kiezen — slimme waarde of premium niveau.",
+
+  "questions": {
+    "default": "Wat is belangrijk voor jou?",
+    "children": "Wat is belangrijk voor een kind?",
+    "family": "Wat is belangrijk voor een gezin?",
+    "pets": "Wat is belangrijk voor je huisdier en jullie leven samen?",
+    "choice": "Waar ben je naar op zoek?"
+  },
+
+  "solutions": "Oplossingen",
+
+  "worlds": {
+    "men": {
+      "title": "Mannen",
+      "short": "Gezondheid, uitstraling, status, veiligheid en ontwikkeling.",
+      "items": [
+        "Gezondheid",
+        "Uitstraling",
+        "Status",
+        "Veiligheid",
+        "Ontwikkeling"
+      ]
+    },
+
+    "women": {
+      "title": "Vrouwen",
+      "short": "Gezondheid, schoonheid, status, veiligheid en ontwikkeling.",
+      "items": [
+        "Gezondheid",
+        "Schoonheid",
+        "Status",
+        "Veiligheid",
+        "Ontwikkeling"
+      ]
+    },
+
+    "children": {
+      "title": "Kinderen",
+      "short": "Gezondheid, leren, ontwikkeling, veiligheid en meer.",
+      "items": [
+        "Gezondheid",
+        "Veiligheid",
+        "Leren",
+        "Ontwikkeling",
+        "Creativiteit",
+        "Spelen",
+        "Comfort"
+      ]
+    },
+
+    "seniors": {
+      "title": "Senioren",
+      "short": "Gezondheid, zelfstandigheid, comfort, contact en een actief leven.",
+      "items": [
+        "Gezondheid",
+        "Veiligheid",
+        "Zelfstandigheid",
+        "Mobiliteit",
+        "Comfort",
+        "Contact",
+        "Activiteiten"
+      ]
+    },
+
+    "family": {
+      "title": "Gezin",
+      "short": "Thuis, veiligheid, comfort en tijd samen.",
+      "items": [
+        "Gezondheid",
+        "Veiligheid",
+        "Thuis",
+        "Comfort",
+        "Tijd samen",
+        "Reizen"
+      ]
+    },
+
+    "pets": {
+      "title": "Huisdieren",
+      "short": "Gezondheid, verzorging, comfort en samen leven.",
+      "items": [
+        "Gezondheid",
+        "Voeding",
+        "Veiligheid",
+        "Verzorging",
+        "Comfort",
+        "Spelen",
+        "Samen reizen",
+        "Technologie"
+      ]
+    },
+
+    "social": {
+      "title": "Sociaal leven",
+      "short": "Vrienden, dierbaren, gedeelde interesses en tijd samen.",
+      "items": [
+        "Voor vrienden",
+        "Voor dierbaren",
+        "Contact houden",
+        "Gedeelde interesses",
+        "Activiteiten"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Meer waarde voor wat je uitgeeft.",
+      "items": [
+        "Gezondheid en welzijn",
+        "Voor jou",
+        "Voor thuis",
+        "Voor het gezin",
+        "Technologie",
+        "Voor reizen",
+        "Voor werk en studie",
+        "Voor huisdieren",
+        "Voor de auto",
+        "Cadeaus",
+        "Hobby's en vrije tijd"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Wanneer je meer zoekt dan alleen kwaliteit.",
+      "items": [
+        "Voor jou",
+        "Stijl",
+        "Technologie",
+        "Thuis",
+        "Gezondheid en herstel",
+        "Reizen",
+        "Voor de auto",
+        "Cadeaus",
+        "Ontdekkingen"
+      ]
+    }
+  }
+}
