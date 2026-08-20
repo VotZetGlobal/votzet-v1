@@ -1,0 +1,150 @@
+{
+  "title": "Fiosraigh VotZet",
+  "subtitle": "Faigh an rud atá fíorthábhachtach duit.",
+
+  "humanWorldsTitle": "Do shaolta",
+  "humanWorldsSubtitle": "Roghnaigh an rud is gaire duit féin nó don duine a bhfuil tú ag cuardach ar a shon.",
+
+  "worldsOfChoiceTitle": "Leibhéil rogha",
+  "worldsOfChoiceSubtitle": "Bealaí éagsúla le roghnú — luach cliste nó leibhéal préimhe.",
+
+  "questions": {
+    "default": "Cad atá tábhachtach duit?",
+    "children": "Cad atá tábhachtach do leanbh?",
+    "family": "Cad atá tábhachtach do theaghlach?",
+    "pets": "Cad atá tábhachtach do do pheata agus do bhur saol le chéile?",
+    "choice": "Cad atá á lorg agat?"
+  },
+
+  "solutions": "Réitigh",
+
+  "worlds": {
+    "men": {
+      "title": "Fir",
+      "short": "Sláinte, cuma, stádas, sábháilteacht agus forbairt.",
+      "items": [
+        "Sláinte",
+        "Cuma",
+        "Stádas",
+        "Sábháilteacht",
+        "Forbairt"
+      ]
+    },
+
+    "women": {
+      "title": "Mná",
+      "short": "Sláinte, áilleacht, stádas, sábháilteacht agus forbairt.",
+      "items": [
+        "Sláinte",
+        "Áilleacht",
+        "Stádas",
+        "Sábháilteacht",
+        "Forbairt"
+      ]
+    },
+
+    "children": {
+      "title": "Leanaí",
+      "short": "Sláinte, foghlaim, forbairt, sábháilteacht agus go leor eile.",
+      "items": [
+        "Sláinte",
+        "Sábháilteacht",
+        "Foghlaim",
+        "Forbairt",
+        "Cruthaitheacht",
+        "Súgradh",
+        "Compord"
+      ]
+    },
+
+    "seniors": {
+      "title": "Daoine níos sine",
+      "short": "Sláinte, neamhspleáchas, compord, teagmháil agus saol gníomhach.",
+      "items": [
+        "Sláinte",
+        "Sábháilteacht",
+        "Neamhspleáchas",
+        "Soghluaisteacht",
+        "Compord",
+        "Teagmháil",
+        "Gníomhaíochtaí"
+      ]
+    },
+
+    "family": {
+      "title": "Teaghlach",
+      "short": "Baile, sábháilteacht, compord agus am le chéile.",
+      "items": [
+        "Sláinte",
+        "Sábháilteacht",
+        "Baile",
+        "Compord",
+        "Am le chéile",
+        "Taisteal"
+      ]
+    },
+
+    "pets": {
+      "title": "Peataí",
+      "short": "Sláinte, cúram, compord agus saol le chéile.",
+      "items": [
+        "Sláinte",
+        "Cothú",
+        "Sábháilteacht",
+        "Cúram",
+        "Compord",
+        "Súgradh",
+        "Taisteal le chéile",
+        "Teicneolaíocht"
+      ]
+    },
+
+    "social": {
+      "title": "Saol sóisialta",
+      "short": "Cairde, daoine muinteartha, spéiseanna comhroinnte agus am le chéile.",
+      "items": [
+        "Do chairde",
+        "Do dhaoine muinteartha",
+        "Fan i dteagmháil",
+        "Spéiseanna comhroinnte",
+        "Gníomhaíochtaí"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Níos mó luacha ar do chuid airgid.",
+      "items": [
+        "Sláinte agus folláine",
+        "Duit féin",
+        "Don bhaile",
+        "Don teaghlach",
+        "Teicneolaíocht",
+        "Don taisteal",
+        "Don obair agus don staidéar",
+        "Do pheataí",
+        "Don charr",
+        "Bronntanais",
+        "Caitheamh aimsire agus fóillíocht"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Nuair atá níos mó ná cáilíocht amháin uait.",
+      "items": [
+        "Duit féin",
+        "Stíl",
+        "Teicneolaíocht",
+        "Baile",
+        "Sláinte agus téarnamh",
+        "Taisteal",
+        "Don charr",
+        "Bronntanais",
+        "Fionnachtana"
+      ]
+    }
+  }
+}
