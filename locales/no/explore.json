@@ -1,0 +1,150 @@
+{
+  "title": "Utforsk VotZet",
+  "subtitle": "Finn det som virkelig betyr noe for deg.",
+
+  "humanWorldsTitle": "Dine verdener",
+  "humanWorldsSubtitle": "Velg det som føles nærmest deg eller personen du utforsker for.",
+
+  "worldsOfChoiceTitle": "Valgnivåer",
+  "worldsOfChoiceSubtitle": "Ulike måter å velge på — smart verdi eller premiumnivå.",
+
+  "questions": {
+    "default": "Hva er viktig for deg?",
+    "children": "Hva er viktig for et barn?",
+    "family": "Hva er viktig for en familie?",
+    "pets": "Hva er viktig for kjæledyret ditt og livet deres sammen?",
+    "choice": "Hva leter du etter?"
+  },
+
+  "solutions": "Løsninger",
+
+  "worlds": {
+    "men": {
+      "title": "Menn",
+      "short": "Helse, utseende, status, sikkerhet og utvikling.",
+      "items": [
+        "Helse",
+        "Utseende",
+        "Status",
+        "Sikkerhet",
+        "Utvikling"
+      ]
+    },
+
+    "women": {
+      "title": "Kvinner",
+      "short": "Helse, skjønnhet, status, sikkerhet og utvikling.",
+      "items": [
+        "Helse",
+        "Skjønnhet",
+        "Status",
+        "Sikkerhet",
+        "Utvikling"
+      ]
+    },
+
+    "children": {
+      "title": "Barn",
+      "short": "Helse, læring, utvikling, sikkerhet og mye mer.",
+      "items": [
+        "Helse",
+        "Sikkerhet",
+        "Læring",
+        "Utvikling",
+        "Kreativitet",
+        "Lek",
+        "Komfort"
+      ]
+    },
+
+    "seniors": {
+      "title": "Seniorer",
+      "short": "Helse, selvstendighet, komfort, kontakt og et aktivt liv.",
+      "items": [
+        "Helse",
+        "Sikkerhet",
+        "Selvstendighet",
+        "Mobilitet",
+        "Komfort",
+        "Kontakt",
+        "Aktiviteter"
+      ]
+    },
+
+    "family": {
+      "title": "Familie",
+      "short": "Hjem, sikkerhet, komfort og tid sammen.",
+      "items": [
+        "Helse",
+        "Sikkerhet",
+        "Hjem",
+        "Komfort",
+        "Tid sammen",
+        "Reiser"
+      ]
+    },
+
+    "pets": {
+      "title": "Kjæledyr",
+      "short": "Helse, omsorg, komfort og livet sammen.",
+      "items": [
+        "Helse",
+        "Ernæring",
+        "Sikkerhet",
+        "Omsorg",
+        "Komfort",
+        "Lek",
+        "Reise sammen",
+        "Teknologi"
+      ]
+    },
+
+    "social": {
+      "title": "Sosialt liv",
+      "short": "Venner, nære personer, felles interesser og tid sammen.",
+      "items": [
+        "For venner",
+        "For dem du er glad i",
+        "Hold kontakten",
+        "Felles interesser",
+        "Aktiviteter"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Mer verdi for pengene.",
+      "items": [
+        "Helse og velvære",
+        "For deg",
+        "For hjemmet",
+        "For familien",
+        "Teknologi",
+        "For reiser",
+        "For arbeid og studier",
+        "For kjæledyr",
+        "For bilen",
+        "Gaver",
+        "Hobby og fritid"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Når du ønsker mer enn bare kvalitet.",
+      "items": [
+        "For deg",
+        "Stil",
+        "Teknologi",
+        "Hjem",
+        "Helse og restitusjon",
+        "Reiser",
+        "For bilen",
+        "Gaver",
+        "Oppdagelser"
+      ]
+    }
+  }
+}
