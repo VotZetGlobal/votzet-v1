@@ -1,0 +1,150 @@
+{
+  "title": "Khám phá VotZet",
+  "subtitle": "Tìm điều thực sự quan trọng đối với bạn.",
+
+  "humanWorldsTitle": "Thế giới của bạn",
+  "humanWorldsSubtitle": "Hãy chọn điều gần gũi nhất với bạn hoặc với người mà bạn đang tìm kiếm điều gì đó cho họ.",
+
+  "worldsOfChoiceTitle": "Cách lựa chọn",
+  "worldsOfChoiceSubtitle": "Những cách lựa chọn khác nhau — giá trị thông minh hoặc trải nghiệm cao cấp.",
+
+  "questions": {
+    "default": "Điều gì quan trọng đối với bạn?",
+    "children": "Điều gì quan trọng đối với một đứa trẻ?",
+    "family": "Điều gì quan trọng đối với một gia đình?",
+    "pets": "Điều gì quan trọng đối với thú cưng và cuộc sống của bạn bên chúng?",
+    "choice": "Bạn đang tìm kiếm điều gì?"
+  },
+
+  "solutions": "Giải pháp",
+
+  "worlds": {
+    "men": {
+      "title": "Nam giới",
+      "short": "Sức khỏe, ngoại hình, vị thế, an toàn và phát triển.",
+      "items": [
+        "Sức khỏe",
+        "Ngoại hình",
+        "Vị thế",
+        "An toàn",
+        "Phát triển"
+      ]
+    },
+
+    "women": {
+      "title": "Phụ nữ",
+      "short": "Sức khỏe, vẻ đẹp, vị thế, an toàn và phát triển.",
+      "items": [
+        "Sức khỏe",
+        "Vẻ đẹp",
+        "Vị thế",
+        "An toàn",
+        "Phát triển"
+      ]
+    },
+
+    "children": {
+      "title": "Trẻ em",
+      "short": "Sức khỏe, học tập, phát triển, an toàn và hơn thế nữa.",
+      "items": [
+        "Sức khỏe",
+        "An toàn",
+        "Học tập",
+        "Phát triển",
+        "Sáng tạo",
+        "Vui chơi",
+        "Thoải mái"
+      ]
+    },
+
+    "seniors": {
+      "title": "Người cao tuổi",
+      "short": "Sức khỏe, tự chủ, thoải mái, kết nối và cuộc sống năng động.",
+      "items": [
+        "Sức khỏe",
+        "An toàn",
+        "Tự chủ",
+        "Khả năng di chuyển",
+        "Thoải mái",
+        "Kết nối",
+        "Hoạt động"
+      ]
+    },
+
+    "family": {
+      "title": "Gia đình",
+      "short": "Ngôi nhà, an toàn, thoải mái và thời gian bên nhau.",
+      "items": [
+        "Sức khỏe",
+        "An toàn",
+        "Ngôi nhà",
+        "Thoải mái",
+        "Thời gian bên nhau",
+        "Du lịch"
+      ]
+    },
+
+    "pets": {
+      "title": "Thú cưng",
+      "short": "Sức khỏe, chăm sóc, thoải mái và cuộc sống bên nhau.",
+      "items": [
+        "Sức khỏe",
+        "Dinh dưỡng",
+        "An toàn",
+        "Chăm sóc",
+        "Thoải mái",
+        "Vui chơi",
+        "Du lịch cùng nhau",
+        "Công nghệ"
+      ]
+    },
+
+    "social": {
+      "title": "Đời sống xã hội",
+      "short": "Bạn bè, những người thân thiết, sở thích chung và thời gian bên nhau.",
+      "items": [
+        "Cho bạn bè",
+        "Cho người thân",
+        "Giữ kết nối",
+        "Sở thích chung",
+        "Hoạt động"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Nhiều giá trị hơn với cùng một ngân sách.",
+      "items": [
+        "Sức khỏe và thể chất",
+        "Cho bản thân",
+        "Cho ngôi nhà",
+        "Cho gia đình",
+        "Công nghệ",
+        "Du lịch",
+        "Công việc và học tập",
+        "Thú cưng",
+        "Ô tô",
+        "Quà tặng",
+        "Sở thích và giải trí"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Khi bạn tìm kiếm nhiều hơn cả chất lượng.",
+      "items": [
+        "Cho bản thân",
+        "Phong cách",
+        "Công nghệ",
+        "Ngôi nhà",
+        "Sức khỏe và phục hồi",
+        "Du lịch",
+        "Ô tô",
+        "Quà tặng",
+        "Khám phá mới"
+      ]
+    }
+  }
+}
