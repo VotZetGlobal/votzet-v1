@@ -1,0 +1,150 @@
+{
+  "title": "Kannaðu VotZet",
+  "subtitle": "Finndu það sem skiptir þig raunverulega máli.",
+
+  "humanWorldsTitle": "Þínir heimar",
+  "humanWorldsSubtitle": "Veldu það sem stendur þér eða manneskjunni sem þú ert að leita fyrir næst.",
+
+  "worldsOfChoiceTitle": "Leiðir til að velja",
+  "worldsOfChoiceSubtitle": "Ólíkar leiðir til að velja — skynsamlegt verðmæti eða úrvalsval.",
+
+  "questions": {
+    "default": "Hvað skiptir þig máli?",
+    "children": "Hvað skiptir barn máli?",
+    "family": "Hvað skiptir fjölskyldu máli?",
+    "pets": "Hvað skiptir gæludýrið þitt og líf ykkar saman máli?",
+    "choice": "Að hverju ertu að leita?"
+  },
+
+  "solutions": "Lausnir",
+
+  "worlds": {
+    "men": {
+      "title": "Karlar",
+      "short": "Heilsa, útlit, staða, öryggi og þróun.",
+      "items": [
+        "Heilsa",
+        "Útlit",
+        "Staða",
+        "Öryggi",
+        "Þróun"
+      ]
+    },
+
+    "women": {
+      "title": "Konur",
+      "short": "Heilsa, fegurð, staða, öryggi og þróun.",
+      "items": [
+        "Heilsa",
+        "Fegurð",
+        "Staða",
+        "Öryggi",
+        "Þróun"
+      ]
+    },
+
+    "children": {
+      "title": "Börn",
+      "short": "Heilsa, nám, þróun, öryggi og margt fleira.",
+      "items": [
+        "Heilsa",
+        "Öryggi",
+        "Nám",
+        "Þróun",
+        "Sköpun",
+        "Leikur",
+        "Þægindi"
+      ]
+    },
+
+    "seniors": {
+      "title": "Eldra fólk",
+      "short": "Heilsa, sjálfstæði, þægindi, tengsl og virkt líf.",
+      "items": [
+        "Heilsa",
+        "Öryggi",
+        "Sjálfstæði",
+        "Hreyfanleiki",
+        "Þægindi",
+        "Tengsl",
+        "Afþreying"
+      ]
+    },
+
+    "family": {
+      "title": "Fjölskylda",
+      "short": "Heimili, öryggi, þægindi og tími saman.",
+      "items": [
+        "Heilsa",
+        "Öryggi",
+        "Heimili",
+        "Þægindi",
+        "Tími saman",
+        "Ferðalög"
+      ]
+    },
+
+    "pets": {
+      "title": "Gæludýr",
+      "short": "Heilsa, umönnun, þægindi og lífið saman.",
+      "items": [
+        "Heilsa",
+        "Næring",
+        "Öryggi",
+        "Umönnun",
+        "Þægindi",
+        "Leikur",
+        "Ferðalög saman",
+        "Tækni"
+      ]
+    },
+
+    "social": {
+      "title": "Félagslíf",
+      "short": "Vinir, ástvinir, sameiginleg áhugamál og tími saman.",
+      "items": [
+        "Fyrir vini",
+        "Fyrir ástvini",
+        "Halda sambandi",
+        "Sameiginleg áhugamál",
+        "Afþreying"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Meira fyrir peningana.",
+      "items": [
+        "Heilsa og vellíðan",
+        "Fyrir þig",
+        "Fyrir heimilið",
+        "Fyrir fjölskylduna",
+        "Tækni",
+        "Fyrir ferðalög",
+        "Fyrir vinnu og nám",
+        "Fyrir gæludýr",
+        "Fyrir bílinn",
+        "Gjafir",
+        "Áhugamál og frítími"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Þegar þú leitar að meira en bara gæðum.",
+      "items": [
+        "Fyrir þig",
+        "Stíll",
+        "Tækni",
+        "Heimili",
+        "Heilsa og endurheimt",
+        "Ferðalög",
+        "Fyrir bílinn",
+        "Gjafir",
+        "Uppgötvanir"
+      ]
+    }
+  }
+}
