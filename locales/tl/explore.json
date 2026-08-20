@@ -1,0 +1,150 @@
+{
+  "title": "Tuklasin ang VotZet",
+  "subtitle": "Hanapin kung ano ang tunay na mahalaga para sa iyo.",
+
+  "humanWorldsTitle": "Mga mundo mo",
+  "humanWorldsSubtitle": "Piliin kung ano ang pinakamalapit sa iyo o sa taong hinahanapan mo.",
+
+  "worldsOfChoiceTitle": "Mga paraan ng pagpili",
+  "worldsOfChoiceSubtitle": "Magkaibang paraan ng pagpili — matalinong halaga o premium na antas.",
+
+  "questions": {
+    "default": "Ano ang mahalaga para sa iyo?",
+    "children": "Ano ang mahalaga para sa isang bata?",
+    "family": "Ano ang mahalaga para sa isang pamilya?",
+    "pets": "Ano ang mahalaga para sa iyong alagang hayop at sa buhay ninyo nang magkasama?",
+    "choice": "Ano ang hinahanap mo?"
+  },
+
+  "solutions": "Mga Solusyon",
+
+  "worlds": {
+    "men": {
+      "title": "Lalaki",
+      "short": "Kalusugan, hitsura, status, kaligtasan, at pag-unlad.",
+      "items": [
+        "Kalusugan",
+        "Hitsura",
+        "Status",
+        "Kaligtasan",
+        "Pag-unlad"
+      ]
+    },
+
+    "women": {
+      "title": "Babae",
+      "short": "Kalusugan, kagandahan, status, kaligtasan, at pag-unlad.",
+      "items": [
+        "Kalusugan",
+        "Kagandahan",
+        "Status",
+        "Kaligtasan",
+        "Pag-unlad"
+      ]
+    },
+
+    "children": {
+      "title": "Mga Bata",
+      "short": "Kalusugan, pag-aaral, pag-unlad, kaligtasan, at marami pang iba.",
+      "items": [
+        "Kalusugan",
+        "Kaligtasan",
+        "Pag-aaral",
+        "Pag-unlad",
+        "Pagkamalikhain",
+        "Paglalaro",
+        "Ginhawa"
+      ]
+    },
+
+    "seniors": {
+      "title": "Mga Nakatatanda",
+      "short": "Kalusugan, kalayaan, ginhawa, koneksyon, at aktibong pamumuhay.",
+      "items": [
+        "Kalusugan",
+        "Kaligtasan",
+        "Kalayaan",
+        "Mobility",
+        "Ginhawa",
+        "Koneksyon",
+        "Mga Aktibidad"
+      ]
+    },
+
+    "family": {
+      "title": "Pamilya",
+      "short": "Tahanan, kaligtasan, ginhawa, at oras na magkasama.",
+      "items": [
+        "Kalusugan",
+        "Kaligtasan",
+        "Tahanan",
+        "Ginhawa",
+        "Oras na Magkasama",
+        "Paglalakbay"
+      ]
+    },
+
+    "pets": {
+      "title": "Mga Alagang Hayop",
+      "short": "Kalusugan, pangangalaga, ginhawa, at buhay na magkasama.",
+      "items": [
+        "Kalusugan",
+        "Nutrisyon",
+        "Kaligtasan",
+        "Pangangalaga",
+        "Ginhawa",
+        "Paglalaro",
+        "Paglalakbay nang Magkasama",
+        "Teknolohiya"
+      ]
+    },
+
+    "social": {
+      "title": "Buhay Panlipunan",
+      "short": "Mga kaibigan, mahal sa buhay, magkakaparehong interes, at oras na magkasama.",
+      "items": [
+        "Para sa mga Kaibigan",
+        "Para sa mga Mahal sa Buhay",
+        "Manatiling Konektado",
+        "Magkakaparehong Interes",
+        "Mga Aktibidad"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Mas malaking halaga para sa iyong pera.",
+      "items": [
+        "Kalusugan at Well-being",
+        "Para sa Sarili",
+        "Para sa Tahanan",
+        "Para sa Pamilya",
+        "Teknolohiya",
+        "Paglalakbay",
+        "Trabaho at Pag-aaral",
+        "Mga Alagang Hayop",
+        "Kotse",
+        "Mga Regalo",
+        "Hobby at Libangan"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Kapag higit pa sa kalidad ang hinahanap mo.",
+      "items": [
+        "Para sa Sarili",
+        "Estilo",
+        "Teknolohiya",
+        "Tahanan",
+        "Kalusugan at Recovery",
+        "Paglalakbay",
+        "Kotse",
+        "Mga Regalo",
+        "Mga Bagong Tuklas"
+      ]
+    }
+  }
+}
