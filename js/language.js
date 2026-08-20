@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const translations = await response.json();
 
                 document.documentElement.lang = language;
+                document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
 
                 if (discoverButton && translations.discover) {
                     discoverButton.textContent = translations.discover;
@@ -100,4 +101,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // OTHER PAGES: Используем язык, выбранный на главной странице
     document.documentElement.lang = savedLanguage;
+    document.documentElement.dir = savedLanguage === "ar" ? "rtl" : "ltr";
 });
