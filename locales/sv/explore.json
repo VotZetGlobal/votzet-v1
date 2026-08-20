@@ -1,0 +1,150 @@
+{
+  "title": "Utforska VotZet",
+  "subtitle": "Hitta det som verkligen betyder något för dig.",
+
+  "humanWorldsTitle": "Dina världar",
+  "humanWorldsSubtitle": "Välj det som känns närmast dig eller personen du utforskar för.",
+
+  "worldsOfChoiceTitle": "Valnivåer",
+  "worldsOfChoiceSubtitle": "Olika sätt att välja — smart värde eller premiumnivå.",
+
+  "questions": {
+    "default": "Vad är viktigt för dig?",
+    "children": "Vad är viktigt för ett barn?",
+    "family": "Vad är viktigt för en familj?",
+    "pets": "Vad är viktigt för ditt husdjur och ert liv tillsammans?",
+    "choice": "Vad letar du efter?"
+  },
+
+  "solutions": "Lösningar",
+
+  "worlds": {
+    "men": {
+      "title": "Män",
+      "short": "Hälsa, utseende, status, säkerhet och utveckling.",
+      "items": [
+        "Hälsa",
+        "Utseende",
+        "Status",
+        "Säkerhet",
+        "Utveckling"
+      ]
+    },
+
+    "women": {
+      "title": "Kvinnor",
+      "short": "Hälsa, skönhet, status, säkerhet och utveckling.",
+      "items": [
+        "Hälsa",
+        "Skönhet",
+        "Status",
+        "Säkerhet",
+        "Utveckling"
+      ]
+    },
+
+    "children": {
+      "title": "Barn",
+      "short": "Hälsa, lärande, utveckling, säkerhet och mycket mer.",
+      "items": [
+        "Hälsa",
+        "Säkerhet",
+        "Lärande",
+        "Utveckling",
+        "Kreativitet",
+        "Lek",
+        "Komfort"
+      ]
+    },
+
+    "seniors": {
+      "title": "Seniorer",
+      "short": "Hälsa, självständighet, komfort, kontakt och ett aktivt liv.",
+      "items": [
+        "Hälsa",
+        "Säkerhet",
+        "Självständighet",
+        "Rörlighet",
+        "Komfort",
+        "Kontakt",
+        "Aktiviteter"
+      ]
+    },
+
+    "family": {
+      "title": "Familj",
+      "short": "Hem, säkerhet, komfort och tid tillsammans.",
+      "items": [
+        "Hälsa",
+        "Säkerhet",
+        "Hem",
+        "Komfort",
+        "Tid tillsammans",
+        "Resor"
+      ]
+    },
+
+    "pets": {
+      "title": "Husdjur",
+      "short": "Hälsa, omsorg, komfort och livet tillsammans.",
+      "items": [
+        "Hälsa",
+        "Kost",
+        "Säkerhet",
+        "Omsorg",
+        "Komfort",
+        "Lek",
+        "Resor tillsammans",
+        "Teknik"
+      ]
+    },
+
+    "social": {
+      "title": "Socialt liv",
+      "short": "Vänner, närstående, gemensamma intressen och tid tillsammans.",
+      "items": [
+        "För vänner",
+        "För närstående",
+        "Håll kontakten",
+        "Gemensamma intressen",
+        "Aktiviteter"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Mer värde för pengarna.",
+      "items": [
+        "Hälsa och välbefinnande",
+        "För dig",
+        "För hemmet",
+        "För familjen",
+        "Teknik",
+        "För resor",
+        "För arbete och studier",
+        "För husdjur",
+        "För bilen",
+        "Presenter",
+        "Hobby och fritid"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "När du söker något mer än bara kvalitet.",
+      "items": [
+        "För dig",
+        "Stil",
+        "Teknik",
+        "Hem",
+        "Hälsa och återhämtning",
+        "Resor",
+        "För bilen",
+        "Presenter",
+        "Upptäckter"
+      ]
+    }
+  }
+}
