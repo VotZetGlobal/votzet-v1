@@ -193,3 +193,22 @@ body {
         letter-spacing: 1.3px;
     }
 }
+
+/* ARABIC / RTL: Адаптация интерфейса для арабского языка */
+html[dir="rtl"] .home-buttons {
+    direction: ltr;
+}
+
+html[dir="rtl"] .home-button {
+    direction: rtl;
+}
+
+html[dir="rtl"] .language-button {
+    direction: rtl;
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .language-option[data-language="ar"] {
+    direction: rtl;
+    text-align: right;
+}
