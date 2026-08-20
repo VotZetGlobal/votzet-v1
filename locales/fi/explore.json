@@ -1,0 +1,150 @@
+{
+  "title": "Tutki VotZetiä",
+  "subtitle": "Löydä se, mikä on sinulle todella tärkeää.",
+
+  "humanWorldsTitle": "Sinun maailmasi",
+  "humanWorldsSubtitle": "Valitse se, mikä tuntuu lähimmältä sinua tai henkilöä, jota varten etsit.",
+
+  "worldsOfChoiceTitle": "Valinnan tasot",
+  "worldsOfChoiceSubtitle": "Erilaisia tapoja valita — järkevää vastinetta tai premium-tasoa.",
+
+  "questions": {
+    "default": "Mikä on sinulle tärkeää?",
+    "children": "Mikä on tärkeää lapselle?",
+    "family": "Mikä on tärkeää perheelle?",
+    "pets": "Mikä on tärkeää lemmikillesi ja yhteiselle elämällenne?",
+    "choice": "Mitä etsit?"
+  },
+
+  "solutions": "Ratkaisut",
+
+  "worlds": {
+    "men": {
+      "title": "Miehet",
+      "short": "Terveys, ulkonäkö, status, turvallisuus ja kehitys.",
+      "items": [
+        "Terveys",
+        "Ulkonäkö",
+        "Status",
+        "Turvallisuus",
+        "Kehitys"
+      ]
+    },
+
+    "women": {
+      "title": "Naiset",
+      "short": "Terveys, kauneus, status, turvallisuus ja kehitys.",
+      "items": [
+        "Terveys",
+        "Kauneus",
+        "Status",
+        "Turvallisuus",
+        "Kehitys"
+      ]
+    },
+
+    "children": {
+      "title": "Lapset",
+      "short": "Terveys, oppiminen, kehitys, turvallisuus ja paljon muuta.",
+      "items": [
+        "Terveys",
+        "Turvallisuus",
+        "Oppiminen",
+        "Kehitys",
+        "Luovuus",
+        "Leikki",
+        "Mukavuus"
+      ]
+    },
+
+    "seniors": {
+      "title": "Ikääntyneet",
+      "short": "Terveys, itsenäisyys, mukavuus, yhteydenpito ja aktiivinen elämä.",
+      "items": [
+        "Terveys",
+        "Turvallisuus",
+        "Itsenäisyys",
+        "Liikkuminen",
+        "Mukavuus",
+        "Yhteydenpito",
+        "Aktiviteetit"
+      ]
+    },
+
+    "family": {
+      "title": "Perhe",
+      "short": "Koti, turvallisuus, mukavuus ja yhteinen aika.",
+      "items": [
+        "Terveys",
+        "Turvallisuus",
+        "Koti",
+        "Mukavuus",
+        "Yhteinen aika",
+        "Matkailu"
+      ]
+    },
+
+    "pets": {
+      "title": "Lemmikit",
+      "short": "Terveys, hoito, mukavuus ja yhteinen elämä.",
+      "items": [
+        "Terveys",
+        "Ravinto",
+        "Turvallisuus",
+        "Hoito",
+        "Mukavuus",
+        "Leikki",
+        "Yhteiset matkat",
+        "Teknologia"
+      ]
+    },
+
+    "social": {
+      "title": "Sosiaalinen elämä",
+      "short": "Ystävät, läheiset, yhteiset kiinnostuksen kohteet ja yhteinen aika.",
+      "items": [
+        "Ystäville",
+        "Läheisille",
+        "Pidä yhteyttä",
+        "Yhteiset kiinnostuksen kohteet",
+        "Aktiviteetit"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Enemmän vastinetta rahoillesi.",
+      "items": [
+        "Terveys ja hyvinvointi",
+        "Sinulle",
+        "Kotiin",
+        "Perheelle",
+        "Teknologia",
+        "Matkailuun",
+        "Työhön ja opiskeluun",
+        "Lemmikeille",
+        "Autoon",
+        "Lahjat",
+        "Harrastukset ja vapaa-aika"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Kun haluat enemmän kuin pelkkää laatua.",
+      "items": [
+        "Sinulle",
+        "Tyyli",
+        "Teknologia",
+        "Koti",
+        "Terveys ja palautuminen",
+        "Matkailu",
+        "Autoon",
+        "Lahjat",
+        "Löydöt"
+      ]
+    }
+  }
+}
