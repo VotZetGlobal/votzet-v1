@@ -1,0 +1,150 @@
+{
+  "title": "Jelajahi VotZet",
+  "subtitle": "Temukan apa yang benar-benar penting bagimu.",
+
+  "humanWorldsTitle": "Duniamu",
+  "humanWorldsSubtitle": "Pilih yang terasa paling dekat dengan dirimu atau dengan orang yang sedang kamu carikan sesuatu.",
+
+  "worldsOfChoiceTitle": "Tingkat pilihan",
+  "worldsOfChoiceSubtitle": "Cara memilih yang berbeda — nilai yang cerdas atau tingkat premium.",
+
+  "questions": {
+    "default": "Apa yang penting bagimu?",
+    "children": "Apa yang penting bagi seorang anak?",
+    "family": "Apa yang penting bagi sebuah keluarga?",
+    "pets": "Apa yang penting bagi hewan peliharaanmu dan kehidupan kalian bersama?",
+    "choice": "Apa yang sedang kamu cari?"
+  },
+
+  "solutions": "Solusi",
+
+  "worlds": {
+    "men": {
+      "title": "Pria",
+      "short": "Kesehatan, penampilan, status, keamanan, dan perkembangan.",
+      "items": [
+        "Kesehatan",
+        "Penampilan",
+        "Status",
+        "Keamanan",
+        "Perkembangan"
+      ]
+    },
+
+    "women": {
+      "title": "Wanita",
+      "short": "Kesehatan, kecantikan, status, keamanan, dan perkembangan.",
+      "items": [
+        "Kesehatan",
+        "Kecantikan",
+        "Status",
+        "Keamanan",
+        "Perkembangan"
+      ]
+    },
+
+    "children": {
+      "title": "Anak-anak",
+      "short": "Kesehatan, pembelajaran, perkembangan, keamanan, dan banyak lagi.",
+      "items": [
+        "Kesehatan",
+        "Keamanan",
+        "Pembelajaran",
+        "Perkembangan",
+        "Kreativitas",
+        "Bermain",
+        "Kenyamanan"
+      ]
+    },
+
+    "seniors": {
+      "title": "Lansia",
+      "short": "Kesehatan, kemandirian, kenyamanan, hubungan, dan hidup aktif.",
+      "items": [
+        "Kesehatan",
+        "Keamanan",
+        "Kemandirian",
+        "Mobilitas",
+        "Kenyamanan",
+        "Hubungan",
+        "Aktivitas"
+      ]
+    },
+
+    "family": {
+      "title": "Keluarga",
+      "short": "Rumah, keamanan, kenyamanan, dan waktu bersama.",
+      "items": [
+        "Kesehatan",
+        "Keamanan",
+        "Rumah",
+        "Kenyamanan",
+        "Waktu bersama",
+        "Perjalanan"
+      ]
+    },
+
+    "pets": {
+      "title": "Hewan Peliharaan",
+      "short": "Kesehatan, perawatan, kenyamanan, dan kehidupan bersama.",
+      "items": [
+        "Kesehatan",
+        "Nutrisi",
+        "Keamanan",
+        "Perawatan",
+        "Kenyamanan",
+        "Bermain",
+        "Perjalanan bersama",
+        "Teknologi"
+      ]
+    },
+
+    "social": {
+      "title": "Kehidupan Sosial",
+      "short": "Teman, orang terdekat, minat bersama, dan waktu bersama.",
+      "items": [
+        "Untuk teman",
+        "Untuk orang terdekat",
+        "Tetap terhubung",
+        "Minat bersama",
+        "Aktivitas"
+      ]
+    }
+  },
+
+  "choiceWorlds": {
+    "smartValue": {
+      "title": "Smart Value",
+      "short": "Lebih banyak nilai untuk setiap pengeluaranmu.",
+      "items": [
+        "Kesehatan dan kesejahteraan",
+        "Untuk diri sendiri",
+        "Untuk rumah",
+        "Untuk keluarga",
+        "Teknologi",
+        "Perjalanan",
+        "Pekerjaan dan belajar",
+        "Hewan peliharaan",
+        "Mobil",
+        "Hadiah",
+        "Hobi dan waktu luang"
+      ]
+    },
+
+    "premium": {
+      "title": "Premium",
+      "short": "Saat kamu menginginkan lebih dari sekadar kualitas.",
+      "items": [
+        "Untuk diri sendiri",
+        "Gaya",
+        "Teknologi",
+        "Rumah",
+        "Kesehatan dan pemulihan",
+        "Perjalanan",
+        "Mobil",
+        "Hadiah",
+        "Penemuan"
+      ]
+    }
+  }
+}
