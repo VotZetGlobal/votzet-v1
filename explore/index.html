@@ -10,7 +10,7 @@
 
 <style>
 /* =========================================================
-   EXPLORE VOTZET 1.0
+   EXPLORE VOTZET 1.1
    ========================================================= */
 
 body {
@@ -429,6 +429,74 @@ body {
 }
 
 /* =========================================================
+   ARABIC / RTL
+   ========================================================= */
+
+html[dir="rtl"] .inner-nav {
+    direction: rtl;
+}
+
+html[dir="rtl"] .inner-nav a {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .explore-title,
+html[dir="rtl"] .section-heading h2,
+html[dir="rtl"] .detail-name,
+html[dir="rtl"] .solutions-box h2 {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .world-card {
+    direction: rtl;
+    align-items: flex-start;
+    text-align: right;
+}
+
+html[dir="rtl"] .world-card h3,
+html[dir="rtl"] .world-number {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .detail-shell {
+    direction: rtl;
+}
+
+html[dir="rtl"] .detail-top {
+    direction: rtl;
+}
+
+html[dir="rtl"] .detail-name {
+    text-align: right;
+}
+
+html[dir="rtl"] .detail-question {
+    direction: rtl;
+}
+
+html[dir="rtl"] .matter-button {
+    direction: rtl;
+}
+
+html[dir="rtl"] .solutions-box {
+    direction: rtl;
+}
+
+html[dir="rtl"] .solution-path {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .back-home {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .brand-label,
+html[dir="rtl"] .explore-motto {
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+/* =========================================================
    MOBILE
    ========================================================= */
 
@@ -469,6 +537,10 @@ body {
     .choice-section {
         margin-top: 34px;
         padding-top: 27px;
+    }
+
+    html[dir="rtl"] .inner-nav a {
+        letter-spacing: 0;
     }
 }
 
@@ -692,7 +764,7 @@ body {
 
 
 <!-- =====================================================
-     EXPLORE SYSTEM
+     EXPLORE 1.1 SYSTEM
      ===================================================== -->
 
 <script>
@@ -700,6 +772,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const language =
         localStorage.getItem("votzet-language") || "en";
+
+    const isRTL =
+        language === "ar";
+
+    document.documentElement.lang =
+        language;
+
+    document.documentElement.dir =
+        isRTL
+            ? "rtl"
+            : "ltr";
 
     const SELECTION_DELAY = 130;
 
@@ -936,6 +1019,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     const solutionsView =
         document.getElementById("solutionsView");
 
+    const backToWorlds =
+        document.getElementById("backToWorlds");
+
+    const backToDetails =
+        document.getElementById("backToDetails");
+
+    backToWorlds.textContent =
+        isRTL
+            ? "→"
+            : "←";
+
+    backToDetails.textContent =
+        isRTL
+            ? "→"
+            : "←";
+
     function showView(view) {
 
         document
@@ -1073,9 +1172,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     function renderLanding() {
-
-        document.documentElement.lang =
-            language;
 
         document.getElementById(
             "exploreTitle"
@@ -1362,9 +1458,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         );
     }
 
-    document.getElementById(
-        "backToWorlds"
-    ).addEventListener(
+    backToWorlds.addEventListener(
         "click",
         () => {
 
@@ -1376,9 +1470,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     );
 
-    document.getElementById(
-        "backToDetails"
-    ).addEventListener(
+    backToDetails.addEventListener(
         "click",
         () => {
 
