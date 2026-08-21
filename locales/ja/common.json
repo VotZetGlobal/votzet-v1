@@ -2,5 +2,9 @@
   "home": "ホーム",
   "discover": "知る",
   "explore": "探す",
-  "chooseLanguage": "言語を選択"
+  "chooseLanguage": "言語を選択",
+  "coreTitle": "VotZetの基盤",
+  "coreDescription": "なぜ存在するのか。どこへ向かうのか。何を信じるのか。どう行動するのか。",
+  "foundationLabel": "VotZetの基盤",
+  "discoverFooter": "考えを知る。可能性を探る。自分の世界を選ぶ。"
 }
