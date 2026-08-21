@@ -2,5 +2,9 @@
   "home": "Hem",
   "discover": "Upptäck",
   "explore": "Utforska",
-  "chooseLanguage": "Välj språk"
+  "chooseLanguage": "Välj språk",
+  "coreTitle": "VotZets grund",
+  "coreDescription": "Varför vi finns. Vart vi är på väg. Vad vi tror på. Hur vi agerar.",
+  "foundationLabel": "VotZets grund",
+  "discoverFooter": "Förstå idén. Utforska möjligheterna. Välj din värld."
 }
