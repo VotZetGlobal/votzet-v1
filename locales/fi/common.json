@@ -2,5 +2,9 @@
   "home": "Etusivu",
   "discover": "Tutustu",
   "explore": "Tutki",
-  "chooseLanguage": "Valitse kieli"
+  "chooseLanguage": "Valitse kieli",
+  "coreTitle": "VotZetin perusta",
+  "coreDescription": "Miksi olemme olemassa. Minne olemme menossa. Mihin uskomme. Miten toimimme.",
+  "foundationLabel": "VotZetin perusta",
+  "discoverFooter": "Ymmärrä idea. Tutki mahdollisuuksia. Valitse oma maailmasi."
 }
