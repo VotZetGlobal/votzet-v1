@@ -19,7 +19,7 @@
 <style>
 
 /* =========================================================
-   DISCOVER VOTZET 2.4
+   DISCOVER VOTZET 2.5
    ========================================================= */
 
 body {
@@ -761,6 +761,83 @@ body {
 
 
 /* =========================================================
+   ARABIC / RTL
+   ========================================================= */
+
+html[dir="rtl"] .inner-nav {
+    direction: rtl;
+}
+
+html[dir="rtl"] .inner-nav a {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .discover-title,
+html[dir="rtl"] .discover-lead,
+html[dir="rtl"] .manifesto-intro,
+html[dir="rtl"] .core-heading,
+html[dir="rtl"] .discover-bottom {
+    direction: rtl;
+}
+
+html[dir="rtl"] .section-label,
+html[dir="rtl"] .discover-motto,
+html[dir="rtl"] .manifesto-final,
+html[dir="rtl"] .deeper-label,
+html[dir="rtl"] .back-home {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .discover-card {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .discover-card h3 {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .card-number {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .deeper-box {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .deeper-title,
+html[dir="rtl"] .deeper-document h4,
+html[dir="rtl"] .modal-title {
+    letter-spacing: 0;
+}
+
+html[dir="rtl"] .deeper-document {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .document-button:hover {
+    transform:
+        translateX(-3px);
+}
+
+html[dir="rtl"] .document-modal-box {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .modal-top {
+    direction: rtl;
+}
+
+html[dir="rtl"] .modal-text {
+    direction: rtl;
+    text-align: right;
+}
+
+
+/* =========================================================
    MOBILE
    ========================================================= */
 
@@ -789,6 +866,10 @@ body {
 
     .deeper-box {
         padding: 26px 18px;
+    }
+
+    html[dir="rtl"] .inner-nav a {
+        letter-spacing: 0;
     }
 }
 
@@ -925,9 +1006,10 @@ body {
 
     <div class="deeper-box">
 
-        <div class="deeper-label">
-            VotZet Foundation
-        </div>
+        <div
+            class="deeper-label"
+            id="foundationLabel"
+        ></div>
 
         <h2
             class="deeper-title"
@@ -1033,7 +1115,7 @@ body {
 
 
 <!-- =====================================================
-     DISCOVER 2.4 SYSTEM
+     DISCOVER 2.5 SYSTEM
      ===================================================== -->
 
 <script>
@@ -1059,6 +1141,16 @@ const language =
     localStorage.getItem(
         "votzet-language"
     ) || "en";
+
+
+document.documentElement.lang =
+    language;
+
+
+document.documentElement.dir =
+    language === "ar"
+        ? "rtl"
+        : "ltr";
 
 
 /* -----------------------------------------------------
@@ -1130,10 +1222,6 @@ const [
         discoverResponse.json()
 
     ]);
-
-
-document.documentElement.lang =
-    language;
 
 
 /* -----------------------------------------------------
@@ -1220,17 +1308,26 @@ document.getElementById(
 document.getElementById(
     "coreTitle"
 ).textContent =
-    language === "ru"
-        ? "Основа VotZet"
-        : "The Core of VotZet";
+    common.coreTitle ||
+    "The Core of VotZet";
 
 
 document.getElementById(
     "coreDescription"
 ).textContent =
-    language === "ru"
-        ? "Зачем мы существуем. Куда идём. Во что верим. Как действуем."
-        : "Why we exist. Where we are going. What we believe. How we act.";
+    common.coreDescription ||
+    "Why we exist. Where we are going. What we believe. How we act.";
+
+
+/* -----------------------------------------------------
+   FOUNDATION LABEL
+   ----------------------------------------------------- */
+
+document.getElementById(
+    "foundationLabel"
+).textContent =
+    common.foundationLabel ||
+    "VotZet Foundation";
 
 
 /* -----------------------------------------------------
@@ -1549,7 +1646,9 @@ button.type =
 
 
 button.textContent =
-    "→";
+    language === "ar"
+        ? "←"
+        : "→";
 
 
 if (
@@ -1600,9 +1699,8 @@ deeperContainer.appendChild(
 document.getElementById(
     "discoverFooter"
 ).textContent =
-    language === "ru"
-        ? "Познай идею. Исследуй возможности. Выбери свой мир."
-        : "Understand the idea. Explore the possibilities. Choose your world.";
+    common.discoverFooter ||
+    "Understand the idea. Explore the possibilities. Choose your world.";
 
 
 }
@@ -1611,7 +1709,7 @@ catch(error) {
 
 
 console.error(
-    "VotZet Discover 2.4 loading error:",
+    "VotZet Discover 2.5 loading error:",
     error
 );
 
@@ -1779,12 +1877,6 @@ deeperToggle.addEventListener(
     "click",
     () => {
 
-
-/*
-   Звук здесь вызываем вручную.
-   main.js не отслеживает .deeper-toggle,
-   поэтому дублирования не будет.
-*/
 
 playDocumentSound();
 
