@@ -1,6 +1,10 @@
 {
   "home": "หน้าหลัก",
-  "discover": "รู้จัก VotZet",
+  "discover": "รู้จัก",
   "explore": "สำรวจ",
-  "chooseLanguage": "เลือกภาษา"
+  "chooseLanguage": "เลือกภาษา",
+  "coreTitle": "รากฐานของ VotZet",
+  "coreDescription": "เหตุผลที่เรามีอยู่ สิ่งที่เรามุ่งไป สิ่งที่เราเชื่อ และวิธีที่เราดำเนินการ",
+  "foundationLabel": "รากฐานของ VotZet",
+  "discoverFooter": "เข้าใจแนวคิด สำรวจความเป็นไปได้ เลือกโลกของคุณ"
 }
