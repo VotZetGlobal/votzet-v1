@@ -2,5 +2,9 @@
   "home": "Главная",
   "discover": "Познать",
   "explore": "Исследовать",
-  "chooseLanguage": "Выбрать язык"
+  "chooseLanguage": "Выбрать язык",
+  "coreTitle": "Основа VotZet",
+  "coreDescription": "Зачем мы существуем. Куда идём. Во что верим. Как действуем.",
+  "foundationLabel": "Основа VotZet",
+  "discoverFooter": "Познай идею. Исследуй возможности. Выбери свой мир."
 }
