@@ -2,5 +2,9 @@
   "home": "Accueil",
   "discover": "Découvrir",
   "explore": "Explorer",
-  "chooseLanguage": "Choisir la langue"
+  "chooseLanguage": "Choisir la langue",
+  "coreTitle": "Le cœur de VotZet",
+  "coreDescription": "Pourquoi nous existons. Où nous allons. Ce en quoi nous croyons. Comment nous agissons.",
+  "foundationLabel": "Fondements de VotZet",
+  "discoverFooter": "Comprenez l'idée. Explorez les possibilités. Choisissez votre monde."
 }
