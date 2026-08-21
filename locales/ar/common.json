@@ -2,5 +2,9 @@
   "home": "الرئيسية",
   "discover": "تعرّف",
   "explore": "استكشف",
-  "chooseLanguage": "اختر اللغة"
+  "chooseLanguage": "اختر اللغة",
+  "coreTitle": "أساس VotZet",
+  "coreDescription": "لماذا نوجد. إلى أين نتجه. بماذا نؤمن. وكيف نعمل.",
+  "foundationLabel": "أساس VotZet",
+  "discoverFooter": "افهم الفكرة. استكشف الإمكانات. اختر عالمك."
 }
