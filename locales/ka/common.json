@@ -2,5 +2,9 @@
   "home": "მთავარი",
   "discover": "გაიცანი",
   "explore": "გამოიკვლიე",
-  "chooseLanguage": "აირჩიე ენა"
+  "chooseLanguage": "აირჩიე ენა",
+  "coreTitle": "VotZet-ის საფუძველი",
+  "coreDescription": "რატომ ვარსებობთ. საით მივდივართ. რისი გვჯერა. როგორ ვმოქმედებთ.",
+  "foundationLabel": "VotZet-ის საფუძველი",
+  "discoverFooter": "გაიგე იდეა. გამოიკვლიე შესაძლებლობები. აირჩიე შენი სამყარო."
 }
