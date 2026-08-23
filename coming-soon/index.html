@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Coming to Your World — VotZet</title>
+
+<meta
+    name="description"
+    content="This VotZet world is being carefully prepared."
+>
+
+<link rel="stylesheet" href="../css/main.css">
+
+<style>
+
+/* =========================================================
+   VOTZET — COMING TO YOUR WORLD 1.0
+   English prototype
+   ========================================================= */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    background: #101113;
+    color: #f2f2ef;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* =========================================================
+   PAGE BACKGROUND
+
+   IMPORTANT:
+   Save the supplied hexagon image as:
+   assets/images/votzet-inner-bg.jpg
+   ========================================================= */
+
+.coming-page {
+    position: relative;
+    min-height: 100dvh;
+    min-height: 100svh;
+    background:
+        linear-gradient(
+            rgba(7,8,9,0.74),
+            rgba(7,8,9,0.84)
+        ),
+        url("../assets/images/votzet-inner-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.coming-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 50% 34%,
+            rgba(201,162,39,0.08),
+            transparent 34%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.05),
+            rgba(0,0,0,0.30)
+        );
+}
+
+/* =========================================================
+   NAVIGATION
+   Same visual language as Discover / Explore
+   ========================================================= */
+
+.inner-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+    padding: 17px 12px;
+
+    background: rgba(8,9,10,0.94);
+
+    border-bottom:
+        1px solid rgba(201,162,39,0.18);
+
+    backdrop-filter: blur(12px);
+}
+
+.inner-nav a {
+    color: #f2f2ef;
+    text-decoration: none;
+
+    font-size: 9px;
+    font-weight: 400;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.inner-nav a:hover {
+    color: #e4c44f;
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.coming-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: calc(100dvh - 52px);
+    box-sizing: border-box;
+
+    padding:
+        70px 18px
+        max(55px, env(safe-area-inset-bottom));
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coming-panel {
+    width: 100%;
+    max-width: 760px;
+    box-sizing: border-box;
+
+    padding: 46px 34px 40px;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(201,162,39,0.24);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11,12,13,0.84),
+            rgba(15,16,18,0.72)
+        );
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 24px 70px rgba(0,0,0,0.38);
+}
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand-label {
+    margin-bottom: 20px;
+
+    color: #d8b83d;
+
+    font-size: 10px;
+    font-weight: 400;
+
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.coming-title {
+    margin: 0;
+
+    color: #f2f2ef;
+
+    font-size: 42px;
+    font-weight: 400;
+
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+.gold-line {
+    width: 72px;
+    height: 1px;
+
+    margin: 28px auto 30px;
+
+    background:
+        rgba(201,162,39,0.72);
+
+    box-shadow:
+        0 0 14px rgba(201,162,39,0.18);
+}
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
+
+.coming-message {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.coming-message p {
+    margin: 0;
+
+    color: #d6d6d2;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.75;
+}
+
+.coming-message p + p {
+    margin-top: 10px;
+}
+
+.coming-message .quality {
+    margin-top: 28px;
+
+    color: #e3e3df;
+}
+
+.coming-message .standard {
+    margin-top: 7px;
+
+    color: #a9aaad;
+
+    font-size: 14px;
+}
+
+/* =========================================================
+   VOTZET SIGNATURE
+   ========================================================= */
+
+.coming-signature {
+    margin-top: 35px;
+
+    color: #c9a227;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    letter-spacing: 1.4px;
+}
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-explore {
+    display: inline-block;
+
+    margin-top: 32px;
+    padding: 11px 25px;
+
+    border:
+        1px solid rgba(201,162,39,0.75);
+
+    border-radius: 28px;
+
+    background:
+        rgba(8,9,10,0.30);
+
+    color: #d8b83d;
+    text-decoration: none;
+
+    font-size: 9px;
+    font-weight: 400;
+
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.back-explore:hover {
+    background: #d8b83d;
+    color: #101113;
+
+    box-shadow:
+        0 0 24px rgba(201,162,39,0.20);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .coming-page {
+        background-attachment: scroll;
+    }
+
+    .inner-nav {
+        gap: 20px;
+        padding: 16px 12px;
+    }
+
+    .inner-nav a {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .coming-content {
+        padding:
+            42px 14px
+            max(38px, env(safe-area-inset-bottom));
+    }
+
+    .coming-panel {
+        padding: 38px 20px 34px;
+    }
+
+    .coming-title {
+        font-size: 36px;
+    }
+
+    .coming-message p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .coming-message .standard {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .inner-nav {
+        gap: 16px;
+    }
+
+    .inner-nav a {
+        font-size: 8px;
+        letter-spacing: 1.4px;
+    }
+
+    .coming-title {
+        font-size: 32px;
+    }
+
+    .coming-panel {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="coming-page">
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
+
+<nav class="inner-nav">
+
+    <a
+        href="../index.html"
+        id="navHome"
+        data-nav-sound="home"
+    >
+        Home
+    </a>
+
+    <a
+        href="../discover/"
+        id="navDiscover"
+        data-nav-sound="discover"
+    >
+        Discover
+    </a>
+
+    <a
+        href="../explore/"
+        id="navExplore"
+        data-nav-sound="explore"
+    >
+        Explore
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     CONTENT
+     ===================================================== -->
+
+<main class="coming-content">
+
+    <section class="coming-panel">
+
+        <div class="brand-label">
+            VotZet
+        </div>
+
+        <h1 class="coming-title">
+            Coming to Your World
+        </h1>
+
+        <div class="gold-line"></div>
+
+        <div class="coming-message">
+
+            <p>
+                This world is being carefully prepared.
+            </p>
+
+            <p>
+                We’re carefully selecting products and suppliers for this category.
+            </p>
+
+            <p>
+                Only the right solutions will become part of it.
+            </p>
+
+            <p class="quality">
+                Quality takes time.
+            </p>
+
+            <p class="standard">
+                We’ll open it when it meets the VotZet standard.
+            </p>
+
+        </div>
+
+        <div class="coming-signature">
+            VotZet — That’s your world.
+        </div>
+
+        <a
+            class="back-explore"
+            href="../explore/"
+            data-nav-sound="explore"
+        >
+            ← Back to Explore
+        </a>
+
+    </section>
+
+</main>
+
+</div>
+
+
+<!-- =====================================================
+     EXISTING VOTZET SYSTEMS
+     ===================================================== -->
+
+<script src="../js/main.js"></script>
+<script src="../js/language.js"></script>
+
+</body>
+</html>
