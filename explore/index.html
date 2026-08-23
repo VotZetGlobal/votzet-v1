@@ -429,74 +429,6 @@ body {
 }
 
 /* =========================================================
-   ARABIC / RTL
-   ========================================================= */
-
-html[dir="rtl"] .inner-nav {
-    direction: rtl;
-}
-
-html[dir="rtl"] .inner-nav a {
-    letter-spacing: 0;
-}
-
-html[dir="rtl"] .explore-title,
-html[dir="rtl"] .section-heading h2,
-html[dir="rtl"] .detail-name,
-html[dir="rtl"] .solutions-box h2 {
-    letter-spacing: 0;
-}
-
-html[dir="rtl"] .world-card {
-    direction: rtl;
-    align-items: flex-start;
-    text-align: right;
-}
-
-html[dir="rtl"] .world-card h3,
-html[dir="rtl"] .world-number {
-    letter-spacing: 0;
-}
-
-html[dir="rtl"] .detail-shell {
-    direction: rtl;
-}
-
-html[dir="rtl"] .detail-top {
-    direction: rtl;
-}
-
-html[dir="rtl"] .detail-name {
-    text-align: right;
-}
-
-html[dir="rtl"] .detail-question {
-    direction: rtl;
-}
-
-html[dir="rtl"] .matter-button {
-    direction: rtl;
-}
-
-html[dir="rtl"] .solutions-box {
-    direction: rtl;
-}
-
-html[dir="rtl"] .solution-path {
-    letter-spacing: 0;
-}
-
-html[dir="rtl"] .back-home {
-    letter-spacing: 0;
-}
-
-html[dir="rtl"] .brand-label,
-html[dir="rtl"] .explore-motto {
-    direction: ltr;
-    unicode-bidi: isolate;
-}
-
-/* =========================================================
    MOBILE
    ========================================================= */
 
@@ -538,10 +470,6 @@ html[dir="rtl"] .explore-motto {
         margin-top: 34px;
         padding-top: 27px;
     }
-
-    html[dir="rtl"] .inner-nav a {
-        letter-spacing: 0;
-    }
 }
 
 </style>
@@ -550,11 +478,6 @@ html[dir="rtl"] .explore-motto {
 <body>
 
 <div class="explore-page">
-
-<!-- =====================================================
-     NAVIGATION
-     Главная → Познать → Исследовать
-     ===================================================== -->
 
 <nav class="inner-nav">
 
@@ -579,10 +502,6 @@ html[dir="rtl"] .explore-motto {
 </nav>
 
 <main class="explore-content">
-
-<!-- =====================================================
-     LANDING VIEW
-     ===================================================== -->
 
 <section
     class="explore-view active"
@@ -611,7 +530,6 @@ html[dir="rtl"] .explore-motto {
 
     </div>
 
-    <!-- YOUR WORLDS -->
     <section class="world-section">
 
         <div class="section-heading">
@@ -629,7 +547,6 @@ html[dir="rtl"] .explore-motto {
 
     </section>
 
-    <!-- LEVELS OF CHOICE -->
     <section class="world-section choice-section">
 
         <div class="section-heading">
@@ -660,10 +577,6 @@ html[dir="rtl"] .explore-motto {
 
 </section>
 
-
-<!-- =====================================================
-     WORLD DETAIL VIEW
-     ===================================================== -->
 
 <section
     class="explore-view"
@@ -703,10 +616,6 @@ html[dir="rtl"] .explore-motto {
 
 </section>
 
-
-<!-- =====================================================
-     SOLUTIONS VIEW
-     ===================================================== -->
 
 <section
     class="explore-view"
@@ -756,16 +665,9 @@ html[dir="rtl"] .explore-motto {
 </div>
 
 
-<!-- MAIN SYSTEM -->
 <script src="../js/main.js"></script>
-
-<!-- LANGUAGE SYSTEM -->
 <script src="../js/language.js"></script>
 
-
-<!-- =====================================================
-     EXPLORE 1.1 SYSTEM
-     ===================================================== -->
 
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
@@ -773,18 +675,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     const language =
         localStorage.getItem("votzet-language") || "en";
 
-    const isRTL =
-        language === "ar";
-
-    document.documentElement.lang =
-        language;
-
-    document.documentElement.dir =
-        isRTL
-            ? "rtl"
-            : "ltr";
-
     const SELECTION_DELAY = 130;
+
+
+    /* =====================================================
+       WORLD AVAILABILITY
+
+       Categories listed here are not yet open.
+       Remove a key when that world becomes active.
+       ===================================================== */
+
+    const COMING_WORLDS = new Set([
+        "women",
+        "children",
+        "seniors",
+        "family",
+        "pets",
+        "social",
+        "smartValue",
+        "premium"
+    ]);
+
 
     const fallbackEnglish = {
 
@@ -992,6 +903,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
+
     const humanOrder = [
         "men",
         "women",
@@ -1002,13 +914,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         "social"
     ];
 
+
     const choiceOrder = [
         "smartValue",
         "premium"
     ];
 
+
     let explore = null;
     let transitionLocked = false;
+
 
     const landingView =
         document.getElementById("landingView");
@@ -1019,21 +934,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const solutionsView =
         document.getElementById("solutionsView");
 
-    const backToWorlds =
-        document.getElementById("backToWorlds");
-
-    const backToDetails =
-        document.getElementById("backToDetails");
-
-    backToWorlds.textContent =
-        isRTL
-            ? "→"
-            : "←";
-
-    backToDetails.textContent =
-        isRTL
-            ? "→"
-            : "←";
 
     function showView(view) {
 
@@ -1048,6 +948,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         window.scrollTo(0, 0);
     }
 
+
     function playInterfaceSound() {
 
         if (
@@ -1056,6 +957,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             window.VotZetSound("document");
         }
     }
+
 
     function confirmSelection(
         element,
@@ -1082,6 +984,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         }, SELECTION_DELAY);
     }
+
+
+    function openComingSoon() {
+
+        window.location.href =
+            "../coming-soon/";
+    }
+
 
     async function loadCommon() {
 
@@ -1139,6 +1049,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
+
     async function loadExplore() {
 
         try {
@@ -1171,7 +1082,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
+
     function renderLanding() {
+
+        document.documentElement.lang =
+            language;
 
         document.getElementById(
             "exploreTitle"
@@ -1203,12 +1118,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         ).textContent =
             explore.worldsOfChoiceSubtitle || "";
 
+
         const humanGrid =
             document.getElementById(
                 "humanWorldsGrid"
             );
 
         humanGrid.innerHTML = "";
+
 
         humanOrder.forEach(
             (key, index) => {
@@ -1233,12 +1150,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         );
 
+
         const choiceGrid =
             document.getElementById(
                 "choiceWorldsGrid"
             );
 
         choiceGrid.innerHTML = "";
+
 
         choiceOrder.forEach(key => {
 
@@ -1265,6 +1184,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
+
     function createWorldCard(
         world,
         number,
@@ -1280,6 +1200,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         card.className =
             "world-card";
+
 
         if (number) {
 
@@ -1297,11 +1218,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
         }
 
+
         const title =
             document.createElement("h3");
 
         title.textContent =
             world.title || "";
+
 
         const short =
             document.createElement("p");
@@ -1309,8 +1232,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         short.textContent =
             world.short || "";
 
+
         card.appendChild(title);
         card.appendChild(short);
+
 
         card.addEventListener(
             "click",
@@ -1319,6 +1244,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 confirmSelection(
                     card,
                     () => {
+
+                        if (
+                            COMING_WORLDS.has(key)
+                        ) {
+
+                            openComingSoon();
+
+                            return;
+                        }
 
                         openWorld(
                             kind,
@@ -1329,8 +1263,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         );
 
+
         return card;
     }
+
 
     function openWorld(
         kind,
@@ -1342,13 +1278,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ? explore.worlds[key]
                 : explore.choiceWorlds[key];
 
+
         document.getElementById(
             "detailWorldName"
         ).textContent =
             world.title || "";
 
+
         let question =
             explore.questions.default;
+
 
         if (kind === "choice") {
 
@@ -1374,10 +1313,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                 explore.questions.pets;
         }
 
+
         document.getElementById(
             "detailQuestion"
         ).textContent =
             question || "";
+
 
         const grid =
             document.getElementById(
@@ -1385,6 +1326,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             );
 
         grid.innerHTML = "";
+
 
         (world.items || [])
             .forEach(item => {
@@ -1403,6 +1345,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 button.textContent =
                     item;
 
+
                 button.addEventListener(
                     "click",
                     () => {
@@ -1420,13 +1363,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                 );
 
+
                 grid.appendChild(
                     button
                 );
             });
 
+
         showView(detailView);
     }
+
 
     function openSolutions(
         world,
@@ -1438,27 +1384,34 @@ document.addEventListener("DOMContentLoaded", async () => {
         ).textContent =
             world.title || "";
 
+
         document.getElementById(
             "solutionPath"
         ).textContent =
             `${world.title} / ${selected}`;
+
 
         document.getElementById(
             "solutionsTitle"
         ).textContent =
             explore.solutions || "Solutions";
 
+
         document.getElementById(
             "solutionSelected"
         ).textContent =
             selected;
+
 
         showView(
             solutionsView
         );
     }
 
-    backToWorlds.addEventListener(
+
+    document.getElementById(
+        "backToWorlds"
+    ).addEventListener(
         "click",
         () => {
 
@@ -1470,7 +1423,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     );
 
-    backToDetails.addEventListener(
+
+    document.getElementById(
+        "backToDetails"
+    ).addEventListener(
         "click",
         () => {
 
@@ -1482,10 +1438,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     );
 
+
     await Promise.all([
         loadCommon(),
         loadExplore()
     ]);
+
 
     renderLanding();
 
