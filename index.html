@@ -5,57 +5,242 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>VotZet</title>
 <meta name="description" content="VotZet — That's your world!">
+
 <link rel="stylesheet" href="css/main.css">
+
 <!-- PRELOAD: Заранее подготавливаем основные разделы VotZet -->
 <link rel="prefetch" href="discover/">
 <link rel="prefetch" href="explore/">
+
 </head>
+
 <body>
+
 <!-- HOME: Главный экран VotZet -->
 <main id="home">
+
     <!-- LANGUAGE SELECTOR: Выбор языка -->
-    <div class="language-selector" id="languageSelector">
-        <button class="language-button" id="languageButton">English ▾</button>
+    <div
+        class="language-selector"
+        id="languageSelector"
+    >
+
+        <button
+            class="language-button"
+            id="languageButton"
+        >
+            English ▾
+        </button>
+
         <div class="language-menu">
-            <button class="language-option" data-language="en">English</button>
-            <button class="language-option" data-language="es">Español</button>
-            <button class="language-option" data-language="fr">Français</button>
-            <button class="language-option" data-language="de">Deutsch</button>
-            <button class="language-option" data-language="it">Italiano</button>
-            <button class="language-option" data-language="pt">Português</button>
-            <button class="language-option" data-language="el">Ελληνικά</button>
-            <button class="language-option" data-language="tr">Türkçe</button>
-            <button class="language-option" data-language="nl">Nederlands</button>
-            <button class="language-option" data-language="ru">Русский</button>
-            <button class="language-option" data-language="ka">ქართული</button>
-            <button class="language-option" data-language="fi">Suomi</button>
-            <button class="language-option" data-language="sv">Svenska</button>
-            <button class="language-option" data-language="no">Norsk</button>
-            <button class="language-option" data-language="is">Íslenska</button>
-            <button class="language-option" data-language="ga">Gaeilge</button>
-            <button class="language-option" data-language="zh">中文</button>
-            <button class="language-option" data-language="ko">한국어</button>
-            <button class="language-option" data-language="ja">日本語</button>
-            <button class="language-option" data-language="tl">Filipino / Tagalog</button>
-            <button class="language-option" data-language="id">Bahasa Indonesia</button>
-            <button class="language-option" data-language="vi">Tiếng Việt</button>
-            <button class="language-option" data-language="th">ไทย</button>
-            <button class="language-option" data-language="hi">हिन्दी</button>
-            <button class="language-option" data-language="ar">العربية</button>
+
+            <button
+                class="language-option"
+                data-language="en"
+            >
+                EN&nbsp;&nbsp;English
+            </button>
+
+            <button
+                class="language-option"
+                data-language="es"
+            >
+                ES&nbsp;&nbsp;Español
+            </button>
+
+            <button
+                class="language-option"
+                data-language="fr"
+            >
+                FR&nbsp;&nbsp;Français
+            </button>
+
+            <button
+                class="language-option"
+                data-language="de"
+            >
+                DE&nbsp;&nbsp;Deutsch
+            </button>
+
+            <button
+                class="language-option"
+                data-language="it"
+            >
+                IT&nbsp;&nbsp;Italiano
+            </button>
+
+            <button
+                class="language-option"
+                data-language="pt"
+            >
+                PT&nbsp;&nbsp;Português
+            </button>
+
+            <button
+                class="language-option"
+                data-language="el"
+            >
+                EL&nbsp;&nbsp;Ελληνικά
+            </button>
+
+            <button
+                class="language-option"
+                data-language="tr"
+            >
+                TR&nbsp;&nbsp;Türkçe
+            </button>
+
+            <button
+                class="language-option"
+                data-language="nl"
+            >
+                NL&nbsp;&nbsp;Nederlands
+            </button>
+
+            <button
+                class="language-option"
+                data-language="ru"
+            >
+                RU&nbsp;&nbsp;Русский
+            </button>
+
+            <button
+                class="language-option"
+                data-language="ka"
+            >
+                KA&nbsp;&nbsp;ქართული
+            </button>
+
+            <button
+                class="language-option"
+                data-language="fi"
+            >
+                FI&nbsp;&nbsp;Suomi
+            </button>
+
+            <button
+                class="language-option"
+                data-language="sv"
+            >
+                SV&nbsp;&nbsp;Svenska
+            </button>
+
+            <button
+                class="language-option"
+                data-language="no"
+            >
+                NO&nbsp;&nbsp;Norsk
+            </button>
+
+            <button
+                class="language-option"
+                data-language="is"
+            >
+                IS&nbsp;&nbsp;Íslenska
+            </button>
+
+            <button
+                class="language-option"
+                data-language="ga"
+            >
+                GA&nbsp;&nbsp;Gaeilge
+            </button>
+
+            <button
+                class="language-option"
+                data-language="zh"
+            >
+                ZH&nbsp;&nbsp;中文
+            </button>
+
+            <button
+                class="language-option"
+                data-language="ko"
+            >
+                KO&nbsp;&nbsp;한국어
+            </button>
+
+            <button
+                class="language-option"
+                data-language="ja"
+            >
+                JA&nbsp;&nbsp;日本語
+            </button>
+
+            <button
+                class="language-option"
+                data-language="tl"
+            >
+                TL&nbsp;&nbsp;Filipino / Tagalog
+            </button>
+
+            <button
+                class="language-option"
+                data-language="id"
+            >
+                ID&nbsp;&nbsp;Bahasa Indonesia
+            </button>
+
+            <button
+                class="language-option"
+                data-language="vi"
+            >
+                VI&nbsp;&nbsp;Tiếng Việt
+            </button>
+
+            <button
+                class="language-option"
+                data-language="th"
+            >
+                TH&nbsp;&nbsp;ไทย
+            </button>
+
+            <button
+                class="language-option"
+                data-language="hi"
+            >
+                HI&nbsp;&nbsp;हिन्दी
+            </button>
+
+            <button
+                class="language-option"
+                data-language="ar"
+            >
+                AR&nbsp;&nbsp;العربية
+            </button>
+
         </div>
+
     </div>
+
 
     <!-- HOME NAVIGATION: Главные кнопки -->
     <div class="home-buttons">
-        <button class="home-button" id="discoverButton">Discover</button>
-        <button class="home-button" id="exploreButton">Explore</button>
+
+        <button
+            class="home-button"
+            id="discoverButton"
+        >
+            Discover
+        </button>
+
+        <button
+            class="home-button"
+            id="exploreButton"
+        >
+            Explore
+        </button>
+
     </div>
+
 </main>
+
 
 <!-- MAIN JAVASCRIPT -->
 <script src="js/main.js"></script>
 
 <!-- LANGUAGE SYSTEM -->
 <script src="js/language.js"></script>
+
 </body>
 </html>
