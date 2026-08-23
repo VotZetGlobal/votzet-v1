@@ -16,8 +16,8 @@
 <style>
 
 /* =========================================================
-   VOTZET — COMING TO YOUR WORLD 1.1
-   English prototype
+   VOTZET — COMING TO YOUR WORLD 1.2
+   25-language localization
    ========================================================= */
 
 html,
@@ -39,6 +39,7 @@ body {
 
 .coming-page {
     position: relative;
+
     min-height: 100dvh;
     min-height: 100svh;
 
@@ -294,6 +295,22 @@ body {
 }
 
 /* =========================================================
+   ARABIC RTL
+   ========================================================= */
+
+html[dir="rtl"] .coming-panel {
+    direction: rtl;
+}
+
+html[dir="rtl"] .back-explore {
+    direction: rtl;
+}
+
+html[dir="rtl"] .coming-signature {
+    direction: ltr;
+}
+
+/* =========================================================
    MOBILE
    ========================================================= */
 
@@ -375,25 +392,19 @@ body {
         href="../index.html"
         id="navHome"
         data-nav-sound="home"
-    >
-        Home
-    </a>
+    ></a>
 
     <a
         href="../discover/"
         id="navDiscover"
         data-nav-sound="discover"
-    >
-        Discover
-    </a>
+    ></a>
 
     <a
         href="../explore/"
         id="navExplore"
         data-nav-sound="explore"
-    >
-        Explore
-    </a>
+    ></a>
 
 </nav>
 
@@ -410,7 +421,10 @@ body {
             VotZet
         </div>
 
-        <h1 class="coming-title">
+        <h1
+            class="coming-title"
+            id="comingTitle"
+        >
             Coming to Your World
         </h1>
 
@@ -418,35 +432,45 @@ body {
 
         <div class="coming-message">
 
-            <p>
+            <p id="comingLine1">
                 This world is being carefully prepared.
             </p>
 
-            <p>
+            <p id="comingLine2">
                 We’re selecting products and suppliers for this category.
             </p>
 
-            <p>
+            <p id="comingLine3">
                 Only the right solutions will become part of it.
             </p>
 
-            <p class="quality">
+            <p
+                class="quality"
+                id="comingQuality"
+            >
                 Quality takes time.
             </p>
 
-            <p class="standard">
+            <p
+                class="standard"
+                id="comingStandard"
+            >
                 We’ll open it when it meets the VotZet standard.
             </p>
 
         </div>
 
-        <div class="coming-signature">
+        <div
+            class="coming-signature"
+            id="comingSignature"
+        >
             VotZet — That’s your world.
         </div>
 
         <a
             class="back-explore"
             href="../explore/"
+            id="backExplore"
             data-nav-sound="explore"
         >
             ← Back to Explore
@@ -465,6 +489,220 @@ body {
 
 <script src="../js/main.js"></script>
 <script src="../js/language.js"></script>
+
+
+<!-- =====================================================
+     COMING LOCALIZATION SYSTEM
+     ===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    async () => {
+
+        const language =
+            localStorage.getItem(
+                "votzet-language"
+            ) || "en";
+
+
+        const isRTL =
+            language === "ar";
+
+
+        document.documentElement.lang =
+            language;
+
+
+        document.documentElement.dir =
+            isRTL
+                ? "rtl"
+                : "ltr";
+
+
+        /* -------------------------------------------------
+           LOAD COMMON NAVIGATION
+           ------------------------------------------------- */
+
+        try {
+
+            const commonResponse =
+                await fetch(
+                    `../locales/${language}/common.json`
+                );
+
+
+            if (!commonResponse.ok) {
+
+                throw new Error(
+                    `common.json unavailable: ${language}`
+                );
+            }
+
+
+            const common =
+                await commonResponse.json();
+
+
+            document.getElementById(
+                "navHome"
+            ).textContent =
+                common.home || "Home";
+
+
+            document.getElementById(
+                "navDiscover"
+            ).textContent =
+                common.discover || "Discover";
+
+
+            document.getElementById(
+                "navExplore"
+            ).textContent =
+                common.explore || "Explore";
+
+        }
+
+        catch (error) {
+
+            console.warn(
+                "VotZet common localization fallback:",
+                error
+            );
+
+
+            document.getElementById(
+                "navHome"
+            ).textContent =
+                "Home";
+
+
+            document.getElementById(
+                "navDiscover"
+            ).textContent =
+                "Discover";
+
+
+            document.getElementById(
+                "navExplore"
+            ).textContent =
+                "Explore";
+        }
+
+
+        /* -------------------------------------------------
+           LOAD COMING PAGE
+           ------------------------------------------------- */
+
+        try {
+
+            let response =
+                await fetch(
+                    `../locales/${language}/coming.json`
+                );
+
+
+            if (!response.ok) {
+
+                response =
+                    await fetch(
+                        "../locales/en/coming.json"
+                    );
+            }
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "coming.json unavailable"
+                );
+            }
+
+
+            const coming =
+                await response.json();
+
+
+            document.getElementById(
+                "comingTitle"
+            ).textContent =
+                coming.title ||
+                "Coming to Your World";
+
+
+            document.getElementById(
+                "comingLine1"
+            ).textContent =
+                coming.line1 ||
+                "This world is being carefully prepared.";
+
+
+            document.getElementById(
+                "comingLine2"
+            ).textContent =
+                coming.line2 ||
+                "We’re selecting products and suppliers for this category.";
+
+
+            document.getElementById(
+                "comingLine3"
+            ).textContent =
+                coming.line3 ||
+                "Only the right solutions will become part of it.";
+
+
+            document.getElementById(
+                "comingQuality"
+            ).textContent =
+                coming.quality ||
+                "Quality takes time.";
+
+
+            document.getElementById(
+                "comingStandard"
+            ).textContent =
+                coming.standard ||
+                "We’ll open it when it meets the VotZet standard.";
+
+
+            document.getElementById(
+                "comingSignature"
+            ).textContent =
+                coming.signature ||
+                "VotZet — That’s your world.";
+
+
+            const backExplore =
+                document.getElementById(
+                    "backExplore"
+                );
+
+
+            const backText =
+                coming.back ||
+                "Back to Explore";
+
+
+            backExplore.textContent =
+                isRTL
+                    ? `${backText} →`
+                    : `← ${backText}`;
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "VotZet Coming localization error:",
+                error
+            );
+        }
+
+    }
+);
+
+</script>
 
 </body>
 </html>
