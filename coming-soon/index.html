@@ -16,8 +16,9 @@
 <style>
 
 /* =========================================================
-   VOTZET — COMING TO YOUR WORLD 1.2
+   VOTZET — COMING TO YOUR WORLD 1.3
    25-language localization
+   No localization flash
    ========================================================= */
 
 html,
@@ -75,6 +76,24 @@ body {
             rgba(0,0,0,0.05),
             rgba(0,0,0,0.30)
         );
+}
+
+/* =========================================================
+   LOCALIZATION LOADING
+   Prevent English text from flashing before JSON loads
+   ========================================================= */
+
+.localized-content {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.localized-content.localization-ready {
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 0.16s ease;
 }
 
 /* =========================================================
@@ -384,9 +403,13 @@ html[dir="rtl"] .coming-signature {
 
 <!-- =====================================================
      NAVIGATION
+     Hidden until localization is ready
      ===================================================== -->
 
-<nav class="inner-nav">
+<nav
+    class="inner-nav localized-content"
+    id="comingNavigation"
+>
 
     <a
         href="../index.html"
@@ -411,9 +434,13 @@ html[dir="rtl"] .coming-signature {
 
 <!-- =====================================================
      CONTENT
+     Hidden until localization is ready
      ===================================================== -->
 
-<main class="coming-content">
+<main
+    class="coming-content localized-content"
+    id="comingContent"
+>
 
     <section class="coming-panel">
 
@@ -424,57 +451,41 @@ html[dir="rtl"] .coming-signature {
         <h1
             class="coming-title"
             id="comingTitle"
-        >
-            Coming to Your World
-        </h1>
+        ></h1>
 
         <div class="gold-line"></div>
 
         <div class="coming-message">
 
-            <p id="comingLine1">
-                This world is being carefully prepared.
-            </p>
+            <p id="comingLine1"></p>
 
-            <p id="comingLine2">
-                We’re selecting products and suppliers for this category.
-            </p>
+            <p id="comingLine2"></p>
 
-            <p id="comingLine3">
-                Only the right solutions will become part of it.
-            </p>
+            <p id="comingLine3"></p>
 
             <p
                 class="quality"
                 id="comingQuality"
-            >
-                Quality takes time.
-            </p>
+            ></p>
 
             <p
                 class="standard"
                 id="comingStandard"
-            >
-                We’ll open it when it meets the VotZet standard.
-            </p>
+            ></p>
 
         </div>
 
         <div
             class="coming-signature"
             id="comingSignature"
-        >
-            VotZet — That’s your world.
-        </div>
+        ></div>
 
         <a
             class="back-explore"
             href="../explore/"
             id="backExplore"
             data-nav-sound="explore"
-        >
-            ← Back to Explore
-        </a>
+        ></a>
 
     </section>
 
@@ -522,45 +533,166 @@ document.addEventListener(
 
 
         /* -------------------------------------------------
-           LOAD COMMON NAVIGATION
+           ELEMENTS
            ------------------------------------------------- */
 
-        try {
+        const navigation =
+            document.getElementById(
+                "comingNavigation"
+            );
 
-            const commonResponse =
+
+        const content =
+            document.getElementById(
+                "comingContent"
+            );
+
+
+        const navHome =
+            document.getElementById(
+                "navHome"
+            );
+
+
+        const navDiscover =
+            document.getElementById(
+                "navDiscover"
+            );
+
+
+        const navExplore =
+            document.getElementById(
+                "navExplore"
+            );
+
+
+        const comingTitle =
+            document.getElementById(
+                "comingTitle"
+            );
+
+
+        const comingLine1 =
+            document.getElementById(
+                "comingLine1"
+            );
+
+
+        const comingLine2 =
+            document.getElementById(
+                "comingLine2"
+            );
+
+
+        const comingLine3 =
+            document.getElementById(
+                "comingLine3"
+            );
+
+
+        const comingQuality =
+            document.getElementById(
+                "comingQuality"
+            );
+
+
+        const comingStandard =
+            document.getElementById(
+                "comingStandard"
+            );
+
+
+        const comingSignature =
+            document.getElementById(
+                "comingSignature"
+            );
+
+
+        const backExplore =
+            document.getElementById(
+                "backExplore"
+            );
+
+
+        /* -------------------------------------------------
+           ENGLISH FALLBACK DATA
+           Used only if localization cannot be loaded
+           ------------------------------------------------- */
+
+        const fallbackCommon = {
+            home: "Home",
+            discover: "Discover",
+            explore: "Explore"
+        };
+
+
+        const fallbackComing = {
+            title:
+                "Coming to Your World",
+
+            line1:
+                "This world is being carefully prepared.",
+
+            line2:
+                "We’re selecting products and suppliers for this category.",
+
+            line3:
+                "Only the right solutions will become part of it.",
+
+            quality:
+                "Quality takes time.",
+
+            standard:
+                "We’ll open it when it meets the VotZet standard.",
+
+            signature:
+                "VotZet — That’s your world.",
+
+            back:
+                "Back to Explore"
+        };
+
+
+        /* -------------------------------------------------
+           LOAD JSON
+           ------------------------------------------------- */
+
+        async function loadJSON(
+            path
+        ) {
+
+            const response =
                 await fetch(
-                    `../locales/${language}/common.json`
+                    path
                 );
 
 
-            if (!commonResponse.ok) {
+            if (!response.ok) {
 
                 throw new Error(
-                    `common.json unavailable: ${language}`
+                    `Unable to load: ${path}`
                 );
             }
 
 
-            const common =
-                await commonResponse.json();
+            return response.json();
+        }
 
 
-            document.getElementById(
-                "navHome"
-            ).textContent =
-                common.home || "Home";
+        /* -------------------------------------------------
+           COMMON LOCALIZATION
+           ------------------------------------------------- */
+
+        let common =
+            fallbackCommon;
 
 
-            document.getElementById(
-                "navDiscover"
-            ).textContent =
-                common.discover || "Discover";
+        try {
 
-
-            document.getElementById(
-                "navExplore"
-            ).textContent =
-                common.explore || "Explore";
+            common =
+                await loadJSON(
+                    `../locales/${language}/common.json`
+                );
 
         }
 
@@ -570,134 +702,146 @@ document.addEventListener(
                 "VotZet common localization fallback:",
                 error
             );
-
-
-            document.getElementById(
-                "navHome"
-            ).textContent =
-                "Home";
-
-
-            document.getElementById(
-                "navDiscover"
-            ).textContent =
-                "Discover";
-
-
-            document.getElementById(
-                "navExplore"
-            ).textContent =
-                "Explore";
         }
 
 
         /* -------------------------------------------------
-           LOAD COMING PAGE
+           COMING LOCALIZATION
            ------------------------------------------------- */
+
+        let coming =
+            fallbackComing;
+
 
         try {
 
-            let response =
-                await fetch(
+            coming =
+                await loadJSON(
                     `../locales/${language}/coming.json`
                 );
-
-
-            if (!response.ok) {
-
-                response =
-                    await fetch(
-                        "../locales/en/coming.json"
-                    );
-            }
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    "coming.json unavailable"
-                );
-            }
-
-
-            const coming =
-                await response.json();
-
-
-            document.getElementById(
-                "comingTitle"
-            ).textContent =
-                coming.title ||
-                "Coming to Your World";
-
-
-            document.getElementById(
-                "comingLine1"
-            ).textContent =
-                coming.line1 ||
-                "This world is being carefully prepared.";
-
-
-            document.getElementById(
-                "comingLine2"
-            ).textContent =
-                coming.line2 ||
-                "We’re selecting products and suppliers for this category.";
-
-
-            document.getElementById(
-                "comingLine3"
-            ).textContent =
-                coming.line3 ||
-                "Only the right solutions will become part of it.";
-
-
-            document.getElementById(
-                "comingQuality"
-            ).textContent =
-                coming.quality ||
-                "Quality takes time.";
-
-
-            document.getElementById(
-                "comingStandard"
-            ).textContent =
-                coming.standard ||
-                "We’ll open it when it meets the VotZet standard.";
-
-
-            document.getElementById(
-                "comingSignature"
-            ).textContent =
-                coming.signature ||
-                "VotZet — That’s your world.";
-
-
-            const backExplore =
-                document.getElementById(
-                    "backExplore"
-                );
-
-
-            const backText =
-                coming.back ||
-                "Back to Explore";
-
-
-            backExplore.textContent =
-                isRTL
-                    ? `${backText} →`
-                    : `← ${backText}`;
 
         }
 
         catch (error) {
 
-            console.error(
-                "VotZet Coming localization error:",
+            console.warn(
+                "VotZet coming localization fallback:",
                 error
             );
+
+
+            if (
+                language !== "en"
+            ) {
+
+                try {
+
+                    coming =
+                        await loadJSON(
+                            "../locales/en/coming.json"
+                        );
+
+                }
+
+                catch (
+                    englishError
+                ) {
+
+                    console.warn(
+                        "VotZet English coming fallback:",
+                        englishError
+                    );
+                }
+            }
         }
+
+
+        /* -------------------------------------------------
+           RENDER NAVIGATION
+           ------------------------------------------------- */
+
+        navHome.textContent =
+            common.home ||
+            fallbackCommon.home;
+
+
+        navDiscover.textContent =
+            common.discover ||
+            fallbackCommon.discover;
+
+
+        navExplore.textContent =
+            common.explore ||
+            fallbackCommon.explore;
+
+
+        /* -------------------------------------------------
+           RENDER COMING PAGE
+           ------------------------------------------------- */
+
+        comingTitle.textContent =
+            coming.title ||
+            fallbackComing.title;
+
+
+        comingLine1.textContent =
+            coming.line1 ||
+            fallbackComing.line1;
+
+
+        comingLine2.textContent =
+            coming.line2 ||
+            fallbackComing.line2;
+
+
+        comingLine3.textContent =
+            coming.line3 ||
+            fallbackComing.line3;
+
+
+        comingQuality.textContent =
+            coming.quality ||
+            fallbackComing.quality;
+
+
+        comingStandard.textContent =
+            coming.standard ||
+            fallbackComing.standard;
+
+
+        comingSignature.textContent =
+            coming.signature ||
+            fallbackComing.signature;
+
+
+        const backText =
+            coming.back ||
+            fallbackComing.back;
+
+
+        backExplore.textContent =
+            isRTL
+                ? `${backText} →`
+                : `← ${backText}`;
+
+
+        /* -------------------------------------------------
+           SHOW PAGE ONLY AFTER LOCALIZATION IS READY
+           ------------------------------------------------- */
+
+        requestAnimationFrame(
+            () => {
+
+                navigation.classList.add(
+                    "localization-ready"
+                );
+
+
+                content.classList.add(
+                    "localization-ready"
+                );
+            }
+        );
 
     }
 );
