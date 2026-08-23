@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Coming to Your World — VotZet</title>
+
+<meta
+    name="description"
+    content="This VotZet world is being carefully prepared."
+>
+
+<link rel="stylesheet" href="../css/main.css">
+
+<link
+    rel="preload"
+    as="image"
+    href="../assets/images/votzet-inner-bg.jpg"
+>
+
+<style>
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    background: #101113;
+    color: #f2f2ef;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.coming-page {
+    position: relative;
+    min-height: 100dvh;
+    min-height: 100svh;
+    opacity: 0;
+    visibility: hidden;
+    background:
+        linear-gradient(
+            rgba(7,8,9,0.74),
+            rgba(7,8,9,0.84)
+        ),
+        url("../assets/images/votzet-inner-bg.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.coming-page.page-ready {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.18s ease;
+}
+
+.coming-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            circle at 50% 34%,
+            rgba(201,162,39,0.08),
+            transparent 34%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.05),
+            rgba(0,0,0,0.30)
+        );
+}
+
+.inner-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    padding: 17px 12px;
+    background: rgba(8,9,10,0.94);
+    border-bottom: 1px solid rgba(201,162,39,0.18);
+    backdrop-filter: blur(12px);
+}
+
+.inner-nav a {
+    color: #f2f2ef;
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.inner-nav a:hover {
+    color: #e4c44f;
+}
+
+.coming-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: calc(100dvh - 52px);
+    box-sizing: border-box;
+    padding:
+        70px 18px
+        max(55px, env(safe-area-inset-bottom));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coming-panel {
+    width: 100%;
+    max-width: 760px;
+    box-sizing: border-box;
+    padding: 46px 34px 40px;
+    text-align: center;
+    border: 1px solid rgba(201,162,39,0.24);
+    background: transparent;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.38);
+}
+
+.brand-label {
+    margin-bottom: 20px;
+    color: #d8b83d;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.coming-title {
+    margin: 0;
+    color: #f2f2ef;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 1px;
+}
+
+.gold-line {
+    width: 72px;
+    height: 1px;
+    margin: 28px auto 30px;
+    background: rgba(201,162,39,0.72);
+    box-shadow: 0 0 14px rgba(201,162,39,0.18);
+}
+
+.coming-message {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.coming-message p {
+    margin: 0;
+    color: #d6d6d2;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+.coming-message p + p {
+    margin-top: 10px;
+}
+
+.coming-message .quality {
+    margin-top: 28px;
+    color: #e3e3df;
+}
+
+.coming-message .standard {
+    margin-top: 7px;
+    color: #a9aaad;
+    font-size: 14px;
+}
+
+.coming-signature {
+    margin-top: 35px;
+    color: #c9a227;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 1.4px;
+}
+
+.back-explore {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 11px 25px;
+    border: 1px solid rgba(201,162,39,0.75);
+    border-radius: 28px;
+    background: rgba(8,9,10,0.30);
+    color: #d8b83d;
+    text-decoration: none;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.back-explore:hover {
+    background: #d8b83d;
+    color: #101113;
+    box-shadow: 0 0 24px rgba(201,162,39,0.20);
+}
+
+html[dir="rtl"] .coming-panel {
+    direction: rtl;
+}
+
+html[dir="rtl"] .back-explore {
+    direction: rtl;
+}
+
+html[dir="rtl"] .coming-signature {
+    direction: ltr;
+}
+
+@media (max-width: 650px) {
+    .coming-page {
+        background-attachment: scroll;
+    }
+
+    .inner-nav {
+        gap: 20px;
+        padding: 16px 12px;
+    }
+
+    .inner-nav a {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .coming-content {
+        padding:
+            42px 14px
+            max(38px, env(safe-area-inset-bottom));
+    }
+
+    .coming-panel {
+        padding: 38px 20px 34px;
+    }
+
+    .coming-title {
+        font-size: 36px;
+    }
+
+    .coming-message p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .coming-message .standard {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 380px) {
+    .inner-nav {
+        gap: 16px;
+    }
+
+    .inner-nav a {
+        font-size: 8px;
+        letter-spacing: 1.4px;
+    }
+
+    .coming-title {
+        font-size: 32px;
+    }
+
+    .coming-panel {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div
+    class="coming-page"
+    id="comingPage"
+>
+
+<nav class="inner-nav">
+
+    <a
+        href="../index.html"
+        id="navHome"
+        data-nav-sound="home"
+    ></a>
+
+    <a
+        href="../discover/"
+        id="navDiscover"
+        data-nav-sound="discover"
+    ></a>
+
+    <a
+        href="../explore/"
+        id="navExplore"
+        data-nav-sound="explore"
+    ></a>
+
+</nav>
+
+<main class="coming-content">
+
+    <section class="coming-panel">
+
+        <div class="brand-label">
+            VotZet
+        </div>
+
+        <h1
+            class="coming-title"
+            id="comingTitle"
+        ></h1>
+
+        <div class="gold-line"></div>
+
+        <div class="coming-message">
+            <p id="comingLine1"></p>
+            <p id="comingLine2"></p>
+            <p id="comingLine3"></p>
+
+            <p
+                class="quality"
+                id="comingQuality"
+            ></p>
+
+            <p
+                class="standard"
+                id="comingStandard"
+            ></p>
+        </div>
+
+        <div
+            class="coming-signature"
+            id="comingSignature"
+        ></div>
+
+        <a
+            class="back-explore"
+            href="../explore/"
+            id="backExplore"
+            data-nav-sound="explore"
+        ></a>
+
+    </section>
+
+</main>
+
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/language.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const language =
+        localStorage.getItem("votzet-language") || "en";
+
+    const isRTL =
+        language === "ar";
+
+    document.documentElement.lang =
+        language;
+
+    document.documentElement.dir =
+        isRTL ? "rtl" : "ltr";
+
+    const page =
+        document.getElementById("comingPage");
+
+    const fallbackCommon = {
+        home: "Home",
+        discover: "Discover",
+        explore: "Explore"
+    };
+
+    const fallbackComing = {
+        title: "Coming to Your World",
+        line1: "This world is being carefully prepared.",
+        line2: "We’re selecting products and suppliers for this category.",
+        line3: "Only the right solutions will become part of it.",
+        quality: "Quality takes time.",
+        standard: "We’ll open it when it meets the VotZet standard.",
+        signature: "VotZet — That’s your world.",
+        back: "Back to Explore"
+    };
+
+    async function loadJSON(path) {
+        const response =
+            await fetch(path);
+
+        if (!response.ok) {
+            throw new Error(`Unable to load: ${path}`);
+        }
+
+        return response.json();
+    }
+
+    async function loadBackground() {
+        const image =
+            new Image();
+
+        image.src =
+            "../assets/images/votzet-inner-bg.jpg";
+
+        try {
+            if (typeof image.decode === "function") {
+                await image.decode();
+                return;
+            }
+        } catch (error) {
+        }
+
+        if (image.complete) {
+            return;
+        }
+
+        await new Promise(resolve => {
+            image.onload = resolve;
+            image.onerror = resolve;
+        });
+    }
+
+    const commonPromise =
+        loadJSON(
+            `../locales/${language}/common.json`
+        )
+        .catch(() => fallbackCommon);
+
+    const comingPromise =
+        loadJSON(
+            `../locales/${language}/coming.json`
+        )
+        .catch(async () => {
+
+            if (language !== "en") {
+                try {
+                    return await loadJSON(
+                        "../locales/en/coming.json"
+                    );
+                } catch (error) {
+                    return fallbackComing;
+                }
+            }
+
+            return fallbackComing;
+        });
+
+    const backgroundPromise =
+        loadBackground();
+
+    const [
+        common,
+        coming
+    ] =
+        await Promise.all([
+            commonPromise,
+            comingPromise,
+            backgroundPromise
+        ]);
+
+    document.getElementById("navHome")
+        .textContent =
+        common.home || fallbackCommon.home;
+
+    document.getElementById("navDiscover")
+        .textContent =
+        common.discover || fallbackCommon.discover;
+
+    document.getElementById("navExplore")
+        .textContent =
+        common.explore || fallbackCommon.explore;
+
+    document.getElementById("comingTitle")
+        .textContent =
+        coming.title || fallbackComing.title;
+
+    document.getElementById("comingLine1")
+        .textContent =
+        coming.line1 || fallbackComing.line1;
+
+    document.getElementById("comingLine2")
+        .textContent =
+        coming.line2 || fallbackComing.line2;
+
+    document.getElementById("comingLine3")
+        .textContent =
+        coming.line3 || fallbackComing.line3;
+
+    document.getElementById("comingQuality")
+        .textContent =
+        coming.quality || fallbackComing.quality;
+
+    document.getElementById("comingStandard")
+        .textContent =
+        coming.standard || fallbackComing.standard;
+
+    document.getElementById("comingSignature")
+        .textContent =
+        coming.signature || fallbackComing.signature;
+
+    const backText =
+        coming.back || fallbackComing.back;
+
+    document.getElementById("backExplore")
+        .textContent =
+        isRTL
+            ? `${backText} →`
+            : `← ${backText}`;
+
+    requestAnimationFrame(() => {
+        page.classList.add("page-ready");
+    });
+
+});
+</script>
+
+</body>
+</html>
