@@ -1,0 +1,239 @@
+{
+  "world": "men",
+  "need": "health",
+  "title": "Men — Health",
+  "subtitle": "21 selected solutions for everyday health and wellness.",
+  "products": [
+    {
+      "slot": 1,
+      "id": "men-health-01",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 2,
+      "id": "men-health-02",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 3,
+      "id": "men-health-03",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 4,
+      "id": "men-health-04",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 5,
+      "id": "men-health-05",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 6,
+      "id": "men-health-06",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 7,
+      "id": "men-health-07",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 8,
+      "id": "men-health-08",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 9,
+      "id": "men-health-09",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 10,
+      "id": "men-health-10",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 11,
+      "id": "men-health-11",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 12,
+      "id": "men-health-12",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 13,
+      "id": "men-health-13",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 14,
+      "id": "men-health-14",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 15,
+      "id": "men-health-15",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 16,
+      "id": "men-health-16",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 17,
+      "id": "men-health-17",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 18,
+      "id": "men-health-18",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 19,
+      "id": "men-health-19",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 20,
+      "id": "men-health-20",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 21,
+      "id": "men-health-21",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    }
+  ]
+}
