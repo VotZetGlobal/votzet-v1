@@ -104,7 +104,7 @@ body {
     border: 1px solid rgba(255,225,90,0.50);
     border-radius: 10px;
     background:
-        linear-gradient(rgba(7,7,7,0.88), rgba(7,7,7,0.94)),
+        linear-gradient(rgba(7,7,7,0.68), rgba(7,7,7,0.78)),
         url("../assets/images/votzet-inner-bg.jpg") center center / cover no-repeat;
     backdrop-filter: blur(15px);
     box-shadow: 0 12px 45px rgba(0,0,0,0.65);
@@ -128,7 +128,13 @@ body {
     border-radius: 6px;
     background: transparent;
     color: #ffffff;
+
+    /* The language list always keeps the same visual order:
+       CODE first, self-name second — even when Arabic is selected. */
+    direction: ltr;
+    unicode-bidi: plaintext;
     text-align: left;
+
     cursor: pointer;
     font-size: 13px;
     transition: 0.2s ease;
@@ -236,7 +242,19 @@ html[dir="rtl"] .language-button {
     letter-spacing: 0;
 }
 
+html[dir="rtl"] .language-menu {
+    direction: ltr;
+}
+
+html[dir="rtl"] .language-option {
+    direction: ltr;
+    unicode-bidi: plaintext;
+    text-align: left;
+}
+
+/* Arabic self-name remains Arabic internally, but its row follows
+   the same left-aligned CODE + language-name layout as every other row. */
 html[dir="rtl"] .language-option[data-language="ar"] {
-    direction: rtl;
-    text-align: right;
+    direction: ltr;
+    text-align: left;
 }
