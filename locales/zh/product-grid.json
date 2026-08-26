@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "精选",
+    "inProgress": "进行中"
+  },
+  "values": {
+    "quality": {
+      "title": "品质",
+      "text": "为你的身心状态精心甄选"
+    },
+    "premium": {
+      "title": "臻选",
+      "text": "带来真实体验与效果的产品"
+    },
+    "wellness": {
+      "title": "身心健康",
+      "text": "支持身体、心理与生活方式"
+    },
+    "trust": {
+      "title": "信赖",
+      "text": "值得依靠的可靠解决方案"
+    }
+  },
+  "backToExplore": "← 返回探索"
+}
