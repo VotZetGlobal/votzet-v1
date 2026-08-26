@@ -13,6 +13,13 @@
 
 <link rel="stylesheet" href="../css/main.css">
 
+<!-- Start loading the shared placeholder graphic immediately. -->
+<link
+    rel="preload"
+    as="image"
+    href="../assets/images/product-placeholder-vz.webp"
+>
+
 <style>
 
 * {
@@ -31,6 +38,25 @@ body {
 
     background: #0b0c0e;
     color: #f2f2ef;
+}
+
+/* =========================================================
+   INITIAL RENDER
+   Nothing on the Product Grid is shown until:
+   interface localization + category localization +
+   product data + placeholder graphic are ready.
+   This removes the English flash and partial loading.
+   ========================================================= */
+
+.product-page {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product-page.product-grid-ready {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.14s ease;
 }
 
 .product-page {
@@ -811,16 +837,12 @@ body {
     <h1
         class="product-title"
         id="categoryTitle"
-    >
-        Men — Health
-    </h1>
+    ></h1>
 
     <p
         class="product-subtitle"
         id="categorySubtitle"
-    >
-        21 selected solutions for everyday health and wellness.
-    </p>
+    ></p>
 
     <div class="title-line"></div>
 
@@ -855,13 +877,9 @@ body {
 
         <div>
 
-            <div class="value-title" id="valueQualityTitle">
-                Quality
-            </div>
+            <div class="value-title" id="valueQualityTitle"></div>
 
-            <div class="value-copy" id="valueQualityCopy">
-                Carefully selected for your well-being
-            </div>
+            <div class="value-copy" id="valueQualityCopy"></div>
 
         </div>
 
@@ -876,13 +894,9 @@ body {
 
         <div>
 
-            <div class="value-title" id="valuePremiumTitle">
-                Premium
-            </div>
+            <div class="value-title" id="valuePremiumTitle"></div>
 
-            <div class="value-copy" id="valuePremiumCopy">
-                Products that deliver real results
-            </div>
+            <div class="value-copy" id="valuePremiumCopy"></div>
 
         </div>
 
@@ -897,13 +911,9 @@ body {
 
         <div>
 
-            <div class="value-title" id="valueWellnessTitle">
-                Wellness
-            </div>
+            <div class="value-title" id="valueWellnessTitle"></div>
 
-            <div class="value-copy" id="valueWellnessCopy">
-                Support for body, mind and lifestyle
-            </div>
+            <div class="value-copy" id="valueWellnessCopy"></div>
 
         </div>
 
@@ -918,13 +928,9 @@ body {
 
         <div>
 
-            <div class="value-title" id="valueTrustTitle">
-                Trust
-            </div>
+            <div class="value-title" id="valueTrustTitle"></div>
 
-            <div class="value-copy" id="valueTrustCopy">
-                Reliable solutions you can depend on
-            </div>
+            <div class="value-copy" id="valueTrustCopy"></div>
 
         </div>
 
@@ -944,9 +950,7 @@ body {
         id="backExplore"
         href="../explore/"
         data-nav-sound="explore"
-    >
-        ← Back to Explore
-    </a>
+    ></a>
 
 </div>
 
@@ -964,6 +968,11 @@ body {
 document.addEventListener(
     "DOMContentLoaded",
     async () => {
+
+        const page =
+            document.querySelector(
+                ".product-page"
+            );
 
         const params =
             new URLSearchParams(
@@ -1005,15 +1014,22 @@ document.addEventListener(
 
 
         /* =================================================
-           LOAD JSON WITH ENGLISH FALLBACK
+           JSON HELPERS
            ================================================= */
 
-        async function loadJSON(path) {
+        async function loadJSON(
+            path
+        ) {
 
             const response =
-                await fetch(path);
+                await fetch(
+                    path
+                );
 
-            if (!response.ok) {
+            if (
+                !response.ok
+            ) {
+
                 throw new Error(
                     `Unable to load: ${path}`
                 );
@@ -1029,22 +1045,31 @@ document.addEventListener(
         ) {
 
             try {
+
                 return await loadJSON(
                     localizedPath
                 );
             }
 
-            catch (error) {
+            catch (
+                error
+            ) {
 
-                if (language !== "en") {
+                if (
+                    language !== "en"
+                ) {
 
                     try {
+
                         return await loadJSON(
                             englishPath
                         );
                     }
 
-                    catch (englishError) {
+                    catch (
+                        englishError
+                    ) {
+
                         console.warn(
                             "VotZet English localization fallback failed:",
                             englishError
@@ -1062,29 +1087,111 @@ document.addEventListener(
         }
 
 
-        const [
-            common,
-            productGridLocale,
-            categoryLocale
-        ] =
-            await Promise.all([
+        /* =================================================
+           PRELOAD SHARED PLACEHOLDER IMAGE
+           ================================================= */
 
-                loadWithEnglishFallback(
-                    `../locales/${language}/common.json`,
-                    "../locales/en/common.json"
-                ),
+        async function preloadPlaceholder() {
 
-                loadWithEnglishFallback(
-                    interfacePath,
-                    "../locales/en/product-grid.json"
-                ),
+            const image =
+                new Image();
 
-                loadWithEnglishFallback(
-                    productLocalePath,
-                    `../locales/en/products/${world}-${need}.json`
-                )
+            image.src =
+                placeholderGraphic;
 
-            ]);
+            try {
+
+                if (
+                    typeof image.decode ===
+                    "function"
+                ) {
+
+                    await image.decode();
+
+                    return;
+                }
+            }
+
+            catch (
+                error
+            ) {
+                /* use onload/onerror fallback below */
+            }
+
+            if (
+                image.complete
+            ) {
+                return;
+            }
+
+            await new Promise(
+                resolve => {
+
+                    image.onload =
+                        resolve;
+
+                    image.onerror =
+                        resolve;
+                }
+            );
+        }
+
+
+        /* =================================================
+           LOAD EVERYTHING IN PARALLEL
+           ================================================= */
+
+        let common = {};
+        let productGridLocale = {};
+        let categoryLocale = {};
+        let data = {
+            products: []
+        };
+
+        try {
+
+            [
+                common,
+                productGridLocale,
+                categoryLocale,
+                data
+            ] =
+                await Promise.all([
+
+                    loadWithEnglishFallback(
+                        `../locales/${language}/common.json`,
+                        "../locales/en/common.json"
+                    ),
+
+                    loadWithEnglishFallback(
+                        interfacePath,
+                        "../locales/en/product-grid.json"
+                    ),
+
+                    loadWithEnglishFallback(
+                        productLocalePath,
+                        `../locales/en/products/${world}-${need}.json`
+                    ),
+
+                    loadJSON(
+                        dataPath
+                    ),
+
+                    preloadPlaceholder()
+
+                ]);
+
+        }
+
+        catch (
+            error
+        ) {
+
+            console.error(
+                "VotZet Product Grid loading error:",
+                error
+            );
+        }
 
 
         /* =================================================
@@ -1189,17 +1296,20 @@ document.addEventListener(
             trust.text ||
             "Reliable solutions you can depend on";
 
+        const backText =
+            productGridLocale.backToExplore ||
+            "Back to Explore";
+
         document.getElementById(
             "backExplore"
         ).textContent =
-            productGridLocale.backToExplore ||
-            "← Back to Explore";
+            language === "ar"
+                ? `${backText} →`
+                : `← ${backText}`;
 
 
         /* =================================================
            PRODUCT TRANSLATION HELPER
-           Technical product data stays in health.json.
-           Localized title / short / alt stay in locale files.
            ================================================= */
 
         function getLocalizedProduct(
@@ -1211,7 +1321,9 @@ document.addEventListener(
                 {};
 
             const localized =
-                translations[product.id] ||
+                translations[
+                    product.id
+                ] ||
                 {};
 
             return {
@@ -1286,8 +1398,9 @@ document.addEventListener(
             image.alt =
                 "";
 
+            /* Image is already preloaded before reveal. */
             image.loading =
-                "lazy";
+                "eager";
 
             const state =
                 document.createElement(
@@ -1305,8 +1418,20 @@ document.addEventListener(
                 placeholder.inProgress ||
                 "In progress";
 
-            state.innerHTML =
-                `${selectionText}<strong>${progressText}</strong>`;
+            state.textContent =
+                selectionText;
+
+            const progress =
+                document.createElement(
+                    "strong"
+                );
+
+            progress.textContent =
+                progressText;
+
+            state.appendChild(
+                progress
+            );
 
             const divider =
                 document.createElement(
@@ -1341,7 +1466,6 @@ document.addEventListener(
             badge.className =
                 "placeholder-badge";
 
-            /* Brand label intentionally stays universal. */
             badge.textContent =
                 "VotZet Selection";
 
@@ -1464,12 +1588,10 @@ document.addEventListener(
                     .trim();
             }
 
-            /* The short localized description is stored now
-               and can be surfaced later without changing the
-               product-data architecture. */
             if (
                 product.localizedShort
             ) {
+
                 card.dataset.short =
                     product.localizedShort;
             }
@@ -1516,81 +1638,83 @@ document.addEventListener(
 
 
         /* =================================================
-           LOAD TECHNICAL PRODUCT DATA
+           BUILD ALL 21 CARDS OFF-SCREEN
            ================================================= */
 
-        try {
+        const grid =
+            document.getElementById(
+                "productsGrid"
+            );
 
-            const data =
-                await loadJSON(
-                    dataPath
+        const fragment =
+            document.createDocumentFragment();
+
+        const products =
+            Array.isArray(
+                data.products
+            )
+                ? data.products
+                : [];
+
+        for (
+            let slot = 1;
+            slot <= 21;
+            slot++
+        ) {
+
+            const existing =
+                products.find(
+                    product =>
+                        Number(
+                            product.slot
+                        ) === slot
                 );
 
-            const grid =
-                document.getElementById(
-                    "productsGrid"
-                );
+            const product =
+                existing || {
+                    slot,
+                    id:
+                        `${world}-${need}-${String(slot).padStart(2,"0")}`,
+                    status:
+                        "placeholder",
+                    title:
+                        "",
+                    short:
+                        "",
+                    price:
+                        "",
+                    currency:
+                        "USD",
+                    image:
+                        "",
+                    url:
+                        ""
+                };
 
-            grid.innerHTML =
-                "";
-
-            const products =
-                Array.isArray(
-                    data.products
+            fragment.appendChild(
+                createCard(
+                    product
                 )
-                    ? data.products
-                    : [];
-
-            for (
-                let slot = 1;
-                slot <= 21;
-                slot++
-            ) {
-
-                const existing =
-                    products.find(
-                        product =>
-                            Number(
-                                product.slot
-                            ) === slot
-                    );
-
-                const product =
-                    existing || {
-                        slot,
-                        id:
-                            `${world}-${need}-${String(slot).padStart(2,"0")}`,
-                        status:
-                            "placeholder",
-                        title:
-                            "",
-                        short:
-                            "",
-                        price:
-                            "",
-                        currency:
-                            "USD",
-                        image:
-                            "",
-                        url:
-                            ""
-                    };
-
-                grid.appendChild(
-                    createCard(
-                        product
-                    )
-                );
-            }
-        }
-
-        catch (error) {
-
-            console.error(
-                "VotZet Product Grid:",
-                error
             );
         }
+
+        grid.replaceChildren(
+            fragment
+        );
+
+
+        /* =================================================
+           ONE REVEAL — ALREADY LOCALIZED AND COMPLETE
+           ================================================= */
+
+        requestAnimationFrame(
+            () => {
+
+                page.classList.add(
+                    "product-grid-ready"
+                );
+            }
+        );
     }
 );
 
