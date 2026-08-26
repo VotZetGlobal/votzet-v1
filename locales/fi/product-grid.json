@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Valinta",
+    "inProgress": "Käynnissä"
+  },
+  "values": {
+    "quality": {
+      "title": "Laatu",
+      "text": "Huolella valittu hyvinvointiasi varten"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Tuotteita, jotka tuottavat todellisia tuloksia"
+    },
+    "wellness": {
+      "title": "Hyvinvointi",
+      "text": "Tukea keholle, mielelle ja elämäntavalle"
+    },
+    "trust": {
+      "title": "Luottamus",
+      "text": "Luotettavia ratkaisuja, joihin voit luottaa"
+    }
+  },
+  "backToExplore": "← Takaisin Tutkimaan"
+}
