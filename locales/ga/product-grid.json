@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Roghnú",
+    "inProgress": "Ar siúl"
+  },
+  "values": {
+    "quality": {
+      "title": "Cáilíocht",
+      "text": "Roghnaithe go cúramach do do leas"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Táirgí a thugann torthaí fíora"
+    },
+    "wellness": {
+      "title": "Folláine",
+      "text": "Tacaíocht don chorp, don intinn agus don stíl mhaireachtála"
+    },
+    "trust": {
+      "title": "Muinín",
+      "text": "Réitigh iontaofa ar féidir leat brath orthu"
+    }
+  },
+  "backToExplore": "← Ar ais go Taiscéal"
+}
