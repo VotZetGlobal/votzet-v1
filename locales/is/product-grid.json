@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Val",
+    "inProgress": "Í vinnslu"
+  },
+  "values": {
+    "quality": {
+      "title": "Gæði",
+      "text": "Vandlega valið fyrir vellíðan þína"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Vörur sem skila raunverulegum árangri"
+    },
+    "wellness": {
+      "title": "Vellíðan",
+      "text": "Stuðningur fyrir líkama, huga og lífsstíl"
+    },
+    "trust": {
+      "title": "Traust",
+      "text": "Áreiðanlegar lausnir sem þú getur treyst"
+    }
+  },
+  "backToExplore": "← Til baka í Kanna"
+}
