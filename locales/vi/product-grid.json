@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Tuyển chọn",
+    "inProgress": "Đang tiến hành"
+  },
+  "values": {
+    "quality": {
+      "title": "Chất lượng",
+      "text": "Được lựa chọn kỹ lưỡng vì sức khỏe của bạn"
+    },
+    "premium": {
+      "title": "Cao cấp",
+      "text": "Sản phẩm mang lại giá trị thực"
+    },
+    "wellness": {
+      "title": "Sống khỏe",
+      "text": "Hỗ trợ cơ thể, tinh thần và lối sống"
+    },
+    "trust": {
+      "title": "Tin cậy",
+      "text": "Những giải pháp đáng tin cậy để bạn yên tâm lựa chọn"
+    }
+  },
+  "backToExplore": "← Quay lại Khám phá"
+}
