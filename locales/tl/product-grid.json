@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Pagpili",
+    "inProgress": "Isinasagawa"
+  },
+  "values": {
+    "quality": {
+      "title": "Kalidad",
+      "text": "Maingat na pinili para sa iyong kagalingan"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Mga produktong nagbibigay ng tunay na resulta"
+    },
+    "wellness": {
+      "title": "Wellness",
+      "text": "Suporta para sa katawan, isip at pamumuhay"
+    },
+    "trust": {
+      "title": "Tiwala",
+      "text": "Maaasahang mga solusyong mapagkakatiwalaan mo"
+    }
+  },
+  "backToExplore": "← Bumalik sa Explore"
+}
