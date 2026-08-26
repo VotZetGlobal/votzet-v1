@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "選定",
+    "inProgress": "進行中"
+  },
+  "values": {
+    "quality": {
+      "title": "品質",
+      "text": "あなたのウェルビーイングのために厳選"
+    },
+    "premium": {
+      "title": "プレミアム",
+      "text": "確かな価値を届ける製品"
+    },
+    "wellness": {
+      "title": "ウェルネス",
+      "text": "身体・心・ライフスタイルをサポート"
+    },
+    "trust": {
+      "title": "信頼",
+      "text": "安心して頼れる信頼性の高いソリューション"
+    }
+  },
+  "backToExplore": "← 探索に戻る"
+}
