@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Pilihan",
+    "inProgress": "Sedang berlangsung"
+  },
+  "values": {
+    "quality": {
+      "title": "Kualitas",
+      "text": "Dipilih dengan cermat untuk kesejahteraan Anda"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Produk yang memberikan hasil nyata"
+    },
+    "wellness": {
+      "title": "Kebugaran",
+      "text": "Dukungan untuk tubuh, pikiran, dan gaya hidup"
+    },
+    "trust": {
+      "title": "Kepercayaan",
+      "text": "Solusi andal yang dapat Anda percaya"
+    }
+  },
+  "backToExplore": "← Kembali ke Jelajahi"
+}
