@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Auswahl",
+    "inProgress": "Läuft"
+  },
+  "values": {
+    "quality": {
+      "title": "Qualität",
+      "text": "Sorgfältig für dein Wohlbefinden ausgewählt"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Produkte, die echte Ergebnisse liefern"
+    },
+    "wellness": {
+      "title": "Wohlbefinden",
+      "text": "Unterstützung für Körper, Geist und Lebensstil"
+    },
+    "trust": {
+      "title": "Vertrauen",
+      "text": "Zuverlässige Lösungen, auf die du dich verlassen kannst"
+    }
+  },
+  "backToExplore": "← Zurück zu Entdecken"
+}
