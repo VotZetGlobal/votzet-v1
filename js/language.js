@@ -61,8 +61,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     exploreButton.textContent = translations.explore;
                 }
 
+                const languageCode =
+                    String(language || "en").toUpperCase();
+
                 languageButton.textContent =
-                    `${languageNames[language] || languageNames.en} ▾`;
+                    `${languageCode} ${languageNames[language] || languageNames.en} ▾`;
 
                 localStorage.setItem("votzet-language", language);
 
