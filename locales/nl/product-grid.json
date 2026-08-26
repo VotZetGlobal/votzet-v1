@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Selectie",
+    "inProgress": "Bezig"
+  },
+  "values": {
+    "quality": {
+      "title": "Kwaliteit",
+      "text": "Zorgvuldig geselecteerd voor jouw welzijn"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Producten die echte resultaten leveren"
+    },
+    "wellness": {
+      "title": "Welzijn",
+      "text": "Ondersteuning voor lichaam, geest en levensstijl"
+    },
+    "trust": {
+      "title": "Vertrouwen",
+      "text": "Betrouwbare oplossingen waarop je kunt rekenen"
+    }
+  },
+  "backToExplore": "← Terug naar Verkennen"
+}
