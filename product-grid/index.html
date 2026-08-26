@@ -47,6 +47,36 @@ body {
 
 
 /* =========================================================
+   PRODUCT PAGE BACKGROUND
+   Slightly lighter than the other inner pages so the
+   hexagonal VotZet texture remains visible between cards.
+   ========================================================= */
+
+.product-page.votzet-inner-surface {
+    background:
+        linear-gradient(
+            rgba(7,8,9,0.56),
+            rgba(7,8,9,0.66)
+        ),
+        url("../assets/images/votzet-inner-bg.jpg")
+        center center / cover fixed no-repeat !important;
+}
+
+.product-page.votzet-inner-surface::before {
+    background:
+        radial-gradient(
+            circle at 50% 22%,
+            rgba(201,162,39,0.045),
+            transparent 34%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.01),
+            rgba(0,0,0,0.10)
+        );
+}
+
+/* =========================================================
    NAVIGATION
    ========================================================= */
 
@@ -171,7 +201,7 @@ body {
     grid-template-columns:
         repeat(7, minmax(0, 1fr));
 
-    gap: 10px;
+    gap: 14px;
 }
 
 
@@ -596,7 +626,7 @@ body {
         grid-template-columns:
             repeat(3, minmax(0, 1fr));
 
-        gap: 5px;
+        gap: 8px;
     }
 
     .product-card {
@@ -713,7 +743,7 @@ body {
     }
 
     .products-grid {
-        gap: 4px;
+        gap: 7px;
     }
 
     .placeholder-state {
@@ -825,11 +855,11 @@ body {
 
         <div>
 
-            <div class="value-title">
+            <div class="value-title" id="valueQualityTitle">
                 Quality
             </div>
 
-            <div class="value-copy">
+            <div class="value-copy" id="valueQualityCopy">
                 Carefully selected for your well-being
             </div>
 
@@ -846,11 +876,11 @@ body {
 
         <div>
 
-            <div class="value-title">
+            <div class="value-title" id="valuePremiumTitle">
                 Premium
             </div>
 
-            <div class="value-copy">
+            <div class="value-copy" id="valuePremiumCopy">
                 Products that deliver real results
             </div>
 
@@ -867,11 +897,11 @@ body {
 
         <div>
 
-            <div class="value-title">
+            <div class="value-title" id="valueWellnessTitle">
                 Wellness
             </div>
 
-            <div class="value-copy">
+            <div class="value-copy" id="valueWellnessCopy">
                 Support for body, mind and lifestyle
             </div>
 
@@ -888,11 +918,11 @@ body {
 
         <div>
 
-            <div class="value-title">
+            <div class="value-title" id="valueTrustTitle">
                 Trust
             </div>
 
-            <div class="value-copy">
+            <div class="value-copy" id="valueTrustCopy">
                 Reliable solutions you can depend on
             </div>
 
@@ -911,6 +941,7 @@ body {
 
     <a
         class="back-explore"
+        id="backExplore"
         href="../explore/"
         data-nav-sound="explore"
     >
@@ -934,98 +965,275 @@ document.addEventListener(
     "DOMContentLoaded",
     async () => {
 
-
-        /* =================================================
-           CATEGORY PARAMETERS
-           ================================================= */
-
         const params =
             new URLSearchParams(
                 window.location.search
             );
 
-
         const world =
             params.get("world") ||
             "men";
-
 
         const need =
             params.get("need") ||
             "health";
 
+        const language =
+            localStorage.getItem(
+                "votzet-language"
+            ) || "en";
 
         const dataPath =
             `../data/products/${world}/${need}.json`;
 
+        const interfacePath =
+            `../locales/${language}/product-grid.json`;
+
+        const productLocalePath =
+            `../locales/${language}/products/${world}-${need}.json`;
 
         const placeholderGraphic =
             "../assets/images/product-placeholder-vz.webp";
 
+        document.documentElement.lang =
+            language;
+
+        document.documentElement.dir =
+            language === "ar"
+                ? "rtl"
+                : "ltr";
 
 
         /* =================================================
-           COMMON LOCALIZATION
+           LOAD JSON WITH ENGLISH FALLBACK
            ================================================= */
 
-        async function loadCommon() {
+        async function loadJSON(path) {
 
-            const language =
-                localStorage.getItem(
-                    "votzet-language"
-                ) || "en";
+            const response =
+                await fetch(path);
 
+            if (!response.ok) {
+                throw new Error(
+                    `Unable to load: ${path}`
+                );
+            }
+
+            return response.json();
+        }
+
+
+        async function loadWithEnglishFallback(
+            localizedPath,
+            englishPath
+        ) {
 
             try {
-
-                const response =
-                    await fetch(
-                        `../locales/${language}/common.json`
-                    );
-
-
-                if (!response.ok) {
-                    return;
-                }
-
-
-                const common =
-                    await response.json();
-
-
-                document.getElementById(
-                    "navHome"
-                ).textContent =
-                    common.home ||
-                    "Home";
-
-
-                document.getElementById(
-                    "navDiscover"
-                ).textContent =
-                    common.discover ||
-                    "Discover";
-
-
-                document.getElementById(
-                    "navExplore"
-                ).textContent =
-                    common.explore ||
-                    "Explore";
-
+                return await loadJSON(
+                    localizedPath
+                );
             }
 
             catch (error) {
 
+                if (language !== "en") {
+
+                    try {
+                        return await loadJSON(
+                            englishPath
+                        );
+                    }
+
+                    catch (englishError) {
+                        console.warn(
+                            "VotZet English localization fallback failed:",
+                            englishError
+                        );
+                    }
+                }
+
                 console.warn(
-                    "VotZet Product Grid localization:",
+                    "VotZet localization fallback:",
                     error
                 );
 
+                return {};
             }
-
         }
 
+
+        const [
+            common,
+            productGridLocale,
+            categoryLocale
+        ] =
+            await Promise.all([
+
+                loadWithEnglishFallback(
+                    `../locales/${language}/common.json`,
+                    "../locales/en/common.json"
+                ),
+
+                loadWithEnglishFallback(
+                    interfacePath,
+                    "../locales/en/product-grid.json"
+                ),
+
+                loadWithEnglishFallback(
+                    productLocalePath,
+                    `../locales/en/products/${world}-${need}.json`
+                )
+
+            ]);
+
+
+        /* =================================================
+           NAVIGATION + PAGE INTERFACE
+           ================================================= */
+
+        document.getElementById(
+            "navHome"
+        ).textContent =
+            common.home ||
+            "Home";
+
+        document.getElementById(
+            "navDiscover"
+        ).textContent =
+            common.discover ||
+            "Discover";
+
+        document.getElementById(
+            "navExplore"
+        ).textContent =
+            common.explore ||
+            "Explore";
+
+        document.getElementById(
+            "categoryTitle"
+        ).textContent =
+            categoryLocale.title ||
+            "Men — Health";
+
+        document.getElementById(
+            "categorySubtitle"
+        ).textContent =
+            categoryLocale.subtitle ||
+            "21 selected solutions for everyday health and wellness.";
+
+        const values =
+            productGridLocale.values ||
+            {};
+
+        const quality =
+            values.quality ||
+            {};
+
+        const premium =
+            values.premium ||
+            {};
+
+        const wellness =
+            values.wellness ||
+            {};
+
+        const trust =
+            values.trust ||
+            {};
+
+        document.getElementById(
+            "valueQualityTitle"
+        ).textContent =
+            quality.title ||
+            "Quality";
+
+        document.getElementById(
+            "valueQualityCopy"
+        ).textContent =
+            quality.text ||
+            "Carefully selected for your well-being";
+
+        document.getElementById(
+            "valuePremiumTitle"
+        ).textContent =
+            premium.title ||
+            "Premium";
+
+        document.getElementById(
+            "valuePremiumCopy"
+        ).textContent =
+            premium.text ||
+            "Products that deliver real results";
+
+        document.getElementById(
+            "valueWellnessTitle"
+        ).textContent =
+            wellness.title ||
+            "Wellness";
+
+        document.getElementById(
+            "valueWellnessCopy"
+        ).textContent =
+            wellness.text ||
+            "Support for body, mind and lifestyle";
+
+        document.getElementById(
+            "valueTrustTitle"
+        ).textContent =
+            trust.title ||
+            "Trust";
+
+        document.getElementById(
+            "valueTrustCopy"
+        ).textContent =
+            trust.text ||
+            "Reliable solutions you can depend on";
+
+        document.getElementById(
+            "backExplore"
+        ).textContent =
+            productGridLocale.backToExplore ||
+            "← Back to Explore";
+
+
+        /* =================================================
+           PRODUCT TRANSLATION HELPER
+           Technical product data stays in health.json.
+           Localized title / short / alt stay in locale files.
+           ================================================= */
+
+        function getLocalizedProduct(
+            product
+        ) {
+
+            const translations =
+                categoryLocale.products ||
+                {};
+
+            const localized =
+                translations[product.id] ||
+                {};
+
+            return {
+                ...product,
+
+                localizedTitle:
+                    localized.title ||
+                    product.title ||
+                    "",
+
+                localizedShort:
+                    localized.short ||
+                    product.short ||
+                    "",
+
+                localizedAlt:
+                    localized.alt ||
+                    localized.title ||
+                    product.title ||
+                    ""
+            };
+        }
 
 
         /* =================================================
@@ -1036,103 +1244,85 @@ document.addEventListener(
             product
         ) {
 
+            const placeholder =
+                productGridLocale.placeholder ||
+                {};
+
             const card =
                 document.createElement(
                     "article"
                 );
 
-
             card.className =
                 "product-card";
-
 
             const inner =
                 document.createElement(
                     "div"
                 );
 
-
             inner.className =
                 "placeholder-card-inner";
-
-
-
-            /* VZ IMAGE */
 
             const visualWrap =
                 document.createElement(
                     "div"
                 );
 
-
             visualWrap.className =
                 "placeholder-vz-wrap";
-
 
             const image =
                 document.createElement(
                     "img"
                 );
 
-
             image.className =
                 "placeholder-vz";
-
 
             image.src =
                 placeholderGraphic;
 
-
             image.alt =
                 "";
 
-
             image.loading =
                 "lazy";
-
-
-
-            /* STATUS */
 
             const state =
                 document.createElement(
                     "div"
                 );
 
-
             state.className =
                 "placeholder-state";
 
+            const selectionText =
+                placeholder.selection ||
+                "Selection";
+
+            const progressText =
+                placeholder.inProgress ||
+                "In progress";
 
             state.innerHTML =
-                `Selection<strong>In progress</strong>`;
-
-
-
-            /* DIVIDER */
+                `${selectionText}<strong>${progressText}</strong>`;
 
             const divider =
                 document.createElement(
                     "div"
                 );
 
-
             divider.className =
                 "placeholder-divider";
-
-
-
-            /* NUMBER */
 
             const slot =
                 document.createElement(
                     "div"
                 );
 
-
             slot.className =
                 "product-slot";
-
 
             slot.textContent =
                 String(
@@ -1143,66 +1333,48 @@ document.addEventListener(
                     "0"
                 );
 
-
-
-            /* VOTZET SELECTION BADGE */
-
             const badge =
                 document.createElement(
                     "div"
                 );
 
-
             badge.className =
                 "placeholder-badge";
 
-
+            /* Brand label intentionally stays universal. */
             badge.textContent =
                 "VotZet Selection";
-
-
-
-            /* BUILD CARD */
 
             visualWrap.appendChild(
                 image
             );
 
-
             inner.appendChild(
                 visualWrap
             );
-
 
             inner.appendChild(
                 state
             );
 
-
             inner.appendChild(
                 divider
             );
-
 
             inner.appendChild(
                 slot
             );
 
-
             inner.appendChild(
                 badge
             );
-
 
             card.appendChild(
                 inner
             );
 
-
             return card;
-
         }
-
 
 
         /* =================================================
@@ -1210,98 +1382,78 @@ document.addEventListener(
            ================================================= */
 
         function createActiveCard(
-            product
+            sourceProduct
         ) {
+
+            const product =
+                getLocalizedProduct(
+                    sourceProduct
+                );
 
             const card =
                 document.createElement(
                     "a"
                 );
 
-
             card.className =
                 "product-card active";
-
 
             card.href =
                 product.url ||
                 "#";
-
-
 
             const wrap =
                 document.createElement(
                     "div"
                 );
 
-
             wrap.className =
                 "active-product-wrap";
-
-
 
             const image =
                 document.createElement(
                     "img"
                 );
 
-
             image.className =
                 "product-image";
-
 
             image.src =
                 product.image ||
                 placeholderGraphic;
 
-
             image.alt =
-                product.title ||
-                "";
-
+                product.localizedAlt;
 
             image.loading =
                 "lazy";
-
-
 
             const overlay =
                 document.createElement(
                     "div"
                 );
 
-
             overlay.className =
                 "active-overlay";
-
-
 
             const name =
                 document.createElement(
                     "h2"
                 );
 
-
             name.className =
                 "active-name";
 
-
             name.textContent =
-                product.title ||
-                "";
-
-
+                product.localizedTitle;
 
             const price =
                 document.createElement(
                     "div"
                 );
 
-
             price.className =
                 "active-price";
-
-
 
             if (
                 product.price
@@ -1310,45 +1462,41 @@ document.addEventListener(
                 price.textContent =
                     `${product.price} ${product.currency || ""}`
                     .trim();
-
             }
 
-
+            /* The short localized description is stored now
+               and can be surfaced later without changing the
+               product-data architecture. */
+            if (
+                product.localizedShort
+            ) {
+                card.dataset.short =
+                    product.localizedShort;
+            }
 
             overlay.appendChild(
                 name
             );
 
-
             overlay.appendChild(
                 price
             );
-
 
             wrap.appendChild(
                 image
             );
 
-
             wrap.appendChild(
                 overlay
             );
-
 
             card.appendChild(
                 wrap
             );
 
-
             return card;
-
         }
 
-
-
-        /* =================================================
-           SELECT CARD TYPE
-           ================================================= */
 
         function createCard(
             product
@@ -1364,70 +1512,27 @@ document.addEventListener(
                 : createPlaceholderCard(
                     product
                 );
-
         }
 
 
-
         /* =================================================
-           LOAD NAVIGATION LANGUAGE
-           ================================================= */
-
-        await loadCommon();
-
-
-
-        /* =================================================
-           LOAD PRODUCT DATA
+           LOAD TECHNICAL PRODUCT DATA
            ================================================= */
 
         try {
 
-            const response =
-                await fetch(
+            const data =
+                await loadJSON(
                     dataPath
                 );
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    `Product data unavailable: ${dataPath}`
-                );
-
-            }
-
-
-            const data =
-                await response.json();
-
-
-
-            document.getElementById(
-                "categoryTitle"
-            ).textContent =
-                data.title ||
-                "VotZet";
-
-
-            document.getElementById(
-                "categorySubtitle"
-            ).textContent =
-                data.subtitle ||
-                "";
-
-
 
             const grid =
                 document.getElementById(
                     "productsGrid"
                 );
 
-
             grid.innerHTML =
                 "";
-
-
 
             const products =
                 Array.isArray(
@@ -1436,18 +1541,11 @@ document.addEventListener(
                     ? data.products
                     : [];
 
-
-
-            /* =============================================
-               ALWAYS CREATE EXACTLY 21 SLOTS
-               ============================================= */
-
             for (
                 let slot = 1;
                 slot <= 21;
                 slot++
             ) {
-
 
                 const existing =
                     products.find(
@@ -1457,41 +1555,33 @@ document.addEventListener(
                             ) === slot
                     );
 
-
                 const product =
                     existing || {
-
                         slot,
-
+                        id:
+                            `${world}-${need}-${String(slot).padStart(2,"0")}`,
                         status:
                             "placeholder",
-
                         title:
                             "",
-
+                        short:
+                            "",
                         price:
                             "",
-
                         currency:
                             "USD",
-
                         image:
                             "",
-
                         url:
                             ""
-
                     };
-
 
                 grid.appendChild(
                     createCard(
                         product
                     )
                 );
-
             }
-
         }
 
         catch (error) {
@@ -1500,9 +1590,7 @@ document.addEventListener(
                 "VotZet Product Grid:",
                 error
             );
-
         }
-
     }
 );
 
