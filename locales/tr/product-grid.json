@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Seçim",
+    "inProgress": "Devam ediyor"
+  },
+  "values": {
+    "quality": {
+      "title": "Kalite",
+      "text": "İyi yaşamın için özenle seçildi"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Gerçek sonuç sunan ürünler"
+    },
+    "wellness": {
+      "title": "İyi Yaşam",
+      "text": "Beden, zihin ve yaşam tarzı için destek"
+    },
+    "trust": {
+      "title": "Güven",
+      "text": "Güvenebileceğin sağlam çözümler"
+    }
+  },
+  "backToExplore": "← Keşfet'e Dön"
+}
