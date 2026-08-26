@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Sélection",
+    "inProgress": "En cours"
+  },
+  "values": {
+    "quality": {
+      "title": "Qualité",
+      "text": "Soigneusement sélectionné pour votre bien-être"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Des produits qui donnent de vrais résultats"
+    },
+    "wellness": {
+      "title": "Bien-être",
+      "text": "Un soutien pour le corps, l’esprit et le mode de vie"
+    },
+    "trust": {
+      "title": "Confiance",
+      "text": "Des solutions fiables sur lesquelles compter"
+    }
+  },
+  "backToExplore": "← Retour à Explorer"
+}
