@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "선정",
+    "inProgress": "진행 중"
+  },
+  "values": {
+    "quality": {
+      "title": "품질",
+      "text": "당신의 웰빙을 위해 세심하게 선정"
+    },
+    "premium": {
+      "title": "프리미엄",
+      "text": "실질적인 결과를 제공하는 제품"
+    },
+    "wellness": {
+      "title": "웰니스",
+      "text": "몸과 마음, 라이프스타일을 위한 지원"
+    },
+    "trust": {
+      "title": "신뢰",
+      "text": "믿고 선택할 수 있는 신뢰도 높은 솔루션"
+    }
+  },
+  "backToExplore": "← 탐색으로 돌아가기"
+}
