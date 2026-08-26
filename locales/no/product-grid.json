@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Utvalg",
+    "inProgress": "Pågår"
+  },
+  "values": {
+    "quality": {
+      "title": "Kvalitet",
+      "text": "Nøye utvalgt for ditt velvære"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Produkter som gir reelle resultater"
+    },
+    "wellness": {
+      "title": "Velvære",
+      "text": "Støtte for kropp, sinn og livsstil"
+    },
+    "trust": {
+      "title": "Tillit",
+      "text": "Pålitelige løsninger du kan stole på"
+    }
+  },
+  "backToExplore": "← Tilbake til Utforsk"
+}
