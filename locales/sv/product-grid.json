@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "selection": "Urval",
+    "inProgress": "Pågår"
+  },
+  "values": {
+    "quality": {
+      "title": "Kvalitet",
+      "text": "Noggrant utvalt för ditt välmående"
+    },
+    "premium": {
+      "title": "Premium",
+      "text": "Produkter som ger verkliga resultat"
+    },
+    "wellness": {
+      "title": "Välmående",
+      "text": "Stöd för kropp, sinne och livsstil"
+    },
+    "trust": {
+      "title": "Förtroende",
+      "text": "Pålitliga lösningar du kan lita på"
+    }
+  },
+  "backToExplore": "← Tillbaka till Utforska"
+}
