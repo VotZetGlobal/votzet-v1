@@ -103,7 +103,8 @@ body {
     top: calc(100% + 8px);
 
     /* Compact width: enough even for the longest language names. */
-    width: 215px;
+    width: max-content;
+    min-width: 0;
     max-width: calc(100vw - 20px);
     max-height: min(72vh, 520px);
 
@@ -140,7 +141,7 @@ body {
     display: block;
     width: 100%;
 
-    padding: 9px 10px;
+    padding: 10px 12px;
 
     border: none;
     border-radius: 6px;
