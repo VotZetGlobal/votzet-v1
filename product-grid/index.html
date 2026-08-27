@@ -1012,6 +1012,23 @@ document.addEventListener(
                 ? "rtl"
                 : "ltr";
 
+        /* =================================================
+           BACK TARGET
+           Return to the Needs screen of the current World,
+           not to the Explore landing screen.
+           ================================================= */
+
+        const backExplore =
+            document.getElementById(
+                "backExplore"
+            );
+
+        const backToWorldURL =
+            `../explore/?world=${encodeURIComponent(world)}`;
+
+        backExplore.href =
+            backToWorldURL;
+
 
         /* =================================================
            JSON HELPERS
