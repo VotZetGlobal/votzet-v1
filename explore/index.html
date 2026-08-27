@@ -1457,6 +1457,40 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     renderLanding();
 
+
+    /* =====================================================
+       RESTORE WORLD VIEW FROM URL
+       Example: /explore/?world=men
+       This lets Product Grid return directly to the Needs
+       screen of the World the visitor came from.
+       ===================================================== */
+
+    const pageParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const requestedWorld =
+        pageParams.get(
+            "world"
+        );
+
+    if (
+        requestedWorld &&
+        humanOrder.includes(
+            requestedWorld
+        ) &&
+        explore.worlds[
+            requestedWorld
+        ]
+    ) {
+
+        openWorld(
+            "human",
+            requestedWorld
+        );
+    }
+
 });
 </script>
 
