@@ -618,6 +618,14 @@ body {
     color: #101113;
 }
 
+.back-arrow {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 0.7;
+    letter-spacing: 0;
+}
+
 
 /* =========================================================
    MOBILE = 3 × 7
@@ -1028,6 +1036,9 @@ document.addEventListener(
         const productLocalePath =
             `../locales/${language}/products/${world}-${need}.json`;
 
+        const exploreLocalePath =
+            `../locales/${language}/explore.json`;
+
         const placeholderGraphic =
             "../assets/images/product-placeholder-vz.webp";
 
@@ -1200,6 +1211,7 @@ document.addEventListener(
         let common = {};
         let productGridLocale = {};
         let categoryLocale = {};
+        let exploreLocale = {};
         let data = {
             products: []
         };
@@ -1210,6 +1222,7 @@ document.addEventListener(
                 common,
                 productGridLocale,
                 categoryLocale,
+                exploreLocale,
                 data
             ] =
                 await Promise.all([
@@ -1227,6 +1240,11 @@ document.addEventListener(
                     loadWithEnglishFallback(
                         productLocalePath,
                         `../locales/en/products/${world}-${need}.json`
+                    ),
+
+                    loadWithEnglishFallback(
+                        exploreLocalePath,
+                        "../locales/en/explore.json"
                     ),
 
                     loadJSON(
@@ -1272,17 +1290,43 @@ document.addEventListener(
             common.explore ||
             "Explore";
 
+        const routeMap = {"men": ["health", "appearance", "status", "safety", "development"], "women": ["health", "beauty", "status", "safety", "development"], "children": ["health", "safety", "learning", "development", "creativity", "play", "comfort"], "seniors": ["health", "safety", "independence", "mobility", "comfort", "communication", "activities"], "family": ["health", "safety", "home", "comfort", "time-together", "travel"], "pets": ["health", "nutrition", "safety", "care", "comfort", "play", "travel-together", "technology"], "social": ["for-friends", "for-loved-ones", "stay-connected", "shared-interests", "activities"]};
+
+        const localizedWorld =
+            exploreLocale.worlds &&
+            exploreLocale.worlds[world]
+                ? exploreLocale.worlds[world]
+                : {};
+
+        const needIndex =
+            routeMap[world]
+                ? routeMap[world].indexOf(need)
+                : -1;
+
+        const localizedNeed =
+            needIndex >= 0 &&
+            Array.isArray(localizedWorld.items)
+                ? localizedWorld.items[needIndex]
+                : "";
+
+        const derivedTitle =
+            localizedWorld.title &&
+            localizedNeed
+                ? `${localizedWorld.title} — ${localizedNeed}`
+                : (data.title || "VotZet Selection");
+
         document.getElementById(
             "categoryTitle"
         ).textContent =
             categoryLocale.title ||
-            "Men — Health";
+            derivedTitle;
 
         document.getElementById(
             "categorySubtitle"
         ).textContent =
             categoryLocale.subtitle ||
-            "21 selected solutions for everyday health and wellness.";
+            productGridLocale.categoryPlaceholderSubtitle ||
+            "21 selected solutions. Selection in progress.";
 
         const values =
             productGridLocale.values ||
@@ -1360,19 +1404,36 @@ document.addEventListener(
             productGridLocale.backToWorlds ||
             "Back to Worlds";
 
-        document.getElementById(
-            "backNeeds"
-        ).textContent =
-            language === "ar"
-                ? `${backNeedsText} →`
-                : `← ${backNeedsText}`;
+        function setBackButtonContent(element, text, direction) {
+            element.textContent = "";
 
-        document.getElementById(
-            "backWorlds"
-        ).textContent =
-            language === "ar"
-                ? `← ${backWorldsText}`
-                : `${backWorldsText} →`;
+            const arrow = document.createElement("span");
+            arrow.className = "back-arrow";
+            arrow.textContent = direction === "left" ? "←" : "→";
+
+            const label = document.createElement("span");
+            label.textContent = text;
+
+            if (direction === "left") {
+                element.appendChild(arrow);
+                element.appendChild(document.createTextNode(" "));
+                element.appendChild(label);
+            }
+            else {
+                element.appendChild(label);
+                element.appendChild(document.createTextNode(" "));
+                element.appendChild(arrow);
+            }
+        }
+
+        if (language === "ar") {
+            setBackButtonContent(document.getElementById("backNeeds"), backNeedsText, "right");
+            setBackButtonContent(document.getElementById("backWorlds"), backWorldsText, "left");
+        }
+        else {
+            setBackButtonContent(document.getElementById("backNeeds"), backNeedsText, "left");
+            setBackButtonContent(document.getElementById("backWorlds"), backWorldsText, "right");
+        }
 
 
         /* =================================================
