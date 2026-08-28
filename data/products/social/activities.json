@@ -1,0 +1,239 @@
+{
+  "world": "social",
+  "need": "activities",
+  "title": "Social — Activities",
+  "subtitle": "21 selected solutions. Selection in progress.",
+  "products": [
+    {
+      "slot": 1,
+      "id": "social-activities-01",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 2,
+      "id": "social-activities-02",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 3,
+      "id": "social-activities-03",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 4,
+      "id": "social-activities-04",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 5,
+      "id": "social-activities-05",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 6,
+      "id": "social-activities-06",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 7,
+      "id": "social-activities-07",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 8,
+      "id": "social-activities-08",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 9,
+      "id": "social-activities-09",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 10,
+      "id": "social-activities-10",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 11,
+      "id": "social-activities-11",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 12,
+      "id": "social-activities-12",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 13,
+      "id": "social-activities-13",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 14,
+      "id": "social-activities-14",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 15,
+      "id": "social-activities-15",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 16,
+      "id": "social-activities-16",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 17,
+      "id": "social-activities-17",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 18,
+      "id": "social-activities-18",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 19,
+      "id": "social-activities-19",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 20,
+      "id": "social-activities-20",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    },
+    {
+      "slot": 21,
+      "id": "social-activities-21",
+      "status": "placeholder",
+      "title": "Selection in progress",
+      "short": "We’re selecting the right product for this place.",
+      "price": "",
+      "currency": "USD",
+      "image": "",
+      "url": ""
+    }
+  ]
+}
