@@ -582,11 +582,18 @@ body {
 .bottom-actions {
     margin-top: 38px;
 
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
 
 .back-explore {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 210px;
 
     padding: 11px 25px;
 
@@ -617,6 +624,17 @@ body {
    ========================================================= */
 
 @media (max-width: 650px) {
+
+    .bottom-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .back-explore {
+        width: min(86vw, 320px);
+        min-width: 0;
+        box-sizing: border-box;
+    }
 
     .inner-nav {
         gap: 20px;
@@ -940,14 +958,23 @@ body {
 
 
 <!-- =======================================================
-     BACK TO WORLDS
+     BACK NAVIGATION
+     Desktop: two buttons side by side
+     Mobile: two buttons stacked vertically
      ======================================================= -->
 
 <div class="bottom-actions">
 
     <a
         class="back-explore"
-        id="backExplore"
+        id="backNeeds"
+        href="../explore/"
+        data-nav-sound="explore"
+    ></a>
+
+    <a
+        class="back-explore"
+        id="backWorlds"
         href="../explore/"
         data-nav-sound="explore"
     ></a>
@@ -1013,21 +1040,33 @@ document.addEventListener(
                 : "ltr";
 
         /* =================================================
-           BACK TARGET
-           Return to the Needs screen of the current World,
-           not to the Explore landing screen.
+           BACK TARGETS
+
+           Back to Needs:
+           return to the Needs screen of the current World.
+
+           Back to Worlds:
+           return to the Explore landing screen with Worlds.
            ================================================= */
 
-        const backExplore =
+        const backNeeds =
             document.getElementById(
-                "backExplore"
+                "backNeeds"
             );
 
-        const backToWorldURL =
+        const backWorlds =
+            document.getElementById(
+                "backWorlds"
+            );
+
+        const backToNeedsURL =
             `../explore/?world=${encodeURIComponent(world)}`;
 
-        backExplore.href =
-            backToWorldURL;
+        backNeeds.href =
+            backToNeedsURL;
+
+        backWorlds.href =
+            "../explore/";
 
 
         /* =================================================
@@ -1313,16 +1352,27 @@ document.addEventListener(
             trust.text ||
             "Reliable solutions you can depend on";
 
-        const backText =
+        const backNeedsText =
+            productGridLocale.backToNeeds ||
+            "Back to Needs";
+
+        const backWorldsText =
             productGridLocale.backToWorlds ||
             "Back to Worlds";
 
         document.getElementById(
-            "backExplore"
+            "backNeeds"
         ).textContent =
             language === "ar"
-                ? `${backText} →`
-                : `← ${backText}`;
+                ? `${backNeedsText} →`
+                : `← ${backNeedsText}`;
+
+        document.getElementById(
+            "backWorlds"
+        ).textContent =
+            language === "ar"
+                ? `← ${backWorldsText}`
+                : `${backWorldsText} →`;
 
 
         /* =================================================
