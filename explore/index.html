@@ -686,12 +686,6 @@ document.addEventListener("DOMContentLoaded", async () => {
        ===================================================== */
 
     const COMING_WORLDS = new Set([
-        "women",
-        "children",
-        "seniors",
-        "family",
-        "pets",
-        "social",
         "smartValue",
         "premium"
     ]);
@@ -919,6 +913,68 @@ document.addEventListener("DOMContentLoaded", async () => {
         "smartValue",
         "premium"
     ];
+
+
+    /* Stable Product Grid routes for all current human Needs. */
+    const needRoutes = {
+        "men": [
+                "health",
+                "appearance",
+                "status",
+                "safety",
+                "development"
+        ],
+        "women": [
+                "health",
+                "beauty",
+                "status",
+                "safety",
+                "development"
+        ],
+        "children": [
+                "health",
+                "safety",
+                "learning",
+                "development",
+                "creativity",
+                "play",
+                "comfort"
+        ],
+        "seniors": [
+                "health",
+                "safety",
+                "independence",
+                "mobility",
+                "comfort",
+                "communication",
+                "activities"
+        ],
+        "family": [
+                "health",
+                "safety",
+                "home",
+                "comfort",
+                "time-together",
+                "travel"
+        ],
+        "pets": [
+                "health",
+                "nutrition",
+                "safety",
+                "care",
+                "comfort",
+                "play",
+                "travel-together",
+                "technology"
+        ],
+        "social": [
+                "for-friends",
+                "for-loved-ones",
+                "stay-connected",
+                "shared-interests",
+                "activities"
+        ]
+};
 
 
     let explore = null;
@@ -1354,19 +1410,24 @@ document.addEventListener("DOMContentLoaded", async () => {
                             button,
                             () => {
 
-                                /* Men → Health is the first live product category.
-                                   We use itemIndex instead of translated text,
-                                   so the route works in every localization. */
+                                /* All current human World → Need combinations use
+                                   the universal Product Grid. */
                                 if (
                                     kind === "human" &&
-                                    key === "men" &&
-                                    itemIndex === 0
+                                    needRoutes[key] &&
+                                    needRoutes[key][itemIndex]
                                 ) {
+                                    const need =
+                                        needRoutes[key][itemIndex];
+
                                     window.location.href =
-                                        "../product-grid/?world=men&need=health";
+                                        `../product-grid/?world=${encodeURIComponent(key)}&need=${encodeURIComponent(need)}`;
+
                                     return;
                                 }
 
+                                /* Smart Value and Premium remain Coming Soon:
+                                   they are Levels of Choice, not Need grids. */
                                 openComingSoon();
                             }
                         );
