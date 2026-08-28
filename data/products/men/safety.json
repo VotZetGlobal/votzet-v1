@@ -1,12 +1,12 @@
 {
   "world": "men",
-  "need": "health",
-  "title": "Men — Health",
-  "subtitle": "21 selected solutions for everyday health and wellness.",
+  "need": "safety",
+  "title": "Men — Safety",
+  "subtitle": "21 selected solutions. Selection in progress.",
   "products": [
     {
       "slot": 1,
-      "id": "men-health-01",
+      "id": "men-safety-01",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -17,7 +17,7 @@
     },
     {
       "slot": 2,
-      "id": "men-health-02",
+      "id": "men-safety-02",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -28,7 +28,7 @@
     },
     {
       "slot": 3,
-      "id": "men-health-03",
+      "id": "men-safety-03",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -39,7 +39,7 @@
     },
     {
       "slot": 4,
-      "id": "men-health-04",
+      "id": "men-safety-04",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -50,7 +50,7 @@
     },
     {
       "slot": 5,
-      "id": "men-health-05",
+      "id": "men-safety-05",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -61,7 +61,7 @@
     },
     {
       "slot": 6,
-      "id": "men-health-06",
+      "id": "men-safety-06",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -72,7 +72,7 @@
     },
     {
       "slot": 7,
-      "id": "men-health-07",
+      "id": "men-safety-07",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -83,7 +83,7 @@
     },
     {
       "slot": 8,
-      "id": "men-health-08",
+      "id": "men-safety-08",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -94,7 +94,7 @@
     },
     {
       "slot": 9,
-      "id": "men-health-09",
+      "id": "men-safety-09",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -105,7 +105,7 @@
     },
     {
       "slot": 10,
-      "id": "men-health-10",
+      "id": "men-safety-10",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -116,7 +116,7 @@
     },
     {
       "slot": 11,
-      "id": "men-health-11",
+      "id": "men-safety-11",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -127,7 +127,7 @@
     },
     {
       "slot": 12,
-      "id": "men-health-12",
+      "id": "men-safety-12",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -138,7 +138,7 @@
     },
     {
       "slot": 13,
-      "id": "men-health-13",
+      "id": "men-safety-13",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -149,7 +149,7 @@
     },
     {
       "slot": 14,
-      "id": "men-health-14",
+      "id": "men-safety-14",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -160,7 +160,7 @@
     },
     {
       "slot": 15,
-      "id": "men-health-15",
+      "id": "men-safety-15",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -171,7 +171,7 @@
     },
     {
       "slot": 16,
-      "id": "men-health-16",
+      "id": "men-safety-16",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -182,7 +182,7 @@
     },
     {
       "slot": 17,
-      "id": "men-health-17",
+      "id": "men-safety-17",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -193,7 +193,7 @@
     },
     {
       "slot": 18,
-      "id": "men-health-18",
+      "id": "men-safety-18",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -204,7 +204,7 @@
     },
     {
       "slot": 19,
-      "id": "men-health-19",
+      "id": "men-safety-19",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -215,7 +215,7 @@
     },
     {
       "slot": 20,
-      "id": "men-health-20",
+      "id": "men-safety-20",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -226,7 +226,7 @@
     },
     {
       "slot": 21,
-      "id": "men-health-21",
+      "id": "men-safety-21",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
