@@ -1,12 +1,12 @@
 {
   "world": "family",
-  "need": "health",
-  "title": "Family — Health",
+  "need": "safety",
+  "title": "Family — Safety",
   "subtitle": "21 selected solutions. Selection in progress.",
   "products": [
     {
       "slot": 1,
-      "id": "family-health-01",
+      "id": "family-safety-01",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -17,7 +17,7 @@
     },
     {
       "slot": 2,
-      "id": "family-health-02",
+      "id": "family-safety-02",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -28,7 +28,7 @@
     },
     {
       "slot": 3,
-      "id": "family-health-03",
+      "id": "family-safety-03",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -39,7 +39,7 @@
     },
     {
       "slot": 4,
-      "id": "family-health-04",
+      "id": "family-safety-04",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -50,7 +50,7 @@
     },
     {
       "slot": 5,
-      "id": "family-health-05",
+      "id": "family-safety-05",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -61,7 +61,7 @@
     },
     {
       "slot": 6,
-      "id": "family-health-06",
+      "id": "family-safety-06",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -72,7 +72,7 @@
     },
     {
       "slot": 7,
-      "id": "family-health-07",
+      "id": "family-safety-07",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -83,7 +83,7 @@
     },
     {
       "slot": 8,
-      "id": "family-health-08",
+      "id": "family-safety-08",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -94,7 +94,7 @@
     },
     {
       "slot": 9,
-      "id": "family-health-09",
+      "id": "family-safety-09",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -105,7 +105,7 @@
     },
     {
       "slot": 10,
-      "id": "family-health-10",
+      "id": "family-safety-10",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -116,7 +116,7 @@
     },
     {
       "slot": 11,
-      "id": "family-health-11",
+      "id": "family-safety-11",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -127,7 +127,7 @@
     },
     {
       "slot": 12,
-      "id": "family-health-12",
+      "id": "family-safety-12",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -138,7 +138,7 @@
     },
     {
       "slot": 13,
-      "id": "family-health-13",
+      "id": "family-safety-13",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -149,7 +149,7 @@
     },
     {
       "slot": 14,
-      "id": "family-health-14",
+      "id": "family-safety-14",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -160,7 +160,7 @@
     },
     {
       "slot": 15,
-      "id": "family-health-15",
+      "id": "family-safety-15",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -171,7 +171,7 @@
     },
     {
       "slot": 16,
-      "id": "family-health-16",
+      "id": "family-safety-16",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -182,7 +182,7 @@
     },
     {
       "slot": 17,
-      "id": "family-health-17",
+      "id": "family-safety-17",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -193,7 +193,7 @@
     },
     {
       "slot": 18,
-      "id": "family-health-18",
+      "id": "family-safety-18",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -204,7 +204,7 @@
     },
     {
       "slot": 19,
-      "id": "family-health-19",
+      "id": "family-safety-19",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -215,7 +215,7 @@
     },
     {
       "slot": 20,
-      "id": "family-health-20",
+      "id": "family-safety-20",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -226,7 +226,7 @@
     },
     {
       "slot": 21,
-      "id": "family-health-21",
+      "id": "family-safety-21",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
