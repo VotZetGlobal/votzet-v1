@@ -1,12 +1,12 @@
 {
   "world": "pets",
-  "need": "health",
-  "title": "Pets — Health",
+  "need": "safety",
+  "title": "Pets — Safety",
   "subtitle": "21 selected solutions. Selection in progress.",
   "products": [
     {
       "slot": 1,
-      "id": "pets-health-01",
+      "id": "pets-safety-01",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -17,7 +17,7 @@
     },
     {
       "slot": 2,
-      "id": "pets-health-02",
+      "id": "pets-safety-02",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -28,7 +28,7 @@
     },
     {
       "slot": 3,
-      "id": "pets-health-03",
+      "id": "pets-safety-03",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -39,7 +39,7 @@
     },
     {
       "slot": 4,
-      "id": "pets-health-04",
+      "id": "pets-safety-04",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -50,7 +50,7 @@
     },
     {
       "slot": 5,
-      "id": "pets-health-05",
+      "id": "pets-safety-05",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -61,7 +61,7 @@
     },
     {
       "slot": 6,
-      "id": "pets-health-06",
+      "id": "pets-safety-06",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -72,7 +72,7 @@
     },
     {
       "slot": 7,
-      "id": "pets-health-07",
+      "id": "pets-safety-07",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -83,7 +83,7 @@
     },
     {
       "slot": 8,
-      "id": "pets-health-08",
+      "id": "pets-safety-08",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -94,7 +94,7 @@
     },
     {
       "slot": 9,
-      "id": "pets-health-09",
+      "id": "pets-safety-09",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -105,7 +105,7 @@
     },
     {
       "slot": 10,
-      "id": "pets-health-10",
+      "id": "pets-safety-10",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -116,7 +116,7 @@
     },
     {
       "slot": 11,
-      "id": "pets-health-11",
+      "id": "pets-safety-11",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -127,7 +127,7 @@
     },
     {
       "slot": 12,
-      "id": "pets-health-12",
+      "id": "pets-safety-12",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -138,7 +138,7 @@
     },
     {
       "slot": 13,
-      "id": "pets-health-13",
+      "id": "pets-safety-13",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -149,7 +149,7 @@
     },
     {
       "slot": 14,
-      "id": "pets-health-14",
+      "id": "pets-safety-14",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -160,7 +160,7 @@
     },
     {
       "slot": 15,
-      "id": "pets-health-15",
+      "id": "pets-safety-15",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -171,7 +171,7 @@
     },
     {
       "slot": 16,
-      "id": "pets-health-16",
+      "id": "pets-safety-16",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -182,7 +182,7 @@
     },
     {
       "slot": 17,
-      "id": "pets-health-17",
+      "id": "pets-safety-17",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -193,7 +193,7 @@
     },
     {
       "slot": 18,
-      "id": "pets-health-18",
+      "id": "pets-safety-18",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -204,7 +204,7 @@
     },
     {
       "slot": 19,
-      "id": "pets-health-19",
+      "id": "pets-safety-19",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -215,7 +215,7 @@
     },
     {
       "slot": 20,
-      "id": "pets-health-20",
+      "id": "pets-safety-20",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
@@ -226,7 +226,7 @@
     },
     {
       "slot": 21,
-      "id": "pets-health-21",
+      "id": "pets-safety-21",
       "status": "placeholder",
       "title": "Selection in progress",
       "short": "We’re selecting the right product for this place.",
