@@ -567,7 +567,7 @@ body {
 .value-copy {
     margin-top: 4px;
 
-    color: #a5a6aa;
+    color: #d7d9db;
 
     font-size: 8px;
 
@@ -816,6 +816,49 @@ body {
 .back-link{display:flex!important;align-items:center!important;justify-content:center!important}
 .back-arrow{display:inline-flex!important;align-items:center!important;justify-content:center!important;line-height:0!important;transform:none!important;vertical-align:middle!important;flex:0 0 auto}
 .back-arrow svg{display:block;width:28px;height:28px}
+
+/* VotZet UI Adjustment 1.3 */
+#categorySubtitle {
+    color: #d9dbdd !important;
+}
+
+.value-copy {
+    color: #d9dbdd !important;
+}
+
+.back-explore {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    line-height: 1 !important;
+}
+
+.back-label {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.back-arrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px;
+    height: 16px;
+    line-height: 0 !important;
+    flex: 0 0 32px;
+    transform: none !important;
+    vertical-align: middle !important;
+}
+
+.back-arrow svg {
+    display: block !important;
+    width: 32px !important;
+    height: 16px !important;
+    overflow: visible;
+}
+
 </style>
 </head>
 
@@ -1414,19 +1457,47 @@ document.addEventListener(
 
             const arrow = document.createElement("span");
             arrow.className = "back-arrow";
-            arrow.textContent = direction === "left" ? "←" : "→";
+
+            const svgNS = "http://www.w3.org/2000/svg";
+            const svg = document.createElementNS(svgNS, "svg");
+            svg.setAttribute("viewBox", "0 0 32 16");
+            svg.setAttribute("aria-hidden", "true");
+            svg.setAttribute("focusable", "false");
+
+            const path = document.createElementNS(svgNS, "path");
+
+            if (direction === "left") {
+                path.setAttribute(
+                    "d",
+                    "M30 8H5M11 2L5 8l6 6"
+                );
+            }
+            else {
+                path.setAttribute(
+                    "d",
+                    "M2 8h25M21 2l6 6-6 6"
+                );
+            }
+
+            path.setAttribute("fill", "none");
+            path.setAttribute("stroke", "currentColor");
+            path.setAttribute("stroke-width", "2.2");
+            path.setAttribute("stroke-linecap", "round");
+            path.setAttribute("stroke-linejoin", "round");
+
+            svg.appendChild(path);
+            arrow.appendChild(svg);
 
             const label = document.createElement("span");
+            label.className = "back-label";
             label.textContent = text;
 
             if (direction === "left") {
                 element.appendChild(arrow);
-                element.appendChild(document.createTextNode(" "));
                 element.appendChild(label);
             }
             else {
                 element.appendChild(label);
-                element.appendChild(document.createTextNode(" "));
                 element.appendChild(arrow);
             }
         }
