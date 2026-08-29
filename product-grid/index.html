@@ -65,7 +65,7 @@ body {
     background:
         radial-gradient(
             circle at 50% 0%,
-            rgba(201,162,39,0.05),
+            rgba(232,198,74,0.05),
             transparent 36%
         ),
         #0b0c0e;
@@ -92,7 +92,7 @@ body {
     background:
         radial-gradient(
             circle at 50% 22%,
-            rgba(201,162,39,0.045),
+            rgba(232,198,74,0.045),
             transparent 34%
         ),
         linear-gradient(
@@ -122,7 +122,7 @@ body {
     background: rgba(8,9,10,0.94);
 
     border-bottom:
-        1px solid rgba(201,162,39,0.18);
+        1px solid rgba(232,198,74,0.18);
 
     backdrop-filter: blur(12px);
 }
@@ -167,7 +167,7 @@ body {
 .brand-label {
     margin-bottom: 15px;
 
-    color: #d8b83d;
+    color: #f0cf58;
 
     font-size: 10px;
 
@@ -204,7 +204,7 @@ body {
 
     margin: 21px auto 0;
 
-    background: #d8b83d;
+    background: #f0cf58;
 
     box-shadow:
         0 0 10px rgba(216,184,61,0.45);
@@ -244,7 +244,7 @@ body {
     overflow: hidden;
 
     border:
-        1px solid rgba(201,162,39,0.50);
+        1px solid rgba(232,198,74,0.50);
 
     border-radius: 8px;
 
@@ -259,7 +259,7 @@ body {
     text-decoration: none;
 
     box-shadow:
-        inset 0 0 20px rgba(201,162,39,0.018);
+        inset 0 0 20px rgba(232,198,74,0.018);
 
     transition:
         transform 0.18s ease,
@@ -275,11 +275,11 @@ body {
     transform: translateY(-3px);
 
     border-color:
-        rgba(228,196,79,0.82);
+        rgba(243,216,103,0.82);
 
     box-shadow:
         0 10px 28px rgba(0,0,0,0.30),
-        0 0 18px rgba(201,162,39,0.07);
+        0 0 18px rgba(232,198,74,0.07);
 }
 
 
@@ -348,7 +348,7 @@ body {
 
     margin-top: 4px;
 
-    color: #d8b83d;
+    color: #f0cf58;
 
     font-size: 9px;
     font-weight: 400;
@@ -406,7 +406,7 @@ body {
 
     border-radius: 5px;
 
-    color: #d8b83d;
+    color: #f0cf58;
 
     font-size: 7px;
 
@@ -473,7 +473,7 @@ body {
 .active-price {
     margin-top: 7px;
 
-    color: #d8b83d;
+    color: #f0cf58;
 
     font-size: 10px;
 }
@@ -496,21 +496,21 @@ body {
         repeat(4, minmax(0,1fr));
 
     border:
-        1px solid rgba(228,196,79,0.68);
+        1px solid rgba(243,216,103,0.68);
 
     border-radius: 8px;
 
     background:
         radial-gradient(
             circle at 50% 50%,
-            rgba(201,162,39,0.065),
+            rgba(232,198,74,0.065),
             transparent 66%
         ),
         rgba(8,9,10,0.90);
 
     box-shadow:
-        0 0 26px rgba(201,162,39,0.10),
-        inset 0 0 20px rgba(201,162,39,0.035);
+        0 0 26px rgba(232,198,74,0.10),
+        inset 0 0 20px rgba(232,198,74,0.035);
 }
 
 .value-item {
@@ -527,7 +527,7 @@ body {
     padding: 3px 17px;
 
     border-right:
-        1px solid rgba(201,162,39,0.22);
+        1px solid rgba(232,198,74,0.22);
 }
 
 .value-item:last-child {
@@ -542,36 +542,37 @@ body {
     place-items: center;
 
     border:
-        1px solid #e7bd3f;
+        1px solid #f0cf58;
 
     border-radius: 50%;
 
-    color: #f4ce50;
+    color: #f5d866;
 
     font-size: 19px;
 
     box-shadow:
-        0 0 18px rgba(228,196,79,0.42),
-        inset 0 0 12px rgba(228,196,79,0.10);
+        0 0 18px rgba(243,216,103,0.42),
+        inset 0 0 12px rgba(243,216,103,0.10);
 }
 
 .value-title {
-    color: #f6f6f2;
+    color: #ffffff;
 
-    font-size: 10px;
+    font-size: 11.5px;
+    font-weight: 500;
 
     letter-spacing: 1.3px;
     text-transform: uppercase;
 }
 
 .value-copy {
-    margin-top: 4px;
+    margin-top: 5px;
 
-    color: #d7d9db;
+    color: #d9dbdd;
 
-    font-size: 8px;
+    font-size: 10.5px;
 
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
 
@@ -598,11 +599,11 @@ body {
     padding: 11px 25px;
 
     border:
-        1px solid rgba(201,162,39,0.75);
+        1px solid rgba(232,198,74,0.75);
 
     border-radius: 28px;
 
-    color: #d8b83d;
+    color: #f0cf58;
 
     text-decoration: none;
 
@@ -613,17 +614,22 @@ body {
 }
 
 .back-explore:hover {
-    background: #d8b83d;
+    background: #f0cf58;
 
     color: #101113;
 }
 
 .back-arrow {
-    display: inline-block;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 0.7;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1;
     letter-spacing: 0;
+    vertical-align: middle;
+    transform: translateY(-1px);
 }
 
 
@@ -767,13 +773,14 @@ body {
     }
 
     .value-title {
-        font-size: 8px;
+        font-size: 9.5px;
 
         letter-spacing: 0.8px;
     }
 
     .value-copy {
-        font-size: 7px;
+        font-size: 9px;
+        line-height: 1.45;
     }
 }
 
@@ -812,12 +819,8 @@ body {
 }
 
 
-/* Interface Refinement 1.2 */
-.back-link{display:flex!important;align-items:center!important;justify-content:center!important}
-.back-arrow{display:inline-flex!important;align-items:center!important;justify-content:center!important;line-height:0!important;transform:none!important;vertical-align:middle!important;flex:0 0 auto}
-.back-arrow svg{display:block;width:28px;height:28px}
-
-/* VotZet UI Adjustment 1.3 */
+/* VotZet Product Grid Hotfix 1.3.1
+   Preserve 1.1 value strip; adjust only text readability + SVG arrows. */
 #categorySubtitle {
     color: #d9dbdd !important;
 }
@@ -945,8 +948,10 @@ body {
 
     <div class="value-item">
 
-        <div class="value-icon">
-            ◇
+        <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 12.5l3.2 3.2 7.8-8"/>
+            </svg>
         </div>
 
         <div>
@@ -962,8 +967,11 @@ body {
 
     <div class="value-item">
 
-        <div class="value-icon">
-            ♢
+        <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l6 7-6 11-6-11 6-7z"/>
+                <path d="M6 10h12"/>
+            </svg>
         </div>
 
         <div>
@@ -979,8 +987,11 @@ body {
 
     <div class="value-item">
 
-        <div class="value-icon">
-            ◌
+        <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 5c-7 .2-11 3.4-11 8.4 0 3 2 5.1 4.8 5.1C17.1 18.5 19 13.6 19 5z"/>
+                <path d="M5 20c2.3-4.8 5.7-8.1 10.5-10.2"/>
+            </svg>
         </div>
 
         <div>
@@ -996,8 +1007,11 @@ body {
 
     <div class="value-item">
 
-        <div class="value-icon">
-            ♕
+        <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l7 3v5c0 4.8-2.8 8.2-7 10-4.2-1.8-7-5.2-7-10V6l7-3z"/>
+                <path d="M8.5 12l2.2 2.2 4.8-5"/>
+            </svg>
         </div>
 
         <div>
@@ -1467,16 +1481,10 @@ document.addEventListener(
             const path = document.createElementNS(svgNS, "path");
 
             if (direction === "left") {
-                path.setAttribute(
-                    "d",
-                    "M30 8H5M11 2L5 8l6 6"
-                );
+                path.setAttribute("d", "M30 8H5M11 2L5 8l6 6");
             }
             else {
-                path.setAttribute(
-                    "d",
-                    "M2 8h25M21 2l6 6-6 6"
-                );
+                path.setAttribute("d", "M2 8h25M21 2l6 6-6 6");
             }
 
             path.setAttribute("fill", "none");
